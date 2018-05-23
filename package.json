@@ -1,0 +1,30 @@
+{
+  "name": "ispy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "start": "npm run compile && node build/src/slo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^15.6.2",
+    "cli-table": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/cli-table": "^0.3.0",
+    "@types/node": "^10.1.2",
+    "gts": "^0.5.4",
+    "typescript": "~2.6.1"
+  }
+}
