@@ -1,8 +1,7 @@
 {
   "name": "ispy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "ispy is a CLI utility for measuring GitHub response SLOs.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "gts check",
@@ -15,8 +14,8 @@
     "start": "npm run compile && node build/src/slo.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Justin Beckwith",
+  "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^15.6.2",
     "cli-table": "^0.3.1"
