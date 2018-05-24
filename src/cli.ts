@@ -2,46 +2,115 @@
 import Table = require('cli-table');
 import meow = require('meow');
 import {getIssues, getRepoResults, getLanguageResults} from './slo';
+import mail from '@sendgrid/mail';
 
 const cli = meow(
     `
 	Usage
-	  $ sloth <input>
+	  $ sloth
 
 	Options
-	  --language, -l  Filter for a specific language
+	  --mail Send a mail with the contents
 
 	Examples
-	  $ sloth --language nodejs
-`,
-    {flags: {language: {type: 'string', alias: 'l'}}});
+    $ sloth
+    $ sloth --mail
+    $ sloth --csv
 
-async function main() {
+`,
+    {
+      flags: {
+        mail: {
+          type: 'boolean'
+        },
+        csv: {
+          type: 'boolean'
+        }
+      }
+    }
+  );
+
+async function getOutput() {
+  const output = new Array<string>();
   const issues = await getIssues();
 
   // Show repo based statistics
   const {repos, totals} = getRepoResults(issues);
-  const table = new Table({
-    head: ['Repo', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'],
-  });
+
+  let table: Table;
+  const head = ['Repo', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  if (cli.flags.csv) {
+    output.push(head.join(','));
+  } else {
+    table = new Table({ head });
+  }
+
   repos.forEach(repo => {
-    table.push(
-        [`${repo.repo}`, repo.p0, repo.p1, repo.p2, repo.pX, repo.outOfSLO]);
+    const values = [`${repo.repo}`, repo.p0, repo.p1, repo.p2, repo.pX, repo.outOfSLO];
+    if (cli.flags.csv) {
+      output.push(values.join(','));
+    } else {
+      table.push(values);
+    }
   });
-  table.push(
-      [`TOTALS`, totals.p0, totals.p1, totals.p2, totals.pX, totals.outOfSLO]);
-  console.log(table.toString());
+
+  const values = [`TOTALS`, totals.p0, totals.p1, totals.p2, totals.pX, totals.outOfSLO];
+  if (cli.flags.csv) {
+    output.push(values.join(','));
+  } else {
+    table!.push(values);
+  }
+
+  if (table!) {
+    output.push(table!.toString());
+  }
 
   // Show language based statistics
   const res = getLanguageResults(issues);
-  const t2 = new Table({
-    head: ['Language', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'],
-  });
+  const languageHeader = ['Language', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  let t2: Table;
+  if (cli.flags.csv) {
+    output.push('\n');
+    output.push(languageHeader.join(','));
+  } else {
+    t2 = new Table({ head: languageHeader });
+  }
+
   res.forEach(x => {
-    t2.push(
-      [`${x.language}`, x.p0, x.p1, x.p2, x.pX, x.outOfSLO]);
-  })
-  console.log(t2.toString());
+    const values = [`${x.language}`, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    if(cli.flags.csv) {
+      output.push(values.join(','));
+    } else {
+      t2.push(values);
+    }
+  });
+
+  if (t2!) {
+    output.push(t2!.toString());
+  }
+
+  return output;
 }
 
-main().catch(console.error);
+async function sendmail() {
+  const out = await getOutput();
+  mail.setApiKey(process.env.SENDGRID_KEY!);
+  const msg = {
+    to: 'beckwith@google.com',
+    from: 'node-team@google.com',
+    subject: 'Your daily SLO report',
+    text: out.join('<br>'),
+  };
+  await mail.send(msg);
+}
+
+async function main() {
+  const out = await getOutput();
+  out.forEach(l => console.log(l));
+}
+
+if (cli.flags.mail) {
+  sendmail().catch(console.error);
+} else {
+  main().catch(console.error);
+}
