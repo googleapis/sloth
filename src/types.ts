@@ -1,5 +1,11 @@
 
+export interface IssueResult {
+  issues: Issue[],
+  repo: Repo
+}
+
 export interface Issue {
+  language: string;
   repo: string;
   owner: string;
   url:
@@ -50,11 +56,24 @@ export interface Label {
   default: boolean;
 }
 
-export interface RepoResult {
+
+export interface RepoResult extends Result {
   repo: string;
+}
+
+export interface LanguageResult extends Result {
+  language: string;
+}
+
+export interface Result {
   p0: number;
   p1: number;
   p2: number;
   pX: number;
   outOfSLO: number;
+}
+
+export interface Repo {
+  repo: string;
+  language: string;
 }

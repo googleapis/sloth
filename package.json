@@ -1,7 +1,8 @@
 {
-  "name": "ispy",
+  "name": "@justinbeckwith/sloth",
   "version": "1.0.0",
-  "description": "ispy is a CLI utility for measuring GitHub response SLOs.",
+  "repository": "justinbeckwith/sloth",
+  "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
     "sloth": "build/src/cli.js"
   },

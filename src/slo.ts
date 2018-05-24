@@ -1,14 +1,55 @@
 import Octokit from '@octokit/rest';
+import {totalmem} from 'os';
 
-import {Issue, RepoResult} from './types';
+import {Issue, Repo, RepoResult, IssueResult, LanguageResult} from './types';
 
-export async function getIssueData() {
-  const repos = await getIssues();
+export function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
+  const totals = {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
   repos.forEach(repo => {
-    const counts = {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo};
+    const counts =
+        {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo.repo};
     repo.issues.forEach(i => {
       if (hasLabel(i, 'priority: p0')) {
+        counts.p0++;
+        totals.p0++;
+      } else if (hasLabel(i, 'priority: p1')) {
+        counts.p1++;
+        totals.p0++;
+      } else if (hasLabel(i, 'priority: p2')) {
+        counts.p2++;
+        totals.p2++;
+      } else {
+        counts.pX++;
+        totals.p2++;
+      }
+      if (isOutOfSLO(i)) {
+        counts.outOfSLO++;
+        totals.outOfSLO++;
+      }
+    });
+    results.push(counts);
+  });
+  return {repos: results, totals};
+}
+
+
+export function getLanguageResults(repos: IssueResult[]) {
+  const results = new Map<string, LanguageResult>();
+  const issues = new Array<Issue>();
+  repos.forEach(r => {
+    r.issues.forEach(i => {
+      i.language = r.repo.language;
+      issues.push(i);
+    })
+  });
+  const languages = ['go', 'nodejs', 'ruby', 'python', 'php', 'dotnet', 'java'];
+  languages.forEach(l => {
+    results.set(l, { p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
+  })
+  issues.forEach(i => {
+    const counts = results.get(i.language)!;
+    if (hasLabel(i, 'priority: p0')) {
         counts.p0++;
       } else if (hasLabel(i, 'priority: p1')) {
         counts.p1++;
@@ -20,8 +61,6 @@ export async function getIssueData() {
       if (isOutOfSLO(i)) {
         counts.outOfSLO++;
       }
-    });
-    results.push(counts);
   });
   return results;
 }
@@ -60,12 +99,12 @@ function isOutOfSLO(i: Issue) {
   return false;
 }
 
-async function getIssues() {
-  const repos: string[] = require('../../repos.json').repos;
+export async function getIssues(): Promise<IssueResult[]> {
+  const repos: Repo[] = require('../../repos.json').repos;
   const octo = new Octokit();
   octo.authenticate({token: require('../../keys.json').token, type: 'token'});
   const promises = repos.map(repo => {
-    const [owner, name] = repo.split('/');
+    const [owner, name] = repo.repo.split('/');
     return octo.issues
         .getForRepo({owner, repo: name, state: 'open', per_page: 100})
         .then(

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import Table = require('cli-table');
 import meow = require('meow');
-import {getIssueData} from './slo';
+import {getIssues, getRepoResults, getLanguageResults} from './slo';
 
 const cli = meow(
     `
@@ -17,23 +17,31 @@ const cli = meow(
     {flags: {language: {type: 'string', alias: 'l'}}});
 
 async function main() {
-  const results = await getIssueData();
+  const issues = await getIssues();
+
+  // Show repo based statistics
+  const {repos, totals} = getRepoResults(issues);
   const table = new Table({
     head: ['Repo', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'],
   });
-  const totals = {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
-  results.forEach(repo => {
-    totals.p0 += repo.p0;
-    totals.p1 += repo.p1;
-    totals.p2 += repo.p2;
-    totals.pX += repo.pX;
-    totals.outOfSLO += repo.outOfSLO;
+  repos.forEach(repo => {
     table.push(
         [`${repo.repo}`, repo.p0, repo.p1, repo.p2, repo.pX, repo.outOfSLO]);
   });
   table.push(
       [`TOTALS`, totals.p0, totals.p1, totals.p2, totals.pX, totals.outOfSLO]);
   console.log(table.toString());
+
+  // Show language based statistics
+  const res = getLanguageResults(issues);
+  const t2 = new Table({
+    head: ['Language', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'],
+  });
+  res.forEach(x => {
+    t2.push(
+      [`${x.language}`, x.p0, x.p1, x.p2, x.pX, x.outOfSLO]);
+  })
+  console.log(t2.toString());
 }
 
 main().catch(console.error);
