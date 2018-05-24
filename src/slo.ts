@@ -1,6 +1,4 @@
 import Octokit from '@octokit/rest';
-import {totalmem} from 'os';
-
 import {Issue, Repo, RepoResult, IssueResult, LanguageResult} from './types';
 
 export function getRepoResults(repos: IssueResult[]) {
@@ -32,7 +30,6 @@ export function getRepoResults(repos: IssueResult[]) {
   });
   return {repos: results, totals};
 }
-
 
 export function getLanguageResults(repos: IssueResult[]) {
   const results = new Map<string, LanguageResult>();
