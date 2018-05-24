@@ -1,14 +1,12 @@
-import {Issue} from './types';
-import * as Octokit from '@octokit/rest';
-import Table = require('cli-table');
+import Octokit from '@octokit/rest';
 
-async function main() {
-  const table = new Table({
-    head: ['Repo', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'],
-  });
+import {Issue, RepoResult} from './types';
+
+export async function getIssueData() {
   const repos = await getIssues();
+  const results = new Array<RepoResult>();
   repos.forEach(repo => {
-    const counts = { p0: 0, p1: 0, p2: 0, pX: 0, isOutOfSLO: 0};
+    const counts = {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo};
     repo.issues.forEach(i => {
       if (hasLabel(i, 'priority: p0')) {
         counts.p0++;
@@ -19,23 +17,25 @@ async function main() {
       } else {
         counts.pX++;
       }
-      if(isOutOfSLO(i)) {
-        counts.isOutOfSLO++;
+      if (isOutOfSLO(i)) {
+        counts.outOfSLO++;
       }
     });
-    table.push([`${repo.repo}`, counts.p0, counts.p1, counts.p2, counts.pX, counts.isOutOfSLO]);
+    results.push(counts);
   });
-  console.log(table.toString());
+  return results;
 }
 
 function hasLabel(issue: Issue, label: string) {
-  return issue.labels.filter(x => {
-    return (x.name === label);
-  }).length > 0;
+  return issue.labels
+             .filter(x => {
+               return (x.name === label);
+             })
+             .length > 0;
 }
 
 function daysOld(date: string) {
-  return (Date.now() - (new Date(date)).getTime())/1000/60/60/24;
+  return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60 / 24;
 }
 
 function isOutOfSLO(i: Issue) {
@@ -63,30 +63,20 @@ function isOutOfSLO(i: Issue) {
 async function getIssues() {
   const repos: string[] = require('../../repos.json').repos;
   const octo = new Octokit();
-  octo.authenticate({
-    token: require('../../keys.json').token,
-    type:  'token'
-  });
+  octo.authenticate({token: require('../../keys.json').token, type: 'token'});
   const promises = repos.map(repo => {
-    console.log(`Fetching ${repo}...`);
     const [owner, name] = repo.split('/');
-    return octo.issues.getForRepo({
-      owner: owner,
-      repo: name,
-      state: 'open',
-      per_page: 100
-    }).then(r => {
-      return {
-        repo,
-        issues: r.data as Issue[]
-      }
-    }, err => {
-      console.error(`Error fetching issues for ${repo}.`);
-      console.error(err);
-      throw err;
-    });
+    return octo.issues
+        .getForRepo({owner, repo: name, state: 'open', per_page: 100})
+        .then(
+            r => {
+              return {repo, issues: r.data as Issue[]};
+            },
+            (err: Error) => {
+              console.error(`Error fetching issues for ${repo}.`);
+              console.error(err);
+              throw err;
+            });
   });
   return await Promise.all(promises);
 }
-
-main().catch(console.error);

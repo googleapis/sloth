@@ -2,8 +2,12 @@
   "name": "ispy",
   "version": "1.0.0",
   "description": "ispy is a CLI utility for measuring GitHub response SLOs.",
+  "bin": {
+    "sloth": "build/src/cli.js"
+  },
+  "main": "build/src/sloth.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha build/test",
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
@@ -18,12 +22,16 @@
   "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^15.6.2",
-    "cli-table": "^0.3.1"
+    "cli-table": "^0.3.1",
+    "meow": "^5.0.0"
   },
   "devDependencies": {
     "@types/cli-table": "^0.3.0",
+    "@types/meow": "^4.0.1",
+    "@types/mocha": "^5.2.0",
     "@types/node": "^10.1.2",
-    "gts": "^0.5.4",
-    "typescript": "~2.6.1"
+    "gts": "^0.6.0",
+    "mocha": "^5.2.0",
+    "typescript": "~2.8.0"
   }
 }
