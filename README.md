@@ -24,4 +24,12 @@ Alternatively, you can just set it every time before running the tool:
 $ SLOTH_GITHUB_TOKEN=****** sloth
 ```
 
+### CSV
+
+You can also get output in CSV format!  Just pass the `--csv` flag:
+
+```sh
+$ sloth --csv
+```
+
 That's it 🎉 Enjoy!
