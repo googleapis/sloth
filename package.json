@@ -6,7 +6,12 @@
   "bin": {
     "sloth": "build/src/cli.js"
   },
+  "files": [
+    "build/src",
+    "repos.json"
+  ],
   "main": "build/src/sloth.js",
+  "types": "build/src/sloth.d.ts",
   "scripts": {
     "test": "mocha build/test",
     "check": "gts check",

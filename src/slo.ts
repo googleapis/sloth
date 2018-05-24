@@ -97,9 +97,13 @@ function isOutOfSLO(i: Issue) {
 }
 
 export async function getIssues(): Promise<IssueResult[]> {
+  const token = process.env.SLOTH_GITHUB_TOKEN;
+  if (!token) {
+    throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
+  }
   const repos: Repo[] = require('../../repos.json').repos;
   const octo = new Octokit();
-  octo.authenticate({token: require('../../keys.json').token, type: 'token'});
+  octo.authenticate({token, type: 'token'});
   const promises = repos.map(repo => {
     const [owner, name] = repo.repo.split('/');
     return octo.issues

@@ -12,8 +12,16 @@ $ npm install -g @justinbeckwith/sloth
 
 ## Usage
 
+You need to go create a [personal access token](https://github.com/settings/tokens) in GitHub.  Take this token, and save it as an environment variable named `SLOTH_GITHUB_TOKEN`.
+
 ```sh
 $ sloth
 ```
 
-That's it 🎉.
+Alternatively, you can just set it every time before running the tool:
+
+```sh
+$ SLOTH_GITHUB_TOKEN=****** sloth
+```
+
+That's it 🎉 Enjoy!
