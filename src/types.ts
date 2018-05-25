@@ -1,7 +1,7 @@
 
 export interface IssueResult {
-  issues: Issue[],
-  repo: Repo
+  issues: Issue[];
+  repo: Repo;
 }
 
 export interface Issue {
@@ -53,6 +53,7 @@ export interface Label {
   name: string;
   color: string;
   url: string;
+  description: string;
   default: boolean;
 }
 

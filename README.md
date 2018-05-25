@@ -32,4 +32,11 @@ You can also get output in CSV format!  Just pass the `--csv` flag:
 $ sloth --csv
 ```
 
+### Updating labels
+You can reconcile all of our labels using this:
+
+```sh
+$ sloth labels
+```
+
 That's it 🎉 Enjoy!

@@ -2,6 +2,7 @@
 import Table = require('cli-table');
 import meow = require('meow');
 import {getIssues, getRepoResults, getLanguageResults} from './slo';
+import {reconcileLabels} from './label';
 import mail from '@sendgrid/mail';
 
 const cli = meow(
@@ -18,17 +19,7 @@ const cli = meow(
     $ sloth --csv
 
 `,
-    {
-      flags: {
-        mail: {
-          type: 'boolean'
-        },
-        csv: {
-          type: 'boolean'
-        }
-      }
-    }
-  );
+    {flags: {mail: {type: 'boolean'}, csv: {type: 'boolean'}}});
 
 async function getOutput() {
   const output = new Array<string>();
@@ -42,11 +33,12 @@ async function getOutput() {
   if (cli.flags.csv) {
     output.push(head.join(','));
   } else {
-    table = new Table({ head });
+    table = new Table({head});
   }
 
   repos.forEach(repo => {
-    const values = [`${repo.repo}`, repo.p0, repo.p1, repo.p2, repo.pX, repo.outOfSLO];
+    const values =
+        [`${repo.repo}`, repo.p0, repo.p1, repo.p2, repo.pX, repo.outOfSLO];
     if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
@@ -54,7 +46,8 @@ async function getOutput() {
     }
   });
 
-  const values = [`TOTALS`, totals.p0, totals.p1, totals.p2, totals.pX, totals.outOfSLO];
+  const values =
+      [`TOTALS`, totals.p0, totals.p1, totals.p2, totals.pX, totals.outOfSLO];
   if (cli.flags.csv) {
     output.push(values.join(','));
   } else {
@@ -67,18 +60,19 @@ async function getOutput() {
 
   // Show language based statistics
   const res = getLanguageResults(issues);
-  const languageHeader = ['Language', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  const languageHeader =
+      ['Language', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
   let t2: Table;
   if (cli.flags.csv) {
     output.push('\n');
     output.push(languageHeader.join(','));
   } else {
-    t2 = new Table({ head: languageHeader });
+    t2 = new Table({head: languageHeader});
   }
 
   res.forEach(x => {
     const values = [`${x.language}`, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
-    if(cli.flags.csv) {
+    if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
       t2.push(values);
@@ -109,8 +103,12 @@ async function main() {
   out.forEach(l => console.log(l));
 }
 
-if (cli.flags.mail) {
-  sendmail().catch(console.error);
+if (cli.input.indexOf('labels') > -1) {
+  reconcileLabels().catch(console.error);
 } else {
-  main().catch(console.error);
+  if (cli.flags.mail) {
+    sendmail().catch(console.error);
+  } else {
+    main().catch(console.error);
+  }
 }

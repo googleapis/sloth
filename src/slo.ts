@@ -1,5 +1,6 @@
 import Octokit from '@octokit/rest';
-import {Issue, Repo, RepoResult, IssueResult, LanguageResult} from './types';
+
+import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 
 export function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
@@ -38,26 +39,26 @@ export function getLanguageResults(repos: IssueResult[]) {
     r.issues.forEach(i => {
       i.language = r.repo.language;
       issues.push(i);
-    })
+    });
   });
   const languages = ['go', 'nodejs', 'ruby', 'python', 'php', 'dotnet', 'java'];
   languages.forEach(l => {
-    results.set(l, { p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
-  })
+    results.set(l, {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
+  });
   issues.forEach(i => {
     const counts = results.get(i.language)!;
     if (hasLabel(i, 'priority: p0')) {
-        counts.p0++;
-      } else if (hasLabel(i, 'priority: p1')) {
-        counts.p1++;
-      } else if (hasLabel(i, 'priority: p2')) {
-        counts.p2++;
-      } else {
-        counts.pX++;
-      }
-      if (isOutOfSLO(i)) {
-        counts.outOfSLO++;
-      }
+      counts.p0++;
+    } else if (hasLabel(i, 'priority: p1')) {
+      counts.p1++;
+    } else if (hasLabel(i, 'priority: p2')) {
+      counts.p2++;
+    } else {
+      counts.pX++;
+    }
+    if (isOutOfSLO(i)) {
+      counts.outOfSLO++;
+    }
   });
   return results;
 }
@@ -99,7 +100,8 @@ function isOutOfSLO(i: Issue) {
 export async function getIssues(): Promise<IssueResult[]> {
   const token = process.env.SLOTH_GITHUB_TOKEN;
   if (!token) {
-    throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
+    throw new Error(
+        'Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
   }
   const repos: Repo[] = require('../../repos.json').repos;
   const octo = new Octokit();
