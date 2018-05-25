@@ -21,7 +21,7 @@ export async function reconcileLabels() {
     const oldLabels = res.data as Label[];
     labels.forEach(l => {
       // try to find a label with the same name
-      const match = oldLabels.find(x => x.name === l.name);
+      const match = oldLabels.find(x => x.name.toLowerCase() === l.name.toLowerCase());
       if (match) {
         // check to see if the color matches
         if (match.color !== l.color) {

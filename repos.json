@@ -1,7 +1,7 @@
 {
   "repos": [
-    { "repo": "golang/oauth2", "language": "go" },
     { "repo": "google/google-api-dotnet-client", "language": "dotnet" },
+    { "repo": "google-api-javascript-client", "language": "nodejs" },
     { "repo": "google/google-api-go-client", "language": "go" },
     { "repo": "google/google-api-java-client", "language": "java" },
     { "repo": "google/google-api-nodejs-client", "language": "nodejs" },
@@ -17,7 +17,6 @@
     { "repo": "googleapis/gax-go", "language": "go" },
     { "repo": "googleapis/gax-java", "language": "java" },
     { "repo": "googleapis/gax-php", "language": "php" },
-    { "repo": "googleapis/gax-python", "language": "python" },
     { "repo": "googleapis/gax-ruby", "language": "ruby" },
     { "repo": "googleapis/api-common-java", "language": "java" },
     { "repo": "googleapis/nodejs-spanner", "language": "nodejs" },
