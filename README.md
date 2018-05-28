@@ -11,7 +11,6 @@ $ npm install -g @justinbeckwith/sloth
 ```
 
 ## Usage
-
 You need to go create a [personal access token](https://github.com/settings/tokens) in GitHub.  Take this token, and save it as an environment variable named `SLOTH_GITHUB_TOKEN`.
 
 ```sh
@@ -25,7 +24,6 @@ $ SLOTH_GITHUB_TOKEN=****** sloth
 ```
 
 ### CSV
-
 You can also get output in CSV format!  Just pass the `--csv` flag:
 
 ```sh
@@ -33,10 +31,17 @@ $ sloth --csv
 ```
 
 ### Updating labels
-You can reconcile all of our labels using this:
+Lets use the same labels in all of our repos.  First, check out `labels.json`.  Then go ahead and run:
 
 ```sh
 $ sloth labels
+```
+
+### Team membership
+Lets organize the users in our many teams/orgs.  First, check out `users.json`.  Then go ahead and run:
+
+```sh
+$ sloth users
 ```
 
 That's it 🎉 Enjoy!

@@ -16,6 +16,8 @@ const cli = meow(
 
 	Examples
     $ sloth
+    $ sloth users
+    $ sloth labels
     $ sloth --mail
     $ sloth --csv
 

@@ -1,7 +1,6 @@
 {
   "repos": [
     { "repo": "google/google-api-dotnet-client", "language": "dotnet" },
-    { "repo": "google-api-javascript-client", "language": "nodejs" },
     { "repo": "google/google-api-go-client", "language": "go" },
     { "repo": "google/google-api-java-client", "language": "java" },
     { "repo": "google/google-api-nodejs-client", "language": "nodejs" },
