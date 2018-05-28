@@ -151,7 +151,6 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
     for (const r of res.data) {
       result.issues.push(r);
     }
-    console.log(res.meta.link);
     i++;
   } while (res.meta.link && res.meta.link.indexOf('rel="last"') > -1);
   return result;
