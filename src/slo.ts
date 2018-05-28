@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+import Octokit, {AnyResponse} from '@octokit/rest';
 import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 
 const repos: Repo[] = require('../../repos.json').repos;
@@ -22,13 +22,13 @@ export function getRepoResults(repos: IssueResult[]) {
         totals.p0++;
       } else if (hasLabel(i, 'priority: p1')) {
         counts.p1++;
-        totals.p0++;
+        totals.p1++;
       } else if (hasLabel(i, 'priority: p2')) {
         counts.p2++;
         totals.p2++;
       } else {
         counts.pX++;
-        totals.p2++;
+        totals.pX++;
       }
       if (isOutOfSLO(i)) {
         counts.outOfSLO++;
@@ -83,42 +83,76 @@ function daysOld(date: string) {
   return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60 / 24;
 }
 
+
+/**
+ * For a given issue, figure out if it's out of SLO.
+ * @param i Issue to analyze
+ */
 function isOutOfSLO(i: Issue) {
   const d = new Date();
-  if (hasLabel(i, 'priority: p0')) {
+  const hasType = i.labels.filter(x => x.name.startsWith('type:')).length > 0;
+  const isBug = hasLabel(i, 'type: bug');
+  const isP0 = hasLabel(i, 'priority: p0');
+  const isP1 = hasLabel(i, 'priority: p1');
+  const isP2 = hasLabel(i, 'priority: p2');
+  const hasPri = isP0 || isP1 || isP2;
+
+  // If it has a priority, make sure it's in SLO
+  if (isP0) {
     if (daysOld(i.created_at) > 5 || daysOld(i.updated_at) > 1) {
       return true;
     }
-  } else if (hasLabel(i, 'priority: p1')) {
+  } else if (isP1) {
     if (daysOld(i.created_at) > 42 || daysOld(i.updated_at) > 5) {
       return true;
     }
-  } else if (hasLabel(i, 'priority: p2')) {
+  } else if (isP2) {
     if (daysOld(i.created_at) > 180) {
       return true;
     }
-  } else {
-    if (daysOld(i.created_at) > 5) {
-      return true;
-    }
   }
+
+  // If it's a bug, make sure there's a priority
+  if (isBug && !hasPri) {
+    return true;
+  }
+
+  // otherwise, check if it's less than 5 days old
+  if (daysOld(i.created_at) > 5) {
+    return true;
+  }
+
+  // It's all good then!
   return false;
 }
 
 export async function getIssues(): Promise<IssueResult[]> {
-  const promises = repos.map(repo => {
-    const [owner, name] = repo.repo.split('/');
-    return octo.issues
-        .getForRepo({owner, repo: name, state: 'open', per_page: 100})
-        .then(
-            r => {
-              return {repo, issues: r.data as Issue[]};
-            },
-            (err: Error) => {
-              console.error(`Error fetching issues for ${repo.repo}.`);
-              console.error(err);
-              throw err;
-            });
+  const promises = new Array<Promise<IssueResult>>();
+  repos.forEach(repo => {
+    promises.push(getRepoIssues(repo));
   });
-  return await Promise.all(promises);
+  return Promise.all(promises);
+}
+
+async function getRepoIssues(repo: Repo): Promise<IssueResult> {
+  const [owner, name] = repo.repo.split('/');
+  const result = {issues: new Array<Issue>(), repo};
+  let res: Octokit.AnyResponse;
+  let i = 1;
+  do {
+    try {
+      res = await octo.issues.getForRepo(
+          {owner, repo: name, state: 'open', per_page: 100, page: i});
+    } catch (e) {
+      console.error(`Error fetching issues for ${repo.repo}.`);
+      console.error(e);
+      throw e;
+    }
+    for (const r of res.data) {
+      result.issues.push(r);
+    }
+    console.log(res.meta.link);
+    i++;
+  } while (res.meta.link && res.meta.link.indexOf('rel="last"') > -1);
+  return result;
 }
