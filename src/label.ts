@@ -21,39 +21,45 @@ export async function reconcileLabels() {
     const oldLabels = res.data as Label[];
     labels.forEach(l => {
       // try to find a label with the same name
-      const match = oldLabels.find(x => x.name.toLowerCase() === l.name.toLowerCase());
+      const match =
+          oldLabels.find(x => x.name.toLowerCase() === l.name.toLowerCase());
       if (match) {
         // check to see if the color matches
         if (match.color !== l.color) {
-          console.log(`Updating color for ${match.name} from ${match.color} to ${l.color}.`);
-          const p = octo.issues
-                        .updateLabel({
-                          repo,
-                          owner,
-                          name: l.name,
-                          oldname: l.name,
-                          description: match.description,
-                          color: l.color
-                        })
-                        .catch(e => {
-                          console.error(`Error updating label ${l.name} in ${owner}/${repo}`);
-                        });
+          console.log(`Updating color for ${match.name} from ${
+              match.color} to ${l.color}.`);
+          const p =
+              octo.issues
+                  .updateLabel({
+                    repo,
+                    owner,
+                    name: l.name,
+                    oldname: l.name,
+                    description: match.description,
+                    color: l.color
+                  })
+                  .catch(e => {
+                    console.error(
+                        `Error updating label ${l.name} in ${owner}/${repo}`);
+                  });
           promises.push(p);
         }
       } else {
         // there was no match, go ahead and add it
         console.log(`Creating label for ${l.name}.`);
-        const p = octo.issues
-                      .createLabel({
-                        repo,
-                        owner,
-                        color: l.color,
-                        description: l.description,
-                        name: l.name
-                      })
-                      .catch(e => {
-                        console.error(`Error creating label ${l.name} in ${owner}/${repo}`);
-                      });
+        const p =
+            octo.issues
+                .createLabel({
+                  repo,
+                  owner,
+                  color: l.color,
+                  description: l.description,
+                  name: l.name
+                })
+                .catch(e => {
+                  console.error(
+                      `Error creating label ${l.name} in ${owner}/${repo}`);
+                });
         promises.push(p);
       }
     });

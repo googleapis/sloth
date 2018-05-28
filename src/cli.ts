@@ -4,6 +4,7 @@ import meow = require('meow');
 import {getIssues, getRepoResults, getLanguageResults} from './slo';
 import {reconcileLabels} from './label';
 import mail from '@sendgrid/mail';
+import {reconcileUsers} from './users';
 
 const cli = meow(
     `
@@ -105,6 +106,8 @@ async function main() {
 
 if (cli.input.indexOf('labels') > -1) {
   reconcileLabels().catch(console.error);
+} else if (cli.input.indexOf('users') > -1) {
+  reconcileUsers().catch(console.error);
 } else {
   if (cli.flags.mail) {
     sendmail().catch(console.error);

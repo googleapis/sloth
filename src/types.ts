@@ -4,6 +4,11 @@ export interface IssueResult {
   repo: Repo;
 }
 
+export interface Member {
+  login: string;
+  id: number;
+}
+
 export interface Issue {
   language: string;
   repo: string;
@@ -77,4 +82,21 @@ export interface Result {
 export interface Repo {
   repo: string;
   language: string;
+}
+
+export interface Users {
+  orgs: string[];
+  membership: Membership[];
+  teams: Team[];
+}
+
+export interface Team {
+  org: string;
+  name: string;
+  id: string;
+}
+
+export interface Membership {
+  team: string;
+  users: string[];
 }
