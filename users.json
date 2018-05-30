@@ -19,11 +19,55 @@
         "theacodes",
         "justinbeckwith",
         "danoscarmike",
-        "crwilcox"
+        "crwilcox",
+        "kinwa91",
+        "TheRoyalTnetennba",
+        "jskeet",
+        "chrisdunelm",
+        "tmatsuo",
+        "jadekler",
+        "jba"
       ]
     },
     {
       "team": "yoshi-nodejs",
+      "repos": [
+        "google/google-api-nodejs-client",
+        "google/google-auth-library-nodejs",
+        "googleapis/nodejs-spanner",
+        "googleapis/nodejs-firestore",
+        "googleapis/nodejs-compute",
+        "googleapis/nodejs-bigtable",
+        "googleapis/nodejs-common-grpc",
+        "googleapis/nodejs-common",
+        "googleapis/nodejs-error-reporting",
+        "googleapis/nodejs-redis",
+        "googleapis/nodejs-vision",
+        "googleapis/gax-nodejs",
+        "googleapis/nodejs-translate",
+        "googleapis/nodejs-text-to-speech",
+        "googleapis/nodejs-os-login",
+        "googleapis/nodejs-dataproc",
+        "googleapis/nodejs-bigquery-data-transfer",
+        "googleapis/nodejs-video-intelligence",
+        "googleapis/nodejs-speech",
+        "googleapis/nodejs-resource",
+        "googleapis/nodejs-pubsub",
+        "googleapis/nodejs-monitoring",
+        "googleapis/nodejs-logging-winston",
+        "googleapis/nodejs-logging",
+        "googleapis/nodejs-logging-bunyan",
+        "googleapis/nodejs-language",
+        "googleapis/nodejs-dns",
+        "googleapis/nodejs-dlp",
+        "googleapis/nodejs-datastore",
+        "googleapis/nodejs-bigquery",
+        "googleapis/nodejs-proto-files",
+        "googleapis/nodejs-storage",
+        "google/google-p12-pem",
+        "google/node-gtoken",
+        "googlecloudplatform/google-cloud-node"
+      ],
       "users": [
         "justinbeckwith",
         "ofrobots",
@@ -34,41 +78,82 @@
     {
       "team": "yoshi-ruby",
       "users": [
+        "justinbeckwith",
         "dazuma",
         "TheRoyalTnetennba"
+      ],
+      "repos": [
+        "google/google-auth-library-ruby",
+        "google/google-api-ruby-client",
+        "googleapis/gax-ruby",
+        "googlecloudplatform/google-cloud-ruby"
       ]
     },
     {
       "team": "yoshi-dotnet",
       "users": [
+        "justinbeckwith",
         "jskeet",
         "chrisdunelm"
+      ],
+      "repos": [
+        "google/google-api-dotnet-client",
+        "googleapis/gax-dotnet",
+        "googlecloudplatform/google-cloud-dotnet"
       ]
     },
     {
       "team": "yoshi-php",
       "users": [
+        "justinbeckwith",
         "tmatsuo"
+      ],
+      "repos": [
+        "google/google-api-php-client",
+        "google/google-auth-library-php",
+        "googleapis/gax-php",
+        "googlecloudplatform/google-cloud-php"
       ]
     },
     {
       "team": "yoshi-java",
       "users": [
+        "justinbeckwith",
         "jadekler"
+      ],
+      "repos": [
+        "google/google-api-java-client",
+        "google/google-auth-library-java",
+        "googleapis/api-common-java",
+        "googleapis/gax-java",
+        "googlecloudplatform/google-cloud-java"
       ]
     },
     {
       "team": "yoshi-go",
       "users": [
+        "justinbeckwith",
         "jba",
         "jadekler"
+      ],
+      "repos": [
+        "google/google-api-go-client",
+        "googleapis/gax-go",
+        "googlecloudplatform/google-cloud-go"
       ]
     },
     {
       "team": "yoshi-python",
       "users": [
+        "justinbeckwith",
         "theacodes",
         "crwilcox"
+      ],
+      "repos": [
+        "google/google-api-python-client",
+        "google/oauth2client",
+        "googlecloudplatform/google-auth-library-python",
+        "googlecloudplatform/google-cloud-python"
       ]
     }
   ]

@@ -93,6 +93,7 @@ export interface Users {
 export interface Membership {
   team: string;
   users: string[];
+  repos: string[];
 }
 
 export interface Team {

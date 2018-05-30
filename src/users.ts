@@ -1,15 +1,6 @@
 import Octokit from '@octokit/rest';
-import {Member, Users, Team} from './types';
-import { ClientRequest } from 'http';
-
-const users: Users = require('../../users.json');
-const token = process.env.SLOTH_GITHUB_TOKEN;
-if (!token) {
-  throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
-}
-
-const octo = new Octokit();
-octo.authenticate({token, type: 'token'});
+import {Member, Team} from './types';
+import {users, octo} from './util';
 
 /**
  * Ensure all provided teams actually exist in all orgs.
@@ -51,6 +42,10 @@ export async function reconcileTeams() {
   });
 
   return yoshiTeams;
+}
+
+export async function reconcileRepos() {
+
 }
 
 export async function reconcileUsers() {

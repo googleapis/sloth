@@ -1,17 +1,6 @@
 import Octokit from '@octokit/rest';
-
-import {Label, Repo} from './types';
-
-const repos: Repo[] = require('../../repos.json').repos;
-const labels: Label[] = require('../../labels.json').labels;
-
-const token = process.env.SLOTH_GITHUB_TOKEN;
-if (!token) {
-  throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
-}
-
-const octo = new Octokit();
-octo.authenticate({token, type: 'token'});
+import {Label} from './types';
+import {labels, repos, octo} from './util';
 
 export async function reconcileLabels() {
   const promises = new Array<Promise<Octokit.AnyResponse|void>>();
