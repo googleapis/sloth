@@ -30,6 +30,46 @@
         "kinwa91",
         "alexander-fenster"
       ]
+    },
+    {
+      "team": "yoshi-ruby",
+      "users": [
+        "dazuma",
+        "TheRoyalTnetennba"
+      ]
+    },
+    {
+      "team": "yoshi-dotnet",
+      "users": [
+        "jskeet",
+        "chrisdunelm"
+      ]
+    },
+    {
+      "team": "yoshi-php",
+      "users": [
+        "tmatsuo"
+      ]
+    },
+    {
+      "team": "yoshi-java",
+      "users": [
+        "jadekler"
+      ]
+    },
+    {
+      "team": "yoshi-go",
+      "users": [
+        "jba",
+        "jadekler"
+      ]
+    },
+    {
+      "team": "yoshi-python",
+      "users": [
+        "theacodes",
+        "crwilcox"
+      ]
     }
   ]
 }
