@@ -1,4 +1,6 @@
 import {Issue, IssueResult, LanguageResult, RepoResult} from './types';
+import {languages} from './util';
+import { getIssues } from './issue';
 
 export function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
@@ -39,7 +41,6 @@ export function getLanguageResults(repos: IssueResult[]) {
       issues.push(i);
     });
   });
-  const languages = ['go', 'nodejs', 'ruby', 'python', 'php', 'dotnet', 'java'];
   languages.forEach(l => {
     results.set(l, {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
   });
@@ -61,18 +62,68 @@ export function getLanguageResults(repos: IssueResult[]) {
   return results;
 }
 
+/**
+ * Determine if an issue has a `priority: ` label.
+ * @param i Issue to analyze
+ */
+function hasPriority(i: Issue) {
+  return hasLabel(i, 'priority: ');
+}
+
+/**
+ * Determine if an issue has a `type: ` label.
+ * @param i Issue to analyze
+ */
+function hasType(i: Issue) {
+  return hasLabel(i, 'type: ');
+}
+
+/**
+ * Determine if an issue has a `type: bug` label.
+ * @param i Issue to analyze
+ */
+function isBug(i: Issue) {
+  return hasLabel(i, 'type: bug');
+}
+
+/**
+ * Determine if an issue has been triaged. An issue is triaged if:
+ * - It has a `priority` label OR
+ * - It has a `type` label
+ * - For `type: bug`, there must be a `priority` label
+ * @param i Issue to analyze
+ */
+function isTriaged(i: Issue) {
+  if (isBug(i)) {
+    return hasPriority(i);
+  }
+  if (hasPriority(i)) {
+    return true;
+  }
+  if (hasType(i)) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Check if there is a label that matches the given text.
+ * @param issue Issue to analyze
+ * @param label Label text to look for
+ */
 function hasLabel(issue: Issue, label: string) {
   return issue.labels
-             .filter(x => {
-               return (x.name === label);
-             })
+             .filter(x => x.name.toLowerCase().indexOf(label) > -1)
              .length > 0;
 }
 
+/**
+ * Determine how many days old an issue is
+ * @param date Date to compare
+ */
 function daysOld(date: string) {
   return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60 / 24;
 }
-
 
 /**
  * For a given issue, figure out if it's out of SLO.
@@ -114,4 +165,28 @@ function isOutOfSLO(i: Issue) {
 
   // It's all good then!
   return false;
+}
+
+export async function sendMail() {
+  const repos = await getIssues();
+  const issues = new Array<Issue>();
+  repos.forEach(r => {
+    r.issues.forEach(i => {
+      issues.push(i)
+    });
+  });
+  console.log(`Issues: ${issues.length}`);
+  //const issues: Issue[] = [].concat.apply([], repos);
+  const untriagedIssues = issues.filter(x => !isTriaged(x));
+  const outOfSLOIssues = issues.filter(isOutOfSLO);
+  console.log(`Untriaged: ${untriagedIssues.length}`);
+  console.log(`Out of SLO: ${outOfSLOIssues.length}`);
+
+  languages.forEach(l => {
+    const untriaged = untriagedIssues.filter(x => x.language === l);
+    console.log(`Untriaged [${l}]: ${untriaged.length}`);
+
+    const outOfSLO = outOfSLOIssues.filter(x => x.language === l);
+    console.log(`Out of SLO [${l}]: ${outOfSLO.length}`);
+  });
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import Table = require('cli-table');
 import meow = require('meow');
-import {getRepoResults, getLanguageResults} from './slo';
+import {getRepoResults, getLanguageResults, sendMail} from './slo';
 import {getIssues} from './issue';
 import {reconcileLabels} from './label';
 import mail from '@sendgrid/mail';
@@ -113,6 +113,8 @@ if (cli.input.indexOf('labels') > -1) {
   reconcileUsers().catch(console.error);
 } else if (cli.input.indexOf('teams') > -1) {
   reconcileTeams().catch(console.error);
+} else if (cli.input.indexOf('mail') > -1) {
+  sendMail().catch(console.error);
 } else {
   if (cli.flags.mail) {
     sendmail().catch(console.error);

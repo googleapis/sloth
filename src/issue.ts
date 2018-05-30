@@ -25,6 +25,7 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
       throw e;
     }
     for (const r of res.data) {
+      r.language = repo.language;
       result.issues.push(r);
     }
     i++;
