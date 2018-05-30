@@ -4,41 +4,9 @@
     "googleapis",
     "google"
   ],
-  "teams": [
-    {
-      "org": "GoogleCloudPlatform",
-      "name": "yoshi",
-      "id": 2772476
-    },
-    {
-      "org": "GoogleCloudPlatform",
-      "name": "yoshi-admins",
-      "id": 2772259
-    },
-    {
-      "org": "google",
-      "name": "yoshi",
-      "id": 2772485
-    },
-    {
-      "org": "google",
-      "name": "yoshi-admins",
-      "id": 2772257
-    },
-    {
-      "org": "googleapis",
-      "name": "yoshi",
-      "id": 2772492
-    },
-    {
-      "org": "googleapis",
-      "name": "yoshi-admins",
-      "id": 2772490
-    }
-  ],
   "membership": [
     {
-      "team": "yoshi-admins",
+      "team": "Yoshi Admins",
       "users": [
         "theacodes",
         "justinbeckwith",
@@ -52,6 +20,15 @@
         "justinbeckwith",
         "danoscarmike",
         "crwilcox"
+      ]
+    },
+    {
+      "team": "yoshi-nodejs",
+      "users": [
+        "justinbeckwith",
+        "ofrobots",
+        "kinwa91",
+        "alexander-fenster"
       ]
     }
   ]

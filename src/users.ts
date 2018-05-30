@@ -1,5 +1,6 @@
 import Octokit from '@octokit/rest';
-import {Member, Users} from './types';
+import {Member, Users, Team} from './types';
+import { ClientRequest } from 'http';
 
 const users: Users = require('../../users.json');
 const token = process.env.SLOTH_GITHUB_TOKEN;
@@ -10,16 +11,63 @@ if (!token) {
 const octo = new Octokit();
 octo.authenticate({token, type: 'token'});
 
+/**
+ * Ensure all provided teams actually exist in all orgs.
+ * Create them if they don't.  Return a list of teams with Ids.
+ */
+export async function reconcileTeams() {
+  // obtain all of the teams across all supported orgs
+  const teamMap = new Map<string, Team[]>();
+  const yoshiTeams = new Array<Team>();
+  const promises = users.orgs.map(async org => {
+    const teams = new Array<Team>();
+    let page = 1;
+    const per_page = 100;
+    let res: Octokit.AnyResponse;
+    console.log(`Fetching teams for ${org}...`);
+    do {
+      res = await octo.orgs.getTeams({ org, per_page, page});
+      res.data.forEach((t: Team) => {
+        t.org = org;
+        teams.push(t);
+      });
+      page++;
+    } while(res.meta.link && res.meta.link.indexOf('rel="last"') > -1)
+    console.log(`Found ${teams.length} teams in ${org}.`);
+    teamMap.set(org, teams);
+  });
+  await Promise.all(promises);
+
+  // Loop over the desired teams for each org. Create any missing ones.
+  users.membership.forEach(m => {
+    users.orgs.forEach(async org => {
+      const orgTeams = teamMap.get(org)!;
+      let match = orgTeams.find(x => x.name.toLowerCase() === m.team.toLowerCase())!;
+      if (!match) {
+        throw new Error(`Team '${m.team}' does not exist in ${org}.`);
+      }
+      yoshiTeams.push(match);
+    });
+  });
+
+  return yoshiTeams;
+}
+
 export async function reconcileUsers() {
   const promises = new Array<Promise<Octokit.AnyResponse|void>>();
+  const teams = await reconcileTeams();
   for (const o of users.orgs) {
     for (const m of users.membership) {
       // find the team object that contains the org/team specific id for this
       // team-name
-      const team = users.teams.find(x => {
+      const team = teams.find(x => {
         return x.name.toLowerCase() === m.team.toLowerCase() &&
-            x.org.toLowerCase() === o.toLowerCase();
+            x.org!.toLowerCase() === o.toLowerCase();
       })!;
+
+      if (!team) {
+
+      }
 
       // get the current list of team members
       const res = await octo.orgs.getTeamMembers({id: team.id, per_page: 100});

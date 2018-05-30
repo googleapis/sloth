@@ -87,16 +87,39 @@ export interface Repo {
 export interface Users {
   orgs: string[];
   membership: Membership[];
-  teams: Team[];
 }
 
-export interface Team {
-  org: string;
-  name: string;
-  id: string;
-}
 
 export interface Membership {
   team: string;
   users: string[];
+}
+
+export interface Team {
+  name: string; //'Contributors',
+  id: string; //286166,
+  slug: string; //'contributors',
+  description: string; //'',
+  privacy: string; //'closed',
+  url: string; //'https://api.github.com/teams/286166',
+  members_url: string; //'https://api.github.com/teams/286166/members{/member}',
+  repositories_url: string; //'https://api.github.com/teams/286166/repos',
+  permission: string; //'push',
+  parent: string; //null
+  org?: string;
+  organization?: Organization;
+}
+
+export interface Organization {
+  login: string; // "github",
+  id: number; // 1,
+  url: string; // "https://api.github.com/orgs/github",
+  repos_url: string; // "https://api.github.com/orgs/github/repos",
+  events_url: string; // "https://api.github.com/orgs/github/events",
+  hooks_url: string; // "https://api.github.com/orgs/github/hooks",
+  issues_url: string; // "https://api.github.com/orgs/github/issues",
+  members_url: string; // "https://api.github.com/orgs/github/members{/member}",
+  public_members_url: string; // "https://api.github.com/orgs/github/public_members{/member}",
+  avatar_url: string; // "https://github.com/images/error/octocat_happy.gif",
+  description: string; // "A great organization"
 }
