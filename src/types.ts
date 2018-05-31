@@ -51,6 +51,7 @@ export interface Issue {
                   // encoding on their behalf.\n\n_Copied from original issue:
                   // GoogleCloudPlatform/google-cloud-node#2654_',
   reactions: {};  // [Object]
+  pull_request: {};
 }
 
 export interface Label {

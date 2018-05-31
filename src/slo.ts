@@ -9,19 +9,22 @@ export function getRepoResults(repos: IssueResult[]) {
     const counts =
         {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo.repo};
     repo.issues.forEach(i => {
-      if (hasLabel(i, 'priority: p0')) {
+      if (isP0(i)) {
         counts.p0++;
         totals.p0++;
-      } else if (hasLabel(i, 'priority: p1')) {
+      } else if (isP1(i)) {
         counts.p1++;
         totals.p1++;
-      } else if (hasLabel(i, 'priority: p2')) {
+      } else if (isP2(i)) {
         counts.p2++;
         totals.p2++;
-      } else {
+      }
+
+      if (!isTriaged(i)) {
         counts.pX++;
         totals.pX++;
       }
+
       if (isOutOfSLO(i)) {
         counts.outOfSLO++;
         totals.outOfSLO++;
@@ -46,15 +49,18 @@ export function getLanguageResults(repos: IssueResult[]) {
   });
   issues.forEach(i => {
     const counts = results.get(i.language)!;
-    if (hasLabel(i, 'priority: p0')) {
+    if (isP0(i)) {
       counts.p0++;
-    } else if (hasLabel(i, 'priority: p1')) {
+    } else if (isP1(i)) {
       counts.p1++;
-    } else if (hasLabel(i, 'priority: p2')) {
+    } else if (isP2(i)) {
       counts.p2++;
-    } else {
+    }
+
+    if (!isTriaged(i)) {
       counts.pX++;
     }
+
     if (isOutOfSLO(i)) {
       counts.outOfSLO++;
     }
@@ -86,23 +92,55 @@ function isBug(i: Issue) {
   return hasLabel(i, 'type: bug');
 }
 
+function isP0(i: Issue) {
+  return hasLabel(i, 'priority: p0');
+}
+
+function isP1(i: Issue) {
+  return hasLabel(i, 'priority: p1');
+}
+
+function isP2(i: Issue) {
+  return hasLabel(i, 'priority: p2');
+}
+
+function isAssigned(i: Issue) {
+  return (i.assignee && i.assignee.length > 0) || i.assignees.length > 0;
+}
+
+function isPullRequest(i: Issue) {
+  return !!i.pull_request;
+}
+
 /**
  * Determine if an issue has been triaged. An issue is triaged if:
  * - It has a `priority` label OR
  * - It has a `type` label
  * - For `type: bug`, there must be a `priority` label
+ * - For a P0 or P1 issue, it must have an asignee
+ * - Pull requests don't count.
  * @param i Issue to analyze
  */
 function isTriaged(i: Issue) {
-  if (isBug(i)) {
-    return hasPriority(i);
+
+  if (isPullRequest(i)) {
+    return true;
   }
+
   if (hasPriority(i)) {
+    if(isP0(i) || isP1(i)) {
+      return isAssigned(i);
+    }
     return true;
   }
+
   if (hasType(i)) {
+    if (isBug(i)) {
+      return hasPriority(i);
+    }
     return true;
   }
+
   return false;
 }
 
