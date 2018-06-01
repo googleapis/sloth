@@ -210,6 +210,7 @@ export async function sendMail() {
   const issues = new Array<Issue>();
   repos.forEach(r => {
     r.issues.forEach(i => {
+      i.repo = r.repo.repo;
       issues.push(i)
     });
   });
@@ -220,11 +221,15 @@ export async function sendMail() {
   console.log(`Untriaged: ${untriagedIssues.length}`);
   console.log(`Out of SLO: ${outOfSLOIssues.length}`);
 
+  console.log(`repo,issue,title`);
   languages.forEach(l => {
     const untriaged = untriagedIssues.filter(x => x.language === l);
-    console.log(`Untriaged [${l}]: ${untriaged.length}`);
-
-    const outOfSLO = outOfSLOIssues.filter(x => x.language === l);
-    console.log(`Out of SLO [${l}]: ${outOfSLO.length}`);
+    console.log(`\n\n###\t${l}###`);
+    console.log(`Untriaged: ${untriaged.length}`);
+    untriaged.forEach(x => {
+      console.log(`${x.repo},${x.number},${x.title}`);
+    })
+    // const outOfSLO = outOfSLOIssues.filter(x => x.language === l);
+    // console.log(`Out of SLO [${l}]: ${outOfSLO.length}`);
   });
 }
