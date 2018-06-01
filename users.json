@@ -26,7 +26,18 @@
         "chrisdunelm",
         "tmatsuo",
         "jadekler",
-        "jba"
+        "jba",
+        "ofrobots",
+        "alexander-fenster",
+        "dazuma",
+        "stephenplusplus",
+        "callmehiphop",
+        "blowmage",
+        "quartzmo",
+        "jdpedrie",
+        "dwsupplee",
+        "tseaver",
+        "mcdonc"
       ]
     },
     {
@@ -80,7 +91,9 @@
       "users": [
         "justinbeckwith",
         "dazuma",
-        "TheRoyalTnetennba"
+        "TheRoyalTnetennba",
+        "blowmage",
+        "quartzmo"
       ],
       "repos": [
         "google/google-auth-library-ruby",
@@ -106,7 +119,9 @@
       "team": "yoshi-php",
       "users": [
         "justinbeckwith",
-        "tmatsuo"
+        "tmatsuo",
+        "jdpedrie",
+        "dwsupplee"
       ],
       "repos": [
         "google/google-api-php-client",
@@ -147,7 +162,9 @@
       "users": [
         "justinbeckwith",
         "theacodes",
-        "crwilcox"
+        "crwilcox",
+        "tseaver",
+        "mcdonc"
       ],
       "repos": [
         "google/google-api-python-client",

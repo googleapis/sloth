@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+import Octokit, { IssuesUpdateLabelParams } from '@octokit/rest';
 import {Label} from './types';
 import {labels, repos, octo} from './util';
 
@@ -23,10 +23,10 @@ export async function reconcileLabels() {
                     repo,
                     owner,
                     name: l.name,
-                    oldname: l.name,
+                    current_name: l.name,
                     description: match.description,
                     color: l.color
-                  })
+                  } as IssuesUpdateLabelParams)
                   .catch(e => {
                     console.error(
                         `Error updating label ${l.name} in ${owner}/${repo}`);

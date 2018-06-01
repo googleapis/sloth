@@ -13,7 +13,7 @@ export async function getIssues(): Promise<IssueResult[]> {
 async function getRepoIssues(repo: Repo): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
-  let res: Octokit.AnyResponse;
+  let res: any;
   let i = 1;
   do {
     try {

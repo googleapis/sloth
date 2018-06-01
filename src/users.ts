@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+import Octokit, { OrgsGetTeamMembersParams, OrgsAddTeamMembershipParams, OrgsRemoveTeamMembershipParams } from '@octokit/rest';
 import {Member, Team} from './types';
 import {users, octo} from './util';
 
@@ -14,7 +14,7 @@ export async function reconcileTeams() {
     const teams = new Array<Team>();
     let page = 1;
     const per_page = 100;
-    let res: Octokit.AnyResponse;
+    let res: any;
     console.log(`Fetching teams for ${org}...`);
     do {
       res = await octo.orgs.getTeams({ org, per_page, page});
@@ -65,7 +65,7 @@ export async function reconcileUsers() {
       }
 
       // get the current list of team members
-      const res = await octo.orgs.getTeamMembers({id: team.id, per_page: 100});
+      const res = await octo.orgs.getTeamMembers({team_id: team.id, per_page: 100} as OrgsGetTeamMembersParams);
       const currentMembers = res.data as Member[];
 
       // add any missing users
@@ -74,8 +74,8 @@ export async function reconcileUsers() {
             currentMembers.find(x => x.login.toLowerCase() === u.toLowerCase());
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.orgs.addTeamMembership({id: team.id, username: u})
-                        .catch(e => {
+          const p = octo.orgs.addTeamMembership({team_id: team.id, username: u} as OrgsAddTeamMembershipParams)
+                        .catch((e: Error) => {
                           console.error(
                               `Error adding ${u} to ${team.org}/${team.name}.`);
                           console.error(e);
@@ -91,8 +91,8 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
           const p =
-              octo.orgs.removeTeamMembership({id: team.id, username: u.login})
-                  .catch(e => {
+              octo.orgs.removeTeamMembership({team_id: team.id, username: u.login} as OrgsRemoveTeamMembershipParams)
+                  .catch((e: Error) => {
                     console.error(
                         `Error removing ${u.login} from ${team.name}.`);
                     console.error(e);
