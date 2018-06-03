@@ -73,6 +73,7 @@
         "googleapis/nodejs-logging",
         "googleapis/nodejs-logging-bunyan",
         "googleapis/nodejs-language",
+        "googleapis/nodejs-cloud-container",
         "googleapis/nodejs-dns",
         "googleapis/nodejs-dlp",
         "googleapis/nodejs-datastore",

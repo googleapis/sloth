@@ -46,6 +46,7 @@
     { "repo": "googleapis/nodejs-dlp", "language": "nodejs" },
     { "repo": "googleapis/nodejs-datastore", "language": "nodejs" },
     { "repo": "googleapis/nodejs-bigquery", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-cloud-container", "language": "nodejs" },
     { "repo": "googleapis/nodejs-proto-files", "language": "nodejs" },
     { "repo": "googleapis/nodejs-storage", "language": "nodejs" },
     { "repo": "google/google-p12-pem", "language": "nodejs" },
