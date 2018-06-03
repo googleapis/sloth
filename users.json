@@ -145,6 +145,8 @@
       "repos": [
         "google/google-api-java-client",
         "google/google-auth-library-java",
+        "google/google-http-java-client",
+        "google/google-oauth-java-client",
         "googleapis/api-common-java",
         "googleapis/gax-java",
         "googlecloudplatform/google-cloud-java"
