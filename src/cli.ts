@@ -5,7 +5,7 @@ import {getRepoResults, getLanguageResults, sendMail} from './slo';
 import {getIssues} from './issue';
 import {reconcileLabels} from './label';
 import mail from '@sendgrid/mail';
-import {reconcileUsers, reconcileTeams} from './users';
+import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 
 const cli = meow(
     `
@@ -18,6 +18,7 @@ const cli = meow(
 	Examples
     $ sloth
     $ sloth users
+    $ sloth repos
     $ sloth labels
     $ sloth --mail
     $ sloth --csv
@@ -111,6 +112,8 @@ if (cli.input.indexOf('labels') > -1) {
   reconcileLabels().catch(console.error);
 } else if (cli.input.indexOf('users') > -1) {
   reconcileUsers().catch(console.error);
+} else if (cli.input.indexOf('repos') > -1) {
+  reconcileRepos().catch(console.error);
 } else if (cli.input.indexOf('teams') > -1) {
   reconcileTeams().catch(console.error);
 } else if (cli.input.indexOf('mail') > -1) {

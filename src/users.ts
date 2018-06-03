@@ -45,7 +45,35 @@ export async function reconcileTeams() {
 }
 
 export async function reconcileRepos() {
+  const promises = new Array<Promise<Octokit.AnyResponse|void>>();
+  const teams = await reconcileTeams();
+  users.membership.forEach(m => {
+    m.repos.forEach(r => {
+      const [o, repo] = r.split('/');
+      const team = getTeam(m.team, o, teams);
+      if (!team) {
+        throw new Error(`Unable to find team '${m.team}`);
+      }
+      const p = octo.orgs.addTeamRepo({
+        id: team.id,
+        owner: o,
+        permission: "push",
+        repo: repo
+      } as Octokit.OrgsAddTeamRepoParams).catch(e => {
+        console.error(`Error adding ${r} to ${m.team}.`);
+        console.error(e);
+      });
+      promises.push(p);
+    });
+  });
+  await Promise.all(promises);
+}
 
+function getTeam(team: string, org: string, teams: Team[]) {
+  return teams.find(x => {
+    return x.name.toLowerCase() === team.toLowerCase() &&
+        x.org!.toLowerCase() === org.toLowerCase();
+  });
 }
 
 export async function reconcileUsers() {
@@ -53,19 +81,13 @@ export async function reconcileUsers() {
   const teams = await reconcileTeams();
   for (const o of users.orgs) {
     for (const m of users.membership) {
-      // find the team object that contains the org/team specific id for this
-      // team-name
-      const team = teams.find(x => {
-        return x.name.toLowerCase() === m.team.toLowerCase() &&
-            x.org!.toLowerCase() === o.toLowerCase();
-      })!;
-
+      const team = getTeam(m.team, o, teams);
       if (!team) {
-
+        throw new Error(`Unable to find team '${m.team}`);
       }
 
       // get the current list of team members
-      const res = await octo.orgs.getTeamMembers({team_id: team.id, per_page: 100} as OrgsGetTeamMembersParams);
+      const res = await octo.orgs.getTeamMembers({id: team.id, team_id: team.id, per_page: 100});
       const currentMembers = res.data as Member[];
 
       // add any missing users
@@ -74,8 +96,8 @@ export async function reconcileUsers() {
             currentMembers.find(x => x.login.toLowerCase() === u.toLowerCase());
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.orgs.addTeamMembership({team_id: team.id, username: u} as OrgsAddTeamMembershipParams)
-                        .catch((e: Error) => {
+          const p = octo.orgs.addTeamMembership({id: team.id, team_id: team.id, username: u})
+                        .catch(e => {
                           console.error(
                               `Error adding ${u} to ${team.org}/${team.name}.`);
                           console.error(e);
@@ -91,8 +113,8 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
           const p =
-              octo.orgs.removeTeamMembership({team_id: team.id, username: u.login} as OrgsRemoveTeamMembershipParams)
-                  .catch((e: Error) => {
+              octo.orgs.removeTeamMembership({id: team.id, team_id: team.id, username: u.login})
+                  .catch(e => {
                     console.error(
                         `Error removing ${u.login} from ${team.name}.`);
                     console.error(e);
