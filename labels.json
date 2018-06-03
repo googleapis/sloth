@@ -7,6 +7,11 @@
       "color": "f9d0c4"
     },
     {
+      "name": "needs more info",
+      "description": "This issue needs more information from the customer to proceed.",
+      "color": "5319e7"
+    },
+    {
       "name": "status: duplicate",
       "description": "Duplicate.",
       "color": "d4c5f9"
