@@ -169,31 +169,32 @@ function daysOld(date: string) {
  */
 function isOutOfSLO(i: Issue) {
   const d = new Date();
-  const hasType = i.labels.filter(x => x.name.startsWith('type:')).length > 0;
-  const isBug = hasLabel(i, 'type: bug');
-  const isP0 = hasLabel(i, 'priority: p0');
-  const isP1 = hasLabel(i, 'priority: p1');
-  const isP2 = hasLabel(i, 'priority: p2');
-  const hasPri = isP0 || isP1 || isP2;
 
   // If it has a priority, make sure it's in SLO
-  if (isP0) {
+  if (isP0(i)) {
     if (daysOld(i.created_at) > 5 || daysOld(i.updated_at) > 1) {
       return true;
     }
-  } else if (isP1) {
+  } else if (isP1(i)) {
     if (daysOld(i.created_at) > 42 || daysOld(i.updated_at) > 5) {
       return true;
     }
-  } else if (isP2) {
+  } else if (isP2(i)) {
     if (daysOld(i.created_at) > 180) {
       return true;
     }
   }
 
   // If it's a bug, make sure there's a priority
-  if (isBug && !hasPri) {
+  if (isBug(i) && !hasPriority(i)) {
     return true;
+  }
+
+  // If it's a feature request, make sure it's not too old
+  if (hasLabel(i, 'type: feature')) {
+    if (daysOld(i.created_at) > 180) {
+      return true;
+    }
   }
 
   // otherwise, check if it's less than 5 days old
