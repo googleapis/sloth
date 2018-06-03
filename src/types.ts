@@ -65,6 +65,7 @@ export interface Label {
 
 
 export interface RepoResult extends Result {
+  total: number;
   repo: string;
 }
 

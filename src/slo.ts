@@ -4,11 +4,14 @@ import { getIssues } from './issue';
 
 export function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
-  const totals = {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
+  const totals = {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
   repos.forEach(repo => {
     const counts =
-        {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo.repo};
+        {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo.repo};
     repo.issues.forEach(i => {
+      counts.total++;
+      totals.total++;
+
       if (isP0(i)) {
         counts.p0++;
         totals.p0++;
