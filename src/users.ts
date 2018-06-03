@@ -23,7 +23,7 @@ export async function reconcileTeams() {
         teams.push(t);
       });
       page++;
-    } while(res.meta.link && res.meta.link.indexOf('rel="last"') > -1)
+    } while(res.meta.link && res.meta.link.indexOf('rel="last"') > -1);
     console.log(`Found ${teams.length} teams in ${org}.`);
     teamMap.set(org, teams);
   });
@@ -33,7 +33,7 @@ export async function reconcileTeams() {
   users.membership.forEach(m => {
     users.orgs.forEach(async org => {
       const orgTeams = teamMap.get(org)!;
-      let match = orgTeams.find(x => x.name.toLowerCase() === m.team.toLowerCase())!;
+      const match = orgTeams.find(x => x.name.toLowerCase() === m.team.toLowerCase())!;
       if (!match) {
         throw new Error(`Team '${m.team}' does not exist in ${org}.`);
       }
@@ -58,7 +58,7 @@ export async function reconcileRepos() {
         id: team.id,
         owner: o,
         permission: "push",
-        repo: repo
+        repo
       } as Octokit.OrgsAddTeamRepoParams).catch(e => {
         console.error(`Error adding ${r} to ${m.team}.`);
         console.error(e);
