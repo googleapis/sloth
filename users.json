@@ -11,6 +11,9 @@
         "theacodes",
         "justinbeckwith",
         "danoscarmike"
+      ],
+      "repos": [
+
       ]
     },
     {
@@ -38,7 +41,8 @@
         "dwsupplee",
         "tseaver",
         "mcdonc"
-      ]
+      ],
+      "repos": []
     },
     {
       "team": "yoshi-nodejs",
@@ -83,7 +87,9 @@
         "justinbeckwith",
         "ofrobots",
         "kinwa91",
-        "alexander-fenster"
+        "alexander-fenster",
+        "stephenplusplus",
+        "callmehiphop"
       ]
     },
     {
