@@ -48,10 +48,11 @@ export function getLanguageResults(repos: IssueResult[]) {
     });
   });
   languages.forEach(l => {
-    results.set(l, {p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
+    results.set(l, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
   });
   issues.forEach(i => {
     const counts = results.get(i.language)!;
+    counts.total++;
     if (isP0(i)) {
       counts.p0++;
     } else if (isP1(i)) {

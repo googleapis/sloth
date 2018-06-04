@@ -66,7 +66,7 @@ async function getOutput() {
   // Show language based statistics
   const res = getLanguageResults(issues);
   const languageHeader =
-      ['Language', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
   let t2: Table;
   if (cli.flags.csv) {
     output.push('\n');
@@ -76,7 +76,7 @@ async function getOutput() {
   }
 
   res.forEach(x => {
-    const values = [`${x.language}`, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    const values = [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
     if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
