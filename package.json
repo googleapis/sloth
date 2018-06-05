@@ -31,7 +31,8 @@
     "@sendgrid/mail": "^6.2.1",
     "cli-table": "^0.3.1",
     "mail": "https://storage.googleapis.com/cloud-mail-client-libraries/cloudmail-v1alpha3-nodejs.tar.gz",
-    "meow": "^5.0.0"
+    "meow": "^5.0.0",
+    "truncate": "^2.0.1"
   },
   "devDependencies": {
     "@types/cli-table": "^0.3.0",

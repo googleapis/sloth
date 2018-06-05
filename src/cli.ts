@@ -2,7 +2,7 @@
 import Table = require('cli-table');
 import meow = require('meow');
 import {getRepoResults, getLanguageResults, sendMail} from './slo';
-import {getIssues} from './issue';
+import {getIssues, showIssues} from './issue';
 import {reconcileLabels} from './label';
 import mail from '@sendgrid/mail';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
@@ -17,6 +17,7 @@ const cli = meow(
 
 	Examples
     $ sloth
+    $ sloth issues [--csv]
     $ sloth users
     $ sloth repos
     $ sloth labels
@@ -112,6 +113,8 @@ if (cli.input.indexOf('labels') > -1) {
   reconcileLabels().catch(console.error);
 } else if (cli.input.indexOf('users') > -1) {
   reconcileUsers().catch(console.error);
+} else if (cli.input.indexOf('issues') > -1) {
+  showIssues(cli.flags.csv);
 } else if (cli.input.indexOf('repos') > -1) {
   reconcileRepos().catch(console.error);
 } else if (cli.input.indexOf('teams') > -1) {

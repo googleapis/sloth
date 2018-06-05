@@ -1,6 +1,8 @@
 import Octokit from '@octokit/rest';
 import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 import {octo, repos} from './util';
+import Table = require('cli-table');
+const truncate = require('truncate');
 
 export async function getIssues(): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
@@ -31,4 +33,41 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
     i++;
   } while (res.meta.link && res.meta.link.indexOf('rel="last"') > -1);
   return result;
+}
+
+export async function showIssues(csv: boolean) {
+  const repos = await getIssues();
+  const issues = new Array<Issue>();
+  repos.forEach(r => {
+    r.issues.forEach(i => {
+      i.repo = r.repo.repo;
+      issues.push(i)
+    });
+  });
+  let table: Table;
+  const output = new Array<string>();
+  const head = ['Repo', '#', 'Title'];
+  if (csv) {
+    output.push(head.join(','));
+  } else {
+    table = new Table({
+      head,
+      colWidths: [45, 5, 100]
+    });
+  }
+
+  issues.forEach(issue => {
+    const values = [`${issue.repo}`, issue.number, issue.title];
+    if (csv) {
+      output.push(values.join(','));
+    } else {
+      table.push(values);
+    }
+  });
+
+  if (table!) {
+    output.push(table!.toString());
+  }
+
+  output.forEach(l => console.log(l));
 }
