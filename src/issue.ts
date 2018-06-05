@@ -2,7 +2,6 @@ import Octokit from '@octokit/rest';
 import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 import {octo, repos} from './util';
 import Table = require('cli-table');
-const truncate = require('truncate');
 
 export async function getIssues(): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
@@ -15,6 +14,7 @@ export async function getIssues(): Promise<IssueResult[]> {
 async function getRepoIssues(repo: Repo): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
+  // tslint:disable-next-line no-any
   let res: any;
   let i = 1;
   do {
@@ -41,7 +41,7 @@ export async function showIssues(csv: boolean) {
   repos.forEach(r => {
     r.issues.forEach(i => {
       i.repo = r.repo.repo;
-      issues.push(i)
+      issues.push(i);
     });
   });
   let table: Table;
@@ -50,10 +50,7 @@ export async function showIssues(csv: boolean) {
   if (csv) {
     output.push(head.join(','));
   } else {
-    table = new Table({
-      head,
-      colWidths: [45, 5, 100]
-    });
+    table = new Table({head, colWidths: [45, 5, 100]});
   }
 
   issues.forEach(issue => {

@@ -1,6 +1,7 @@
-import Octokit, { IssuesUpdateLabelParams } from '@octokit/rest';
+import Octokit, {IssuesUpdateLabelParams} from '@octokit/rest';
+
 import {Label} from './types';
-import {labels, repos, octo} from './util';
+import {labels, octo, repos} from './util';
 
 export async function reconcileLabels() {
   const promises = new Array<Promise<Octokit.AnyResponse|void>>();

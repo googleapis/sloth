@@ -1,13 +1,20 @@
+import {getIssues} from './issue';
 import {Issue, IssueResult, LanguageResult, RepoResult} from './types';
 import {languages} from './util';
-import { getIssues } from './issue';
 
 export function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
   const totals = {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
   repos.forEach(repo => {
-    const counts =
-        {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, repo: repo.repo.repo};
+    const counts = {
+      total: 0,
+      p0: 0,
+      p1: 0,
+      p2: 0,
+      pX: 0,
+      outOfSLO: 0,
+      repo: repo.repo.repo
+    };
     repo.issues.forEach(i => {
       counts.total++;
       totals.total++;
@@ -48,7 +55,8 @@ export function getLanguageResults(repos: IssueResult[]) {
     });
   });
   languages.forEach(l => {
-    results.set(l, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
+    results.set(
+        l, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
   });
   issues.forEach(i => {
     const counts = results.get(i.language)!;
@@ -126,13 +134,12 @@ function isPullRequest(i: Issue) {
  * @param i Issue to analyze
  */
 function isTriaged(i: Issue) {
-
   if (isPullRequest(i)) {
     return true;
   }
 
   if (hasPriority(i)) {
-    if(isP0(i) || isP1(i)) {
+    if (isP0(i) || isP1(i)) {
       return isAssigned(i);
     }
     return true;
@@ -154,8 +161,7 @@ function isTriaged(i: Issue) {
  * @param label Label text to look for
  */
 function hasLabel(issue: Issue, label: string) {
-  return issue.labels
-             .filter(x => x.name.toLowerCase().indexOf(label) > -1)
+  return issue.labels.filter(x => x.name.toLowerCase().indexOf(label) > -1)
              .length > 0;
 }
 
@@ -216,11 +222,11 @@ export async function sendMail() {
   repos.forEach(r => {
     r.issues.forEach(i => {
       i.repo = r.repo.repo;
-      issues.push(i)
+      issues.push(i);
     });
   });
   console.log(`Issues: ${issues.length}`);
-  //const issues: Issue[] = [].concat.apply([], repos);
+  // const issues: Issue[] = [].concat.apply([], repos);
   const untriagedIssues = issues.filter(x => !isTriaged(x));
   const outOfSLOIssues = issues.filter(isOutOfSLO);
   console.log(`Untriaged: ${untriagedIssues.length}`);
@@ -233,7 +239,7 @@ export async function sendMail() {
     console.log(`Untriaged: ${untriaged.length}`);
     untriaged.forEach(x => {
       console.log(`${x.repo},${x.number},${x.title}`);
-    })
+    });
     // const outOfSLO = outOfSLOIssues.filter(x => x.language === l);
     // console.log(`Out of SLO [${l}]: ${outOfSLO.length}`);
   });

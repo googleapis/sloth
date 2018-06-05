@@ -4,7 +4,6 @@ import meow = require('meow');
 import {getRepoResults, getLanguageResults, sendMail} from './slo';
 import {getIssues, showIssues} from './issue';
 import {reconcileLabels} from './label';
-import mail from '@sendgrid/mail';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 
 const cli = meow(
@@ -43,8 +42,10 @@ async function getOutput() {
   }
 
   repos.forEach(repo => {
-    const values =
-        [`${repo.repo}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX, repo.outOfSLO];
+    const values = [
+      `${repo.repo}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX,
+      repo.outOfSLO
+    ];
     if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
@@ -52,8 +53,10 @@ async function getOutput() {
     }
   });
 
-  const values =
-      [`TOTALS`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX, totals.outOfSLO];
+  const values = [
+    `TOTALS`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
+    totals.outOfSLO
+  ];
   if (cli.flags.csv) {
     output.push(values.join(','));
   } else {
@@ -77,7 +80,8 @@ async function getOutput() {
   }
 
   res.forEach(x => {
-    const values = [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    const values =
+        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
     if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
@@ -90,18 +94,6 @@ async function getOutput() {
   }
 
   return output;
-}
-
-async function sendmail() {
-  const out = await getOutput();
-  mail.setApiKey(process.env.SENDGRID_KEY!);
-  const msg = {
-    to: 'beckwith@google.com',
-    from: 'node-team@google.com',
-    subject: 'Your daily SLO report',
-    text: out.join('<br>'),
-  };
-  await mail.send(msg);
 }
 
 async function main() {
@@ -119,12 +111,6 @@ if (cli.input.indexOf('labels') > -1) {
   reconcileRepos().catch(console.error);
 } else if (cli.input.indexOf('teams') > -1) {
   reconcileTeams().catch(console.error);
-} else if (cli.input.indexOf('mail') > -1) {
-  sendMail().catch(console.error);
 } else {
-  if (cli.flags.mail) {
-    sendmail().catch(console.error);
-  } else {
-    main().catch(console.error);
-  }
+  main().catch(console.error);
 }
