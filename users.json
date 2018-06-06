@@ -134,6 +134,7 @@
       "repos": [
         "google/google-api-php-client",
         "google/google-auth-library-php",
+        "google/google-api-php-client-services",
         "googleapis/gax-php",
         "googlecloudplatform/google-cloud-php"
       ]
@@ -164,7 +165,8 @@
       "repos": [
         "google/google-api-go-client",
         "googleapis/gax-go",
-        "googlecloudplatform/google-cloud-go"
+        "googlecloudplatform/google-cloud-go",
+        "googlecloudplatform/google-cloud-go-testing"
       ]
     },
     {
