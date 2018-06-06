@@ -185,21 +185,24 @@ export function isOutOfSLO(i: Issue) {
     return false;
   }
 
-  // All P0 issues must receive a reply within 1 day, an update at least daily, and be resolved within 5 days.
+  // All P0 issues must receive a reply within 1 day, an update at least daily,
+  // and be resolved within 5 days.
   if (isP0(i)) {
     if (daysOld(i.created_at) > 5 || daysOld(i.updated_at) > 1) {
       return true;
     }
   }
 
-  // All P1 issues must receive a reply within 5 days, an update at least every 5 days thereafter, and be resolved within 42 days (six weeks).
+  // All P1 issues must receive a reply within 5 days, an update at least every
+  // 5 days thereafter, and be resolved within 42 days (six weeks).
   if (isP1(i)) {
     if (daysOld(i.created_at) > 42 || daysOld(i.updated_at) > 5) {
       return true;
     }
   }
 
-  // All P2 issues must receive a reply within 5 days, and be resolved within 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
+  // All P2 issues must receive a reply within 5 days, and be resolved within
+  // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
   if (isP2(i)) {
     if (daysOld(i.created_at) > 180) {
       return true;
@@ -207,13 +210,15 @@ export function isOutOfSLO(i: Issue) {
   }
 
   // All questions must receive a reply within 5 days.
-  if(hasLabel(i, 'type: question')) {
+  if (hasLabel(i, 'type: question')) {
     if (!i.updated_at && daysOld(i.created_at) > 5) {
       return true;
     }
   }
 
-  // All feature requests must receive a reply within 5 days, and be resolved within 180 days. In this context, resolution may (and often will) entail simply relocating the feature request elsewhere.
+  // All feature requests must receive a reply within 5 days, and be resolved
+  // within 180 days. In this context, resolution may (and often will) entail
+  // simply relocating the feature request elsewhere.
   if (hasLabel(i, 'type: feature')) {
     if (!i.updated_at && daysOld(i.created_at) > 5) {
       return true;
