@@ -16,7 +16,7 @@ const cli = meow(
 
 	Examples
     $ sloth [--csv]
-    $ sloth issues [--csv][--untriaged][--outOfSLO][--language]
+    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repository]
     $ sloth users
     $ sloth repos
     $ sloth labels
@@ -26,6 +26,7 @@ const cli = meow(
       flags: {
         untriaged: {type: 'boolean'},
         language: {type: 'string', alias: 'l'},
+        repo: {type: 'string', alias: 'r'},
         outOfSLO: {type: 'boolean'},
         csv: {type: 'boolean'}
       }
@@ -114,8 +115,9 @@ if (cli.input.indexOf('labels') > -1) {
   showIssues({
     csv: cli.flags.csv,
     language: cli.flags.language,
-    outOfSLO: cli.flags.outOfSLO,
-    untriaged: cli.flags.untriaged
+    outOfSLO: cli.flags.outOfSlo,
+    untriaged: cli.flags.untriaged,
+    repository: cli.flags.repo
   });
 } else if (cli.input.indexOf('repos') > -1) {
   reconcileRepos().catch(console.error);

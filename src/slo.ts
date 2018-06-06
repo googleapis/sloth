@@ -180,35 +180,51 @@ function daysOld(date: string) {
 export function isOutOfSLO(i: Issue) {
   const d = new Date();
 
-  // If it has a priority, make sure it's in SLO
+  // Pull requests don't count.
+  if (isPullRequest(i)) {
+    return false;
+  }
+
+  // All P0 issues must receive a reply within 1 day, an update at least daily, and be resolved within 5 days.
   if (isP0(i)) {
     if (daysOld(i.created_at) > 5 || daysOld(i.updated_at) > 1) {
       return true;
     }
-  } else if (isP1(i)) {
+  }
+
+  // All P1 issues must receive a reply within 5 days, an update at least every 5 days thereafter, and be resolved within 42 days (six weeks).
+  if (isP1(i)) {
     if (daysOld(i.created_at) > 42 || daysOld(i.updated_at) > 5) {
       return true;
     }
-  } else if (isP2(i)) {
+  }
+
+  // All P2 issues must receive a reply within 5 days, and be resolved within 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
+  if (isP2(i)) {
     if (daysOld(i.created_at) > 180) {
       return true;
     }
   }
 
-  // If it's a bug, make sure there's a priority
-  if (isBug(i) && !hasPriority(i)) {
-    return true;
+  // All questions must receive a reply within 5 days.
+  if(hasLabel(i, 'type: question')) {
+    if (!i.updated_at && daysOld(i.created_at) > 5) {
+      return true;
+    }
   }
 
-  // If it's a feature request, make sure it's not too old
+  // All feature requests must receive a reply within 5 days, and be resolved within 180 days. In this context, resolution may (and often will) entail simply relocating the feature request elsewhere.
   if (hasLabel(i, 'type: feature')) {
+    if (!i.updated_at && daysOld(i.created_at) > 5) {
+      return true;
+    }
     if (daysOld(i.created_at) > 180) {
       return true;
     }
   }
 
-  // otherwise, check if it's less than 5 days old
-  if (daysOld(i.created_at) > 5) {
+  // Make sure if it hasn't been triaged, it's less than 5 days old
+  if (!isTriaged(i) && daysOld(i.created_at) > 5) {
     return true;
   }
 
