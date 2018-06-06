@@ -52,6 +52,8 @@ export interface Issue {
                   // GoogleCloudPlatform/google-cloud-node#2654_',
   reactions: {};  // [Object]
   pull_request: {};
+  isTriaged: boolean;
+  isOutOfSLO: boolean;
 }
 
 export interface Label {

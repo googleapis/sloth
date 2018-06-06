@@ -12,19 +12,24 @@ const cli = meow(
 	  $ sloth
 
 	Options
-	  --mail Send a mail with the contents
+    --csv Encode the data in CSV format
 
 	Examples
-    $ sloth
-    $ sloth issues [--csv]
+    $ sloth [--csv]
+    $ sloth issues [--csv][--untriaged][--outOfSLO][--language]
     $ sloth users
     $ sloth repos
     $ sloth labels
-    $ sloth --mail
-    $ sloth --csv
 
 `,
-    {flags: {mail: {type: 'boolean'}, csv: {type: 'boolean'}}});
+    {
+      flags: {
+        untriaged: {type: 'boolean'},
+        language: {type: 'string', alias: 'l'},
+        outOfSLO: {type: 'boolean'},
+        csv: {type: 'boolean'}
+      }
+    });
 
 async function getOutput() {
   const output = new Array<string>();
@@ -106,7 +111,12 @@ if (cli.input.indexOf('labels') > -1) {
 } else if (cli.input.indexOf('users') > -1) {
   reconcileUsers().catch(console.error);
 } else if (cli.input.indexOf('issues') > -1) {
-  showIssues(cli.flags.csv);
+  showIssues({
+    csv: cli.flags.csv,
+    language: cli.flags.language,
+    outOfSLO: cli.flags.outOfSLO,
+    untriaged: cli.flags.untriaged
+  });
 } else if (cli.input.indexOf('repos') > -1) {
   reconcileRepos().catch(console.error);
 } else if (cli.input.indexOf('teams') > -1) {

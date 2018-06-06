@@ -133,7 +133,7 @@ function isPullRequest(i: Issue) {
  * - Pull requests don't count.
  * @param i Issue to analyze
  */
-function isTriaged(i: Issue) {
+export function isTriaged(i: Issue) {
   if (isPullRequest(i)) {
     return true;
   }
@@ -177,7 +177,7 @@ function daysOld(date: string) {
  * For a given issue, figure out if it's out of SLO.
  * @param i Issue to analyze
  */
-function isOutOfSLO(i: Issue) {
+export function isOutOfSLO(i: Issue) {
   const d = new Date();
 
   // If it has a priority, make sure it's in SLO

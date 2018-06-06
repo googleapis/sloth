@@ -2,6 +2,7 @@ import Octokit from '@octokit/rest';
 import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 import {octo, repos} from './util';
 import Table = require('cli-table');
+import {isTriaged, isOutOfSLO} from './slo';
 
 export async function getIssues(): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
@@ -35,27 +36,55 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
   return result;
 }
 
-export async function showIssues(csv: boolean) {
+export interface IssueOptions {
+  csv?: boolean;
+  untriaged?: boolean;
+  outOfSLO?: boolean;
+  repository?: string;
+  language?: string;
+}
+
+export async function showIssues(options: IssueOptions) {
   const repos = await getIssues();
   const issues = new Array<Issue>();
   repos.forEach(r => {
-    r.issues.forEach(i => {
-      i.repo = r.repo.repo;
-      issues.push(i);
-    });
+    const includeL = !options.language ||
+        (options.language &&
+         options.language.toLowerCase() === r.repo.language.toLowerCase());
+    const includeR = !options.repository ||
+        (options.repository &&
+         options.repository.toLowerCase() === r.repo.repo.toLowerCase());
+    if (includeL && includeR) {
+      r.issues.forEach(i => {
+        i.isTriaged = isTriaged(i);
+        i.isOutOfSLO = isOutOfSLO(i);
+        i.repo = r.repo.repo;
+        if (options.untriaged || options.outOfSLO) {
+          if ((options.untriaged && !i.isTriaged) ||
+              (options.outOfSLO && i.isOutOfSLO)) {
+            issues.push(i);
+          }
+        } else {
+          issues.push(i);
+        }
+      });
+    }
   });
   let table: Table;
   const output = new Array<string>();
-  const head = ['Repo', '#', 'Title'];
-  if (csv) {
+  const head = ['Issue#', 'Triaged', 'OOSLO', 'Title'];
+  if (options.csv) {
     output.push(head.join(','));
   } else {
-    table = new Table({head, colWidths: [45, 5, 100]});
+    table = new Table({
+      head,
+      colWidths: [50, 10, 10, 80]
+    });
   }
 
   issues.forEach(issue => {
-    const values = [`${issue.repo}`, issue.number, issue.title];
-    if (csv) {
+    const values = [`${issue.repo}#${issue.number}`, issue.isTriaged, issue.isOutOfSLO, issue.title];
+    if (options.csv) {
       output.push(values.join(','));
     } else {
       table.push(values);
