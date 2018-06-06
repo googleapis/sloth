@@ -5,6 +5,7 @@ import {getRepoResults, getLanguageResults, sendMail} from './slo';
 import {getIssues, showIssues} from './issue';
 import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
+import {syncRepoSettings} from './repos';
 
 const cli = meow(
     `
@@ -20,6 +21,7 @@ const cli = meow(
     $ sloth users
     $ sloth repos
     $ sloth labels
+    $ sloth sync-repo-settings
 
 `,
     {
@@ -109,6 +111,8 @@ async function main() {
 
 if (cli.input.indexOf('labels') > -1) {
   reconcileLabels().catch(console.error);
+} else if (cli.input.indexOf('sync-repo-settings') > -1) {
+  syncRepoSettings().catch(console.error);
 } else if (cli.input.indexOf('users') > -1) {
   reconcileUsers().catch(console.error);
 } else if (cli.input.indexOf('issues') > -1) {
