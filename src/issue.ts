@@ -76,14 +76,14 @@ export async function showIssues(options: IssueOptions) {
   if (options.csv) {
     output.push(head.join(','));
   } else {
-    table = new Table({
-      head,
-      colWidths: [50, 10, 10, 80]
-    });
+    table = new Table({head, colWidths: [50, 10, 10, 80]});
   }
 
   issues.forEach(issue => {
-    const values = [`${issue.repo}#${issue.number}`, issue.isTriaged, issue.isOutOfSLO, issue.title];
+    const values = [
+      `${issue.repo}#${issue.number}`, issue.isTriaged, issue.isOutOfSLO,
+      issue.title
+    ];
     if (options.csv) {
       output.push(values.join(','));
     } else {
