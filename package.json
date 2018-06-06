@@ -8,7 +8,9 @@
   },
   "files": [
     "build/src",
-    "repos.json"
+    "repos.json",
+    "labels.json",
+    "users.json"
   ],
   "main": "build/src/sloth.js",
   "types": "build/src/sloth.d.ts",
