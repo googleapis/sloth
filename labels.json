@@ -75,6 +75,11 @@
       "name": "release blocking",
       "description": "Required feature/issue must be fixed prior to next release.",
       "color": "ffa03e"
+    },
+    {
+      "name": "type: docs",
+      "description": "Improvement to the documentation for an API.",
+      "color": "0000A0"
     }
   ]
 }
