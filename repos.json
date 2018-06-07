@@ -62,6 +62,7 @@
     { "repo": "googlecloudplatform/google-cloud-python", "language": "python" },
     { "repo": "googlecloudplatform/google-cloud-ruby", "language": "ruby" },
     { "repo": "google/google-http-java-client", "language": "java" },
-    { "repo": "google/google-oauth-java-client", "language": "java" }
+    { "repo": "google/google-oauth-java-client", "language": "java" },
+    { "repo": "GoogleCloudPlatform/cloud-trace-nodejs", "language": "nodejs" }
   ]
 }
