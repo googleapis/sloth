@@ -23,13 +23,13 @@ export async function syncRepoSettings() {
   console.log('Updating master branch protection...');
   const ps2 = repos.map(repo => {
     const [owner, name] = repo.repo.split('/');
-    return octo.repos.updateBranchProtection({
-      branch: "master",
-      owner,
-      repo: name,
-      required_pull_request_reviews: true,
-      enforce_admins: false
-    });
+    // return octo.repos.updateBranchProtection({
+    //   branch: "master",
+    //   owner,
+    //   repo: name,
+    //   required_pull_request_reviews: true,
+    //   enforce_admins: false
+    // });
   });
   await Promise.all(ps2);
 
