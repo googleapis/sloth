@@ -11,7 +11,7 @@ export async function syncRepoSettings() {
       repo: name,
       owner,
       allow_merge_commit: false,
-      allow_rebase_merge: false,
+      allow_rebase_merge: true,
       allow_squash_merge: true
     } as ReposEditParams).catch(e => {
       console.error(`Error changing repo settings on ${repo.repo}`);
