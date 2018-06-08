@@ -56,10 +56,18 @@ export async function tagIssues() {
       i.repo = name;
       i.owner = owner;
       if (!i.isTriaged && !hasLabel(i, 'triage me')) {
+        console.error(`Tagging ${i.repo}#${i.number} with 'triage me'`);
         promises.push(tagIssue(i, 'triage me'));
+      } else if (i.isTriaged && hasLabel(i, 'triage me')) {
+        console.error(`Un-Tagging ${i.repo}#${i.number} with 'triage me'`);
+        promises.push(untagIssue(i, 'triage me'));
       }
-      if (!i.isTriaged && !hasLabel(i, ':rotating_light:')) {
+      if (i.isOutOfSLO && !hasLabel(i, ':rotating_light:')) {
+        console.error(`Tagging ${i.repo}#${i.number} with '🚨'`);
         promises.push(tagIssue(i, ':rotating_light:'));
+      } else if (!i.isOutOfSLO && hasLabel(i, ':rotating_light:')) {
+        console.error(`Un-tagging ${i.repo}#${i.number} with '🚨'`);
+        promises.push(untagIssue(i, ':rotating_light:'));
       }
     });
   });
@@ -72,6 +80,17 @@ function tagIssue(i: Issue, label: string): Promise<void|Octokit.AnyResponse> {
           {labels: [label], number: i.number, owner: i.owner, repo: i.repo})
       .catch(e => {
         console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
+        console.error(e);
+      });
+}
+
+function untagIssue(
+    i: Issue, label: string): Promise<void|Octokit.AnyResponse> {
+  return octo.issues
+      .removeLabel(
+          {name: label, number: i.number, owner: i.owner, repo: i.repo})
+      .catch(e => {
+        console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
         console.error(e);
       });
 }
