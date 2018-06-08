@@ -3,6 +3,7 @@ import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 import {octo, repos} from './util';
 import Table = require('cli-table');
 import {isTriaged, isOutOfSLO} from './slo';
+const truncate = require('truncate');
 
 export async function getIssues(): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
@@ -72,17 +73,17 @@ export async function showIssues(options: IssueOptions) {
   });
   let table: Table;
   const output = new Array<string>();
-  const head = ['Issue#', 'Triaged', 'OOSLO', 'Title'];
+  const head = ['Issue#', 'Triaged', 'In SLO', 'Title'];
   if (options.csv) {
     output.push(head.join(','));
   } else {
-    table = new Table({head, colWidths: [50, 10, 10, 80]});
+    table = new Table({head});
   }
 
   issues.forEach(issue => {
     const values = [
-      `${issue.repo}#${issue.number}`, issue.isTriaged, issue.isOutOfSLO,
-      issue.title
+      `${issue.repo}#${issue.number}`, options.csv ? issue.isTriaged : (issue.isTriaged ? '🦖' : '🚨') , options.csv ? !issue.isOutOfSLO : (issue.isOutOfSLO ? '🦖' : '🚨'),
+      truncate(issue.title, 75)
     ];
     if (options.csv) {
       output.push(values.join(','));
