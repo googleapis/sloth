@@ -82,7 +82,9 @@ export async function showIssues(options: IssueOptions) {
 
   issues.forEach(issue => {
     const values = [
-      `${issue.repo}#${issue.number}`, options.csv ? issue.isTriaged : (issue.isTriaged ? '🦖' : '🚨') , options.csv ? !issue.isOutOfSLO : (issue.isOutOfSLO ? '🦖' : '🚨'),
+      `${issue.repo}#${issue.number}`,
+      options.csv ? issue.isTriaged : (issue.isTriaged ? '🦖' : '🚨'),
+      options.csv ? !issue.isOutOfSLO : (issue.isOutOfSLO ? '🦖' : '🚨'),
       truncate(issue.title, 75)
     ];
     if (options.csv) {
