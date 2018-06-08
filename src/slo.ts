@@ -160,7 +160,7 @@ export function isTriaged(i: Issue) {
  * @param issue Issue to analyze
  * @param label Label text to look for
  */
-function hasLabel(issue: Issue, label: string) {
+export function hasLabel(issue: Issue, label: string) {
   return issue.labels.filter(x => x.name.toLowerCase().indexOf(label) > -1)
              .length > 0;
 }

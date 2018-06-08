@@ -80,6 +80,17 @@
       "name": "type: docs",
       "description": "Improvement to the documentation for an API.",
       "color": "0000A0"
+    },
+    {
+      "name": ":rotating_light:",
+      "description": "This issue needs some love.",
+      "color": "FFFFFF"
+    },
+    {
+      "name": "triage me",
+      "description": "I really want to be triaged.",
+      "color": "FF69B4"
     }
+
   ]
 }
