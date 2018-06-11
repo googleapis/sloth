@@ -84,7 +84,8 @@
         "google/google-p12-pem",
         "google/node-gtoken",
         "googlecloudplatform/google-cloud-node",
-        "GoogleCloudPlatform/cloud-trace-nodejs"
+        "GoogleCloudPlatform/cloud-trace-nodejs",
+        "GoogleCloudPlatform/cloud-debug-nodejs"
       ],
       "users": [
         "justinbeckwith",
