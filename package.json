@@ -1,6 +1,6 @@
 {
   "name": "@justinbeckwith/sloth",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "repository": "justinbeckwith/sloth",
   "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
