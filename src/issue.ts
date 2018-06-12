@@ -2,7 +2,7 @@ import Octokit from '@octokit/rest';
 import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
 import {octo, repos} from './util';
 import Table = require('cli-table');
-import {isTriaged, isOutOfSLO, hasLabel} from './slo';
+import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest} from './slo';
 const truncate = require('truncate');
 
 export async function getIssues(): Promise<IssueResult[]> {
@@ -43,6 +43,7 @@ export interface IssueOptions {
   outOfSLO?: boolean;
   repository?: string;
   language?: string;
+  api?: string;
 }
 
 export async function tagIssues() {
@@ -99,27 +100,30 @@ export async function showIssues(options: IssueOptions) {
   const repos = await getIssues();
   const issues = new Array<Issue>();
   repos.forEach(r => {
-    const includeL = !options.language ||
-        (options.language &&
-         options.language.toLowerCase() === r.repo.language.toLowerCase());
-    const includeR = !options.repository ||
-        (options.repository &&
-         options.repository.toLowerCase() === r.repo.repo.toLowerCase());
-    if (includeL && includeR) {
-      r.issues.forEach(i => {
-        i.isTriaged = isTriaged(i);
-        i.isOutOfSLO = isOutOfSLO(i);
-        i.repo = r.repo.repo;
-        if (options.untriaged || options.outOfSLO) {
-          if ((options.untriaged && !i.isTriaged) ||
-              (options.outOfSLO && i.isOutOfSLO)) {
-            issues.push(i);
-          }
-        } else {
-          issues.push(i);
-        }
-      });
+    if (options.language && options.language.toLowerCase() !== r.repo.language.toLowerCase()) {
+      return;
     }
+    if (options.repository && options.repository.toLowerCase() !== r.repo.repo.toLowerCase()) {
+      return;
+    }
+    r.issues.forEach(i => {
+      i.repo = r.repo.repo;
+      if (isPullRequest(i)) {
+        return;
+      }
+      if (options.api && !isApi(i, options.api)) {
+        return;
+      }
+      i.isTriaged = isTriaged(i);
+      if (options.untriaged && i.isTriaged) {
+        return;
+      }
+      i.isOutOfSLO = isOutOfSLO(i);
+      if (options.outOfSLO && !i.isOutOfSLO) {
+        return;
+      }
+      issues.push(i);
+    });
   });
   let table: Table;
   const output = new Array<string>();

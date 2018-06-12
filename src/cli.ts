@@ -17,7 +17,7 @@ const cli = meow(
 
 	Examples
     $ sloth [--csv]
-    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repository]
+    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repository][--api]
     $ sloth tag-issues
     $ sloth users
     $ sloth repos
@@ -31,7 +31,8 @@ const cli = meow(
         language: {type: 'string', alias: 'l'},
         repo: {type: 'string', alias: 'r'},
         outOfSLO: {type: 'boolean'},
-        csv: {type: 'boolean'}
+        csv: {type: 'boolean'},
+        api: {type: 'string'}
       }
     });
 
@@ -124,7 +125,8 @@ if (cli.input.indexOf('labels') > -1) {
     language: cli.flags.language,
     outOfSLO: cli.flags.outOfSlo,
     untriaged: cli.flags.untriaged,
-    repository: cli.flags.repo
+    repository: cli.flags.repo,
+    api: cli.flags.api
   });
 } else if (cli.input.indexOf('repos') > -1) {
   reconcileRepos().catch(console.error);
