@@ -100,10 +100,12 @@ export async function showIssues(options: IssueOptions) {
   const repos = await getIssues();
   const issues = new Array<Issue>();
   repos.forEach(r => {
-    if (options.language && options.language.toLowerCase() !== r.repo.language.toLowerCase()) {
+    if (options.language &&
+        options.language.toLowerCase() !== r.repo.language.toLowerCase()) {
       return;
     }
-    if (options.repository && options.repository.toLowerCase() !== r.repo.repo.toLowerCase()) {
+    if (options.repository &&
+        options.repository.toLowerCase() !== r.repo.repo.toLowerCase()) {
       return;
     }
     r.issues.forEach(i => {

@@ -125,14 +125,14 @@ export function isPullRequest(i: Issue) {
 }
 
 export function isApi(i: Issue, api: string) {
-  for(const label of i.labels) {
+  for (const label of i.labels) {
     if (label.name.toLowerCase() === `api: ${api.toLowerCase()}`) {
       return true;
     }
   }
   // In node.js, we have separate repos for each API. We aren't looking for
   // a label, we're looking for a repo name.
-  if(i.repo.indexOf('nodejs-') > -1) {
+  if (i.repo.indexOf('nodejs-') > -1) {
     const label = i.repo.split('-')[1];
     if (api.toLowerCase() === label.toLowerCase()) {
       return true;
