@@ -14,8 +14,7 @@ export async function reconcileTeams() {
   const promises = users.orgs.map(async org => {
     const teams = new Array<Team>();
     let page = 1;
-    // tslint:disable-next-line no-any
-    let res: any;
+    let res: Octokit.AnyResponse;
     console.log(`Fetching teams for ${org}...`);
     do {
       res = await octo.orgs.getTeams({org, per_page: 100, page});
@@ -24,7 +23,8 @@ export async function reconcileTeams() {
         teams.push(t);
       });
       page++;
-    } while (res.meta.link && res.meta.link.indexOf('rel="last"') > -1);
+    } while (res && res.headers && res.headers.link &&
+             res.headers.link.indexOf('rel="last"') > -1);
     console.log(`Found ${teams.length} teams in ${org}.`);
     teamMap.set(org, teams);
   });

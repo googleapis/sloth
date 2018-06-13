@@ -16,8 +16,7 @@ export async function getIssues(): Promise<IssueResult[]> {
 async function getRepoIssues(repo: Repo): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
-  // tslint:disable-next-line no-any
-  let res: any;
+  let res: Octokit.AnyResponse;
   let i = 1;
   do {
     try {
@@ -33,7 +32,8 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
       result.issues.push(r);
     }
     i++;
-  } while (res.meta.link && res.meta.link.indexOf('rel="last"') > -1);
+  } while (res.headers && res.headers.link &&
+           res.headers.link.indexOf('rel="last"') > -1);
   return result;
 }
 
