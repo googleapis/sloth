@@ -1,4 +1,4 @@
-import Octokit, {AnyResponse} from '@octokit/rest';
+import Octokit from '@octokit/rest';
 
 import {Label, Repo, Users} from './types';
 

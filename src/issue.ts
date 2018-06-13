@@ -1,5 +1,5 @@
 import Octokit from '@octokit/rest';
-import {Issue, IssueResult, LanguageResult, Repo, RepoResult} from './types';
+import {Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
 import Table = require('cli-table');
 import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest} from './slo';

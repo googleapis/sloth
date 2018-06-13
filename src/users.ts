@@ -1,5 +1,4 @@
-import Octokit, {OrgsAddTeamMembershipParams, OrgsGetTeamMembersParams, OrgsRemoveTeamMembershipParams} from '@octokit/rest';
-
+import Octokit from '@octokit/rest';
 import {Member, Team} from './types';
 import {octo, users} from './util';
 

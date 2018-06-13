@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import Table = require('cli-table');
 import meow = require('meow');
-import {getRepoResults, getLanguageResults, sendMail} from './slo';
+import {getRepoResults, getLanguageResults} from './slo';
 import {getIssues, showIssues, tagIssues} from './issue';
 import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';

@@ -1,4 +1,4 @@
-import Octokit, {ReposEditParams} from '@octokit/rest';
+import {ReposEditParams} from '@octokit/rest';
 import {octo, repos} from './util';
 
 export async function syncRepoSettings() {
