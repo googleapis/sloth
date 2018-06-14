@@ -90,7 +90,21 @@
       "name": "triage me",
       "description": "I really want to be triaged.",
       "color": "FF69B4"
+    },
+    {
+      "name": "semver: major",
+      "description": "Hint for users that this is an API breaking change.",
+      "color": "7B241C"
+    },
+    {
+      "name": "semver: minor",
+      "description": "A new feature was added.  No breaking changes.",
+      "color": "27AE60"
+    },
+    {
+      "name": "semver: patch",
+      "description": "A minor bug fix or small change.",
+      "color": "D5F5E3"
     }
-
   ]
 }
