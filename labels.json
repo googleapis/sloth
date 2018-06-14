@@ -94,17 +94,17 @@
     {
       "name": "semver: major",
       "description": "Hint for users that this is an API breaking change.",
-      "color": "7B241C"
+      "color": "FF1053"
     },
     {
       "name": "semver: minor",
       "description": "A new feature was added.  No breaking changes.",
-      "color": "27AE60"
+      "color": "6C6EA0"
     },
     {
       "name": "semver: patch",
       "description": "A minor bug fix or small change.",
-      "color": "D5F5E3"
+      "color": "66C7F4"
     }
   ]
 }
