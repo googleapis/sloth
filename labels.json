@@ -9,7 +9,7 @@
     {
       "name": "needs more info",
       "description": "This issue needs more information from the customer to proceed.",
-      "color": "5319e7"
+      "color": "e0ff32"
     },
     {
       "name": "status: duplicate",
