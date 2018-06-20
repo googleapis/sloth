@@ -44,6 +44,7 @@ export interface IssueOptions {
   repository?: string;
   language?: string;
   api?: string;
+  pr?: boolean;
 }
 
 export async function tagIssues() {
@@ -110,8 +111,14 @@ export async function showIssues(options: IssueOptions) {
     }
     r.issues.forEach(i => {
       i.repo = r.repo.repo;
-      if (isPullRequest(i)) {
-        return;
+      if (options.pr) {
+        if (!isPullRequest(i)) {
+          return;
+        }
+      } else {
+        if (isPullRequest(i)) {
+          return;
+        }
       }
       if (options.api && !isApi(i, options.api)) {
         return;
