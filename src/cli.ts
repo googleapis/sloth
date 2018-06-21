@@ -6,6 +6,11 @@ import {getIssues, showIssues, tagIssues} from './issue';
 import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 import {syncRepoSettings} from './repos';
+import updateNotifier from 'update-notifier';
+
+const pkg = require('../../package.json');
+
+updateNotifier({pkg}).notify();
 
 const cli = meow(
     `
