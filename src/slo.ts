@@ -190,6 +190,15 @@ function daysOld(date: string) {
   return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60 / 24;
 }
 
+
+/**
+ * Determine how many hours old an issue is
+ * @param date Date to compare
+ */
+export function hoursOld(date: string) {
+  return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60;
+}
+
 /**
  * For a given issue, figure out if it's out of SLO.
  * @param i Issue to analyze

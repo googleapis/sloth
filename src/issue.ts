@@ -2,7 +2,7 @@ import Octokit from '@octokit/rest';
 import {Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
 import Table = require('cli-table');
-import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest} from './slo';
+import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest, hoursOld} from './slo';
 const truncate = require('truncate');
 
 export async function getIssues(): Promise<IssueResult[]> {
@@ -57,18 +57,19 @@ export async function tagIssues() {
       i.isOutOfSLO = isOutOfSLO(i);
       i.repo = name;
       i.owner = owner;
-      if (!i.isTriaged && !hasLabel(i, 'triage me')) {
-        console.error(`Tagging ${i.repo}#${i.number} with 'triage me'`);
+      if (!i.isTriaged && !hasLabel(i, 'triage me') &&
+          hoursOld(i.created_at) > 16) {
+        console.log(`Tagging ${i.repo}#${i.number} with 'triage me'`);
         promises.push(tagIssue(i, 'triage me'));
       } else if (i.isTriaged && hasLabel(i, 'triage me')) {
-        console.error(`Un-Tagging ${i.repo}#${i.number} with 'triage me'`);
+        console.log(`Un-Tagging ${i.repo}#${i.number} with 'triage me'`);
         promises.push(untagIssue(i, 'triage me'));
       }
       if (i.isOutOfSLO && !hasLabel(i, ':rotating_light:')) {
-        console.error(`Tagging ${i.repo}#${i.number} with '🚨'`);
+        console.log(`Tagging ${i.repo}#${i.number} with '🚨'`);
         promises.push(tagIssue(i, ':rotating_light:'));
       } else if (!i.isOutOfSLO && hasLabel(i, ':rotating_light:')) {
-        console.error(`Un-tagging ${i.repo}#${i.number} with '🚨'`);
+        console.log(`Un-tagging ${i.repo}#${i.number} with '🚨'`);
         promises.push(untagIssue(i, ':rotating_light:'));
       }
     });
