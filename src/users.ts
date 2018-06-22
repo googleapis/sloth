@@ -61,7 +61,7 @@ export async function reconcileRepos() {
                         Octokit.OrgsAddTeamRepoParams)
                     .catch(e => {
                       console.error(`Error adding ${r} to ${m.team}.`);
-                      console.error(e);
+                      //console.error(e);
                     });
       promises.push(p);
     });
@@ -103,7 +103,7 @@ export async function reconcileUsers() {
                         .catch(e => {
                           console.error(
                               `Error adding ${u} to ${team.org}/${team.name}.`);
-                          console.error(e);
+                          //console.error(e);
                         });
           promises.push(p);
         }
@@ -121,7 +121,7 @@ export async function reconcileUsers() {
                         .catch(e => {
                           console.error(
                               `Error removing ${u.login} from ${team.name}.`);
-                          console.error(e);
+                          //console.error(e);
                         });
           promises.push(p);
         }
