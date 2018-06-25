@@ -24,15 +24,13 @@ export async function syncRepoSettings() {
   console.log(`Adding kokoro-team user as an admin...`);
   const ps2 = repos.map(repo => {
     const [owner, name] = repo.repo.split('/');
-    return octo.repos.addCollaborator({
-      owner,
-      permission: 'admin',
-      repo: name,
-      username: 'kokoro-team'
-    }).catch(e => {
-      console.error(`Error adding kokoro-team to ${repo.repo}`);
-      console.error(e);
-    });
+    return octo.repos
+        .addCollaborator(
+            {owner, permission: 'admin', repo: name, username: 'kokoro-team'})
+        .catch(e => {
+          console.error(`Error adding kokoro-team to ${repo.repo}`);
+          console.error(e);
+        });
   });
   await Promise.all(ps2);
 
