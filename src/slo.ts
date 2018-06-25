@@ -249,9 +249,10 @@ export function isOutOfSLO(i: Issue) {
     if (!i.updated_at && daysOld(i.created_at) > 5) {
       return true;
     }
-    if (daysOld(i.created_at) > 180) {
-      return true;
-    }
+    // We decided in a team meeting to drop this requirement.
+    // if (daysOld(i.created_at) > 180) {
+    //   return true;
+    // }
   }
 
   // Make sure if it hasn't been triaged, it's less than 5 days old
