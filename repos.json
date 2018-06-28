@@ -53,6 +53,8 @@
     { "repo": "googleapis/nodejs-storage", "language": "nodejs" },
     { "repo": "google/google-p12-pem", "language": "nodejs" },
     { "repo": "google/node-gtoken", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-tasks", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-redis", "language": "nodejs" },
     { "repo": "googlecloudplatform/google-auth-library-python", "language": "python" },
     { "repo": "googlecloudplatform/google-cloud-dotnet", "language": "dotnet" },
     { "repo": "googlecloudplatform/google-cloud-go", "language": "go" },
