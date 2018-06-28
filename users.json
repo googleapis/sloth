@@ -84,6 +84,7 @@
         "googleapis/nodejs-proto-files",
         "googleapis/nodejs-storage",
         "googleapis/nodejs-tasks",
+        "googleapis/nodejs-redis",
         "google/google-p12-pem",
         "google/node-gtoken",
         "googlecloudplatform/google-cloud-node",
