@@ -89,7 +89,8 @@
         "google/node-gtoken",
         "googlecloudplatform/google-cloud-node",
         "GoogleCloudPlatform/cloud-trace-nodejs",
-        "GoogleCloudPlatform/cloud-debug-nodejs"
+        "GoogleCloudPlatform/cloud-debug-nodejs",
+        "googleapis/github-repo-automation"
       ],
       "users": [
         "justinbeckwith",
@@ -192,7 +193,9 @@
         "google/google-api-python-client",
         "google/oauth2client",
         "googlecloudplatform/google-auth-library-python",
-        "googlecloudplatform/google-cloud-python"
+        "googlecloudplatform/google-cloud-python",
+        "GoogleCloudPlatform/synthtool",
+        "GoogleCloudPlatform/releasetool"
       ]
     }
   ]

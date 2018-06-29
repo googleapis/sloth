@@ -66,6 +66,9 @@
     { "repo": "google/google-http-java-client", "language": "java" },
     { "repo": "google/google-oauth-java-client", "language": "java" },
     { "repo": "GoogleCloudPlatform/cloud-trace-nodejs", "language": "nodejs" },
-    { "repo": "GoogleCloudPlatform/cloud-debug-nodejs", "language": "nodejs" }
+    { "repo": "GoogleCloudPlatform/cloud-debug-nodejs", "language": "nodejs" },
+    { "repo": "googleapis/github-repo-automation", "language": "nodejs" },
+    { "repo": "GoogleCloudPlatform/synthtool", "language": "python" },
+    { "repo": "GoogleCloudPlatform/releasetool", "language": "python" }
   ]
 }
