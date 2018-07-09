@@ -69,6 +69,7 @@
     { "repo": "GoogleCloudPlatform/cloud-debug-nodejs", "language": "nodejs" },
     { "repo": "googleapis/github-repo-automation", "language": "nodejs" },
     { "repo": "GoogleCloudPlatform/synthtool", "language": "python" },
-    { "repo": "GoogleCloudPlatform/releasetool", "language": "python" }
+    { "repo": "GoogleCloudPlatform/releasetool", "language": "python" },
+    { "repo": "GoogleCloudPlatform/google-cloud-python-happybase", "language": "python" }
   ]
 }

@@ -196,7 +196,8 @@
         "googlecloudplatform/google-auth-library-python",
         "googlecloudplatform/google-cloud-python",
         "GoogleCloudPlatform/synthtool",
-        "GoogleCloudPlatform/releasetool"
+        "GoogleCloudPlatform/releasetool",
+        "GoogleCloudPlatform/google-cloud-python-happybase"
       ]
     }
   ]
