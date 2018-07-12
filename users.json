@@ -45,7 +45,12 @@
         "chingor13",
         "sduskis"
       ],
-      "repos": []
+      "repos": [
+        "googleapis/discovery-artifact-manager",
+        "GoogleCloudPlatform/synthtool",
+        "GoogleCloudPlatform/releasetool",
+        "googleapis/github-repo-automation"
+      ]
     },
     {
       "team": "yoshi-nodejs",
@@ -89,8 +94,7 @@
         "google/node-gtoken",
         "googlecloudplatform/google-cloud-node",
         "GoogleCloudPlatform/cloud-trace-nodejs",
-        "GoogleCloudPlatform/cloud-debug-nodejs",
-        "googleapis/github-repo-automation"
+        "GoogleCloudPlatform/cloud-debug-nodejs"
       ],
       "users": [
         "justinbeckwith",
@@ -196,8 +200,6 @@
         "google/oauth2client",
         "googlecloudplatform/google-auth-library-python",
         "googlecloudplatform/google-cloud-python",
-        "GoogleCloudPlatform/synthtool",
-        "GoogleCloudPlatform/releasetool",
         "GoogleCloudPlatform/google-cloud-python-happybase"
       ]
     }

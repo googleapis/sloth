@@ -70,6 +70,7 @@
     { "repo": "googleapis/github-repo-automation", "language": "nodejs" },
     { "repo": "GoogleCloudPlatform/synthtool", "language": "python" },
     { "repo": "GoogleCloudPlatform/releasetool", "language": "python" },
-    { "repo": "GoogleCloudPlatform/google-cloud-python-happybase", "language": "python" }
+    { "repo": "GoogleCloudPlatform/google-cloud-python-happybase", "language": "python" },
+    { "repo": "googleapis/discovery-artifact-manager", "language": "ruby" }
   ]
 }
