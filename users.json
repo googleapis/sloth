@@ -91,11 +91,13 @@
         "googleapis/nodejs-storage",
         "googleapis/nodejs-tasks",
         "googleapis/nodejs-redis",
+        "googleapis/nodejs-automl",
         "google/google-p12-pem",
         "google/node-gtoken",
         "googlecloudplatform/google-cloud-node",
         "GoogleCloudPlatform/cloud-trace-nodejs",
-        "GoogleCloudPlatform/cloud-debug-nodejs"
+        "GoogleCloudPlatform/cloud-debug-nodejs",
+        "GoogleCloudPlatform/cloud-profiler-nodejs"
       ],
       "users": [
         "justinbeckwith",

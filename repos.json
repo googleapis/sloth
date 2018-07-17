@@ -51,6 +51,7 @@
     { "repo": "googleapis/nodejs-cloud-container", "language": "nodejs" },
     { "repo": "googleapis/nodejs-proto-files", "language": "nodejs" },
     { "repo": "googleapis/nodejs-storage", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-automl", "language": "nodejs" },
     { "repo": "google/google-p12-pem", "language": "nodejs" },
     { "repo": "google/node-gtoken", "language": "nodejs" },
     { "repo": "googleapis/nodejs-tasks", "language": "nodejs" },
