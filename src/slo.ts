@@ -1,6 +1,8 @@
 import {getIssues} from './issue';
 import {Issue, IssueResult, LanguageResult, RepoResult} from './types';
 import {languages} from './util';
+import Table = require('cli-table');
+import * as meow from 'meow';
 
 export function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
@@ -45,13 +47,15 @@ export function getRepoResults(repos: IssueResult[]) {
   return {repos: results, totals};
 }
 
-export function getLanguageResults(repos: IssueResult[]) {
+export function getLanguageResults(repos: IssueResult[], api?: string) {
   const results = new Map<string, LanguageResult>();
   const issues = new Array<Issue>();
   repos.forEach(r => {
     r.issues.forEach(i => {
       i.language = r.repo.language;
-      issues.push(i);
+      if (!api || isApi(i, api)) {
+        issues.push(i);
+      }
     });
   });
   languages.forEach(l => {
@@ -291,4 +295,76 @@ export async function sendMail() {
     // const outOfSLO = outOfSLOIssues.filter(x => x.language === l);
     // console.log(`Out of SLO [${l}]: ${outOfSLO.length}`);
   });
+}
+
+export async function showSLOs(cli: meow.Result) {
+  const output = new Array<string>();
+  const issues = await getIssues();
+
+  if (!cli.flags.api) {
+    // Show repo based statistics
+    const {repos, totals} = getRepoResults(issues);
+
+    let table: Table;
+    const head = ['Repo', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+    if (cli.flags.csv) {
+      output.push(head.join(','));
+    } else {
+      table = new Table({head});
+    }
+
+    repos.forEach(repo => {
+      const values = [
+        `${repo.repo}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX,
+        repo.outOfSLO
+      ];
+      if (cli.flags.csv) {
+        output.push(values.join(','));
+      } else {
+        table.push(values);
+      }
+    });
+
+    const values = [
+      `TOTALS`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
+      totals.outOfSLO
+    ];
+    if (cli.flags.csv) {
+      output.push(values.join(','));
+    } else {
+      table!.push(values);
+    }
+
+    if (table!) {
+      output.push(table!.toString());
+    }
+  }
+
+  // Show language based statistics
+  const res = getLanguageResults(issues, cli.flags.api);
+  const languageHeader =
+      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  let t2: Table;
+  if (cli.flags.csv) {
+    output.push('\n');
+    output.push(languageHeader.join(','));
+  } else {
+    t2 = new Table({head: languageHeader});
+  }
+
+  res.forEach(x => {
+    const values =
+        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    if (cli.flags.csv) {
+      output.push(values.join(','));
+    } else {
+      t2.push(values);
+    }
+  });
+
+  if (t2!) {
+    output.push(t2!.toString());
+  }
+
+  output.forEach(l => console.log(l));
 }

@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-import Table = require('cli-table');
-import meow = require('meow');
-import {getRepoResults, getLanguageResults} from './slo';
-import {getIssues, showIssues, tagIssues} from './issue';
+import * as meow from 'meow';
+import {showSLOs} from './slo';
+import {showIssues, tagIssues} from './issue';
 import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 import {syncRepoSettings} from './repos';
-import updateNotifier from 'update-notifier';
+import * as updateNotifier from 'update-notifier';
 
 const pkg = require('../../package.json');
 
@@ -18,11 +17,17 @@ const cli = meow(
 	  $ sloth
 
 	Options
-    --csv Encode the data in CSV format
+    --csv         Encode the data in CSV format
+    --api         Filter results by a specific API
+    --untriaged   Filter by untriaged issues
+    --outOfSLO    Filter by issues that are out of SLO
+    --language    Filter by a given language
+    --repo        Filter by a given repository
+    --pr          Filter to show only PRs
 
 	Examples
-    $ sloth [--csv]
-    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repository][--api][--pr]
+    $ sloth [--csv][--api]
+    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr]
     $ sloth tag-issues
     $ sloth users
     $ sloth repos
@@ -42,103 +47,36 @@ const cli = meow(
       }
     });
 
-async function getOutput() {
-  const output = new Array<string>();
-  const issues = await getIssues();
+const cmd = cli.input.length > 0 ? cli.input[0] : null;
+let p: Promise<void|{}>;
 
-  // Show repo based statistics
-  const {repos, totals} = getRepoResults(issues);
-
-  let table: Table;
-  const head = ['Repo', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
-  if (cli.flags.csv) {
-    output.push(head.join(','));
-  } else {
-    table = new Table({head});
-  }
-
-  repos.forEach(repo => {
-    const values = [
-      `${repo.repo}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX,
-      repo.outOfSLO
-    ];
-    if (cli.flags.csv) {
-      output.push(values.join(','));
-    } else {
-      table.push(values);
-    }
-  });
-
-  const values = [
-    `TOTALS`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
-    totals.outOfSLO
-  ];
-  if (cli.flags.csv) {
-    output.push(values.join(','));
-  } else {
-    table!.push(values);
-  }
-
-  if (table!) {
-    output.push(table!.toString());
-  }
-
-  // Show language based statistics
-  const res = getLanguageResults(issues);
-  const languageHeader =
-      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
-  let t2: Table;
-  if (cli.flags.csv) {
-    output.push('\n');
-    output.push(languageHeader.join(','));
-  } else {
-    t2 = new Table({head: languageHeader});
-  }
-
-  res.forEach(x => {
-    const values =
-        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
-    if (cli.flags.csv) {
-      output.push(values.join(','));
-    } else {
-      t2.push(values);
-    }
-  });
-
-  if (t2!) {
-    output.push(t2!.toString());
-  }
-
-  return output;
+switch (cmd) {
+  case 'labels':
+    p = reconcileLabels();
+    break;
+  case 'sync-repo-settings':
+    p = syncRepoSettings();
+    break;
+  case 'tag-issues':
+    p = tagIssues();
+    break;
+  case 'users':
+    p = reconcileUsers();
+    break;
+  case 'issues':
+    p = showIssues(cli.flags);
+    break;
+  case 'repos':
+    p = reconcileRepos();
+    break;
+  case 'teams':
+    p = reconcileTeams();
+    break;
+  case null:
+    p = showSLOs(cli);
+    break;
+  default:
+    cli.showHelp();
 }
 
-async function main() {
-  const out = await getOutput();
-  out.forEach(l => console.log(l));
-}
-
-if (cli.input.indexOf('labels') > -1) {
-  reconcileLabels().catch(console.error);
-} else if (cli.input.indexOf('sync-repo-settings') > -1) {
-  syncRepoSettings().catch(console.error);
-} else if (cli.input.indexOf('tag-issues') > -1) {
-  tagIssues().catch(console.error);
-} else if (cli.input.indexOf('users') > -1) {
-  reconcileUsers().catch(console.error);
-} else if (cli.input.indexOf('issues') > -1) {
-  showIssues({
-    csv: cli.flags.csv,
-    language: cli.flags.language,
-    outOfSLO: cli.flags.outOfSlo,
-    untriaged: cli.flags.untriaged,
-    repository: cli.flags.repo,
-    api: cli.flags.api,
-    pr: cli.flags.pr
-  });
-} else if (cli.input.indexOf('repos') > -1) {
-  reconcileRepos().catch(console.error);
-} else if (cli.input.indexOf('teams') > -1) {
-  reconcileTeams().catch(console.error);
-} else {
-  main().catch(console.error);
-}
+p!.catch(console.error);

@@ -1,6 +1,8 @@
-import Octokit from '@octokit/rest';
-import {Issue, IssueResult, Repo} from './types';
+import * as Octokit from '@octokit/rest';
+
+import {Flags, Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
+
 import Table = require('cli-table');
 import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest, hoursOld} from './slo';
 const truncate = require('truncate');
@@ -29,6 +31,7 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
     }
     for (const r of res.data) {
       r.language = repo.language;
+      r.repo = repo.repo;
       result.issues.push(r);
     }
     i++;
@@ -98,7 +101,16 @@ function untagIssue(
       });
 }
 
-export async function showIssues(options: IssueOptions) {
+export async function showIssues(flags: Flags) {
+  const options = {
+    csv: flags.csv,
+    language: flags.language,
+    outOfSLO: flags.outOfSlo,
+    untriaged: flags.untriaged,
+    repo: flags.repo,
+    api: flags.api,
+    pr: flags.pr
+  };
   const repos = await getIssues();
   const issues = new Array<Issue>();
   repos.forEach(r => {
@@ -106,8 +118,8 @@ export async function showIssues(options: IssueOptions) {
         options.language.toLowerCase() !== r.repo.language.toLowerCase()) {
       return;
     }
-    if (options.repository &&
-        options.repository.toLowerCase() !== r.repo.repo.toLowerCase()) {
+    if (options.repo &&
+        options.repo.toLowerCase() !== r.repo.repo.toLowerCase()) {
       return;
     }
     r.issues.forEach(i => {

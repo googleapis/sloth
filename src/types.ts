@@ -131,3 +131,8 @@ export interface Organization {
   avatar_url: string;   // "https://github.com/images/error/octocat_happy.gif",
   description: string;  // "A great organization"
 }
+
+export interface Flags {
+  // tslint:disable-next-line no-any
+  [index: string]: any;
+}

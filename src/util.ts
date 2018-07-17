@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+import * as Octokit from '@octokit/rest';
 
 import {Label, Repo, Users} from './types';
 

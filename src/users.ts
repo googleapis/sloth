@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+import * as Octokit from '@octokit/rest';
 import {Member, Team} from './types';
 import {octo, users} from './util';
 
