@@ -146,7 +146,7 @@ export async function showIssues(options: IssueOptions) {
 
   issues.forEach(issue => {
     const values = [
-      `${issue.repo}#${issue.number}`,
+      issue.html_url,
       options.csv ? issue.isTriaged : (issue.isTriaged ? '🦖' : '🚨'),
       options.csv ? !issue.isOutOfSLO : (!issue.isOutOfSLO ? '🦖' : '🚨'),
       truncate(issue.title, 75)
