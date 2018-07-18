@@ -4,7 +4,7 @@ import {languages} from './util';
 import Table = require('cli-table');
 import * as meow from 'meow';
 
-export function getRepoResults(repos: IssueResult[]) {
+function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
   const totals = {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
   repos.forEach(repo => {
@@ -18,6 +18,9 @@ export function getRepoResults(repos: IssueResult[]) {
       repo: repo.repo.repo
     };
     repo.issues.forEach(i => {
+      if (isPullRequest(i)) {
+        return;
+      }
       counts.total++;
       totals.total++;
 
@@ -47,15 +50,19 @@ export function getRepoResults(repos: IssueResult[]) {
   return {repos: results, totals};
 }
 
-export function getLanguageResults(repos: IssueResult[], api?: string) {
+function getLanguageResults(repos: IssueResult[], api?: string) {
   const results = new Map<string, LanguageResult>();
   const issues = new Array<Issue>();
   repos.forEach(r => {
     r.issues.forEach(i => {
       i.language = r.repo.language;
-      if (!api || isApi(i, api)) {
-        issues.push(i);
+      if (isPullRequest(i)) {
+        return;
       }
+      if (api && !isApi(i, api)) {
+        return;
+      }
+      issues.push(i);
     });
   });
   languages.forEach(l => {
@@ -208,8 +215,6 @@ export function hoursOld(date: string) {
  * @param i Issue to analyze
  */
 export function isOutOfSLO(i: Issue) {
-  const d = new Date();
-
   // Pull requests don't count.
   if (isPullRequest(i)) {
     return false;
