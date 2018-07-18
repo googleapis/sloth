@@ -103,7 +103,7 @@ export async function reconcileUsers() {
                         .catch(e => {
                           console.error(
                               `Error adding ${u} to ${team.org}/${team.name}.`);
-                          // console.error(e);
+                          console.error(e.message);
                         });
           promises.push(p);
         }
