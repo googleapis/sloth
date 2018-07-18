@@ -26,6 +26,8 @@
     { "repo": "googleapis/nodejs-bigtable", "language": "nodejs" },
     { "repo": "googleapis/nodejs-common-grpc", "language": "nodejs" },
     { "repo": "googleapis/nodejs-common", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-kms", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-iot", "language": "nodejs" },
     { "repo": "googleapis/nodejs-error-reporting", "language": "nodejs" },
     { "repo": "googleapis/nodejs-redis", "language": "nodejs" },
     { "repo": "googleapis/nodejs-vision", "language": "nodejs" },
