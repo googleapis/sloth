@@ -100,7 +100,10 @@
         "googlecloudplatform/google-cloud-node",
         "GoogleCloudPlatform/cloud-trace-nodejs",
         "GoogleCloudPlatform/cloud-debug-nodejs",
-        "GoogleCloudPlatform/cloud-profiler-nodejs"
+        "GoogleCloudPlatform/cloud-profiler-nodejs",
+        "googleapis/nodejs-promisify",
+        "googleapis/nodejs-projectify",
+        "googleapis/nodejs-paginator"
       ],
       "users": [
         "justinbeckwith",
