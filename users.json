@@ -131,6 +131,7 @@
       "repos": [
         "google/google-auth-library-ruby",
         "google/google-api-ruby-client",
+        "google/signet",
         "googleapis/gax-ruby",
         "googlecloudplatform/google-cloud-ruby"
       ]
