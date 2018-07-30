@@ -103,7 +103,11 @@
         "GoogleCloudPlatform/cloud-profiler-nodejs",
         "googleapis/nodejs-promisify",
         "googleapis/nodejs-projectify",
-        "googleapis/nodejs-paginator"
+        "googleapis/nodejs-paginator",
+        "GoogleCloudPlatform/gcs-resumable-upload",
+        "GoogleCloudPlatform/gcp-metadata",
+        "GoogleCloudPlatform/google-cloud-kvstore",
+        "GoogleCloudPlatform/gce-images"
       ],
       "users": [
         "justinbeckwith",
