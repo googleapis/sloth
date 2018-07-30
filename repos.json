@@ -13,6 +13,7 @@
     { "repo": "google/google-auth-library-nodejs", "language": "nodejs" },
     { "repo": "google/google-auth-library-php", "language": "php" },
     { "repo": "google/google-auth-library-ruby", "language": "ruby" },
+    { "repo": "google/signet", "language": "ruby" },
     { "repo": "google/oauth2client", "language": "python" },
     { "repo": "googleapis/gax-dotnet", "language": "dotnet" },
     { "repo": "googleapis/gax-go", "language": "go" },
