@@ -77,6 +77,10 @@
     { "repo": "GoogleCloudPlatform/synthtool", "language": "python" },
     { "repo": "GoogleCloudPlatform/releasetool", "language": "python" },
     { "repo": "GoogleCloudPlatform/google-cloud-python-happybase", "language": "python" },
-    { "repo": "googleapis/discovery-artifact-manager", "language": "ruby" }
+    { "repo": "googleapis/discovery-artifact-manager", "language": "ruby" },
+    { "repo": "GoogleCloudPlatform/gcs-resumable-upload", "language": "nodejs" },
+    { "repo": "GoogleCloudPlatform/gcp-metadata", "language": "nodejs" },
+    { "repo": "GoogleCloudPlatform/google-cloud-kvstore", "language": "nodejs" },
+    { "repo": "GoogleCloudPlatform/gce-images", "language": "nodejs" }
   ]
 }
