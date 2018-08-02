@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
+
 export interface IssueResult {
   issues: Issue[];
   repo: Repo;
@@ -148,4 +150,16 @@ export interface Organization {
 export interface Flags {
   // tslint:disable-next-line no-any
   [index: string]: any;
+}
+
+export interface GetBranchProtectionResult {
+  enabled: boolean;
+  required_status_checks: ReposUpdateBranchProtectionParamsRequiredStatusChecks;
+}
+
+export interface GetBranchResult {
+  name: string;
+
+  protected: boolean;
+  protection?: GetBranchProtectionResult;
 }

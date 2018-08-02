@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {ReposEditParams} from '@octokit/rest';
+import {ReposEditParams, ReposUpdateBranchProtectionParamsRequiredStatusChecks, ReposUpdateBranchProtectionParamsRestrictions} from '@octokit/rest';
+import {GetBranchResult} from './types';
 import {octo, repos} from './util';
 
 export async function syncRepoSettings() {
@@ -51,15 +52,32 @@ export async function syncRepoSettings() {
   console.log('Updating master branch protection...');
   const ps3 = repos.map(repo => {
     const [owner, name] = repo.repo.split('/');
-    // return octo.repos.updateBranchProtection({
-    //   branch: "master",
-    //   owner,
-    //   repo: name,
-    //   required_pull_request_reviews: true,
-    //   enforce_admins: false,
-    //   required_status_checks: {
-    //   }
-    // });
+    return octo.repos.getBranch({branch: 'master', owner, repo: name})
+        .then(result => {
+          const branch = result.data as GetBranchResult;
+          let statusChecks:
+              ReposUpdateBranchProtectionParamsRequiredStatusChecks = {
+                strict: false,
+                contexts: []
+              };
+          const restrictions:
+              ReposUpdateBranchProtectionParamsRestrictions = {};
+          if (branch.protection) {
+            statusChecks = branch.protection.required_status_checks;
+          }
+          return octo.repos.updateBranchProtection({
+            branch: 'master',
+            owner,
+            repo: name,
+            required_pull_request_reviews: {
+              dismiss_stale_reviews: false,
+              require_code_owner_reviews: false
+            },
+            required_status_checks: statusChecks,
+            enforce_admins: true,
+            restrictions
+          });
+        });
   });
   await Promise.all(ps3);
 }
