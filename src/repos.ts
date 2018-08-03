@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {ReposEditParams} from '@octokit/rest';
+import {ReposEditParams, ReposUpdateBranchProtectionParamsRequiredStatusChecks, ReposUpdateBranchProtectionParamsRestrictions} from '@octokit/rest';
+import {GetBranchResult} from './types';
 import {octo, repos} from './util';
 
 export async function syncRepoSettings() {
@@ -35,31 +36,39 @@ export async function syncRepoSettings() {
   });
   await Promise.all(ps);
 
-  console.log(`Adding kokoro-team user as an admin...`);
-  const ps2 = repos.map(repo => {
-    const [owner, name] = repo.repo.split('/');
-    return octo.repos
-        .addCollaborator(
-            {owner, permission: 'admin', repo: name, username: 'kokoro-team'})
-        .catch(e => {
-          console.error(`Error adding kokoro-team to ${repo.repo}`);
-          console.error(e);
-        });
-  });
-  await Promise.all(ps2);
-
   console.log('Updating master branch protection...');
   const ps3 = repos.map(repo => {
     const [owner, name] = repo.repo.split('/');
-    // return octo.repos.updateBranchProtection({
-    //   branch: "master",
-    //   owner,
-    //   repo: name,
-    //   required_pull_request_reviews: true,
-    //   enforce_admins: false,
-    //   required_status_checks: {
-    //   }
-    // });
+    return octo.repos.getBranch({branch: 'master', owner, repo: name})
+        .then(result => {
+          const branch = result.data as GetBranchResult;
+          let statusChecks:
+              ReposUpdateBranchProtectionParamsRequiredStatusChecks = {
+                strict: true,
+                contexts: []
+              };
+          if (branch.protection && branch.protection.required_status_checks) {
+            statusChecks = branch.protection.required_status_checks;
+            statusChecks.strict = true;
+          }
+          return octo.repos
+              .updateBranchProtection({
+                branch: 'master',
+                owner,
+                repo: name,
+                required_pull_request_reviews: {
+                  dismiss_stale_reviews: false,
+                  require_code_owner_reviews: false
+                },
+                required_status_checks: statusChecks,
+                enforce_admins: true,
+                restrictions: null!
+              })
+              .catch(e => {
+                console.error(`Error updating ${repo.repo}`);
+                console.error(e);
+              });
+        });
   });
   await Promise.all(ps3);
 }
