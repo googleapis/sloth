@@ -73,7 +73,7 @@ export async function syncRepoSettings() {
                           require_code_owner_reviews: false
                         },
                         required_status_checks: statusChecks,
-                        enforce_admins: true,
+                        enforce_admins: false,
                         restrictions: null!
                       })
                       .catch(e => {
