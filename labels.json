@@ -104,6 +104,11 @@
       "name": "semver: patch",
       "description": "A minor bug fix or small change.",
       "color": "66C7F4"
+    },
+    {
+      "name": "kokoro:force-run",
+      "description": "Add this label to force Kokoro to re-run the tests.",
+      "color": "C1FFB2"
     }
   ]
 }
