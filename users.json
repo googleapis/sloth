@@ -108,7 +108,8 @@
         "GoogleCloudPlatform/gcs-resumable-upload",
         "GoogleCloudPlatform/gcp-metadata",
         "GoogleCloudPlatform/google-cloud-kvstore",
-        "GoogleCloudPlatform/gce-images"
+        "GoogleCloudPlatform/gce-images",
+        "googleapis/nodejs-googleapis-common"
       ],
       "users": [
         "justinbeckwith",
