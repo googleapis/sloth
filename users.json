@@ -46,7 +46,11 @@
         "chingor13",
         "sduskis",
         "busunkim96",
-        "mattwhisenhunt"
+        "mattwhisenhunt",
+        "dhermes",
+        "dpebot",
+        "jmdobry",
+        "becca"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -209,7 +213,8 @@
         "crwilcox",
         "tseaver",
         "mcdonc",
-        "sduskis"
+        "sduskis",
+        "dhermes"
       ],
       "repos": [
         "google/google-api-python-client",
