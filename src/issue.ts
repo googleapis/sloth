@@ -96,8 +96,13 @@ export async function tagIssues() {
 
 function tagIssue(i: Issue, label: string): Promise<void|Octokit.AnyResponse> {
   return octo.issues
-      .addLabels(
-          {labels: [label], number: i.number, owner: i.owner, repo: i.repo})
+      .addLabels({
+        labels: [label],
+        number: i.number,
+        owner: i.owner,
+        repo: i.repo
+        // tslint:disable-next-line no-any
+      } as any)
       .catch(e => {
         console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
         console.error(e);
