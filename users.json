@@ -50,7 +50,9 @@
         "dhermes",
         "dpebot",
         "jmdobry",
-        "becca"
+        "becca",
+        "amanda-tarafa",
+        "evildour"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -147,7 +149,9 @@
       "users": [
         "justinbeckwith",
         "jskeet",
-        "chrisdunelm"
+        "chrisdunelm",
+        "amanda-tarafa",
+        "evildour"
       ],
       "repos": [
         "google/google-api-dotnet-client",
