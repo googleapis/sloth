@@ -115,7 +115,8 @@
         "GoogleCloudPlatform/gcp-metadata",
         "GoogleCloudPlatform/google-cloud-kvstore",
         "GoogleCloudPlatform/gce-images",
-        "googleapis/nodejs-googleapis-common"
+        "googleapis/nodejs-googleapis-common",
+        "googleapis/nodejs-asset"
       ],
       "users": [
         "justinbeckwith",
