@@ -29,7 +29,8 @@ function getRepoResults(repos: IssueResult[]) {
       p2: 0,
       pX: 0,
       outOfSLO: 0,
-      repo: repo.repo.repo
+      repo: repo.repo.repo,
+      repoLanguage: repo.repo.language
     };
     repo.issues.forEach(i => {
       if (isPullRequest(i)) {
@@ -325,7 +326,10 @@ export async function showSLOs(cli: meow.Result) {
     const {repos, totals} = getRepoResults(issues);
 
     let table: Table;
-    const head = ['Repo', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+    const head = [
+      'Repo', 'Repo Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged',
+      'Out of SLO'
+    ];
     if (cli.flags.csv) {
       output.push(head.join(','));
     } else {
@@ -334,8 +338,8 @@ export async function showSLOs(cli: meow.Result) {
 
     repos.forEach(repo => {
       const values = [
-        `${repo.repo}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX,
-        repo.outOfSLO
+        `${repo.repo}`, `${repo.repoLanguage}`, repo.total, repo.p0, repo.p1,
+        repo.p2, repo.pX, repo.outOfSLO
       ];
       if (cli.flags.csv) {
         output.push(values.join(','));
@@ -345,7 +349,7 @@ export async function showSLOs(cli: meow.Result) {
     });
 
     const values = [
-      `TOTALS`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
+      `TOTALS`, `-`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
       totals.outOfSLO
     ];
     if (cli.flags.csv) {

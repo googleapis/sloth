@@ -83,6 +83,7 @@ export interface Label {
 
 export interface RepoResult extends Result {
   repo: string;
+  repoLanguage: string;
 }
 
 export interface LanguageResult extends Result {
