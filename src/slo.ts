@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {getIssues} from './issue';
-import {Issue, IssueResult, LanguageResult, RepoResult} from './types';
-import {languages} from './util';
+import { getIssues } from './issue';
+import { Issue, IssueResult, LanguageResult, RepoResult } from './types';
+import { languages } from './util';
 import Table = require('cli-table');
 import * as meow from 'meow';
 
 function getRepoResults(repos: IssueResult[]) {
   const results = new Array<RepoResult>();
-  const totals = {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0};
+  const totals = { total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0 };
   repos.forEach(repo => {
     const counts = {
       total: 0,
@@ -29,7 +29,8 @@ function getRepoResults(repos: IssueResult[]) {
       p2: 0,
       pX: 0,
       outOfSLO: 0,
-      repo: repo.repo.repo
+      repo: repo.repo.repo,
+      repoLanguage: repo.repo.language
     };
     repo.issues.forEach(i => {
       if (isPullRequest(i)) {
@@ -61,7 +62,7 @@ function getRepoResults(repos: IssueResult[]) {
     });
     results.push(counts);
   });
-  return {repos: results, totals};
+  return { repos: results, totals };
 }
 
 function getLanguageResults(repos: IssueResult[], api?: string) {
@@ -81,7 +82,7 @@ function getLanguageResults(repos: IssueResult[], api?: string) {
   });
   languages.forEach(l => {
     results.set(
-        l, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
+      l, { total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l });
   });
   issues.forEach(i => {
     const counts = results.get(i.language)!;
@@ -204,7 +205,7 @@ export function isTriaged(i: Issue) {
  */
 export function hasLabel(issue: Issue, label: string) {
   return issue.labels.filter(x => x.name.toLowerCase().indexOf(label) > -1)
-             .length > 0;
+    .length > 0;
 }
 
 /**
@@ -322,19 +323,19 @@ export async function showSLOs(cli: meow.Result) {
 
   if (!cli.flags.api) {
     // Show repo based statistics
-    const {repos, totals} = getRepoResults(issues);
+    const { repos, totals } = getRepoResults(issues);
 
     let table: Table;
-    const head = ['Repo', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+    const head = ['Repo', 'Repo Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
     if (cli.flags.csv) {
       output.push(head.join(','));
     } else {
-      table = new Table({head});
+      table = new Table({ head });
     }
 
     repos.forEach(repo => {
       const values = [
-        `${repo.repo}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX,
+        `${repo.repo}`, `${repo.repoLanguage}`, repo.total, repo.p0, repo.p1, repo.p2, repo.pX,
         repo.outOfSLO
       ];
       if (cli.flags.csv) {
@@ -345,7 +346,7 @@ export async function showSLOs(cli: meow.Result) {
     });
 
     const values = [
-      `TOTALS`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
+      `TOTALS`, `-`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
       totals.outOfSLO
     ];
     if (cli.flags.csv) {
@@ -362,18 +363,18 @@ export async function showSLOs(cli: meow.Result) {
   // Show language based statistics
   const res = getLanguageResults(issues, cli.flags.api);
   const languageHeader =
-      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+    ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
   let t2: Table;
   if (cli.flags.csv) {
     output.push('\n');
     output.push(languageHeader.join(','));
   } else {
-    t2 = new Table({head: languageHeader});
+    t2 = new Table({ head: languageHeader });
   }
 
   res.forEach(x => {
     const values =
-        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+      [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
     if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
