@@ -4,7 +4,6 @@
     { "repo": "google/google-api-go-client", "language": "go" },
     { "repo": "GoogleCloudPlatform/google-cloud-go-testing", "language": "go" },
     { "repo": "google/google-api-java-client", "language": "java" },
-    { "repo": "googleapis/google-api-java-client-services", "language": "java" },
     { "repo": "google/google-api-nodejs-client", "language": "nodejs" },
     { "repo": "google/google-api-php-client", "language": "php" },
     { "repo": "google/google-api-php-client-services", "language": "php" },
