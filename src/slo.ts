@@ -327,8 +327,7 @@ export async function showSLOs(cli: meow.Result) {
 
     let table: Table;
     const head = [
-      'Repo', 'Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged',
-      'Out of SLO'
+      'Repo', 'Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'
     ];
     if (cli.flags.csv) {
       output.push(head.join(','));
