@@ -76,32 +76,36 @@ export async function reconcileRepos() {
 
       // Add the language specific team
       await (octo.orgs
-        .addTeamRepo({team_id: team.id, owner: o, permission: 'push', repo})
-        .catch(e => {
-          console.error(`Error adding ${r} to ${m.team}.`);
-        })
-      );
+                 .addTeamRepo(
+                     {team_id: team.id, owner: o, permission: 'push', repo})
+                 .catch(e => {
+                   console.error(`Error adding ${r} to ${m.team}.`);
+                 }));
 
       // Add the yoshi admins team
       await (octo.orgs
-        .addTeamRepo({team_id: yoshiAdmins!.id, owner: o, permission: 'admin', repo})
-        .catch(e => {
-          console.error(`Error adding ${r} to 'yoshi-admins'.`);
-          console.error(e);
-        })
-      );
+                 .addTeamRepo({
+                   team_id: yoshiAdmins!.id,
+                   owner: o,
+                   permission: 'admin',
+                   repo
+                 })
+                 .catch(e => {
+                   console.error(`Error adding ${r} to 'yoshi-admins'.`);
+                   console.error(e);
+                 }));
 
       // Add the yoshi team
-      await (octo.orgs
-        .addTeamRepo({team_id: yoshiTeam!.id, owner: o, permission: 'pull', repo})
-        .catch(e => {
-          console.error(`Error adding ${r} to 'yoshi'.`);
-        })
-      );
-
+      await (
+          octo.orgs
+              .addTeamRepo(
+                  {team_id: yoshiTeam!.id, owner: o, permission: 'pull', repo})
+              .catch(e => {
+                console.error(`Error adding ${r} to 'yoshi'.`);
+              }));
     });
   });
-  //await Promise.all(promises);
+  // await Promise.all(promises);
 }
 
 function getTeam(team: string, org: string, teams: Team[]) {
