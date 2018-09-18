@@ -116,7 +116,8 @@
         "googleapis/google-cloud-kvstore",
         "googleapis/gce-images",
         "googleapis/nodejs-googleapis-common",
-        "googleapis/nodejs-asset"
+        "googleapis/nodejs-asset",
+        "GoogleCloudPlatform/sloth"
       ],
       "users": [
         "justinbeckwith",

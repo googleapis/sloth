@@ -85,6 +85,7 @@
     { "repo": "googleapis/google-cloud-kvstore", "language": "nodejs" },
     { "repo": "googleapis/gce-images", "language": "nodejs" },
     { "repo": "googleapis/nodejs-googleapis-common", "language": "nodejs" },
-    { "repo": "googleapis/nodejs-asset", "language": "nodejs" }
+    { "repo": "googleapis/nodejs-asset", "language": "nodejs" },
+    { "repo": "GoogleCloudPlatform/sloth", "language": "nodejs" }
   ]
 }
