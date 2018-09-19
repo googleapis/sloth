@@ -86,6 +86,7 @@
     { "repo": "googleapis/gce-images", "language": "nodejs" },
     { "repo": "googleapis/nodejs-googleapis-common", "language": "nodejs" },
     { "repo": "googleapis/nodejs-asset", "language": "nodejs" },
-    { "repo": "GoogleCloudPlatform/sloth", "language": "nodejs" }
+    { "repo": "GoogleCloudPlatform/sloth", "language": "nodejs" },
+    { "repo": "googleapis/elixir-google-api", "language": "elixir" }
   ]
 }

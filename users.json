@@ -230,6 +230,17 @@
         "googlecloudplatform/google-cloud-python",
         "GoogleCloudPlatform/google-cloud-python-happybase"
       ]
+    },
+    {
+      "team": "yoshi-elixir",
+      "users": [
+        "justinbeckwith",
+        "dazuma",
+        "chingor"
+      ],
+      "repos": [
+        "googleapis/elixir-google-api"
+      ]
     }
   ]
 }
