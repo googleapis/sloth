@@ -117,7 +117,8 @@
         "googleapis/gce-images",
         "googleapis/nodejs-googleapis-common",
         "googleapis/nodejs-asset",
-        "GoogleCloudPlatform/sloth"
+        "GoogleCloudPlatform/sloth",
+        "nodejs-dialogflow"
       ],
       "users": [
         "justinbeckwith",
@@ -228,7 +229,8 @@
         "googleapis/oauth2client",
         "googlecloudplatform/google-auth-library-python",
         "googlecloudplatform/google-cloud-python",
-        "GoogleCloudPlatform/google-cloud-python-happybase"
+        "GoogleCloudPlatform/google-cloud-python-happybase",
+        "googleapis/dialogflow-python-client-v2"
       ]
     },
     {
