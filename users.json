@@ -104,7 +104,7 @@
         "googleapis/nodejs-iot",
         "googleapis/google-p12-pem",
         "googleapis/node-gtoken",
-        "googlecloudplatform/google-cloud-node",
+        "googleapis/google-cloud-node",
         "googleapis/cloud-trace-nodejs",
         "googleapis/cloud-debug-nodejs",
         "GoogleCloudPlatform/cloud-profiler-nodejs",
@@ -117,8 +117,8 @@
         "googleapis/gce-images",
         "googleapis/nodejs-googleapis-common",
         "googleapis/nodejs-asset",
-        "GoogleCloudPlatform/sloth",
-        "nodejs-dialogflow"
+        "googleapis/sloth",
+        "googleapis/nodejs-dialogflow"
       ],
       "users": [
         "justinbeckwith",
@@ -144,7 +144,7 @@
         "googleapis/google-api-ruby-client",
         "googleapis/signet",
         "googleapis/gax-ruby",
-        "googlecloudplatform/google-cloud-ruby"
+        "googleapis/google-cloud-ruby"
       ]
     },
     {
@@ -159,7 +159,7 @@
       "repos": [
         "googleapis/google-api-dotnet-client",
         "googleapis/gax-dotnet",
-        "googlecloudplatform/google-cloud-dotnet"
+        "googleapis/google-cloud-dotnet"
       ]
     },
     {
@@ -228,7 +228,7 @@
         "googleapis/oauth2client",
         "googlecloudplatform/google-auth-library-python",
         "googlecloudplatform/google-cloud-python",
-        "GoogleCloudPlatform/google-cloud-python-happybase",
+        "googleapis/google-cloud-python-happybase",
         "googleapis/dialogflow-python-client-v2"
       ]
     },
