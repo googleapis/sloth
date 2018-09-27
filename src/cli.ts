@@ -15,7 +15,7 @@
 // limitations under the License.
 
 import * as meow from 'meow';
-import {showSLOs} from './slo';
+import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
 import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
@@ -43,6 +43,7 @@ const cli = meow(
 	Examples
     $ sloth [--csv][--api]
     $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr]
+    $ sloth apis
     $ sloth tag-issues
     $ sloth users
     $ sloth repos
@@ -86,6 +87,12 @@ switch (cmd) {
     break;
   case 'teams':
     p = reconcileTeams();
+    break;
+  case 'apis':
+    p = showApiSLOs(cli);
+    break;
+  case 'languages':
+    p = showLanguageSLOs(cli);
     break;
   case null:
     p = showSLOs(cli);
