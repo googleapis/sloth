@@ -205,6 +205,18 @@ export function isApi(i: Issue, api: string) {
   return (label === api);
 }
 
+export function getPri(i: Issue) {
+  if (isP0(i)) {
+    return 'P0';
+  } else if (isP1(i)) {
+    return 'P1';
+  } else if (isP2(i)) {
+    return 'P2';
+  } else {
+    return '';
+  }
+}
+
 export function getApi(i: Issue) {
   for (const label of i.labels) {
     const name = label.name.toLowerCase();

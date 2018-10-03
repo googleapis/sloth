@@ -26,6 +26,7 @@ export interface Member {
 
 export interface Issue {
   api?: string;
+  pri?: string;
   language: string;
   repo: string;
   owner: string;
