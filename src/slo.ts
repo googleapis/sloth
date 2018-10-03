@@ -13,8 +13,9 @@
 // limitations under the License.
 
 import {getIssues} from './issue';
-import {Issue, IssueResult, LanguageResult, RepoResult} from './types';
+import {ApiResult, Issue, IssueResult, LanguageResult, RepoResult} from './types';
 import {languages} from './util';
+
 import Table = require('cli-table');
 import * as meow from 'meow';
 
@@ -106,6 +107,55 @@ function getLanguageResults(repos: IssueResult[], api?: string) {
   return results;
 }
 
+
+function getApiResults(repos: IssueResult[], api?: string) {
+  const results = new Map<string, ApiResult>();
+  const apis = new Map<string, Issue[]>();
+  repos.forEach(r => {
+    r.issues.forEach(i => {
+      if (isPullRequest(i)) {
+        return;
+      }
+      if (api && !isApi(i, api)) {
+        return;
+      }
+      const apiLabel = getApi(i);
+      i.api = apiLabel;
+      if (apiLabel) {
+        const apiSet = apis.get(apiLabel);
+        if (apiSet) {
+          apiSet.push(i);
+        } else {
+          apis.set(apiLabel, [i]);
+        }
+      }
+    });
+  });
+
+  apis.forEach((issues, api) => {
+    results.set(api, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, api});
+    issues.forEach(i => {
+      const counts = results.get(api)!;
+      counts.total++;
+      if (isP0(i)) {
+        counts.p0++;
+      } else if (isP1(i)) {
+        counts.p1++;
+      } else if (isP2(i)) {
+        counts.p2++;
+      }
+      if (!isTriaged(i)) {
+        counts.pX++;
+      }
+      if (isOutOfSLO(i)) {
+        counts.outOfSLO++;
+      }
+    });
+  });
+  const sortedResults = new Map([...results.entries()].sort());
+  return sortedResults;
+}
+
 /**
  * Determine if an issue has a `priority: ` label.
  * @param i Issue to analyze
@@ -151,20 +201,23 @@ export function isPullRequest(i: Issue) {
 }
 
 export function isApi(i: Issue, api: string) {
+  const label = getApi(i);
+  return (label === api);
+}
+
+export function getApi(i: Issue) {
   for (const label of i.labels) {
-    if (label.name.toLowerCase() === `api: ${api.toLowerCase()}`) {
-      return true;
+    const name = label.name.toLowerCase();
+    if (name.startsWith('api: ')) {
+      return name.slice(5);
     }
   }
   // In node.js, we have separate repos for each API. We aren't looking for
   // a label, we're looking for a repo name.
-  if (i.repo.indexOf('nodejs-') > -1) {
-    const label = i.repo.split('-')[1];
-    if (api.toLowerCase() === label.toLowerCase()) {
-      return true;
-    }
+  if (i.repo.startsWith('nodejs-')) {
+    return i.repo.split('-')[1];
   }
-  return false;
+  return undefined;
 }
 
 /**
@@ -321,6 +374,62 @@ export async function sendMail() {
   });
 }
 
+export async function showApiSLOs(cli: meow.Result) {
+  const output = new Array<string>();
+  const issues = await getIssues();
+  const apiResults = getApiResults(issues, cli.flags.api);
+  const apiHeader =
+      ['Api', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  let t3: Table;
+  if (cli.flags.csv) {
+    output.push('\n');
+    output.push(apiHeader.join(','));
+  } else {
+    t3 = new Table({head: apiHeader});
+  }
+  apiResults.forEach(x => {
+    const values = [`${x.api}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    if (cli.flags.csv) {
+      output.push(values.join(','));
+    } else {
+      t3.push(values);
+    }
+  });
+  if (t3!) {
+    output.push(t3!.toString());
+  }
+  output.forEach(l => console.log(l));
+}
+
+export async function showLanguageSLOs(cli: meow.Result) {
+  const output = new Array<string>();
+  const issues = await getIssues();
+  const res = getLanguageResults(issues, cli.flags.api);
+  const languageHeader =
+      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  let t2: Table;
+  if (cli.flags.csv) {
+    output.push('\n');
+    output.push(languageHeader.join(','));
+  } else {
+    t2 = new Table({head: languageHeader});
+  }
+
+  res.forEach(x => {
+    const values =
+        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    if (cli.flags.csv) {
+      output.push(values.join(','));
+    } else {
+      t2.push(values);
+    }
+  });
+  if (t2!) {
+    output.push(t2!.toString());
+  }
+  output.forEach(l => console.log(l));
+}
+
 export async function showSLOs(cli: meow.Result) {
   const output = new Array<string>();
   const issues = await getIssues();
@@ -365,32 +474,5 @@ export async function showSLOs(cli: meow.Result) {
       output.push(table!.toString());
     }
   }
-
-  // Show language based statistics
-  const res = getLanguageResults(issues, cli.flags.api);
-  const languageHeader =
-      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
-  let t2: Table;
-  if (cli.flags.csv) {
-    output.push('\n');
-    output.push(languageHeader.join(','));
-  } else {
-    t2 = new Table({head: languageHeader});
-  }
-
-  res.forEach(x => {
-    const values =
-        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
-    if (cli.flags.csv) {
-      output.push(values.join(','));
-    } else {
-      t2.push(values);
-    }
-  });
-
-  if (t2!) {
-    output.push(t2!.toString());
-  }
-
   output.forEach(l => console.log(l));
 }
