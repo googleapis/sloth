@@ -142,7 +142,6 @@ export async function showIssues(flags: Flags) {
       return;
     }
     r.issues.forEach(i => {
-      i.repo = r.repo.repo;
       if (options.pr) {
         if (!isPullRequest(i)) {
           return;

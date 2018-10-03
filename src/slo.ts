@@ -212,9 +212,11 @@ export function getApi(i: Issue) {
       return name.slice(5);
     }
   }
+
   // In node.js, we have separate repos for each API. We aren't looking for
   // a label, we're looking for a repo name.
-  if (i.repo.startsWith('nodejs-')) {
+  const repoName = i.repo.startsWith('googleapis/') ? i.repo.split('/')[1] : i.repo;
+  if (repoName.startsWith('nodejs-')) {
     return i.repo.split('-')[1];
   }
   return undefined;
