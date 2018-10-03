@@ -14,9 +14,10 @@
 
 import * as Octokit from '@octokit/rest';
 
+import {getPri} from './slo';
 import {Flags, Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
-import {getPri} from './slo';
+
 import Table = require('cli-table');
 import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest, hoursOld, getApi} from './slo';
 const truncate = require('truncate');
@@ -169,7 +170,8 @@ export async function showIssues(flags: Flags) {
   });
   let table: Table;
   const output = new Array<string>();
-  const head = ['Issue#', 'Triaged', 'In SLO', 'Title', 'Language', 'API', 'Pri'];
+  const head =
+      ['Issue#', 'Triaged', 'In SLO', 'Title', 'Language', 'API', 'Pri'];
   if (options.csv) {
     output.push(head.join(','));
   } else {
@@ -181,9 +183,7 @@ export async function showIssues(flags: Flags) {
       issue.html_url,
       options.csv ? issue.isTriaged : (issue.isTriaged ? '🦖' : '🚨'),
       options.csv ? !issue.isOutOfSLO : (!issue.isOutOfSLO ? '🦖' : '🚨'),
-      truncate(issue.title, 75),
-      issue.language,
-      issue.api || '',
+      truncate(issue.title, 75), issue.language, issue.api || '',
       issue.pri || ''
     ];
     if (options.csv) {
