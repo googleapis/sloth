@@ -221,7 +221,8 @@
         "tseaver",
         "mcdonc",
         "sduskis",
-        "dhermes"
+        "dhermes",
+        "busunkim96"
       ],
       "repos": [
         "googleapis/google-api-python-client",
@@ -237,7 +238,7 @@
       "users": [
         "justinbeckwith",
         "dazuma",
-        "chingor"
+        "chingor13"
       ],
       "repos": [
         "googleapis/elixir-google-api"

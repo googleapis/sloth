@@ -248,6 +248,10 @@ export function isTriaged(i: Issue) {
     return true;
   }
 
+  if (hasLabel(i, 'status: investigating')) {
+    return true;
+  }
+
   return false;
 }
 
