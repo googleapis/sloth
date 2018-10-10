@@ -25,6 +25,8 @@ export interface Member {
 }
 
 export interface Issue {
+  api?: string;
+  pri?: string;
   language: string;
   repo: string;
   owner: string;
@@ -80,9 +82,13 @@ export interface Label {
   default: boolean;
 }
 
+export interface ApiResult extends Result {
+  api: string;
+}
 
 export interface RepoResult extends Result {
   repo: string;
+  language: string;
 }
 
 export interface LanguageResult extends Result {

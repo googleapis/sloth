@@ -62,25 +62,50 @@ export async function reconcileTeams() {
 export async function reconcileRepos() {
   const promises = new Array<Promise<Octokit.AnyResponse|void>>();
   const teams = await reconcileTeams();
+
   users.membership.forEach(m => {
-    m.repos.forEach(r => {
+    m.repos.forEach(async r => {
       const [o, repo] = r.split('/');
       const team = getTeam(m.team, o, teams);
+      const yoshiAdmins = getTeam('yoshi-admins', o, teams);
+      const yoshiTeam = getTeam('yoshi', o, teams);
+
       if (!team) {
         throw new Error(`Unable to find team '${m.team}`);
       }
-      const p = octo.orgs
-                    .addTeamRepo(
-                        {id: team.id, owner: o, permission: 'push', repo} as
-                        Octokit.OrgsAddTeamRepoParams)
-                    .catch(e => {
-                      console.error(`Error adding ${r} to ${m.team}.`);
-                      // console.error(e);
-                    });
-      promises.push(p);
+
+      // Add the language specific team
+      await (octo.orgs
+                 .addTeamRepo(
+                     {team_id: team.id, owner: o, permission: 'push', repo})
+                 .catch(e => {
+                   console.error(`Error adding ${r} to ${m.team}.`);
+                 }));
+
+      // Add the yoshi admins team
+      await (octo.orgs
+                 .addTeamRepo({
+                   team_id: yoshiAdmins!.id,
+                   owner: o,
+                   permission: 'admin',
+                   repo
+                 })
+                 .catch(e => {
+                   console.error(`Error adding ${r} to 'yoshi-admins'.`);
+                   console.error(e);
+                 }));
+
+      // Add the yoshi team
+      await (
+          octo.orgs
+              .addTeamRepo(
+                  {team_id: yoshiTeam!.id, owner: o, permission: 'pull', repo})
+              .catch(e => {
+                console.error(`Error adding ${r} to 'yoshi'.`);
+              }));
     });
   });
-  await Promise.all(promises);
+  // await Promise.all(promises);
 }
 
 function getTeam(team: string, org: string, teams: Team[]) {
@@ -101,8 +126,8 @@ export async function reconcileUsers() {
       }
 
       // get the current list of team members
-      const res = await octo.orgs.getTeamMembers(
-          {id: team.id, team_id: team.id, per_page: 100});
+      const res =
+          await octo.orgs.getTeamMembers({team_id: team.id, per_page: 100});
       const currentMembers = res.data as Member[];
 
       // add any missing users
@@ -111,9 +136,7 @@ export async function reconcileUsers() {
             currentMembers.find(x => x.login.toLowerCase() === u.toLowerCase());
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.orgs
-                        .addTeamMembership(
-                            {id: team.id, team_id: team.id, username: u})
+          const p = octo.orgs.addTeamMembership({team_id: team.id, username: u})
                         .catch(e => {
                           console.error(
                               `Error adding ${u} to ${team.org}/${team.name}.`);
@@ -129,14 +152,14 @@ export async function reconcileUsers() {
             m.users.find(x => x.toLowerCase() === u.login.toLowerCase());
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
-          const p = octo.orgs
-                        .removeTeamMembership(
-                            {id: team.id, team_id: team.id, username: u.login})
-                        .catch(e => {
-                          console.error(
-                              `Error removing ${u.login} from ${team.name}.`);
-                          // console.error(e);
-                        });
+          const p =
+              octo.orgs
+                  .removeTeamMembership({team_id: team.id, username: u.login})
+                  .catch(e => {
+                    console.error(
+                        `Error removing ${u.login} from ${team.name}.`);
+                    // console.error(e);
+                  });
           promises.push(p);
         }
       }

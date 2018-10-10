@@ -104,6 +104,21 @@
       "name": "semver: patch",
       "description": "A minor bug fix or small change.",
       "color": "66C7F4"
+    },
+    {
+      "name": "kokoro:force-run",
+      "description": "Add this label to force Kokoro to re-run the tests.",
+      "color": "C1FFB2"
+    },
+    {
+      "name": "cla: yes",
+      "description": "This human has signed the Contributor License Agreement.",
+      "color": "0B7601"
+    },
+    {
+      "name": "cla: no",
+      "description": "This human has *not* signed the Contributor License Agreement.",
+      "color": "E402f2"
     }
   ]
 }
