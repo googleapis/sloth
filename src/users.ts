@@ -62,26 +62,50 @@ export async function reconcileTeams() {
 export async function reconcileRepos() {
   const promises = new Array<Promise<Octokit.AnyResponse|void>>();
   const teams = await reconcileTeams();
+
   users.membership.forEach(m => {
-    m.repos.forEach(r => {
+    m.repos.forEach(async r => {
       const [o, repo] = r.split('/');
       const team = getTeam(m.team, o, teams);
+      const yoshiAdmins = getTeam('yoshi-admins', o, teams);
+      const yoshiTeam = getTeam('yoshi', o, teams);
+
       if (!team) {
         throw new Error(`Unable to find team '${m.team}`);
       }
-      const p =
+
+      // Add the language specific team
+      await (octo.orgs
+                 .addTeamRepo(
+                     {team_id: team.id, owner: o, permission: 'push', repo})
+                 .catch(e => {
+                   console.error(`Error adding ${r} to ${m.team}.`);
+                 }));
+
+      // Add the yoshi admins team
+      await (octo.orgs
+                 .addTeamRepo({
+                   team_id: yoshiAdmins!.id,
+                   owner: o,
+                   permission: 'admin',
+                   repo
+                 })
+                 .catch(e => {
+                   console.error(`Error adding ${r} to 'yoshi-admins'.`);
+                   console.error(e);
+                 }));
+
+      // Add the yoshi team
+      await (
           octo.orgs
               .addTeamRepo(
-                  {team_id: team.id, owner: o, permission: 'push', repo} as
-                  Octokit.OrgsAddTeamRepoParams)
+                  {team_id: yoshiTeam!.id, owner: o, permission: 'pull', repo})
               .catch(e => {
-                console.error(`Error adding ${r} to ${m.team}.`);
-                // console.error(e);
-              });
-      promises.push(p);
+                console.error(`Error adding ${r} to 'yoshi'.`);
+              }));
     });
   });
-  await Promise.all(promises);
+  // await Promise.all(promises);
 }
 
 function getTeam(team: string, org: string, teams: Team[]) {

@@ -1,8 +1,7 @@
 {
   "orgs": [
     "GoogleCloudPlatform",
-    "googleapis",
-    "google"
+    "googleapis"
   ],
   "membership": [
     {
@@ -52,7 +51,8 @@
         "jmdobry",
         "beccca",
         "amanda-tarafa",
-        "evildour"
+        "evildour",
+        "jesselovelace"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -64,8 +64,8 @@
     {
       "team": "yoshi-nodejs",
       "repos": [
-        "google/google-api-nodejs-client",
-        "google/google-auth-library-nodejs",
+        "googleapis/google-api-nodejs-client",
+        "googleapis/google-auth-library-nodejs",
         "googleapis/nodejs-spanner",
         "googleapis/nodejs-firestore",
         "googleapis/nodejs-compute",
@@ -102,21 +102,23 @@
         "googleapis/nodejs-automl",
         "googleapis/nodejs-kms",
         "googleapis/nodejs-iot",
-        "google/google-p12-pem",
-        "google/node-gtoken",
-        "googlecloudplatform/google-cloud-node",
-        "GoogleCloudPlatform/cloud-trace-nodejs",
-        "GoogleCloudPlatform/cloud-debug-nodejs",
+        "googleapis/google-p12-pem",
+        "googleapis/node-gtoken",
+        "googleapis/google-cloud-node",
+        "googleapis/cloud-trace-nodejs",
+        "googleapis/cloud-debug-nodejs",
         "GoogleCloudPlatform/cloud-profiler-nodejs",
         "googleapis/nodejs-promisify",
         "googleapis/nodejs-projectify",
         "googleapis/nodejs-paginator",
-        "GoogleCloudPlatform/gcs-resumable-upload",
-        "GoogleCloudPlatform/gcp-metadata",
-        "GoogleCloudPlatform/google-cloud-kvstore",
-        "GoogleCloudPlatform/gce-images",
+        "googleapis/gcs-resumable-upload",
+        "googleapis/gcp-metadata",
+        "googleapis/google-cloud-kvstore",
+        "googleapis/gce-images",
         "googleapis/nodejs-googleapis-common",
-        "googleapis/nodejs-asset"
+        "googleapis/nodejs-asset",
+        "googleapis/sloth",
+        "googleapis/nodejs-dialogflow"
       ],
       "users": [
         "justinbeckwith",
@@ -138,11 +140,11 @@
         "quartzmo"
       ],
       "repos": [
-        "google/google-auth-library-ruby",
-        "google/google-api-ruby-client",
-        "google/signet",
+        "googleapis/google-auth-library-ruby",
+        "googleapis/google-api-ruby-client",
+        "googleapis/signet",
         "googleapis/gax-ruby",
-        "googlecloudplatform/google-cloud-ruby"
+        "googleapis/google-cloud-ruby"
       ]
     },
     {
@@ -155,9 +157,9 @@
         "evildour"
       ],
       "repos": [
-        "google/google-api-dotnet-client",
+        "googleapis/google-api-dotnet-client",
         "googleapis/gax-dotnet",
-        "googlecloudplatform/google-cloud-dotnet"
+        "googleapis/google-cloud-dotnet"
       ]
     },
     {
@@ -172,9 +174,9 @@
         "sduskis"
       ],
       "repos": [
-        "google/google-api-php-client",
-        "google/google-auth-library-php",
-        "google/google-api-php-client-services",
+        "googleapis/google-api-php-client",
+        "googleapis/google-auth-library-php",
+        "googleapis/google-api-php-client-services",
         "googleapis/gax-php",
         "googlecloudplatform/google-cloud-php"
       ]
@@ -183,14 +185,15 @@
       "team": "yoshi-java",
       "users": [
         "justinbeckwith",
-        "jadekler",
-        "chingor13"
+        "chingor13",
+        "jesselovelace",
+        "sduskis"
       ],
       "repos": [
-        "google/google-api-java-client",
-        "google/google-auth-library-java",
-        "google/google-http-java-client",
-        "google/google-oauth-java-client",
+        "googleapis/google-api-java-client",
+        "googleapis/google-auth-library-java",
+        "googleapis/google-http-java-client",
+        "googleapis/google-oauth-java-client",
         "googleapis/api-common-java",
         "googleapis/gax-java",
         "googlecloudplatform/google-cloud-java"
@@ -204,7 +207,7 @@
         "jadekler"
       ],
       "repos": [
-        "google/google-api-go-client",
+        "googleapis/google-api-go-client",
         "googleapis/gax-go",
         "googlecloudplatform/google-cloud-go",
         "googlecloudplatform/google-cloud-go-testing"
@@ -219,14 +222,27 @@
         "tseaver",
         "mcdonc",
         "sduskis",
-        "dhermes"
+        "dhermes",
+        "busunkim96"
       ],
       "repos": [
-        "google/google-api-python-client",
-        "google/oauth2client",
+        "googleapis/google-api-python-client",
+        "googleapis/oauth2client",
         "googlecloudplatform/google-auth-library-python",
         "googlecloudplatform/google-cloud-python",
-        "GoogleCloudPlatform/google-cloud-python-happybase"
+        "googleapis/google-cloud-python-happybase",
+        "googleapis/dialogflow-python-client-v2"
+      ]
+    },
+    {
+      "team": "yoshi-elixir",
+      "users": [
+        "justinbeckwith",
+        "dazuma",
+        "chingor13"
+      ],
+      "repos": [
+        "googleapis/elixir-google-api"
       ]
     }
   ]

@@ -38,11 +38,10 @@ export async function reconcileLabels() {
                     repo,
                     owner,
                     name: l.name,
-                    oldname: l.name,
                     current_name: l.name,
                     description: match.description,
                     color: l.color
-                  } as Octokit.IssuesUpdateLabelParams)
+                  })
                   .catch(e => {
                     console.error(
                         `Error updating label ${l.name} in ${owner}/${repo}`);
