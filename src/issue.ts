@@ -173,9 +173,7 @@ export async function showIssues(flags: Flags) {
   const head =
       ['Issue#', 'Triaged', 'In SLO', 'Title', 'Language', 'API', 'Pri'];
   if (options.csv) {
-    const head =
-      ['Issue', 'Triaged', 'InSLO', 'Title', 'Language', 'API', 'Pri'];
-    output.push(head.join(','));
+    output.push(['Issue', 'Triaged', 'InSLO', 'Title', 'Language', 'API', 'Pri'].join(','));
   } else {
     table = new Table({head});
   }
