@@ -171,7 +171,7 @@ export async function showIssues(flags: Flags) {
   let table: Table;
   const output = new Array<string>();
   const head =
-      ['Issue#', 'Triaged', 'In SLO', 'Title', 'Language', 'API', 'Pri'];
+      ['Issue', 'Triaged', 'InSLO', 'Title', 'Language', 'API', 'Pri'];
   if (options.csv) {
     output.push(head.join(','));
   } else {
