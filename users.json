@@ -178,7 +178,7 @@
         "googleapis/google-auth-library-php",
         "googleapis/google-api-php-client-services",
         "googleapis/gax-php",
-        "googlecloudplatform/google-cloud-php"
+        "googleapis/google-cloud-php"
       ]
     },
     {
@@ -196,7 +196,7 @@
         "googleapis/google-oauth-java-client",
         "googleapis/api-common-java",
         "googleapis/gax-java",
-        "googlecloudplatform/google-cloud-java"
+        "googleapis/google-cloud-java"
       ]
     },
     {
@@ -210,7 +210,7 @@
         "googleapis/google-api-go-client",
         "googleapis/gax-go",
         "googlecloudplatform/google-cloud-go",
-        "googlecloudplatform/google-cloud-go-testing"
+        "googleapis/google-cloud-go-testing"
       ]
     },
     {
@@ -228,8 +228,8 @@
       "repos": [
         "googleapis/google-api-python-client",
         "googleapis/oauth2client",
-        "googlecloudplatform/google-auth-library-python",
-        "googlecloudplatform/google-cloud-python",
+        "googleapis/google-auth-library-python",
+        "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
         "googleapis/dialogflow-python-client-v2"
       ]
