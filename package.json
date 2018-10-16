@@ -25,7 +25,8 @@
     "start": "npm run compile && node build/src/slo.js",
     "presystem-test": "npm run compile",
     "system-test": "mocha build/system-test",
-    "docs": "echo no docs available 👻"
+    "docs": "echo no docs available 👻",
+    "samples-test": "echo no sample tests 👻"
   },
   "keywords": [],
   "author": "Justin Beckwith",
