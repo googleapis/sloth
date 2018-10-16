@@ -123,7 +123,7 @@ export interface Membership {
 
 export interface Team {
   name: string;         //'Contributors',
-  id: string;           // 286166,
+  id: number;           // 286166,
   slug: string;         //'contributors',
   description: string;  //'',
   privacy: string;      //'closed',
