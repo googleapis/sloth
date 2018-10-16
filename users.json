@@ -52,7 +52,8 @@
         "beccca",
         "amanda-tarafa",
         "evildour",
-        "jesselovelace"
+        "jesselovelace",
+        "enocom"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -204,7 +205,8 @@
       "users": [
         "justinbeckwith",
         "jba",
-        "jadekler"
+        "jadekler",
+        "enocom"
       ],
       "repos": [
         "googleapis/google-api-go-client",
