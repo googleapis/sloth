@@ -212,7 +212,8 @@
         "googleapis/google-api-go-client",
         "googleapis/gax-go",
         "googlecloudplatform/google-cloud-go",
-        "googleapis/google-cloud-go-testing"
+        "googleapis/google-cloud-go-testing",
+        "google/go-genproto"
       ]
     },
     {
