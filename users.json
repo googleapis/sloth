@@ -208,9 +208,9 @@
         "enocom"
       ],
       "repos": [
-        "googleapis/google-api-go-client",
+        "googleapis/google-api-go-client", // Note: this is a GoB repo. Sloth only handles the github side.
         "googleapis/gax-go",
-        "googlecloudplatform/google-cloud-go",
+        "googlecloudplatform/google-cloud-go", // Note: this is a GoB repo. Sloth only handles the github side.
         "googleapis/google-cloud-go-testing",
         "google/go-genproto"
       ]
