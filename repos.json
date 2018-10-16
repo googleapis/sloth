@@ -2,7 +2,7 @@
   "repos": [
     { "repo": "googleapis/google-api-dotnet-client", "language": "dotnet" },
     { "repo": "googleapis/google-api-go-client", "language": "go" },
-    { "repo": "GoogleCloudPlatform/google-cloud-go-testing", "language": "go" },
+    { "repo": "googleapis/google-cloud-go-testing", "language": "go" },
     { "repo": "googleapis/google-api-java-client", "language": "java" },
     { "repo": "googleapis/google-api-java-client-services", "language": "java" },
     { "repo": "googleapis/google-api-nodejs-client", "language": "nodejs" },
