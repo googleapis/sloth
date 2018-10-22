@@ -90,6 +90,7 @@
     { "repo": "googleapis/sloth", "language": "nodejs" },
     { "repo": "googleapis/elixir-google-api", "language": "elixir" },
     { "repo": "googleapis/nodejs-dialogflow", "language": "nodejs" },
-    { "repo": "googleapis/dialogflow-python-client-v2", "language": "python" }
+    { "repo": "googleapis/dialogflow-python-client-v2", "language": "python" },
+    { "repo": "googleapis/nodejs-datastore-session", "language": "nodejs" }
   ]
 }
