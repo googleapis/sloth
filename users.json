@@ -117,7 +117,8 @@
         "googleapis/nodejs-googleapis-common",
         "googleapis/nodejs-asset",
         "googleapis/sloth",
-        "googleapis/nodejs-dialogflow"
+        "googleapis/nodejs-dialogflow",
+        "googleapis/nodejs-datastore-session"
       ],
       "users": [
         "justinbeckwith",
