@@ -67,7 +67,6 @@
     { "repo": "googlecloudplatform/google-cloud-go", "language": "go" },
     { "repo": "google/go-genproto", "language": "go" },
     { "repo": "googleapis/google-cloud-java", "language": "java" },
-    { "repo": "googleapis/google-cloud-node", "language": "nodejs" },
     { "repo": "googleapis/google-cloud-php", "language": "php" },
     { "repo": "googleapis/google-cloud-python", "language": "python" },
     { "repo": "googleapis/google-cloud-ruby", "language": "ruby" },
