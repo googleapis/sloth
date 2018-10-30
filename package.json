@@ -16,14 +16,17 @@
   "types": "build/src/sloth.d.ts",
   "scripts": {
     "test": "mocha build/test",
-    "check": "gts check",
+    "lint": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run check",
-    "start": "npm run compile && node build/src/slo.js"
+    "start": "npm run compile && node build/src/slo.js",
+    "presystem-test": "npm run compile",
+    "system-test": "mocha build/system-test",
+    "docs": "echo no docs available 👻",
+    "samples-test": "echo no sample tests 👻"
   },
   "keywords": [],
   "author": "Justin Beckwith",
@@ -31,19 +34,18 @@
   "dependencies": {
     "@octokit/rest": "^15.8.1",
     "cli-table": "^0.3.1",
-    "mail": "https://storage.googleapis.com/cloud-mail-client-libraries/cloudmail-v1alpha3-nodejs.tar.gz",
     "meow": "^5.0.0",
     "truncate": "^2.0.1",
     "update-notifier": "^2.5.0"
   },
   "devDependencies": {
     "@types/cli-table": "^0.3.0",
-    "@types/meow": "^4.0.1",
+    "@types/meow": "^5.0.0",
     "@types/mocha": "^5.2.1",
     "@types/node": "^10.3.0",
     "@types/update-notifier": "^2.2.0",
     "gts": "^0.8.0",
     "mocha": "^5.2.0",
-    "typescript": "~2.9.1"
+    "typescript": "~3.1.0"
   }
 }

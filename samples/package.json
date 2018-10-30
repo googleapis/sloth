@@ -1,0 +1,19 @@
+{
+  "description": "Samples for the @justinbeckwith/sloth npm module.",
+  "license": "Apache-2.0",
+  "author": "Google LLC",
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": "googleapis/sloth",
+  "private": true,
+  "scripts": {
+    "test": "echo no tests available 👻"
+  },
+  "dependencies": {
+    "@justinbeckwith/sloth": "*"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}

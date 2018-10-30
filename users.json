@@ -49,10 +49,10 @@
         "dhermes",
         "dpebot",
         "jmdobry",
-        "beccca",
         "amanda-tarafa",
         "evildour",
-        "jesselovelace"
+        "jesselovelace",
+        "enocom"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -98,7 +98,6 @@
         "googleapis/nodejs-proto-files",
         "googleapis/nodejs-storage",
         "googleapis/nodejs-tasks",
-        "googleapis/nodejs-redis",
         "googleapis/nodejs-automl",
         "googleapis/nodejs-kms",
         "googleapis/nodejs-iot",
@@ -118,7 +117,8 @@
         "googleapis/nodejs-googleapis-common",
         "googleapis/nodejs-asset",
         "googleapis/sloth",
-        "googleapis/nodejs-dialogflow"
+        "googleapis/nodejs-dialogflow",
+        "googleapis/nodejs-datastore-session"
       ],
       "users": [
         "justinbeckwith",
@@ -127,7 +127,8 @@
         "alexander-fenster",
         "stephenplusplus",
         "callmehiphop",
-        "jmdobry"
+        "jmdobry",
+        "sduskis"
       ]
     },
     {
@@ -178,7 +179,7 @@
         "googleapis/google-auth-library-php",
         "googleapis/google-api-php-client-services",
         "googleapis/gax-php",
-        "googlecloudplatform/google-cloud-php"
+        "googleapis/google-cloud-php"
       ]
     },
     {
@@ -191,12 +192,13 @@
       ],
       "repos": [
         "googleapis/google-api-java-client",
+        "googleapis/google-api-java-client-services",
         "googleapis/google-auth-library-java",
         "googleapis/google-http-java-client",
         "googleapis/google-oauth-java-client",
         "googleapis/api-common-java",
         "googleapis/gax-java",
-        "googlecloudplatform/google-cloud-java"
+        "googleapis/google-cloud-java"
       ]
     },
     {
@@ -204,13 +206,15 @@
       "users": [
         "justinbeckwith",
         "jba",
-        "jadekler"
+        "jadekler",
+        "enocom"
       ],
       "repos": [
         "googleapis/google-api-go-client",
         "googleapis/gax-go",
         "googlecloudplatform/google-cloud-go",
-        "googlecloudplatform/google-cloud-go-testing"
+        "googleapis/google-cloud-go-testing",
+        "google/go-genproto"
       ]
     },
     {
@@ -223,13 +227,14 @@
         "mcdonc",
         "sduskis",
         "dhermes",
-        "busunkim96"
+        "busunkim96",
+        "chrisrossi"
       ],
       "repos": [
         "googleapis/google-api-python-client",
         "googleapis/oauth2client",
-        "googlecloudplatform/google-auth-library-python",
-        "googlecloudplatform/google-cloud-python",
+        "googleapis/google-auth-library-python",
+        "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
         "googleapis/dialogflow-python-client-v2"
       ]
