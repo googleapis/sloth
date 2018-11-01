@@ -21,6 +21,7 @@ import {octo, repos} from './util';
 import Table = require('cli-table');
 import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest, hoursOld, getApi} from './slo';
 const truncate = require('truncate');
+const CSV = require('csv-string');
 
 export async function getIssues(): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
@@ -171,8 +172,9 @@ export async function showIssues(flags: Flags) {
   let table: Table;
   const output = new Array<string>();
   const head = ['Issue', 'Triaged', 'InSLO', 'Title', 'Language', 'API', 'Pri'];
+
   if (options.csv) {
-    output.push(head.join(','));
+    output.push(CSV.stringify(head));
   } else {
     table = new Table({head});
   }
@@ -186,7 +188,7 @@ export async function showIssues(flags: Flags) {
       issue.pri || ''
     ];
     if (options.csv) {
-      output.push(values.join(','));
+      output.push(CSV.stringify(values));
     } else {
       table.push(values);
     }
@@ -196,5 +198,6 @@ export async function showIssues(flags: Flags) {
     output.push(table!.toString());
   }
 
-  output.forEach(l => console.log(l));
+  output.forEach(l => process.stdout.write(l));
+  process.stdout.write('\n');
 }
