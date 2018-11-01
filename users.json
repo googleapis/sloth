@@ -52,7 +52,15 @@
         "amanda-tarafa",
         "evildour",
         "jesselovelace",
-        "enocom"
+        "enocom",
+        "igorbernstein2",
+        "ajaaym",
+        "elisheva-qlogic",
+        "pmakani"
+        "muraliQlogic",
+        "nareshqlogic",
+        "praveenqlogic",
+        "vijay-qlogic"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -128,7 +136,12 @@
         "stephenplusplus",
         "callmehiphop",
         "jmdobry",
-        "sduskis"
+        "sduskis",
+        "ajaaym",
+        "muraliQlogic",
+        "nareshqlogic",
+        "praveenqlogic",
+        "vijay-qlogic"
       ]
     },
     {
@@ -188,7 +201,11 @@
         "justinbeckwith",
         "chingor13",
         "jesselovelace",
-        "sduskis"
+        "sduskis",
+        "igorbernstein2",
+        "ajaaym",
+        "elisheva-qlogic",
+        "pmakani"
       ],
       "repos": [
         "googleapis/google-api-java-client",
