@@ -21,6 +21,7 @@ import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 import {syncRepoSettings} from './repos';
 import * as updateNotifier from 'update-notifier';
+import { Flags } from './types';
 
 const pkg = require('../../package.json');
 
@@ -39,10 +40,12 @@ const cli = meow(
     --language    Filter by a given language
     --repo        Filter by a given repository
     --pr          Filter to show only PRs
+    --type        Filter to show only issues of a given type
+    --pri         Filter to show only issues with a given priorty
 
 	Examples
     $ sloth [--csv][--api]
-    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr]
+    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr][--type]
     $ sloth apis
     $ sloth tag-issues
     $ sloth users
@@ -59,7 +62,9 @@ const cli = meow(
         outOfSLO: {type: 'boolean'},
         csv: {type: 'boolean'},
         api: {type: 'string'},
-        pr: {type: 'boolean'}
+        pr: {type: 'boolean'},
+        type: {type: 'string'},
+        pri: {type: 'string'}
       }
     });
 
@@ -80,7 +85,7 @@ switch (cmd) {
     p = reconcileUsers();
     break;
   case 'issues':
-    p = showIssues(cli.flags);
+    p = showIssues(cli.flags as Flags);
     break;
   case 'repos':
     p = reconcileRepos();

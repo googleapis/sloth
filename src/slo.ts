@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {getIssues} from './issue';
-import {ApiResult, Issue, IssueResult, LanguageResult, RepoResult} from './types';
+import {ApiResult, Issue, IssueResult, LanguageResult, RepoResult, Flags} from './types';
 import {languages} from './util';
 
 import Table = require('cli-table');
@@ -235,6 +235,16 @@ export function getApi(i: Issue) {
   return undefined;
 }
 
+export function getType(i: Issue) {
+  for (const label of i.labels) {
+    const name = label.name.toLowerCase();
+    if (name.startsWith('type: ')) {
+      return name.slice(6);
+    }
+  }
+  return undefined;
+}
+
 /**
  * Determine if an issue has been triaged. An issue is triaged if:
  * - It has a `priority` label OR
@@ -418,7 +428,7 @@ export async function showApiSLOs(cli: meow.Result) {
 
 export async function showLanguageSLOs(cli: meow.Result) {
   const output = new Array<string>();
-  const issues = await getIssues();
+  const issues = await getIssues(cli.flags as Flags);
   const res = getLanguageResults(issues, cli.flags.api);
   const languageHeader =
       ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
