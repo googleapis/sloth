@@ -147,7 +147,6 @@
     {
       "team": "yoshi-ruby",
       "users": [
-        "justinbeckwith",
         "dazuma",
         "TheRoyalTnetennba",
         "blowmage",
@@ -164,7 +163,6 @@
     {
       "team": "yoshi-dotnet",
       "users": [
-        "justinbeckwith",
         "jskeet",
         "chrisdunelm",
         "amanda-tarafa",
@@ -179,7 +177,6 @@
     {
       "team": "yoshi-php",
       "users": [
-        "justinbeckwith",
         "tmatsuo",
         "jdpedrie",
         "dwsupplee",
@@ -198,7 +195,6 @@
     {
       "team": "yoshi-java",
       "users": [
-        "justinbeckwith",
         "chingor13",
         "jesselovelace",
         "sduskis",
@@ -221,7 +217,6 @@
     {
       "team": "yoshi-go",
       "users": [
-        "justinbeckwith",
         "jba",
         "jadekler",
         "enocom"
@@ -237,7 +232,6 @@
     {
       "team": "yoshi-python",
       "users": [
-        "justinbeckwith",
         "theacodes",
         "crwilcox",
         "tseaver",
@@ -259,7 +253,6 @@
     {
       "team": "yoshi-elixir",
       "users": [
-        "justinbeckwith",
         "dazuma",
         "chingor13"
       ],
