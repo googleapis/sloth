@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {getIssues} from './issue';
-import {ApiResult, Issue, IssueResult, LanguageResult, RepoResult, Flags} from './types';
+import {ApiResult, Flags, Issue, IssueResult, LanguageResult, RepoResult} from './types';
 import {languages} from './util';
 
 import Table = require('cli-table');

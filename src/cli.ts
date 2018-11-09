@@ -21,7 +21,7 @@ import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 import {syncRepoSettings} from './repos';
 import * as updateNotifier from 'update-notifier';
-import { Flags } from './types';
+import {Flags} from './types';
 
 const pkg = require('../../package.json');
 
