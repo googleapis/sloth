@@ -25,7 +25,9 @@ export interface Member {
 }
 
 export interface Issue {
+  isPR?: boolean;
   api?: string;
+  type?: string;
   pri?: string;
   language: string;
   repo: string;
@@ -154,8 +156,15 @@ export interface Organization {
 }
 
 export interface Flags {
-  // tslint:disable-next-line no-any
-  [index: string]: any;
+  csv: boolean;
+  language: string;
+  outOfSlo: boolean;
+  untriaged: boolean;
+  repo: string;
+  api: string;
+  pr: boolean;
+  type: string;
+  pri: string;
 }
 
 export interface GetBranchProtectionResult {

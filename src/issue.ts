@@ -14,7 +14,7 @@
 
 import * as Octokit from '@octokit/rest';
 
-import {getPri} from './slo';
+import {getPri, getType} from './slo';
 import {Flags, Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
 
@@ -23,15 +23,19 @@ import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest, hoursOld, getApi}
 const truncate = require('truncate');
 const CSV = require('csv-string');
 
-export async function getIssues(): Promise<IssueResult[]> {
+export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
   repos.forEach(repo => {
-    promises.push(getRepoIssues(repo));
+    // if we're filtering by --language, don't even snag the issues
+    if (flags && flags.language && repo.language !== flags.language) {
+      return;
+    }
+    promises.push(getRepoIssues(repo, flags));
   });
   return Promise.all(promises);
 }
 
-async function getRepoIssues(repo: Repo): Promise<IssueResult> {
+async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
   let res: Octokit.AnyResponse;
@@ -45,10 +49,46 @@ async function getRepoIssues(repo: Repo): Promise<IssueResult> {
       console.error(e);
       throw e;
     }
-    for (const r of res.data) {
+    for (const r of res.data as Issue[]) {
       r.language = repo.language;
       r.repo = repo.repo;
-      result.issues.push(r);
+      r.type = getType(r);
+      r.api = getApi(r);
+      r.isOutOfSLO = isOutOfSLO(r);
+      r.isTriaged = isTriaged(r);
+      r.pri = getPri(r);
+      r.isPR = isPullRequest(r);
+
+      let use = true;
+      if (flags) {
+        if (flags.api && r.api !== flags.api) {
+          use = false;
+        }
+        if (flags.repo && r.repo !== flags.repo) {
+          use = false;
+        }
+        if (flags.api && r.api !== flags.api) {
+          use = false;
+        }
+        if (flags.outOfSlo && !r.isOutOfSLO) {
+          use = false;
+        }
+        if (flags.untriaged && r.isTriaged) {
+          use = false;
+        }
+        if (flags.pri && r.pri !== flags.pri) {
+          use = false;
+        }
+        if (flags.pr && !r.isPR) {
+          use = false;
+        }
+        if (flags.type && r.type !== flags.type) {
+          use = false;
+        }
+      }
+      if (use) {
+        result.issues.push(r);
+      }
     }
     i++;
   } while (res.headers && res.headers.link &&
@@ -72,8 +112,6 @@ export async function tagIssues() {
   repos.forEach(r => {
     r.issues.forEach(i => {
       const [owner, name] = r.repo.repo.split('/');
-      i.isTriaged = isTriaged(i);
-      i.isOutOfSLO = isOutOfSLO(i);
       i.repo = name;
       i.owner = owner;
       if (!i.isTriaged && !hasLabel(i, 'triage me') &&
@@ -122,52 +160,12 @@ function untagIssue(
       });
 }
 
-export async function showIssues(flags: Flags) {
-  const options = {
-    csv: flags.csv,
-    language: flags.language,
-    outOfSLO: flags.outOfSlo,
-    untriaged: flags.untriaged,
-    repo: flags.repo,
-    api: flags.api,
-    pr: flags.pr
-  };
-  const repos = await getIssues();
+// tslint:disable-next-line no-any
+export async function showIssues(options: Flags) {
+  const repos = await getIssues(options);
   const issues = new Array<Issue>();
   repos.forEach(r => {
-    if (options.language &&
-        options.language.toLowerCase() !== r.repo.language.toLowerCase()) {
-      return;
-    }
-    if (options.repo &&
-        options.repo.toLowerCase() !== r.repo.repo.toLowerCase()) {
-      return;
-    }
-    r.issues.forEach(i => {
-      if (options.pr) {
-        if (!isPullRequest(i)) {
-          return;
-        }
-      } else {
-        if (isPullRequest(i)) {
-          return;
-        }
-      }
-      i.api = getApi(i);
-      if (options.api && !isApi(i, options.api)) {
-        return;
-      }
-      i.isTriaged = isTriaged(i);
-      if (options.untriaged && i.isTriaged) {
-        return;
-      }
-      i.isOutOfSLO = isOutOfSLO(i);
-      if (options.outOfSLO && !i.isOutOfSLO) {
-        return;
-      }
-      i.pri = getPri(i);
-      issues.push(i);
-    });
+    r.issues.forEach(i => issues.push(i));
   });
   let table: Table;
   const output = new Array<string>();
