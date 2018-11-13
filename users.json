@@ -61,7 +61,11 @@
         "muraliQlogic",
         "nareshqlogic",
         "praveenqlogic",
-        "vijay-qlogic"
+        "vijay-qlogic",
+        "alexander-kurochkin",
+        "andrey-qlogic",
+        "SergeyZadorozhniy",
+        "rahulKQL"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -202,7 +206,11 @@
         "igorbernstein2",
         "ajaaym",
         "elisheva-qlogic",
-        "pmakani"
+        "pmakani",
+        "alexander-kurochkin",
+        "andrey-qlogic",
+        "SergeyZadorozhniy",
+        "rahulKQL"
       ],
       "repos": [
         "googleapis/google-api-java-client",
