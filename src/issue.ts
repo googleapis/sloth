@@ -42,7 +42,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   let i = 1;
   do {
     try {
-      res = await octo.issues.getForRepo(
+      res = await octo.issues.listForRepo(
           {owner, repo: name, state: 'open', per_page: 100, page: i});
     } catch (e) {
       console.error(`Error fetching issues for ${repo.repo}.`);
