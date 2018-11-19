@@ -91,6 +91,8 @@
     { "repo": "googleapis/elixir-google-api", "language": "elixir" },
     { "repo": "googleapis/nodejs-dialogflow", "language": "nodejs" },
     { "repo": "googleapis/dialogflow-python-client-v2", "language": "python" },
-    { "repo": "googleapis/nodejs-datastore-session", "language": "nodejs" }
+    { "repo": "googleapis/nodejs-datastore-session", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-security-center", "language": "nodejs" },
+    { "repo": "googleapis/nodejs-scheduler", "language": "nodejs" }
   ]
 }
