@@ -21,7 +21,8 @@ export async function reconcileLabels() {
   const promises = new Array<Promise<Octokit.AnyResponse|void>>();
   repos.forEach(async (r) => {
     const [owner, repo] = r.repo.split('/');
-    const res = await octo.issues.getLabels({owner, repo, per_page: 100});
+    const res =
+        await octo.issues.listLabelsForRepo({owner, repo, per_page: 100});
     const oldLabels = res.data as Label[];
     labels.forEach(l => {
       // try to find a label with the same name

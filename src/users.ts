@@ -30,7 +30,7 @@ export async function reconcileTeams() {
     let res: Octokit.AnyResponse;
     console.log(`Fetching teams for ${org}...`);
     do {
-      res = await octo.orgs.getTeams({org, per_page: 100, page});
+      res = await octo.teams.list({org, per_page: 100, page});
       res.data.forEach((t: Team) => {
         t.org = org;
         teams.push(t);
@@ -75,16 +75,16 @@ export async function reconcileRepos() {
       }
 
       // Add the language specific team
-      await (octo.orgs
-                 .addTeamRepo(
+      await (octo.teams
+                 .addOrUpdateRepo(
                      {team_id: team.id, owner: o, permission: 'push', repo})
                  .catch(e => {
                    console.error(`Error adding ${r} to ${m.team}.`);
                  }));
 
       // Add the yoshi admins team
-      await (octo.orgs
-                 .addTeamRepo({
+      await (octo.teams
+                 .addOrUpdateRepo({
                    team_id: yoshiAdmins!.id,
                    owner: o,
                    permission: 'admin',
@@ -97,8 +97,8 @@ export async function reconcileRepos() {
 
       // Add the yoshi team
       await (
-          octo.orgs
-              .addTeamRepo(
+          octo.teams
+              .addOrUpdateRepo(
                   {team_id: yoshiTeam!.id, owner: o, permission: 'pull', repo})
               .catch(e => {
                 console.error(`Error adding ${r} to 'yoshi'.`);
@@ -127,7 +127,7 @@ export async function reconcileUsers() {
 
       // get the current list of team members
       const res =
-          await octo.orgs.getTeamMembers({team_id: team.id, per_page: 100});
+          await octo.teams.listMembers({team_id: team.id, per_page: 100});
       const currentMembers = res.data as Member[];
 
       // add any missing users
@@ -136,12 +136,11 @@ export async function reconcileUsers() {
             currentMembers.find(x => x.login.toLowerCase() === u.toLowerCase());
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.orgs.addTeamMembership({team_id: team.id, username: u})
-                        .catch(e => {
-                          console.error(
-                              `Error adding ${u} to ${team.org}/${team.name}.`);
-                          console.error(e.message);
-                        });
+          const p =
+              octo.teams.addMember({team_id: team.id, username: u}).catch(e => {
+                console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
+                console.error(e.message);
+              });
           promises.push(p);
         }
       }
@@ -153,8 +152,7 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
           const p =
-              octo.orgs
-                  .removeTeamMembership({team_id: team.id, username: u.login})
+              octo.teams.removeMember({team_id: team.id, username: u.login})
                   .catch(e => {
                     console.error(
                         `Error removing ${u.login} from ${team.name}.`);

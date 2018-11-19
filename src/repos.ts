@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {ReposEditParams, ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
+import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
 import {GetBranchResult} from './types';
 import {octo, repos} from './util';
 
@@ -21,14 +21,14 @@ export async function syncRepoSettings() {
   const ps = repos.map(repo => {
     const [owner, name] = repo.repo.split('/');
     return octo.repos
-        .edit({
+        .update({
           name,
           repo: name,
           owner,
           allow_merge_commit: false,
           allow_rebase_merge: true,
           allow_squash_merge: true
-        } as ReposEditParams)
+        })
         .catch(e => {
           console.error(`Error changing repo settings on ${repo.repo}`);
           console.error(e);
