@@ -12,7 +12,6 @@
         "danoscarmike",
         "broady",
         "kokoro-team",
-        "dpebot",
         "yoshi-automation"
       ],
       "repos": [
@@ -32,7 +31,6 @@
         "chrisdunelm",
         "tmatsuo",
         "jadekler",
-        "jba",
         "alexander-fenster",
         "dazuma",
         "stephenplusplus",
@@ -48,7 +46,6 @@
         "busunkim96",
         "mattwhisenhunt",
         "dhermes",
-        "dpebot",
         "jmdobry",
         "amanda-tarafa",
         "evildour",
@@ -131,7 +128,9 @@
         "googleapis/nodejs-asset",
         "googleapis/sloth",
         "googleapis/nodejs-dialogflow",
-        "googleapis/nodejs-datastore-session"
+        "googleapis/nodejs-datastore-session",
+        "googleapis/nodejs-security-center",
+        "googleapis/nodejs-scheduler"
       ],
       "users": [
         "justinbeckwith",
@@ -226,7 +225,6 @@
     {
       "team": "yoshi-go",
       "users": [
-        "jba",
         "jadekler",
         "enocom"
       ],
