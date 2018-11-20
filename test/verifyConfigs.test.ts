@@ -1,9 +1,9 @@
 import * as assert from 'assert';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 
-const REPOS_JSON = path.join(__dirname,'../../repos.json');
-const USERS_JSON = path.join(__dirname,'../../users.json');
+const REPOS_JSON = path.join(__dirname, '../../repos.json');
+const USERS_JSON = path.join(__dirname, '../../users.json');
 
 describe('Verify config files', () => {
   it('repos.json is valid json', () => {
@@ -18,8 +18,9 @@ describe('Verify config files', () => {
 
   it('users.json has valid schema', () => {
     // tslint:disable-next-line:no-any
-    const assertArrayOfStrings = (array: any) =>
-      assert(Array.isArray(array) && array.every((elem) => typeof elem === 'string'));
+    const assertArrayOfStrings = (array: any) => assert(
+        Array.isArray(array) &&
+        array.every((elem) => typeof elem === 'string'));
 
     // tslint:disable-next-line:no-any
     const assertMembership = (membership: any) => {
@@ -27,7 +28,7 @@ describe('Verify config files', () => {
       assertArrayOfStrings(membership.users);
       assertArrayOfStrings(membership.repos);
     };
-    
+
     const file = fs.readFileSync(USERS_JSON, 'utf-8');
     const users = JSON.parse(file);
 
@@ -38,4 +39,4 @@ describe('Verify config files', () => {
     assert(Array.isArray(users.membership));
     users.membership.forEach(assertMembership);
   });
-})
+});
