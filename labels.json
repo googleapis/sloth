@@ -119,6 +119,16 @@
       "name": "cla: no",
       "description": "This human has *not* signed the Contributor License Agreement.",
       "color": "E402f2"
+    },
+    {
+      "name": "help wanted",
+      "description": "We'd love to have community involvement on this issue.",
+      "color": "FFFFFF"
+    },
+    {
+      "name": "good first issue",
+      "description": "This issue is a good place to started contributing to this repository.",
+      "color": "FFFFFF"
     }
   ]
 }
