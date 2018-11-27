@@ -227,7 +227,12 @@
       "team": "yoshi-go",
       "users": [
         "jadekler",
-        "enocom"
+        "enocom",
+        "jba",
+        "pongad",
+        "broady",
+        "poy",
+        "tbpg"
       ],
       "repos": [
         "googleapis/google-api-go-client",
