@@ -131,7 +131,8 @@
         "googleapis/nodejs-dialogflow",
         "googleapis/nodejs-datastore-session",
         "googleapis/nodejs-security-center",
-        "googleapis/nodejs-scheduler"
+        "googleapis/nodejs-scheduler",
+        "googleapis/nodejs-rcloadenv"
       ],
       "users": [
         "justinbeckwith",
