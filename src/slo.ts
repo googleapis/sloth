@@ -14,7 +14,7 @@
 
 import {getIssues} from './issue';
 import {ApiResult, Flags, Issue, IssueResult, LanguageResult, RepoResult} from './types';
-import {languages, labels} from './util';
+import {labels, languages} from './util';
 
 import Table = require('cli-table');
 import * as meow from 'meow';
