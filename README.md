@@ -45,3 +45,4 @@ $ sloth users
 ```
 
 That's it 🎉 Enjoy!
+
