@@ -4,6 +4,23 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## v2.1.1
+
+12-03-2018 08:52 PST
+
+- fix: fix the linter ([#100](https://github.com/googleapis/sloth/pull/100))
+- fix: allow passing multiple types ([#98](https://github.com/googleapis/sloth/pull/98))
+- fix(build): fix system key decryption ([#96](https://github.com/googleapis/sloth/pull/96))
+- Update list of repos
+- Add extended Go devrel community to yoshi-go, so that they can do reviews ([#95](https://github.com/googleapis/sloth/pull/95))
+- Add yoshi-kokoro as admin ([#94](https://github.com/googleapis/sloth/pull/94))
+- add help wanted, good first issue labels ([#93](https://github.com/googleapis/sloth/pull/93))
+- test: add tests to verify json configs are valid ([#92](https://github.com/googleapis/sloth/pull/92))
+- Remove jba, dpebot, update nodejs repos ([#90](https://github.com/googleapis/sloth/pull/90))
+- Add nodejs-security-center and nodejs-scheduler to repos.json ([#89](https://github.com/googleapis/sloth/pull/89))
+- fix(deps): update dependency @octokit/rest to v16 ([#87](https://github.com/googleapis/sloth/pull/87))
+- chore: add a synth.metadata
+
 ## v2.2.0
 
 12-03-2018 08:44 PST
