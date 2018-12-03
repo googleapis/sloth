@@ -84,12 +84,12 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         }
         if (flags.type) {
           const flagTypes = flags.type.split(',')
-            .map(t => t.trim())
-            .filter(t => t.length > 0);
+                                .map(t => t.trim())
+                                .filter(t => t.length > 0);
           let found = false;
           for (const flagType of flagTypes) {
             for (const issueType of r.types) {
-              if (flagType === issueType)  {
+              if (flagType === issueType) {
                 found = true;
               }
             }
