@@ -14,7 +14,7 @@
 
 import {getIssues} from './issue';
 import {ApiResult, Flags, Issue, IssueResult, LanguageResult, RepoResult} from './types';
-import {languages} from './util';
+import {languages, labels} from './util';
 
 import Table = require('cli-table');
 import * as meow from 'meow';
@@ -235,14 +235,15 @@ export function getApi(i: Issue) {
   return undefined;
 }
 
-export function getType(i: Issue) {
+export function getTypes(i: Issue) {
+  const types = new Array<string>();
   for (const label of i.labels) {
     const name = label.name.toLowerCase();
     if (name.startsWith('type: ')) {
-      return name.slice(6);
+      types.push(name.slice(6));
     }
   }
-  return undefined;
+  return types;
 }
 
 /**
