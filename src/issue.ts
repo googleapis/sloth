@@ -14,7 +14,7 @@
 
 import * as Octokit from '@octokit/rest';
 
-import {getPri, getType} from './slo';
+import {getPri, getTypes} from './slo';
 import {Flags, Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
 
@@ -52,7 +52,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
     for (const r of res.data as Issue[]) {
       r.language = repo.language;
       r.repo = repo.repo;
-      r.type = getType(r);
+      r.types = getTypes(r);
       r.api = getApi(r);
       r.isOutOfSLO = isOutOfSLO(r);
       r.isTriaged = isTriaged(r);
@@ -82,8 +82,21 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (flags.pr && !r.isPR) {
           use = false;
         }
-        if (flags.type && r.type !== flags.type) {
-          use = false;
+        if (flags.type) {
+          const flagTypes = flags.type.split(',')
+                                .map(t => t.trim())
+                                .filter(t => t.length > 0);
+          let found = false;
+          for (const flagType of flagTypes) {
+            for (const issueType of r.types) {
+              if (flagType === issueType) {
+                found = true;
+              }
+            }
+          }
+          if (!found) {
+            use = false;
+          }
         }
       }
       if (use) {

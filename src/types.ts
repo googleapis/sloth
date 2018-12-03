@@ -27,7 +27,7 @@ export interface Member {
 export interface Issue {
   isPR?: boolean;
   api?: string;
-  type?: string;
+  types?: string[];
   pri?: string;
   language: string;
   repo: string;
