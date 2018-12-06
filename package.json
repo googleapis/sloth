@@ -15,7 +15,7 @@
   "main": "build/src/sloth.js",
   "types": "build/src/sloth.d.ts",
   "scripts": {
-    "test": "mocha build/test",
+    "test": "nyc mocha build/test",
     "lint": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
@@ -47,6 +47,7 @@
     "@types/update-notifier": "^2.5.0",
     "gts": "^0.9.0",
     "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
     "typescript": "^3.1.4"
   }
 }
