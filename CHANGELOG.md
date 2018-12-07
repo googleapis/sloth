@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## v2.1.2
+
+12-07-2018 11:20 PST
+
+- Add googleapis/google-resumable-media-python repository ([#118](https://github.com/googleapis/sloth/pull/118))
+- add frankyn to yoshi-go ([#115](https://github.com/googleapis/sloth/pull/115))
+- chore: always nyc report before calling codecov ([#114](https://github.com/googleapis/sloth/pull/114))
+- chore: nyc ignore build/test by default ([#113](https://github.com/googleapis/sloth/pull/113))
+- Add bshaffer to yoshi-php ([#112](https://github.com/googleapis/sloth/pull/112))
+- chore(build): update common templates ([#110](https://github.com/googleapis/sloth/pull/110))
+- Add andrey-qlogic to yoshi-java ([#109](https://github.com/googleapis/sloth/pull/109))
+- Adding andrewsg to yoshi-python ([#108](https://github.com/googleapis/sloth/pull/108))
+- chore: update license file ([#106](https://github.com/googleapis/sloth/pull/106))
+- fix: update the repository location in package.json ([#102](https://github.com/googleapis/sloth/pull/102))
+- Add kolea2 to yoshi and yoshi-java. ([#103](https://github.com/googleapis/sloth/pull/103))
+
 ## v2.1.1
 
 12-03-2018 08:52 PST
