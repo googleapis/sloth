@@ -94,6 +94,7 @@
     { "repo": "googleapis/nodejs-datastore-session", "language": "nodejs" },
     { "repo": "googleapis/nodejs-security-center", "language": "nodejs" },
     { "repo": "googleapis/nodejs-scheduler", "language": "nodejs" },
-    { "repo": "googleapis/nodejs-rcloadenv", "language": "nodejs" }
+    { "repo": "googleapis/nodejs-rcloadenv", "language": "nodejs" },
+    { "repo": "googleapis/google-resumable-media-python", "language": "python" }
   ]
 }

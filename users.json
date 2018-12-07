@@ -270,7 +270,8 @@
         "googleapis/google-auth-library-python",
         "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
-        "googleapis/dialogflow-python-client-v2"
+        "googleapis/dialogflow-python-client-v2",
+        "googleapis/google-resumable-media-python"
       ]
     },
     {
