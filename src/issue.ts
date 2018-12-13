@@ -61,13 +61,14 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
 
       let use = true;
       if (flags) {
-        if (flags.api && r.api !== flags.api) {
-          use = false;
+        if (flags.api) {
+          const apiTypes =
+              flags.api.split(',').map(t => t.trim()).filter(t => t.length > 0);
+          if (!r.api || apiTypes.indexOf(r.api) === -1) {
+            use = false;
+          }
         }
         if (flags.repo && r.repo !== flags.repo) {
-          use = false;
-        }
-        if (flags.api && r.api !== flags.api) {
           use = false;
         }
         if (flags.outOfSlo && !r.isOutOfSLO) {

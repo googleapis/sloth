@@ -66,16 +66,13 @@ function getRepoResults(repos: IssueResult[]) {
   return {repos: results, totals};
 }
 
-function getLanguageResults(repos: IssueResult[], api?: string) {
+function getLanguageResults(repos: IssueResult[]) {
   const results = new Map<string, LanguageResult>();
   const issues = new Array<Issue>();
   repos.forEach(r => {
     r.issues.forEach(i => {
       i.language = r.repo.language;
       if (isPullRequest(i)) {
-        return;
-      }
-      if (api && !isApi(i, api)) {
         return;
       }
       issues.push(i);
@@ -430,7 +427,7 @@ export async function showApiSLOs(cli: meow.Result) {
 export async function showLanguageSLOs(cli: meow.Result) {
   const output = new Array<string>();
   const issues = await getIssues(cli.flags as Flags);
-  const res = getLanguageResults(issues, cli.flags.api);
+  const res = getLanguageResults(issues);
   const languageHeader =
       ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
   let t2: Table;
