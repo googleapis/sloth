@@ -205,7 +205,7 @@
         "googleapis/google-cloud-php-bigquery",
         "googleapis/google-cloud-php-bigquerydatatransfer",
         "googleapis/google-cloud-php-bigtable",
-        "googleapis/google-cloud-php-common-protos"
+        "googleapis/google-cloud-php-common-protos",
         "googleapis/google-cloud-php-container",
         "googleapis/google-cloud-php-core",
         "googleapis/google-cloud-php-dataproc",
