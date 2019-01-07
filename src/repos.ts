@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
-import {GetBranchResult} from './types';
 import {octo, repos} from './util';
 
 export async function syncRepoSettings() {
@@ -52,15 +51,13 @@ export async function syncRepoSettings() {
             const [owner, name] = repo.repo.split('/');
             return octo.repos.getBranch({branch: 'master', owner, repo: name})
                 .then(result => {
-                  const branch = result.data as GetBranchResult;
-                  let statusChecks:
-                      ReposUpdateBranchProtectionParamsRequiredStatusChecks = {
-                        strict: true,
-                        contexts: []
-                      };
+                  const branch = result.data;
+                  const statusChecks = {strict: true, contexts: []};
                   if (branch.protection &&
                       branch.protection.required_status_checks) {
-                    statusChecks = branch.protection.required_status_checks;
+                    // tslint:disable-next-line no-any
+                    (statusChecks as any) =
+                        branch.protection.required_status_checks;
                     statusChecks.strict = true;
                   }
                   return octo.repos
