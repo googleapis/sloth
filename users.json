@@ -67,7 +67,8 @@
         "andrewsg",
         "andrey-qlogic",
         "bshaffer",
-        "danielgsims"
+        "danielgsims",
+        "cguardia"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -294,7 +295,8 @@
         "dhermes",
         "busunkim96",
         "chrisrossi",
-        "andrewsg"
+        "andrewsg",
+        "cguardia"
       ],
       "repos": [
         "googleapis/google-api-python-client",
