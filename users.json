@@ -68,6 +68,7 @@
         "andrey-qlogic",
         "bshaffer",
         "danielgsims",
+        "cguardia",
         "billyjacobson"
       ],
       "repos": [
@@ -296,7 +297,8 @@
         "dhermes",
         "busunkim96",
         "chrisrossi",
-        "andrewsg"
+        "andrewsg",
+        "cguardia"
       ],
       "repos": [
         "googleapis/google-api-python-client",
