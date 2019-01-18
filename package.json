@@ -25,7 +25,7 @@
     "start": "npm run compile && node build/src/slo.js",
     "presystem-test": "npm run compile",
     "system-test": "mocha build/system-test",
-    "docs": "echo no docs available 👻",
+    "docs": "compodoc src/",
     "samples-test": "echo no sample tests 👻"
   },
   "keywords": [],
@@ -40,6 +40,7 @@
     "update-notifier": "^2.5.0"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.7",
     "@types/cli-table": "^0.3.0",
     "@types/meow": "^5.0.0",
     "@types/mocha": "^5.2.1",
