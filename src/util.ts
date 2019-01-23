@@ -27,7 +27,6 @@ if (!token) {
   throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
 }
 
-const octo = new Octokit();
-octo.authenticate({token, type: 'token'});
+const octo = new Octokit({auth: `token ${token}`});
 
 export {octo};
