@@ -19,8 +19,9 @@ import {Label, Repo, Users} from './types';
 export const repos: Repo[] = require('../../repos.json').repos;
 export const labels: Label[] = require('../../labels.json').labels;
 export const users: Users = require('../../users.json');
-export const languages =
-    ['go', 'nodejs', 'ruby', 'python', 'php', 'dotnet', 'java', 'elixir'];
+export const languages = [
+  'go', 'nodejs', 'ruby', 'python', 'php', 'dotnet', 'java', 'elixir', 'cpp'
+];
 
 const token = process.env.SLOTH_GITHUB_TOKEN;
 if (!token) {

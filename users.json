@@ -318,6 +318,28 @@
       "repos": [
         "googleapis/elixir-google-api"
       ]
+    },
+    {
+      "team": "yoshi-cpp",
+      "users": [
+        "sduskis",
+        "dopiera",
+        "benjaminr",
+        "mbrukman",
+        "coryan",
+        "paprat",
+        "AVaksman",
+        "devjgm",
+        "devbwww",
+        "houglum",
+        "google-cloud-cpp-bot",
+        "manish-qlogic",
+        "remyabel",
+        "rsimion"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/google-cloud-cpp"
+      ]
     }
   ]
 }

@@ -125,6 +125,7 @@
     { "repo": "googleapis/google-cloud-php-trace", "language": "php" },
     { "repo": "googleapis/google-cloud-php-translate", "language": "php" },
     { "repo": "googleapis/google-cloud-php-videointelligence", "language": "php" },
-    { "repo": "googleapis/google-cloud-php-vision", "language": "php" }
+    { "repo": "googleapis/google-cloud-php-vision", "language": "php" },
+    { "repo": "GoogleCloudPlatform/google-cloud-cpp", "language": "cpp" }
   ]
 }
