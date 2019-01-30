@@ -202,6 +202,7 @@
         "googleapis/google-auth-library-php",
         "googleapis/google-cloud-php",
         "googleapis/google-cloud-php-asset",
+        "googleapis/google-cloud-php-automl",
         "googleapis/google-cloud-php-bigquery",
         "googleapis/google-cloud-php-bigquerydatatransfer",
         "googleapis/google-cloud-php-bigtable",
