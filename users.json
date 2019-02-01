@@ -322,9 +322,8 @@
       "team": "yoshi-cpp",
       "users": [
         "AVaksman",
-        "benjaminr",
         "coryan",
-        "devbwww",
+        "devbww",
         "devjgm",
         "dopiera",
         "google-cloud-cpp-bot",
@@ -332,12 +331,11 @@
         "manish-qlogic",
         "mbrukman",
         "paprat",
-        "remyabel",
         "rsimion",
         "sduskis"
       ],
       "repos": [
-        "GoogleCloudPlatform/google-cloud-cpp"
+        "googleapis/google-cloud-cpp"
       ]
     }
   ]
