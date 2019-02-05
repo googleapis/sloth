@@ -281,7 +281,18 @@
         "googleapis/gax-go",
         "googleapis/google-api-go-client",
         "googleapis/google-cloud-go-testing",
-        "googlecloudplatform/google-cloud-go"
+        "googleapis/google-cloud-go"
+      ]
+    },
+    {
+      "team": "profiler-go",
+      "users": [
+        "jqll",
+        "aalexand",
+        "kalyanac"
+      ],
+      "repos": [
+        "googleapis/google-cloud-go"
       ]
     },
     {
