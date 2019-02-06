@@ -285,17 +285,6 @@
       ]
     },
     {
-      "team": "profiler-go",
-      "users": [
-        "jqll",
-        "aalexand",
-        "kalyanac"
-      ],
-      "repos": [
-        "googleapis/google-cloud-go"
-      ]
-    },
-    {
       "team": "yoshi-python",
       "users": [
         "andrewsg",
