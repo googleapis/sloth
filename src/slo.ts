@@ -310,8 +310,15 @@ export function hoursOld(date: string) {
  * @param i Issue to analyze
  */
 export function isOutOfSLO(i: Issue) {
-  // Pull requests don't count.
+  // Pull requests must be merged within a week, unless they have a
+  // 'needs work' label.  After 90 days, it should just be resolved.
   if (isPullRequest(i)) {
+    if (daysOld(i.created_at) > 90) {
+      return true;
+    }
+    if (daysOld(i.created_at) > 7 && !hasLabel(i, 'needs work')) {
+      return true;
+    }
     return false;
   }
 
