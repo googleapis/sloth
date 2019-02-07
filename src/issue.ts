@@ -19,7 +19,7 @@ import {Flags, Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
 
 import Table = require('cli-table');
-import {isTriaged, isOutOfSLO, hasLabel, isApi, isPullRequest, hoursOld, getApi} from './slo';
+import {isTriaged, isOutOfSLO, hasLabel, isPullRequest, hoursOld, getApi} from './slo';
 const truncate = require('truncate');
 const CSV = require('csv-string');
 
