@@ -313,6 +313,9 @@ export function isOutOfSLO(i: Issue) {
   // Pull requests must be merged within a week, unless they have a
   // 'needs work' label.  After 90 days, it should just be resolved.
   if (isPullRequest(i)) {
+    if (hasLabel(i, 'status: blocked')) {
+      return false;
+    }
     if (daysOld(i.created_at) > 90) {
       return true;
     }
