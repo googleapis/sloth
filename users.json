@@ -118,6 +118,7 @@
         "googleapis/nodejs-monitoring",
         "googleapis/nodejs-os-login",
         "googleapis/nodejs-paginator",
+        "googleapis/nodejs-precise-date",
         "googleapis/nodejs-projectify",
         "googleapis/nodejs-promisify",
         "googleapis/nodejs-proto-files",
