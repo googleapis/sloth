@@ -22,6 +22,7 @@
     { "language": "java", "repo": "googleapis/google-cloud-java"},
     { "language": "java", "repo": "googleapis/google-http-java-client"},
     { "language": "java", "repo": "googleapis/google-oauth-java-client"},
+    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-client"},
 
     { "language": "nodejs", "repo": "googleapis/cloud-debug-nodejs"},
     { "language": "nodejs", "repo": "googleapis/cloud-profiler-nodejs"},
