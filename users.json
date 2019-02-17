@@ -261,7 +261,8 @@
         "googleapis/google-auth-library-java",
         "googleapis/google-cloud-java",
         "googleapis/google-http-java-client",
-        "googleapis/google-oauth-java-client"
+        "googleapis/google-oauth-java-client",
+        "GoogleCloudPlatform/cloud-bigtable-client"
       ]
     },
     {
