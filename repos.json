@@ -15,6 +15,7 @@
     { "language": "go", "repo": "googlecloudplatform/google-cloud-go"},
 
     { "language": "java", "repo": "googleapis/api-common-java"},
+    { "language": "java", "repo": "googleapis/cloud-bigtable-client"},
     { "language": "java", "repo": "googleapis/gax-java"},
     { "language": "java", "repo": "googleapis/google-api-java-client"},
     { "language": "java", "repo": "googleapis/google-api-java-client-services"},
@@ -22,7 +23,6 @@
     { "language": "java", "repo": "googleapis/google-cloud-java"},
     { "language": "java", "repo": "googleapis/google-http-java-client"},
     { "language": "java", "repo": "googleapis/google-oauth-java-client"},
-    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-client"},
 
     { "language": "nodejs", "repo": "googleapis/cloud-debug-nodejs"},
     { "language": "nodejs", "repo": "googleapis/cloud-profiler-nodejs"},

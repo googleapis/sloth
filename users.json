@@ -252,6 +252,7 @@
       ],
       "repos": [
         "googleapis/api-common-java",
+        "googleapis/cloud-bigtable-client"
         "googleapis/gax-java",
         "googleapis/google-api-java-client",
         "googleapis/google-api-java-client-services",
@@ -259,7 +260,6 @@
         "googleapis/google-cloud-java",
         "googleapis/google-http-java-client",
         "googleapis/google-oauth-java-client",
-        "GoogleCloudPlatform/cloud-bigtable-client"
       ]
     },
     {
