@@ -40,7 +40,7 @@ export async function syncRepoSettings() {
   // The Go repositories are synchronized with a different git
   // repository, so direct commits need to be made.
   const ignoreRepos =
-      ['GoogleCloudPlatform/google-cloud-go', 'google/google-api-go-client'];
+      ['googleapis/google-cloud-go', 'googleapis/google-api-go-client'];
 
   const ps3 =
       repos
