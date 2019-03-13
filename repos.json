@@ -136,6 +136,7 @@
     { "language": "python", "repo": "googleapis/releasetool"},
     { "language": "python", "repo": "googleapis/synthtool"},
     { "language": "python", "repo": "googleapis/docuploader"},
+    { "language": "python", "repo": "googleapis/google-auth-library-python-oauthlib"},
 
     { "language": "ruby", "repo": "googleapis/discovery-artifact-manager"},
     { "language": "ruby", "repo": "googleapis/gax-ruby"},
