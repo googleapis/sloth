@@ -1,47 +1,78 @@
-# sloth
-This is a simple utility for tracking SLOs of GitHub repositories.
+[//]: # "This README.md file is auto-generated, all changes to this file will be lost."
+[//]: # "To regenerate it, use `python -m synthtool`."
+<img src="https://avatars2.githubusercontent.com/u/2810941?v=3&s=96" alt="Google Cloud Platform logo" title="Google Cloud Platform" align="right" height="96" width="96"/>
 
-![sloth](http://i.imgur.com/su6XYp7.gif?320)
+# [:  Client](https://github.com/)
 
-## Installation
-Make sure you have node.js 8+ installed. Then do this:
+None
+[![npm version](https://img.shields.io/npm/v/@justinbeckwith/sloth.svg)](https://www.npmjs.org/package/@justinbeckwith/sloth)
+[![codecov](https://img.shields.io/codecov/c/github//master.svg?style=flat)](https://codecov.io/gh/)
 
-```sh
-$ npm install -g @justinbeckwith/sloth
-```
 
-## Usage
-You need to go create a [personal access token](https://github.com/settings/tokens) in GitHub.  Take this token, and save it as an environment variable named `SLOTH_GITHUB_TOKEN`.
+sloth is a CLI utility for measuring GitHub response SLOs.
 
-```sh
-$ sloth
-```
 
-Alternatively, you can just set it every time before running the tool:
+* [Using the client library](#using-the-client-library)
+* [Versioning](#versioning)
+* [Contributing](#contributing)
+* [License](#license)
 
-```sh
-$ SLOTH_GITHUB_TOKEN=****** sloth
-```
+## Using the client library
 
-### CSV
-You can also get output in CSV format!  Just pass the `--csv` flag:
+1.  [Select or create a Cloud Platform project][projects].
+1.  [Enable the  API][enable_api].
+1.  [Set up authentication with a service account][auth] so you can access the
+    API from your local workstation.
 
-```sh
-$ sloth --csv
-```
+1. Install the client library:
 
-### Updating labels
-Lets use the same labels in all of our repos.  First, check out `labels.json`.  Then go ahead and run:
+        npm install @justinbeckwith/sloth
 
-```sh
-$ sloth labels
-```
 
-### Team membership
-Lets organize the users in our many teams/orgs.  First, check out `users.json`.  Then go ahead and run:
 
-```sh
-$ sloth users
-```
 
-That's it 🎉 Enjoy!
+
+The [  Client API Reference][client-docs] documentation
+also contains samples.
+
+## Versioning
+
+This library follows [Semantic Versioning](http://semver.org/).
+
+
+
+
+
+
+More Information: [Google Cloud Platform Launch Stages][launch_stages]
+
+[launch_stages]: https://cloud.google.com/terms/launch-stages
+
+## Contributing
+
+Contributions welcome! See the [Contributing Guide](https://github.com//blob/master/CONTRIBUTING.md).
+
+## License
+
+Apache Version 2.0
+
+See [LICENSE](https://github.com//blob/master/LICENSE)
+
+## What's Next
+
+* [ Documentation][product-docs]
+* [  Client API Reference][client-docs]
+* [github.com/](https://github.com/)
+
+Read more about the client libraries for Cloud APIs, including the older
+Google APIs Client Libraries, in [Client Libraries Explained][explained].
+
+[explained]: https://cloud.google.com/apis/docs/client-libraries-explained
+
+[client-docs]: 
+[product-docs]: 
+[shell_img]: https://gstatic.com/cloudssh/images/open-btn.png
+[projects]: https://console.cloud.google.com/project
+[billing]: https://support.google.com/cloud/answer/6293499#enable-billing
+[enable_api]: https://console.cloud.google.com/flows/enableapi?apiid=
+[auth]: https://cloud.google.com/docs/authentication/getting-started
