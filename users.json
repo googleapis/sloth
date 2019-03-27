@@ -62,11 +62,13 @@
         "praveenqlogic",
         "quartzmo",
         "rahulKQL",
+        "shollyman",
         "sduskis",
         "stephenplusplus",
         "theacodes",
         "tmatsuo",
-        "tseaver"
+        "tseaver",
+        "tswast"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -255,6 +257,7 @@
         "olavloite",
         "pmakani",
         "rahulKQL",
+        "shollyman",
         "sduskis"
       ],
       "repos": [
@@ -304,7 +307,8 @@
         "plamut",
         "sduskis",
         "theacodes",
-        "tseaver"
+        "tseaver",
+        "tswast"
       ],
       "repos": [
         "googleapis/dialogflow-python-client-v2",
