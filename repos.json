@@ -47,6 +47,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-common"},
     { "language": "nodejs", "repo": "googleapis/nodejs-common-grpc"},
     { "language": "nodejs", "repo": "googleapis/nodejs-compute"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-datalabeling"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dataproc"},
     { "language": "nodejs", "repo": "googleapis/nodejs-datastore"},
     { "language": "nodejs", "repo": "googleapis/nodejs-datastore-session"},
