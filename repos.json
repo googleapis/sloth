@@ -56,6 +56,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-dns"},
     { "language": "nodejs", "repo": "googleapis/nodejs-error-reporting"},
     { "language": "nodejs", "repo": "googleapis/nodejs-firestore"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-firestore-session"},
     { "language": "nodejs", "repo": "googleapis/nodejs-googleapis-common"},
     { "language": "nodejs", "repo": "googleapis/nodejs-iot"},
     { "language": "nodejs", "repo": "googleapis/nodejs-irm"},
