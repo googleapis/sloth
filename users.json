@@ -109,6 +109,7 @@
         "googleapis/nodejs-dns",
         "googleapis/nodejs-error-reporting",
         "googleapis/nodejs-firestore",
+        "googleapis/nodejs-firestore-session",
         "googleapis/nodejs-googleapis-common",
         "googleapis/nodejs-iot",
         "googleapis/nodejs-kms",
