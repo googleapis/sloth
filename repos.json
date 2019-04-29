@@ -132,6 +132,7 @@
     { "language": "python", "repo": "googleapis/google-api-python-client"},
     { "language": "python", "repo": "googleapis/google-auth-library-python"},
     { "language": "python", "repo": "googleapis/google-cloud-python"},
+    { "language": "python", "repo": "googleapis/python-ndb"},
     { "language": "python", "repo": "googleapis/google-cloud-python-happybase"},
     { "language": "python", "repo": "googleapis/google-resumable-media-python"},
     { "language": "python", "repo": "googleapis/oauth2client"},
