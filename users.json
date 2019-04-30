@@ -138,6 +138,7 @@
         "googleapis/nodejs-translate",
         "googleapis/nodejs-video-intelligence",
         "googleapis/nodejs-vision",
+        "googleapis/release-please",
         "googleapis/sloth"
       ],
       "users": [
