@@ -87,6 +87,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-translate"},
     { "language": "nodejs", "repo": "googleapis/nodejs-video-intelligence"},
     { "language": "nodejs", "repo": "googleapis/nodejs-vision"},
+    { "language": "nodejs", "repo": "googleapis/release-please" },
     { "language": "nodejs", "repo": "googleapis/sloth"},
 
     { "language": "php", "repo": "googleapis/gax-php"},
