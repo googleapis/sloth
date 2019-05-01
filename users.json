@@ -82,6 +82,7 @@
         "googleapis/cloud-profiler-nodejs",
         "googleapis/cloud-trace-nodejs",
         "googleapis/gax-nodejs",
+        "googleapis/gaxios",
         "googleapis/gce-images",
         "googleapis/gcp-metadata",
         "googleapis/gcs-resumable-upload",

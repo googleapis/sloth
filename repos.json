@@ -28,6 +28,7 @@
     { "language": "nodejs", "repo": "googleapis/cloud-profiler-nodejs"},
     { "language": "nodejs", "repo": "googleapis/cloud-trace-nodejs"},
     { "language": "nodejs", "repo": "googleapis/gax-nodejs"},
+    { "language": "nodejs", "repo": "googleapis/gaxios"},
     { "language": "nodejs", "repo": "googleapis/gce-images"},
     { "language": "nodejs", "repo": "googleapis/gcp-metadata"},
     { "language": "nodejs", "repo": "googleapis/gcs-resumable-upload"},
