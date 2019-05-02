@@ -19,7 +19,14 @@ import {Flags, Issue, IssueResult, Repo} from './types';
 import {octo, repos} from './util';
 
 import Table = require('cli-table');
-import {isTriaged, isOutOfSLO, hasLabel, isPullRequest, hoursOld, getApi} from './slo';
+import {
+  isTriaged,
+  isOutOfSLO,
+  hasLabel,
+  isPullRequest,
+  hoursOld,
+  getApi,
+} from './slo';
 const truncate = require('truncate');
 const CSV = require('csv-string');
 
@@ -42,8 +49,13 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   let i = 1;
   do {
     try {
-      res = await octo.issues.listForRepo(
-          {owner, repo: name, state: 'open', per_page: 100, page: i});
+      res = await octo.issues.listForRepo({
+        owner,
+        repo: name,
+        state: 'open',
+        per_page: 100,
+        page: i,
+      });
     } catch (e) {
       console.error(`Error fetching issues for ${repo.repo}.`);
       console.error(e);
@@ -62,8 +74,10 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       let use = true;
       if (flags) {
         if (flags.api) {
-          const apiTypes =
-              flags.api.split(',').map(t => t.trim()).filter(t => t.length > 0);
+          const apiTypes = flags.api
+            .split(',')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
           if (!r.api || apiTypes.indexOf(r.api) === -1) {
             use = false;
           }
@@ -84,9 +98,10 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
           use = false;
         }
         if (flags.type) {
-          const flagTypes = flags.type.split(',')
-                                .map(t => t.trim())
-                                .filter(t => t.length > 0);
+          const flagTypes = flags.type
+            .split(',')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
           let found = false;
           for (const flagType of flagTypes) {
             for (const issueType of r.types) {
@@ -105,8 +120,11 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       }
     }
     i++;
-  } while (res.headers && res.headers.link &&
-           res.headers.link.indexOf('rel="last"') > -1);
+  } while (
+    res.headers &&
+    res.headers.link &&
+    res.headers.link.indexOf('rel="last"') > -1
+  );
   return result;
 }
 
@@ -121,15 +139,18 @@ export interface IssueOptions {
 }
 
 export async function tagIssues() {
-  const promises = new Array<Promise<void|Octokit.AnyResponse>>();
+  const promises = new Array<Promise<void | Octokit.AnyResponse>>();
   const repos = await getIssues();
   repos.forEach(r => {
     r.issues.forEach(i => {
       const [owner, name] = r.repo.repo.split('/');
       i.repo = name;
       i.owner = owner;
-      if (!i.isTriaged && !hasLabel(i, 'triage me') &&
-          hoursOld(i.created_at) > 16) {
+      if (
+        !i.isTriaged &&
+        !hasLabel(i, 'triage me') &&
+        hoursOld(i.created_at) > 16
+      ) {
         console.log(`Tagging ${i.repo}#${i.number} with 'triage me'`);
         promises.push(tagIssue(i, 'triage me'));
       } else if (i.isTriaged && hasLabel(i, 'triage me')) {
@@ -148,30 +169,34 @@ export async function tagIssues() {
   await Promise.all(promises);
 }
 
-function tagIssue(i: Issue, label: string): Promise<void|Octokit.AnyResponse> {
+function tagIssue(
+  i: Issue,
+  label: string
+): Promise<void | Octokit.AnyResponse> {
   return octo.issues
-      .addLabels({
-        labels: [label],
-        number: i.number,
-        owner: i.owner,
-        repo: i.repo
-        // tslint:disable-next-line no-any
-      } as any)
-      .catch(e => {
-        console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
-        console.error(e);
-      });
+    .addLabels({
+      labels: [label],
+      number: i.number,
+      owner: i.owner,
+      repo: i.repo,
+      // tslint:disable-next-line no-any
+    } as any)
+    .catch(e => {
+      console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
+      console.error(e);
+    });
 }
 
 function untagIssue(
-    i: Issue, label: string): Promise<void|Octokit.AnyResponse> {
+  i: Issue,
+  label: string
+): Promise<void | Octokit.AnyResponse> {
   return octo.issues
-      .removeLabel(
-          {name: label, number: i.number, owner: i.owner, repo: i.repo})
-      .catch(e => {
-        console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
-        console.error(e);
-      });
+    .removeLabel({name: label, number: i.number, owner: i.owner, repo: i.repo})
+    .catch(e => {
+      console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
+      console.error(e);
+    });
 }
 
 // tslint:disable-next-line no-any
@@ -194,10 +219,12 @@ export async function showIssues(options: Flags) {
   issues.forEach(issue => {
     const values = [
       issue.html_url,
-      options.csv ? issue.isTriaged : (issue.isTriaged ? '🦖' : '🚨'),
-      options.csv ? !issue.isOutOfSLO : (!issue.isOutOfSLO ? '🦖' : '🚨'),
-      truncate(issue.title, 75), issue.language, issue.api || '',
-      issue.pri || ''
+      options.csv ? issue.isTriaged : issue.isTriaged ? '🦖' : '🚨',
+      options.csv ? !issue.isOutOfSLO : !issue.isOutOfSLO ? '🦖' : '🚨',
+      truncate(issue.title, 75),
+      issue.language,
+      issue.api || '',
+      issue.pri || '',
     ];
     if (options.csv) {
       output.push(CSV.stringify(values));

@@ -28,7 +28,7 @@ const pkg = require('../../package.json');
 updateNotifier({pkg}).notify();
 
 const cli = meow(
-    `
+  `
 	Usage
 	  $ sloth
 
@@ -54,22 +54,23 @@ const cli = meow(
     $ sloth sync-repo-settings
 
 `,
-    {
-      flags: {
-        untriaged: {type: 'boolean'},
-        language: {type: 'string', alias: 'l'},
-        repo: {type: 'string', alias: 'r'},
-        outOfSLO: {type: 'boolean'},
-        csv: {type: 'boolean'},
-        api: {type: 'string'},
-        pr: {type: 'boolean'},
-        type: {type: 'string'},
-        pri: {type: 'string'}
-      }
-    });
+  {
+    flags: {
+      untriaged: {type: 'boolean'},
+      language: {type: 'string', alias: 'l'},
+      repo: {type: 'string', alias: 'r'},
+      outOfSLO: {type: 'boolean'},
+      csv: {type: 'boolean'},
+      api: {type: 'string'},
+      pr: {type: 'boolean'},
+      type: {type: 'string'},
+      pri: {type: 'string'},
+    },
+  }
+);
 
 const cmd = cli.input.length > 0 ? cli.input[0] : null;
-let p: Promise<void|{}>;
+let p: Promise<void | {}>;
 
 switch (cmd) {
   case 'labels':

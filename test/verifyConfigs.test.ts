@@ -37,9 +37,10 @@ describe('Verify config files', () => {
 
     it('has valid schema', () => {
       // tslint:disable-next-line:no-any
-      const assertArrayOfStrings = (array: any) => assert(
-          Array.isArray(array) &&
-          array.every((elem) => typeof elem === 'string'));
+      const assertArrayOfStrings = (array: any) =>
+        assert(
+          Array.isArray(array) && array.every(elem => typeof elem === 'string')
+        );
 
       // tslint:disable-next-line:no-any
       const assertMembership = (membership: any) => {
