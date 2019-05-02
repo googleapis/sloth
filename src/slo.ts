@@ -13,7 +13,14 @@
 // limitations under the License.
 
 import {getIssues} from './issue';
-import {ApiResult, Flags, Issue, IssueResult, LanguageResult, RepoResult} from './types';
+import {
+  ApiResult,
+  Flags,
+  Issue,
+  IssueResult,
+  LanguageResult,
+  RepoResult,
+} from './types';
 import {labels, languages} from './util';
 
 import Table = require('cli-table');
@@ -31,7 +38,7 @@ function getRepoResults(repos: IssueResult[]) {
       pX: 0,
       outOfSLO: 0,
       repo: repo.repo.repo,
-      language: repo.repo.language
+      language: repo.repo.language,
     };
     repo.issues.forEach(i => {
       if (isPullRequest(i)) {
@@ -79,8 +86,15 @@ function getLanguageResults(repos: IssueResult[]) {
     });
   });
   languages.forEach(l => {
-    results.set(
-        l, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, language: l});
+    results.set(l, {
+      total: 0,
+      p0: 0,
+      p1: 0,
+      p2: 0,
+      pX: 0,
+      outOfSLO: 0,
+      language: l,
+    });
   });
   issues.forEach(i => {
     const counts = results.get(i.language)!;
@@ -103,7 +117,6 @@ function getLanguageResults(repos: IssueResult[]) {
   });
   return results;
 }
-
 
 function getApiResults(repos: IssueResult[], api?: string) {
   const results = new Map<string, ApiResult>();
@@ -199,7 +212,7 @@ export function isPullRequest(i: Issue) {
 
 export function isApi(i: Issue, api: string) {
   const label = getApi(i);
-  return (label === api);
+  return label === api;
 }
 
 export function getPri(i: Issue) {
@@ -224,8 +237,9 @@ export function getApi(i: Issue) {
 
   // In node.js, we have separate repos for each API. We aren't looking for
   // a label, we're looking for a repo name.
-  const repoName =
-      i.repo.startsWith('googleapis/') ? i.repo.split('/')[1] : i.repo;
+  const repoName = i.repo.startsWith('googleapis/')
+    ? i.repo.split('/')[1]
+    : i.repo;
   if (repoName.startsWith('nodejs-')) {
     return i.repo.split('-')[1];
   }
@@ -284,8 +298,10 @@ export function isTriaged(i: Issue) {
  * @param label Label text to look for
  */
 export function hasLabel(issue: Issue, label: string) {
-  return issue.labels.filter(x => x.name.toLowerCase().indexOf(label) > -1)
-             .length > 0;
+  return (
+    issue.labels.filter(x => x.name.toLowerCase().indexOf(label) > -1).length >
+    0
+  );
 }
 
 /**
@@ -293,16 +309,15 @@ export function hasLabel(issue: Issue, label: string) {
  * @param date Date to compare
  */
 function daysOld(date: string) {
-  return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60 / 24;
+  return (Date.now() - new Date(date).getTime()) / 1000 / 60 / 60 / 24;
 }
-
 
 /**
  * Determine how many hours old an issue is
  * @param date Date to compare
  */
 export function hoursOld(date: string) {
-  return (Date.now() - (new Date(date)).getTime()) / 1000 / 60 / 60;
+  return (Date.now() - new Date(date).getTime()) / 1000 / 60 / 60;
 }
 
 /**
@@ -411,8 +426,15 @@ export async function showApiSLOs(cli: meow.Result) {
   const output = new Array<string>();
   const issues = await getIssues();
   const apiResults = getApiResults(issues, cli.flags.api);
-  const apiHeader =
-      ['Api', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  const apiHeader = [
+    'Api',
+    'Total',
+    'P0',
+    'P1',
+    'P2',
+    'Untriaged',
+    'Out of SLO',
+  ];
   let t3: Table;
   if (cli.flags.csv) {
     output.push('\n');
@@ -438,8 +460,15 @@ export async function showLanguageSLOs(cli: meow.Result) {
   const output = new Array<string>();
   const issues = await getIssues(cli.flags as Flags);
   const res = getLanguageResults(issues);
-  const languageHeader =
-      ['Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'];
+  const languageHeader = [
+    'Language',
+    'Total',
+    'P0',
+    'P1',
+    'P2',
+    'Untriaged',
+    'Out of SLO',
+  ];
   let t2: Table;
   if (cli.flags.csv) {
     output.push('\n');
@@ -449,8 +478,15 @@ export async function showLanguageSLOs(cli: meow.Result) {
   }
 
   res.forEach(x => {
-    const values =
-        [`${x.language}`, x.total, x.p0, x.p1, x.p2, x.pX, x.outOfSLO];
+    const values = [
+      `${x.language}`,
+      x.total,
+      x.p0,
+      x.p1,
+      x.p2,
+      x.pX,
+      x.outOfSLO,
+    ];
     if (cli.flags.csv) {
       output.push(values.join(','));
     } else {
@@ -473,7 +509,14 @@ export async function showSLOs(cli: meow.Result) {
 
     let table: Table;
     const head = [
-      'Repo', 'Language', 'Total', 'P0', 'P1', 'P2', 'Untriaged', 'Out of SLO'
+      'Repo',
+      'Language',
+      'Total',
+      'P0',
+      'P1',
+      'P2',
+      'Untriaged',
+      'Out of SLO',
     ];
     if (cli.flags.csv) {
       output.push(head.join(','));
@@ -483,8 +526,14 @@ export async function showSLOs(cli: meow.Result) {
 
     repos.forEach(repo => {
       const values = [
-        `${repo.repo}`, `${repo.language}`, repo.total, repo.p0, repo.p1,
-        repo.p2, repo.pX, repo.outOfSLO
+        `${repo.repo}`,
+        `${repo.language}`,
+        repo.total,
+        repo.p0,
+        repo.p1,
+        repo.p2,
+        repo.pX,
+        repo.outOfSLO,
       ];
       if (cli.flags.csv) {
         output.push(values.join(','));
@@ -494,8 +543,14 @@ export async function showSLOs(cli: meow.Result) {
     });
 
     const values = [
-      `TOTALS`, `-`, totals.total, totals.p0, totals.p1, totals.p2, totals.pX,
-      totals.outOfSLO
+      `TOTALS`,
+      `-`,
+      totals.total,
+      totals.p0,
+      totals.p1,
+      totals.p2,
+      totals.pX,
+      totals.outOfSLO,
     ];
     if (cli.flags.csv) {
       output.push(values.join(','));
