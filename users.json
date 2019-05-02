@@ -352,7 +352,8 @@
         "sduskis"
       ],
       "repos": [
-        "googleapis/google-cloud-cpp"
+        "googleapis/google-cloud-cpp",
+        "googleapis/google-cloud-cpp-spanner"
       ]
     }
   ]
