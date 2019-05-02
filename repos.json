@@ -1,6 +1,7 @@
 {
   "repos": [
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp"},
+    { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner"},
 
     { "language": "dotnet", "repo": "googleapis/gax-dotnet"},
     { "language": "dotnet", "repo": "googleapis/google-api-dotnet-client"},
