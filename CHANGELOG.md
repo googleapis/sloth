@@ -4,6 +4,8 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [3.0.1](https://www.github.com/googleapis/sloth/compare/v3.0.0...v3.0.1) (2019-05-02)
+
 ## v3.0.0
 
 03-28-2019 12:40 PDT
@@ -143,4 +145,3 @@
 - build: run tests on node11 ([#61](https://github.com/GoogleCloudPlatform/sloth/pull/61))
 - chore(deps): update dependency @types/meow to v5 ([#58](https://github.com/GoogleCloudPlatform/sloth/pull/58))
 - chores(build): run codecov on continuous builds ([#54](https://github.com/GoogleCloudPlatform/sloth/pull/54))
-
