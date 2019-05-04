@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.0.0](https://www.github.com/googleapis/sloth/compare/v3.0.0...v4.0.0) (2019-05-03)
+
+
+### Build System
+
+* upgrade engines field to >=8.10.0 ([#216](https://www.github.com/googleapis/sloth/issues/216)) ([3135d04](https://www.github.com/googleapis/sloth/commit/3135d04))
+
+
+### BREAKING CHANGES
+
+* upgrade engines field to >=8.10.0 (#216)
+
 ## v3.0.0
 
 03-28-2019 12:40 PDT
@@ -143,4 +155,3 @@
 - build: run tests on node11 ([#61](https://github.com/GoogleCloudPlatform/sloth/pull/61))
 - chore(deps): update dependency @types/meow to v5 ([#58](https://github.com/GoogleCloudPlatform/sloth/pull/58))
 - chores(build): run codecov on continuous builds ([#54](https://github.com/GoogleCloudPlatform/sloth/pull/54))
-
