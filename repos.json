@@ -152,6 +152,7 @@
     { "language": "ruby", "repo": "googleapis/google-api-ruby-client"},
     { "language": "ruby", "repo": "googleapis/google-auth-library-ruby"},
     { "language": "ruby", "repo": "googleapis/google-cloud-ruby"},
+    { "language": "ruby", "repo": "googleapis/ruby-style"},
     { "language": "ruby", "repo": "googleapis/signet"}
   ]
 }
