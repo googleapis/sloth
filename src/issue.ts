@@ -306,18 +306,6 @@ function isBug(i: ApiIssue) {
   return hasLabel(i, 'type: bug');
 }
 
-function isP0(i: ApiIssue) {
-  return hasLabel(i, 'priority: p0');
-}
-
-function isP1(i: ApiIssue) {
-  return hasLabel(i, 'priority: p1');
-}
-
-function isP2(i: ApiIssue) {
-  return hasLabel(i, 'priority: p2');
-}
-
 function isAssigned(i: ApiIssue) {
   return i.Assignees.length > 0;
 }
@@ -338,7 +326,7 @@ function hasLabel(issue: ApiIssue, label: string) {
  * For a given issue, figure out if it's out of SLO.
  * @param i Issue to analyze
  */
-export function isOutOfSLO(i: ApiIssue) {
+function isOutOfSLO(i: ApiIssue) {
   // Pull requests must be merged within a week, unless they have a
   // 'needs work' label.  After 90 days, it should just be resolved.
   if (isPullRequest(i)) {
@@ -356,7 +344,7 @@ export function isOutOfSLO(i: ApiIssue) {
 
   // All P0 issues must receive a reply within 1 day, an update at least daily,
   // and be resolved within 5 days.
-  if (isP0(i)) {
+  if (i.Priority === 0) {
     if (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) {
       return true;
     }
@@ -364,7 +352,7 @@ export function isOutOfSLO(i: ApiIssue) {
 
   // All P1 issues must receive a reply within 5 days, an update at least every
   // 5 days thereafter, and be resolved within 42 days (six weeks).
-  if (isP1(i)) {
+  if (i.Priority === 1) {
     if (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) {
       return true;
     }
@@ -372,7 +360,7 @@ export function isOutOfSLO(i: ApiIssue) {
 
   // All P2 issues must receive a reply within 5 days, and be resolved within
   // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
-  if (isP2(i)) {
+  if (i.Priority === 2) {
     if (daysOld(i.Created) > 180) {
       return true;
     }
@@ -432,13 +420,13 @@ function hoursOld(date: string) {
  * - Pull requests don't count.
  * @param i Issue to analyze
  */
-export function isTriaged(i: ApiIssue) {
+function isTriaged(i: ApiIssue) {
   if (isPullRequest(i)) {
     return true;
   }
 
   if (hasPriority(i)) {
-    if (isP0(i) || isP1(i)) {
+    if (i.Priority === 0 || i.Priority === 1) {
       return isAssigned(i);
     }
     return true;
