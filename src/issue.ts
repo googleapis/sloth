@@ -74,7 +74,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       api: getApi(r),
       isOutOfSLO: isOutOfSLO(r),
       isTriaged: isTriaged(r),
-      pri: r.Priority,
+      pri: r.PriorityUnknown ? undefined : r.Priority,
       isPR: isPullRequest(r),
       number: r.IssueID,
       createdAt: r.Created,
@@ -328,6 +328,7 @@ function hasLabel(issue: ApiIssue, label: string) {
 function isOutOfSLO(i: ApiIssue) {
   // Pull requests must be merged within a week, unless they have a
   // 'needs work' label.  After 90 days, it should just be resolved.
+  const pri = i.PriorityUnknown ? undefined : i.Priority;
   if (isPullRequest(i)) {
     if (hasLabel(i, 'status: blocked')) {
       return false;
@@ -343,7 +344,7 @@ function isOutOfSLO(i: ApiIssue) {
 
   // All P0 issues must receive a reply within 1 day, an update at least daily,
   // and be resolved within 5 days.
-  if (i.Priority === 0) {
+  if (pri === 0) {
     if (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) {
       return true;
     }
@@ -351,7 +352,7 @@ function isOutOfSLO(i: ApiIssue) {
 
   // All P1 issues must receive a reply within 5 days, an update at least every
   // 5 days thereafter, and be resolved within 42 days (six weeks).
-  if (i.Priority === 1) {
+  if (pri === 1) {
     if (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) {
       return true;
     }
@@ -359,7 +360,7 @@ function isOutOfSLO(i: ApiIssue) {
 
   // All P2 issues must receive a reply within 5 days, and be resolved within
   // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
-  if (i.Priority === 2) {
+  if (pri === 2) {
     if (daysOld(i.Created) > 180) {
       return true;
     }
