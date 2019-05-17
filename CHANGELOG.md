@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.0.1](https://www.github.com/googleapis/sloth/compare/v4.0.0...v4.0.1) (2019-05-17)
+
+
+### Bug Fixes
+
+* remove suprious log ([#230](https://www.github.com/googleapis/sloth/issues/230)) ([cf361b0](https://www.github.com/googleapis/sloth/commit/cf361b0))
+* use the drift prod enpoint ([#229](https://www.github.com/googleapis/sloth/issues/229)) ([e20e160](https://www.github.com/googleapis/sloth/commit/e20e160))
+* **deps:** update dependency update-notifier to v3 ([#227](https://www.github.com/googleapis/sloth/issues/227)) ([34fb1a6](https://www.github.com/googleapis/sloth/commit/34fb1a6))
+
 ## [4.0.0](https://www.github.com/googleapis/sloth/compare/v3.0.0...v4.0.0) (2019-05-03)
 
 
