@@ -64,7 +64,6 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
     return result;
   }
 
-  console.log(`Got ${res.data.Issues.length} issues from ${repo.repo}`);
   res!.data.Issues.forEach(r => {
     const issue: Issue = {
       owner,
