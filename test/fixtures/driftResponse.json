@@ -1,0 +1,1046 @@
+{
+	"Issues": [
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": false,
+			"Labels": [
+				"fixit-target",
+				"priority: p2",
+				"type: feature request",
+				":rotating_light:"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2017-10-23T19:40:49Z",
+			"UpdatedAt": "2019-04-23T06:15:06Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "For all our APIs, it should be simple to create a client with\r\n1.  Default application credentials.  (implicitly)\r\n2.  A path to .json credentials.\r\n3.  Explicitly request Compute Engine credentials.\r\n\r\nFor an example, see the CloudLibrary class in https://github.com/GoogleCloudPlatform/dotnet-docs-samples/blob/master/auth/AuthSample/Program.cs.\r\n\r\nIn Pubsub, it was too difficult to create a client with a path to .json credentials:\r\n```cs\r\n public static PublisherClient CreatePublisherWithServiceCredentials(string jsonPath)\r\n        {\r\n            GoogleCredential googleCredential = null;\r\n            using (var jsonStream = new FileStream(jsonPath, FileMode.Open,\r\n                FileAccess.Read, FileShare.Read))\r\n            {\r\n                googleCredential = GoogleCredential.FromStream(jsonStream)\r\n                    .CreateScoped(PublisherClient.DefaultScopes);\r\n\r\n                \r\n            }\r\n\r\n            return PublisherClient.Create(new Channel(PublisherClient.DefaultEndpoint.Host, PublisherClient.DefaultEndpoint.Port, googleCredential.ToChannelCredentials()));\r\n        }\r\n```\r\n",
+			"Commit": "",
+			"IssueID": 1576,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/1576",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 11778530,
+				"Login": "SurferJeffAtGoogle"
+			},
+			"Title": "It's too difficult to create a client with anything but application Credentials.",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": false,
+			"Labels": [
+				"priority: p2",
+				"type: feature request",
+				":rotating_light:",
+				"api: clouderrorreporting",
+				"api: cloudtrace",
+				"needs work",
+				"api: logging"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-05-22T17:18:27Z",
+			"UpdatedAt": "2019-04-24T14:29:26Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "We should create a timed and sized buffer for the Google.Cloud.Diagnostics.* libraries.  This would allow for a combination of the best of both.  We will always flush after some time so entries aren't miss and won't ever hold on to too many entries waiting for a flush.",
+			"Commit": "",
+			"IssueID": 2163,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2163",
+			"Assignees": [
+				{
+					"ID": 5264734,
+					"Login": "iantalarico"
+				},
+				{
+					"ID": 14878252,
+					"Login": "amanda-tarafa"
+				}
+			],
+			"Reporter": {
+				"ID": 5264734,
+				"Login": "iantalarico"
+			},
+			"Title": "Create a Timed and Sized buffer combination for the Google.Cloud.Diagnostics.* libraries",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Cleanup",
+			"PriorityUnknown": true,
+			"Labels": [
+				"status: blocked",
+				"type: cleanup",
+				"api: clouderrorreporting",
+				"api: cloudtrace"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-05-22T19:42:28Z",
+			"UpdatedAt": "2019-03-13T18:13:10Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": true,
+			"ReleaseBlocking": false,
+			"Body": "Currently it has very few integration tests and should have better coverage.",
+			"Commit": "",
+			"IssueID": 2167,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2167",
+			"Assignees": [
+				{
+					"ID": 14878252,
+					"Login": "amanda-tarafa"
+				}
+			],
+			"Reporter": {
+				"ID": 5264734,
+				"Login": "iantalarico"
+			},
+			"Title": "Add better integration tests for Google.Cloud.Diagnostics.AspNet",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Cleanup",
+			"PriorityUnknown": true,
+			"Labels": [
+				"status: blocked",
+				"type: cleanup"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-05-22T19:42:56Z",
+			"UpdatedAt": "2019-03-13T18:06:03Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": true,
+			"ReleaseBlocking": false,
+			"Body": "",
+			"Commit": "",
+			"IssueID": 2168,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2168",
+			"Assignees": [
+				{
+					"ID": 14878252,
+					"Login": "amanda-tarafa"
+				}
+			],
+			"Reporter": {
+				"ID": 5264734,
+				"Login": "iantalarico"
+			},
+			"Title": "Add integration tests for the ErrorReportingExceptionFilter",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Cleanup",
+			"PriorityUnknown": false,
+			"Labels": [
+				"type: cleanup",
+				":rotating_light:",
+				"priority: p2",
+				"status: blocked"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-05-22T19:53:48Z",
+			"UpdatedAt": "2019-03-13T18:05:55Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": true,
+			"ReleaseBlocking": false,
+			"Body": "",
+			"Commit": "",
+			"IssueID": 2169,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2169",
+			"Assignees": [
+				{
+					"ID": 14878252,
+					"Login": "amanda-tarafa"
+				}
+			],
+			"Reporter": {
+				"ID": 5264734,
+				"Login": "iantalarico"
+			},
+			"Title": "Make Google.Cloud.Diagnostics.*.Snippets runable test like other library snippets",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Process",
+			"PriorityUnknown": false,
+			"Labels": [
+				"priority: p2",
+				":rotating_light:",
+				"api: clouderrorreporting",
+				"type: process"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-06-28T20:35:37Z",
+			"UpdatedAt": "2019-03-13T15:26:27Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "There are differences between self hosted and IIS hosted ASP.Net applications that impact the Diagnostics library ( see #2292 and #2294). We are adding integration tests against self hosted applications but we should also add test applications against IIS hosted applications, since this is probably the most common use case for ASP.Net development. (We can probably set up an IIS Express on the jenkins machine an have a simple ASP.Net application hosted there to test against).\r\n\r\nThis is way less important for ASP.Net Core because ASP.Net Core is supposed to run the same \"everywhere\", so it is more OK if we assume the same behavior from ASP.Net Core applications regardless of how they are being hosted. And we already have integrations tests for ASP.Net Core.",
+			"Commit": "",
+			"IssueID": 2297,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2297",
+			"Assignees": [
+				{
+					"ID": 14878252,
+					"Login": "amanda-tarafa"
+				}
+			],
+			"Reporter": {
+				"ID": 14878252,
+				"Login": "amanda-tarafa"
+			},
+			"Title": "Diagnostics.AspNet: Add integration tests against an IIS hosted application (Web Api and MVC)",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": true,
+			"Labels": [
+				"type: feature request",
+				"status: blocked"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-07-24T17:50:18Z",
+			"UpdatedAt": "2019-04-24T15:09:38Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": true,
+			"ReleaseBlocking": false,
+			"Body": "Browse Carousel responses can be configured via Dialogflow, but are not included in the MessageOneOfCase class and the responses are not included in the FulfillmentMessages list.",
+			"Commit": "",
+			"IssueID": 2377,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2377",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 3943903,
+				"Login": "timtye"
+			},
+			"Title": "V2 Support for Browse Carousel Responses",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": true,
+			"Labels": [
+				"type: feature request"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-08-22T16:22:46Z",
+			"UpdatedAt": "2018-08-28T14:48:05Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "Assuming that we feel like #2442 is worth completing, then a further level of convenience would be provided by adding static formatting methods to the path types.\r\n\r\nFor example, instead of\r\n```\r\nstring path = new CryptoKeyName(project, location, keyRing, cryptoKey).ToString();\r\n```\r\n\r\nA caller could do\r\n```\r\nstring path = CryptoKeyName.Format(project, location, keyRing, cryptoKey);\r\n```\r\n\r\nThe latter feels more canonical to a .NET programmer.",
+			"Commit": "",
+			"IssueID": 2443,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2443",
+			"Assignees": [
+				{
+					"ID": 316748,
+					"Login": "chrisdunelm"
+				}
+			],
+			"Reporter": {
+				"ID": 4943593,
+				"Login": "bdhess"
+			},
+			"Title": "Path Formatting Helpers",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": true,
+			"Labels": [
+				"api: firestore",
+				"type: feature request"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-09-17T06:49:20Z",
+			"UpdatedAt": "2019-04-17T09:31:54Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "**Edited 2018-09-21: This was originally a bug report, and the context is preserved for informational purposes. It's now a feature request to permit clients to perform recovery from long-lasting network outages.**\r\n\r\n----\r\n\r\nI have found two issues which indicate that `FirestoreChangeListener `does not handle network outage properly:\r\n\r\n1. If the network connection is restored after being down for a few seconds, the listener does not receive the updates applied during the outage. Future updates are received normally though.\r\n2. If the network connection is restored after being down for a few minutes, the Listener fails completely and future updates are no longer received. `FirestoreChangeListener.ListenerTask.Status` is set to `TaskStatus.Faulted`.\r\n\r\nI was expecting the API to handle network outage automatically. I am not sure if that is a bug or a feature request.\r\n",
+			"Commit": "",
+			"IssueID": 2513,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2513",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 33222314,
+				"Login": "pauloevpr"
+			},
+			"Title": "Firestore: Expose sufficient state to manually restart a Listen operation",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": false,
+			"Labels": [
+				"api: logging",
+				"priority: p2",
+				":rotating_light:"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-10-24T19:14:08Z",
+			"UpdatedAt": "2019-04-22T19:20:14Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "After collecting friction logs from many people, I've observed a common issue that users suffer is that it's difficult to find their logs in console.cloud.google.com.  If the app is running locally, then they appear under Global.  If the app is running on App Engine flex, then the logs appear under App Engine.\r\n\r\nAdmittedly, this client library is far removed from the user experience of console.cloud.google.com.  But I do see an opportunity to help users avoid this pain:  Write a log statement (which appears on stdout when the user runs in development mode) that tells them exactly how to see their logs.  Something like:\r\n```\r\nLogs are being written to Stackdriver and can be seen at https://console.cloud.google.com/logs/viewer?resource=global\r\n```\r\nLike https://github.com/googleapis/google-cloud-dotnet/issues/2630, it will take some cleverness to avoid infinite recursion.\r\n",
+			"Commit": "",
+			"IssueID": 2634,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2634",
+			"Assignees": [
+				{
+					"ID": 14878252,
+					"Login": "amanda-tarafa"
+				}
+			],
+			"Reporter": {
+				"ID": 11778530,
+				"Login": "SurferJeffAtGoogle"
+			},
+			"Title": "It's hard for users to find their logs on console.cloud.google.com.",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": false,
+			"Labels": [
+				"documentation",
+				"priority: p2",
+				"type: docs"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2018-11-28T15:25:53Z",
+			"UpdatedAt": "2019-04-24T15:09:12Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "# Description\r\n\r\nAccording to the [Authentication Documentation](https://cloud.google.com/docs/authentication/production) I should be able to create my own credential object and pass that into whatever client I need. Unfortunately this doesn't appear to be supported or at least it's a round about way that isn't documented for this library.\r\n\r\n## Expected\r\n\r\n```cs\r\n// Create the Google Credentials\r\nvar credential = GoogleCredential.FromAccessToken(Secrets.GoogleAccessToken);\r\n\r\n// Create the Client with a specified credential\r\nvar client = ImageAnnotatorClient.Create(credential);\r\n\r\n// Get authenticated response\r\nvar response = client.DetectLabels(image); \r\n```\r\n\r\n## Actual\r\n\r\nCredentials must be a service account and the json file must be exported to as an environment variable. Which means that you cannot use an Access Token and this couldn't be a resource that I locate in a custom manner.",
+			"Commit": "",
+			"IssueID": 2736,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2736",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 3860573,
+				"Login": "dansiegel"
+			},
+			"Title": "Update documentation around custom authentication",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": false,
+			"Labels": [
+				"api: firestore",
+				"priority: p2",
+				"type: feature request"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-01-04T09:09:46Z",
+			"UpdatedAt": "2019-04-17T09:30:25Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "## Problem\r\nAs part of your documents in Firestore, you will often have multiple nested objects. In most cases, these objects will be defined as classes within your solution, however in some cases these might simply be  container objects holding a subset of data to simplify queries. In this latter scenario, value type tuples are great as it avoids you cluttering your solution with tons of classes. an example: \r\n\r\n## Example\r\nUsing the old course and student nugget, you might have a sub collection within a course called \"EnrolledStudents\" which is a list of student id's. It would be handy to store the name, surname and major of each student so you don't have to link back to the main student object. This class could look as follows: \r\n\r\n```\r\n    [FirestoreData]\r\n    public class EnrolledStudent\r\n    {\r\n        [FirestoreProperty]\r\n        public string StudentId { get; set; }\r\n        [FirestoreProperty]\r\n        public DateTime EnrollmentDate { get; set; }\r\n\r\n        public (string Name, string Email, string Major) StudentInfo;\r\n    }\r\n```\r\n\r\nCurrently you cannot decorate the tuple with FirestoreProperty or FirestoreData. As you can see, this avoids you having to create the \"StudentInfo\" class which is essentially just a subset of the Student class. And in other cases you might only want Name \u0026 Email.\r\n\r\n## Other options\r\n\r\nYou could just list the properties as part of the main object i.e. StudentName, StudentEmail, StudentMajor and will work as expected, however it's less tidy and concise. \r\n\r\nLet me know if unclear or more info is needed (or if this is in fact already possible) \r\n\r\nP.S. Great work on this library and Firestore in general.",
+			"Commit": "",
+			"IssueID": 2787,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2787",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 3989178,
+				"Login": "gnpretorius"
+			},
+			"Title": "FirestoreData or FirestoreProperty support for value type tuples",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Bug",
+			"PriorityUnknown": false,
+			"Labels": [
+				"type: bug",
+				"api: spanner",
+				"priority: p2"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-01-16T11:05:20Z",
+			"UpdatedAt": "2019-04-24T14:15:08Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "The Java client has [reasonably complex behavior](https://github.com/googleapis/google-cloud-java/blob/master/google-cloud-clients/google-cloud-spanner/src/main/java/com/google/cloud/spanner/SpannerExceptionFactory.java) around retries, including extracting retry timing from the gRPC trailers.\r\n\r\nThe .NET library doesn't do much retrying directly - other than when reading from a result stream - but it exposes `TransientFaultDetector`, `SpannerException.IsRetryable` etc. We should look at all of this before 2.0 goes GA.",
+			"Commit": "66023c9dfcc51c76ee2d13a898377f96a02d928d",
+			"IssueID": 2810,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2810",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Spanner client library doesn't retry in the same way as the Java client",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Bug",
+			"PriorityUnknown": false,
+			"Labels": [
+				"api: firestore",
+				"priority: p2",
+				"type: bug"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-01-24T16:49:22Z",
+			"UpdatedAt": "2019-04-17T09:30:25Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "We are seeing sporadic errors of this type when invoking SetAysnc() and CreateAsync() on DocumentReferences:\r\n```\r\nStatus(StatusCode=Internal, Detail=\"GOAWAY received\")\r\n\r\nGrpc.Core.RpcException:\r\n   at Google.Api.Gax.Grpc.ApiCallRetryExtensions+\u003c\u003ec__DisplayClass0_0`2+\u003c\u003cWithRetry\u003eb__0\u003ed.MoveNext (Google.Api.Gax.Grpc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47)\r\n   at Google.Cloud.Firestore.WriteBatch+\u003cCommitAsync\u003ed__15.MoveNext (Google.Cloud.Firestore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0)\r\n   at Google.Cloud.Firestore.DocumentReference+\u003cSetAsync\u003ed__24.MoveNext (Google.Cloud.Firestore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0)\r\n```\r\n\r\nAnd I'm looking for insight on what might cause them.\r\n\r\n#### Environment details\r\n\r\n  - OS: Windows\r\n  - .NET version: 4.6.2\r\n  - Package name and version: Google.Cloud.Firestore 1.0.0-beta17, Grpc.Core 1.18.0\r\n\r\n#### Steps to reproduce\r\n\r\n- I'm unable to reproduce this consistently, or find a discernible pattern that causes the error.  I have seen other very specific errors related to concurrency issues on documents - so I'm assuming if we will see those errors when exceeding the documented 1 write/doc/sec threshold. \r\n\r\n- In terms of overall request rate, we typically range between 200-500 requests/min with occasional bursts to 1-2k per min.  I have not found that the errors correspond at all to the bursts of increased activity.\r\n\r\n- We've implemented some retry logic with exponential backoff and some randomness, and in some cases that will allow the request to succeed, and in others, it will fail over the course of 5 retries over the following minute or two.\r\n\r\nThank you!",
+			"Commit": "",
+			"IssueID": 2829,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2829",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 3845306,
+				"Login": "veatcha"
+			},
+			"Title": "Insight into \"GOAWAY received\" responses",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": false,
+			"Labels": [
+				"priority: p2",
+				"type: feature request",
+				"api: firestore"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-01-25T01:40:13Z",
+			"UpdatedAt": "2019-04-17T09:30:25Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "I've been successfully using the Firestore library and so far most of the features have been a pleasure to use. One thing that I feel could be slightly improved is mapping of specialised document fields, such as `Id`, `CreateTime` and `UpdateTime`.\r\n\r\nCurrently the `FirestoreProperty` attribute allows us to specify which user properties should be stored in the document and which shouldn't, however, there is no way to automatically map the time document was created or its identifier.\r\n\r\nThe project where this library is used in is a rather standard web API with a plethora of CRUD endpoints. Because it returns models for use in an SPA I need them to include the ID, creation time and last updated time.\r\n\r\nAll my models implement an `IModel` interface that has the following signature:\r\n\r\n```csharp\r\npublic interface IModel\r\n{\r\n    string Id { get; set; }\r\n    DateTime? Created { get; set; }\r\n    DateTime? Modified { get; set; }\r\n}\r\n```\r\n\r\nI also have a custom `Store\u003cT\u003e` class that manages my Firestore data and has methods like the following ones (amongst others):\r\n\r\n```csharp\r\npublic abstract class Store\u003cT\u003e : IStore\u003cT\u003e where T : class, IModel\r\n{\r\n    public virtual async Task\u003cT\u003e CreateAsync(T model, string documentId = null) { ... }\r\n    public virtual async Task\u003cT\u003e UpdateAsync(T model) { ... }\r\n    public virtual async Task\u003cT\u003e FindByIdAsync(string id) { ... }\r\n}\r\n```\r\n\r\nBecause there is no way to directly map specific `DocumentSnapshot` properties to the model, this is what I ended up doing in my `CreateAsync` method:\r\n\r\n```csharp\r\nvar document = string.IsNullOrWhiteSpace(documentId)\r\n    ? Collection.Document()\r\n    : Collection.Document(documentId);\r\n\r\nvar writeResult = await document.CreateAsync(model, cancellationToken);\r\nvar dateTime = writeResult.UpdateTime.ToDateTime();\r\n\r\n// Populate model fields from the newly created document.\r\nmodel.Id = document.Id;\r\nmodel.Created = dateTime;\r\nmodel.Modified = dateTime;\r\n\r\nreturn model;\r\n```\r\n\r\nThis I suppose is not too bad as it allows me to avoid an extra read which is a priced operation. So instead all my properties on the model are mapped with `FirestoreProperty` and I populate `Id`, `Created` and `Modified` manually. One thing I'd like to have is a `CreateTime` on the `WriteResult` (at least when returned from `CreateAsync`). It doesn't make that much sense syntactically that I get an update time when creating a document. Or, if not, at least rename it to be operation-agnostic (e.g. `WriteTime`).\r\n\r\nSimilarly, I was updating `Modified` property in the `UpdateAsync` method until today, when I finally understood how the `ServerTimestamp` attribute works (more on that in P.S.) and realised I don't need to set it manually. That seems to work as expected so no complaints there.\r\n\r\nFor all read operations I have an extension method which does the following:\r\n\r\n```csharp\r\npublic static T ToModel\u003cT\u003e(this DocumentSnapshot document) where T : class, IModel\r\n{\r\n    var model = document.ConvertTo\u003cT\u003e();\r\n\r\n    model.Id = document.Id;\r\n    model.Created = document.CreateTime?.ToDateTime();\r\n    model.Modified = document.UpdateTime?.ToDateTime();\r\n\r\n    return model;\r\n}\r\n```\r\n\r\nAgain, not ideal but it works.\r\n\r\nWhat I would love to have, however, is a set of sentinel attributes that would be applied during `ConvertTo` and allow us to do something like this:\r\n\r\n```csharp\r\npublic class MyCustomModel : IModel\r\n{\r\n    [FirestoreProperty, DocumentIdentifier]\r\n    public string Id { get; set; }\r\n\r\n    [FirestoreProperty, ServerTimestampCreated]\r\n    public DateTime? Created { get; set; }\r\n\r\n    [FirestoreProperty, ServerTimestamp]\r\n    public DateTime? Modified { get; set; }\r\n}\r\n```\r\n\r\nThese attributes would then automatically map document properties to the relevant model properties.\r\n\r\nI have a suspicion it might not always be possible to do this (I noticed that `WriteResult` for `CollectionReference.SetAsync` doesn't have time created, only `UpdateTime`) but as `Id` is always(?) present on the document after a create/update operation, it would be one thing less to maintain in the consumer code.\r\n\r\nIf my assumptions are correct and it's technically not possible to populate the time created, is there a way to pass a model I want to persist and a dictionary of overrides to apply? The reason I'm asking is if it was possible I could specify that my `Created` property is `FieldValue.ServerTimestamp`, e.g.:\r\n\r\n```csharp\r\nvar writeResult = await document.CreateAsync(model, new {\r\n    Created = FieldValue.ServerTimestamp,\r\n}, cancellationToken);\r\n```\r\n\r\n_Is that even the way field value has to be used? This is one of the things that is not really clear from the documentation and all examples online are conveniently about the Firebase JS client._\r\n\r\nP.S.\r\nAs promised a small remark about the documentation. It's taken me quite a long time to realise what this sentence means:\r\n\r\n\u003e Attribute indicating that a property value should be ignored on creation and modification operations, using the server time for the commit that modifies the document.\r\n\r\nI'm not arguing that it's correct English but for someone like me, who's not a native English speaker it only makes sense when I understand how the attribute works. It would've made much more sense if it was something along the lines of\r\n\r\n\u003e Attribute indicating that a property value will be ignored during creation and modification operations, and will instead be automatically populated with the server time of the operation.\r\n\r\nOn a side note - I know this is not StackOverflow but I would very much be interested in hearing your thoughts about my approach with populating the properties. Am I doing something stupid? Is there something you'd change or avoid?\r\n\r\nThanks!",
+			"Commit": "",
+			"IssueID": 2830,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2830",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 637799,
+				"Login": "codeaid"
+			},
+			"Title": "Suggestion for additional Firestore sentinel attributes",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": true,
+			"Labels": [
+				"api: firestore",
+				"type: feature request"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-02-01T18:23:47Z",
+			"UpdatedAt": "2019-04-17T09:30:25Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "the .net Firsestore sdk converts ENUM to Integer, but the Android SDK converts enums to String.\r\n\r\nwe need a way, on .net to store enum as string, to match the compatibility with our android app.\r\n==\u003e is there an custom attribute we an use to tell .net to store enums as string ?  (like android sdk)",
+			"Commit": "7b23e7ee809d6f09299da964969479718570ce24",
+			"IssueID": 2842,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2842",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 73307,
+				"Login": "alexdoan102"
+			},
+			"Title": "the .net Firsestore sdk converts ENUM to Integer, but the Android SDK converts enums to String",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Bug",
+			"PriorityUnknown": false,
+			"Labels": [
+				"api: storage",
+				"priority: p2",
+				"type: bug"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-02-21T07:45:19Z",
+			"UpdatedAt": "2019-03-13T22:14:11Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "In the Storage integration tests, `DownloadObjectTest.DownloadGzippedFile` is flaky. Most of the time it works, but sometimes we're seeing the download fail due to the hash being invalid:\r\n\r\n```text\r\nIncorrect hash: expected 'T1s5RQ==' (base64), was 'yZRlqg==' (base64)\r\n```\r\n\r\nI'm going to skip it in our integration tests for now, but we need more work to try to reproduce it and capture the requests. (I've tried, but failed so far.)\r\n",
+			"Commit": "2b054021dd93955cf71b222b21fa2ed1cb6fbcdd",
+			"IssueID": 2898,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2898",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Flaky behavior of GZip download",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Bug",
+			"PriorityUnknown": false,
+			"Labels": [
+				"status: investigating",
+				"type: bug",
+				"status: blocked",
+				"priority: p2"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-03-22T11:56:05Z",
+			"UpdatedAt": "2019-04-24T15:07:47Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": true,
+			"ReleaseBlocking": false,
+			"Body": "We are encountering a problem with the \"Google.Cloud.Dialogflow.V2.ContextName.Parse\" method. The full stacktrace can be found at the end of this issue. It seems like the method is completely fine with contexts such as:\r\n**projects/{project-id}/agent/sessions/{sessionId}/contexts/{context-name}**\r\nbut fails at contexts in the following format:\r\n**projects/{project-id}/agent/environments/{environment-id}/users/{user-id}/sessions/{sessionId}/contexts/{context-name}**\r\n\r\nWe currently can not reproduce when a request session is in the former or in the latter format. Both behaviors are currently observed with two different google users testing an action-on-google with dialogflow which is currently in Alpha phase.\r\n\r\n#### Environment details\r\n\r\n  - OS: Windows 10\r\n  - .NET version: Net Standard (2.0.3)\r\n  - Package name and version: Google.Cloud.Dialogflow.V2 (1.0.0-beta02)\r\n\r\n#### Steps to reproduce\r\n\r\n  1. Build an action-on-google with dialogflow and put it into alpha\r\n  2. Try get a specific context by name such as in the folling code:\r\n`webhookRequest.QueryResult.OutputContexts.SingleOrDefault(context =\u003e context.ContextName.ContextId == \"some-context-i-need-to-read\")`\r\n  3. If your session contains the /environment path it will fire the exception of the title.\r\n\r\nStacktrace:\r\n```\r\nSystem.FormatException:\r\n   at Google.Api.Gax.PathTemplate.ParseName (Google.Api.Gax, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47)\r\n   at Google.Cloud.Dialogflow.V2.ContextName.Parse (Google.Cloud.Dialogflow.V2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0)\r\n   at Google.Cloud.Dialogflow.V2.Context.get_ContextName (Google.Cloud.Dialogflow.V2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0)\r\n ...\r\n```\r\n\r\n",
+			"Commit": "",
+			"IssueID": 2972,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2972",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 23276497,
+				"Login": "paulschuetz"
+			},
+			"Title": "Dialogflow Client Library: FormatException: \"Name does not match template: incorrect number of segments\"",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": false,
+			"Labels": [
+				"api: logging",
+				"priority: p2",
+				"type: feature request"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-03-27T14:19:31Z",
+			"UpdatedAt": "2019-05-03T20:00:26Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": " **Is your feature request related to a problem? Please describe.**\r\nAttempting to use %property syntax on custom label values. It shows up in Stackdriver like this:\r\n\r\n```\r\nlabels: {\r\n  Key:  \"%property{AccountID}\"   \r\n...\r\n }\r\n```\r\nI want the value inserted at runtime, similar to what I can do with the message:\r\n\r\n`\u003cconversionPattern value=\"%property{AccountID}` ...\r\n\r\n **Describe the solution you'd like**\r\nI'd like to label my logs with some context from the application.\r\n\r\n```\r\n\u003ccustomLabel\u003e\r\n      \u003ckey value=\"AccountID\" /\u003e\r\n      \u003cvalue value=\"%property{AccountID}\" /\u003e\r\n\u003c/customLabel\u003e\r\n```\r\n\r\n **Describe alternatives you've considered**\r\nPut the dynamic data into the log message directly.\r\n\r\n **Additional context**\r\n- [I think this is where a replacement would happen.](https://github.com/googleapis/google-cloud-dotnet/blob/b36872c110349c3d73106d333396c9e24dc494e2/apis/Google.Cloud.Logging.Log4Net/Google.Cloud.Logging.Log4Net/GoogleStackdriverAppender.cs#L315)\r\n- I saw that adding new labels dynamically was prevented completely in #1036. I would just be looking to change the values dynamically.\r\n",
+			"Commit": "",
+			"IssueID": 2983,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/2983",
+			"Assignees": [
+				{
+					"ID": 316748,
+					"Login": "chrisdunelm"
+				}
+			],
+			"Reporter": {
+				"ID": 2799834,
+				"Login": "rkalasky"
+			},
+			"Title": "Log4Net StackdriverAppender: Use %property values in custom labels",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "FR",
+			"PriorityUnknown": true,
+			"Labels": [
+				"api: firestore",
+				"type: feature request"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-04-30T22:24:59Z",
+			"UpdatedAt": "2019-05-01T15:50:31Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "The class I'm storing in firestore looks like this:\r\n```cs\r\n    [FirestoreData]\r\n    public class Book\r\n    {\r\n        [Key]\r\n        [BindNever]\r\n        public string Id { get; set; }\r\n\r\n        [Required]\r\n        [FirestoreProperty]\r\n        public string Title { get; set; }\r\n\r\n        [FirestoreProperty]\r\n        public string Author { get; set; }\r\n\r\n        [Display(Name = \"Date Published\")]\r\n        [DataType(DataType.Date)]\r\n        [FirestoreProperty]\r\n        public DateTime? PublishedDate { get; set; }\r\n\r\n        [FirestoreProperty]\r\n        public string ImageUrl { get; set; }\r\n\r\n        [DataType(DataType.MultilineText)]\r\n        [FirestoreProperty]\r\n        public string Description { get; set; }\r\n    }\r\n```\r\n\r\nBut I don't see a way to bind the `Id` field to Firestore's document Id, so I have to write code to propagate the id from the snapshot to my Book class.\r\n\r\nFor example:\r\n\r\n```cs\r\n            List\u003cBook\u003e bookList = new List\u003cBook\u003e();\r\n            var snapshot = await _books.Offset(nextPageStart).Limit(pageSize)\r\n                .GetSnapshotAsync();\r\n            foreach (DocumentSnapshot docSnapshot in snapshot.Documents) \r\n            {\r\n                var book = docSnapshot.ConvertTo\u003cBook\u003e();\r\n                book.Id = docSnapshot.Id;\r\n                bookList.Add(book);\r\n            }\r\n            return new BookList()\r\n            {\r\n                Books = bookList,\r\n                NextPageToken = bookList.Count == pageSize ? \r\n                    (nextPageStart + pageSize).ToString() : null\r\n            };\r\n```\r\n\r\nInstead, I wish I could write:\r\n```cs\r\n            List\u003cBook\u003e bookList = new List\u003cBook\u003e();\r\n            var snapshot = await _books.Offset(nextPageStart).Limit(pageSize)\r\n                .GetSnapshotAsync();\r\n            return new BookList()\r\n            {\r\n                Books = snapshot.Documents.Select(doc =\u003e doc.ConvertTo\u003cBook\u003e()),\r\n                NextPageToken = bookList.Count == pageSize ? \r\n                    (nextPageStart + pageSize).ToString() : null\r\n            };\r\n```\r\n\r\nI imagine another property I could add to the Book class definition like:\r\n\r\n```cs\r\n    [FirestoreData]\r\n    public class Book\r\n    {\r\n        [Key]\r\n        [BindNever]\r\n        [FirestoreId]\r\n        public string Id { get; set; }\r\n```\r\n",
+			"Commit": "a9c716b4e31aa767905eb0ebcc206f2379de7876",
+			"IssueID": 3042,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3042",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 11778530,
+				"Login": "SurferJeffAtGoogle"
+			},
+			"Title": "FirestoreDataAttribute and FirestorePropertyAttribute are really useful, and would be even more useful with one an Id Attribute.",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": [
+				"cla: yes",
+				"needs work"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-01T09:57:08Z",
+			"UpdatedAt": "2019-05-12T15:19:03Z",
+			"PullRequest": true,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "Not ready for merging, but would address #3042",
+			"Commit": "",
+			"IssueID": 3045,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3045",
+			"Assignees": null,
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "(Not for submission) Prototype of automatic ID handling in Firestore",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": [
+				"cla: yes",
+				":rotating_light:"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-02T19:24:29Z",
+			"UpdatedAt": "2019-05-09T19:35:42Z",
+			"PullRequest": true,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "Currently this compares all APIs. We may want something more granular eventually, but this is a start...",
+			"Commit": "",
+			"IssueID": 3051,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3051",
+			"Assignees": [
+				{
+					"ID": 316748,
+					"Login": "chrisdunelm"
+				}
+			],
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Script to check compatibility between two branches",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "Bug",
+			"PriorityUnknown": false,
+			"Labels": [
+				"type: bug",
+				"priority: p2"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-08T11:30:58Z",
+			"UpdatedAt": "2019-05-08T13:31:57Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "#### Environment details\r\n\r\nOS: Windows 10 64 bit\r\n\r\n.NET version: .Net Framework 4.5\r\n\r\nPackage name and version:\r\nGoogle.Cloud.BigQuery.V2.dll 1.2.0\r\nGoogle.Api.Gax.Rest 2.5.0\r\nGoogle.Apis.Bigquery.v2 1.36.1.1404\r\nGoogle.Api.Gax 2.5.0\r\nGoogle.Apis.Auth 1.36.1\r\nNewtonsoft.Json 12.0.1.22727\r\nGoogle.Apis 1.36.1\r\nGoogle.Apis.Core 1.36.1\r\n\r\n#### Steps to reproduce\r\n\r\n  1. The following query is an example from BigQuery documentation:\r\n\r\nSELECT NULL AS x, '' AS y, STRUCT(false AS a, DATE '0001-01-01' AS b) AS s\r\n\r\n  2. Running this query in console or with GetQueryResults method in API gives the json result:\r\n\r\n[\r\n  {\r\n    \"x\": null,\r\n    \"y\": \"\",\r\n    \"s\": {\r\n      \"a\": \"false\",\r\n      \"b\": \"1-01-01\"\r\n    }\r\n  }\r\n]\r\n\r\n3. To convert string result to DateTime, the following converter is used by BigQueryRow:\r\n\r\nprivate static readonly Func\u003cstring, DateTime\u003e DateConverter = v =\u003e DateTime.ParseExact(v, \"yyyy-MM-dd\", CultureInfo.InvariantCulture);\r\n\r\n4. This converter is however not valid for \"1-01-01\" string.\r\n\r\nIt still works fine for recent dates like '2017-01-01'. And I think, it did work before. So, perhaps from some point the server started to return \"1-01-01\" instead of \"0001-01-01\".\r\n",
+			"Commit": "4dfa5be8b70b8d5dd71c3fe477bf23a93f420b4f",
+			"IssueID": 3061,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3061",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 47315465,
+				"Login": "Zhenya-Ren"
+			},
+			"Title": "Wrong Date type formatter for date 0001-01-01",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": [
+				"cla: yes",
+				":rotating_light:"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-08T21:17:07Z",
+			"UpdatedAt": "2019-05-15T14:29:36Z",
+			"PullRequest": true,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "This isn't ready to be submitted yet, because it fails. I'm going to investigate whether there needs to be a server-side change, or whether we should fix this locally.\r\n",
+			"Commit": "",
+			"IssueID": 3062,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3062",
+			"Assignees": null,
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Integration test for #3061",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": [
+				"cla: yes",
+				":rotating_light:"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-09T14:09:02Z",
+			"UpdatedAt": "2019-05-16T14:09:17Z",
+			"PullRequest": true,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "This required the following change in the GAPIC:\r\n\r\n```text\r\n  - name: ListLocations\r\n    flattening:\r\n      groups:\r\n      - parameters:\r\n        - name\r\n    required_fields:\r\n    - name\r\n    page_streaming:\r\n      request:\r\n        page_size_field: page_size\r\n        token_field: page_token\r\n      response:\r\n        token_field: next_page_token\r\n        resources_field: locations\r\n    retry_codes_name: idempotent\r\n    retry_params_name: default\r\n    timeout_millis: 60000\r\n    reroute_to_grpc_interface: google.cloud.location.Locations\r\n  - name: GetLocation\r\n    flattening:\r\n      groups:\r\n      - parameters:\r\n        - name\r\n    required_fields:\r\n    - name\r\n    retry_codes_name: idempotent\r\n    retry_params_name: default\r\n    timeout_millis: 60000\r\n    reroute_to_grpc_interface: google.cloud.location.Locations\r\n```\r\n\r\nI don't think we're ready to merge this (or the GAPIC change) but it's useful to see how it pans out.",
+			"Commit": "",
+			"IssueID": 3065,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3065",
+			"Assignees": null,
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "(Not for submission) Prototype of using the Locations API in KMS",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": [
+				"cla: yes",
+				"needs work"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-10T16:22:04Z",
+			"UpdatedAt": "2019-05-10T16:29:42Z",
+			"PullRequest": true,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "This has nasty embedded HTML comments, but we won't release the package until the internal Markdown version has been published and we've regenerated from that anyway. This way we avoid having to discard these changes every time we regenerate.",
+			"Commit": "",
+			"IssueID": 3071,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3071",
+			"Assignees": null,
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Regenerate Language service",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": [
+				"cla: yes",
+				"needs work"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-15T13:30:50Z",
+			"UpdatedAt": "2019-05-15T16:44:21Z",
+			"PullRequest": true,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "Will check it all myself first, then assign to Chris.",
+			"Commit": "",
+			"IssueID": 3076,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3076",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Add Grafeas V1 API",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": false,
+			"Labels": [
+				"priority: p2",
+				"api: firestore"
+			],
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-15T18:21:32Z",
+			"UpdatedAt": "2019-05-15T18:21:32Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "",
+			"Commit": "",
+			"IssueID": 3077,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3077",
+			"Assignees": [
+				{
+					"ID": 17011,
+					"Login": "jskeet"
+				}
+			],
+			"Reporter": {
+				"ID": 17011,
+				"Login": "jskeet"
+			},
+			"Title": "Implement Firestore numeric transforms",
+			"Comments": null
+		},
+		{
+			"Repo": "googleapis/google-cloud-dotnet",
+			"Priority": 2,
+			"Type": "",
+			"PriorityUnknown": true,
+			"Labels": null,
+			"LastGooglerUpdate": "0001-01-01T00:00:00Z",
+			"LastUserUpdate": "0001-01-01T00:00:00Z",
+			"Created": "2019-05-16T13:36:21Z",
+			"UpdatedAt": "2019-05-16T13:36:21Z",
+			"PullRequest": false,
+			"Approved": false,
+			"Closed": false,
+			"ClosedBy": null,
+			"Blocked": false,
+			"ReleaseBlocking": false,
+			"Body": "### Client\r\nPubSub\r\n\r\n### Featute\r\nAbility to set `ExpirationPolicy` in `SubscriberServiceApiClient.CreateSubscriptionAsync`.\r\nIt is included in `PubSub.Subscribtion` but is not set by any overload of `CreateSubscription`\r\n\r\nSame issue in Go repository: https://github.com/googleapis/google-cloud-go/issues/1361",
+			"Commit": "",
+			"IssueID": 3079,
+			"URL": "https://github.com/googleapis/google-cloud-dotnet/issues/3079",
+			"Assignees": null,
+			"Reporter": {
+				"ID": 5508137,
+				"Login": "koorool"
+			},
+			"Title": "Need to set and modify PubSub Subscription's ExpirationPolicy",
+			"Comments": null
+		}
+	]
+}
