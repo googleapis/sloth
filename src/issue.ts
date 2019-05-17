@@ -51,7 +51,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
   let res!: GaxiosResponse<IssuesApiResponse>;
-  const rootUrl = 'https://drghs.endpoints.devrel-dev.cloud.goog/api/v1';
+  const rootUrl = 'https://drghs.endpoints.devrel-prod.cloud.goog/api/v1';
   const url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
   try {
     res = await request<IssuesApiResponse>({url});
