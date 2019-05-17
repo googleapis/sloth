@@ -13,22 +13,27 @@
 // limitations under the License.
 
 import * as Octokit from '@octokit/rest';
-
-import {getPri, getTypes} from './slo';
-import {Flags, Issue, IssueResult, Repo} from './types';
-import {octo, repos} from './util';
-
-import Table = require('cli-table');
 import {
-  isTriaged,
-  isOutOfSLO,
-  hasLabel,
-  isPullRequest,
-  hoursOld,
-  getApi,
-} from './slo';
+  Flags,
+  Issue,
+  IssueResult,
+  Repo,
+  IssuesApiResponse,
+  ApiIssue,
+} from './types';
+import {octo, repos} from './util';
+import {request, GaxiosResponse} from 'gaxios';
+import Table = require('cli-table');
+
 const truncate = require('truncate');
 const CSV = require('csv-string');
+
+const apiKey = process.env.DRIFT_API_KEY;
+if (!apiKey) {
+  throw new Error(
+    'Please access the `Yoshi Drift Key` secret in go/valentine, and set the `DRIFT_API_KEY` env var.'
+  );
+}
 
 export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
   const promises = new Array<Promise<IssueResult>>();
@@ -45,86 +50,88 @@ export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
 async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
-  let res: Octokit.AnyResponse;
-  let i = 1;
-  do {
-    try {
-      res = await octo.issues.listForRepo({
-        owner,
-        repo: name,
-        state: 'open',
-        per_page: 100,
-        page: i,
-      });
-    } catch (e) {
-      console.error(`Error fetching issues for ${repo.repo}.`);
-      console.error(e);
-      throw e;
-    }
-    for (const r of res.data as Issue[]) {
-      r.language = repo.language;
-      r.repo = repo.repo;
-      r.types = getTypes(r);
-      r.api = getApi(r);
-      r.isOutOfSLO = isOutOfSLO(r);
-      r.isTriaged = isTriaged(r);
-      r.pri = getPri(r);
-      r.isPR = isPullRequest(r);
+  let res!: GaxiosResponse<IssuesApiResponse>;
+  const rootUrl = 'https://drghs.endpoints.devrel-dev.cloud.goog/api/v1';
+  const url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
+  try {
+    res = await request<IssuesApiResponse>({url});
+  } catch (e) {
+    console.error(`Error fetching issues for ${repo.repo}.`);
+    console.error(e);
+  }
 
-      let use = true;
-      if (flags) {
-        if (flags.api) {
-          const apiTypes = flags.api
-            .split(',')
-            .map(t => t.trim())
-            .filter(t => t.length > 0);
-          if (!r.api || apiTypes.indexOf(r.api) === -1) {
-            use = false;
-          }
-        }
-        if (flags.repo && r.repo !== flags.repo) {
+  if (!res.data || !res.data.Issues) {
+    return result;
+  }
+
+  console.log(`Got ${res.data.Issues.length} issues from ${repo.repo}`);
+  res!.data.Issues.forEach(r => {
+    const issue: Issue = {
+      owner,
+      name,
+      language: repo.language,
+      repo: repo.repo,
+      types: getTypes(r),
+      api: getApi(r),
+      isOutOfSLO: isOutOfSLO(r),
+      isTriaged: isTriaged(r),
+      pri: r.Priority,
+      isPR: isPullRequest(r),
+      number: r.IssueID,
+      createdAt: r.Created,
+      title: r.Title,
+      url: r.URL,
+      labels: r.Labels || [],
+    };
+
+    let use = true;
+    if (flags) {
+      if (flags.api) {
+        const apiTypes = flags.api
+          .split(',')
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+        if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
           use = false;
         }
-        if (flags.outOfSlo && !r.isOutOfSLO) {
-          use = false;
-        }
-        if (flags.untriaged && r.isTriaged) {
-          use = false;
-        }
-        if (flags.pri && r.pri !== flags.pri) {
-          use = false;
-        }
-        if (flags.pr && !r.isPR) {
-          use = false;
-        }
-        if (flags.type) {
-          const flagTypes = flags.type
-            .split(',')
-            .map(t => t.trim())
-            .filter(t => t.length > 0);
-          let found = false;
-          for (const flagType of flagTypes) {
-            for (const issueType of r.types) {
-              if (flagType === issueType) {
-                found = true;
-              }
+      }
+      if (flags.repo && r.Repo !== flags.repo) {
+        use = false;
+      }
+      if (flags.outOfSlo && !issue.isOutOfSLO) {
+        use = false;
+      }
+      if (flags.untriaged && issue.isTriaged) {
+        use = false;
+      }
+      if (flags.pri && `p${issue.pri}` !== flags.pri) {
+        use = false;
+      }
+      if (flags.pr && !issue.isPR) {
+        use = false;
+      }
+      if (flags.type) {
+        const flagTypes = flags.type
+          .split(',')
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+        let found = false;
+        for (const flagType of flagTypes) {
+          for (const issueType of issue.types) {
+            if (flagType === issueType) {
+              found = true;
             }
           }
-          if (!found) {
-            use = false;
-          }
+        }
+        if (!found) {
+          use = false;
         }
       }
-      if (use) {
-        result.issues.push(r);
-      }
     }
-    i++;
-  } while (
-    res.headers &&
-    res.headers.link &&
-    res.headers.link.indexOf('rel="last"') > -1
-  );
+    if (use) {
+      result.issues.push(issue);
+    }
+  });
   return result;
 }
 
@@ -146,21 +153,19 @@ export async function tagIssues() {
       const [owner, name] = r.repo.repo.split('/');
       i.repo = name;
       i.owner = owner;
-      if (
-        !i.isTriaged &&
-        !hasLabel(i, 'triage me') &&
-        hoursOld(i.created_at) > 16
-      ) {
+      const hasTriageMeLabel = i.labels.includes('triage me');
+      const hasOOSLOLabel = i.labels.includes(':rotating_light:');
+      if (!i.isTriaged && !hasTriageMeLabel && hoursOld(i.createdAt) > 16) {
         console.log(`Tagging ${i.repo}#${i.number} with 'triage me'`);
         promises.push(tagIssue(i, 'triage me'));
-      } else if (i.isTriaged && hasLabel(i, 'triage me')) {
+      } else if (i.isTriaged && hasTriageMeLabel) {
         console.log(`Un-Tagging ${i.repo}#${i.number} with 'triage me'`);
         promises.push(untagIssue(i, 'triage me'));
       }
-      if (i.isOutOfSLO && !hasLabel(i, ':rotating_light:')) {
+      if (i.isOutOfSLO && !hasOOSLOLabel) {
         console.log(`Tagging ${i.repo}#${i.number} with '🚨'`);
         promises.push(tagIssue(i, ':rotating_light:'));
-      } else if (!i.isOutOfSLO && hasLabel(i, ':rotating_light:')) {
+      } else if (!i.isOutOfSLO && hasOOSLOLabel) {
         console.log(`Un-tagging ${i.repo}#${i.number} with '🚨'`);
         promises.push(untagIssue(i, ':rotating_light:'));
       }
@@ -218,7 +223,7 @@ export async function showIssues(options: Flags) {
 
   issues.forEach(issue => {
     const values = [
-      issue.html_url,
+      issue.url,
       options.csv ? issue.isTriaged : issue.isTriaged ? '🦖' : '🚨',
       options.csv ? !issue.isOutOfSLO : !issue.isOutOfSLO ? '🦖' : '🚨',
       truncate(issue.title, 75),
@@ -239,4 +244,216 @@ export async function showIssues(options: Flags) {
 
   output.forEach(l => process.stdout.write(l));
   process.stdout.write('\n');
+}
+
+function getTypes(i: ApiIssue) {
+  const types = new Array<string>();
+  if (i.Labels) {
+    for (const label of i.Labels) {
+      if (label.startsWith('type: ')) {
+        types.push(label.slice(6));
+      }
+    }
+  }
+  return types;
+}
+
+function isPullRequest(i: ApiIssue) {
+  return !!i.PullRequest;
+}
+
+function getApi(i: ApiIssue) {
+  if (i.Labels) {
+    for (const label of i.Labels) {
+      if (label.startsWith('api: ')) {
+        return label.slice(5);
+      }
+    }
+  }
+
+  // In node.js, we have separate repos for each API. We aren't looking for
+  // a label, we're looking for a repo name.
+  const repoName = i.Repo.startsWith('googleapis/')
+    ? i.Repo.split('/')[1]
+    : i.Repo;
+  if (repoName.startsWith('nodejs-')) {
+    return i.Repo.split('-')[1];
+  }
+  return undefined;
+}
+
+/**
+ * Determine if an issue has a `priority: ` label.
+ * @param i Issue to analyze
+ */
+function hasPriority(i: ApiIssue) {
+  return hasLabel(i, 'priority: ');
+}
+
+/**
+ * Determine if an issue has a `type: ` label.
+ * @param i Issue to analyze
+ */
+function hasType(i: ApiIssue) {
+  return hasLabel(i, 'type: ');
+}
+
+/**
+ * Determine if an issue has a `type: bug` label.
+ * @param i Issue to analyze
+ */
+function isBug(i: ApiIssue) {
+  return hasLabel(i, 'type: bug');
+}
+
+function isP0(i: ApiIssue) {
+  return hasLabel(i, 'priority: p0');
+}
+
+function isP1(i: ApiIssue) {
+  return hasLabel(i, 'priority: p1');
+}
+
+function isP2(i: ApiIssue) {
+  return hasLabel(i, 'priority: p2');
+}
+
+function isAssigned(i: ApiIssue) {
+  return i.Assignees.length > 0;
+}
+
+/**
+ * Check if there is a label that matches the given text.
+ * @param issue Issue to analyze
+ * @param label Label text to look for
+ */
+function hasLabel(issue: ApiIssue, label: string) {
+  return (
+    issue.Labels &&
+    issue.Labels.filter(x => x.toLowerCase().indexOf(label) > -1).length > 0
+  );
+}
+
+/**
+ * For a given issue, figure out if it's out of SLO.
+ * @param i Issue to analyze
+ */
+export function isOutOfSLO(i: ApiIssue) {
+  // Pull requests must be merged within a week, unless they have a
+  // 'needs work' label.  After 90 days, it should just be resolved.
+  if (isPullRequest(i)) {
+    if (hasLabel(i, 'status: blocked')) {
+      return false;
+    }
+    if (daysOld(i.Created) > 90) {
+      return true;
+    }
+    if (daysOld(i.Created) > 7 && !hasLabel(i, 'needs work')) {
+      return true;
+    }
+    return false;
+  }
+
+  // All P0 issues must receive a reply within 1 day, an update at least daily,
+  // and be resolved within 5 days.
+  if (isP0(i)) {
+    if (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) {
+      return true;
+    }
+  }
+
+  // All P1 issues must receive a reply within 5 days, an update at least every
+  // 5 days thereafter, and be resolved within 42 days (six weeks).
+  if (isP1(i)) {
+    if (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) {
+      return true;
+    }
+  }
+
+  // All P2 issues must receive a reply within 5 days, and be resolved within
+  // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
+  if (isP2(i)) {
+    if (daysOld(i.Created) > 180) {
+      return true;
+    }
+  }
+
+  // All questions must receive a reply within 5 days.
+  if (hasLabel(i, 'type: question')) {
+    if (!i.UpdatedAt && daysOld(i.Created) > 5) {
+      return true;
+    }
+  }
+
+  // All feature requests must receive a reply within 5 days, and be resolved
+  // within 180 days. In this context, resolution may (and often will) entail
+  // simply relocating the feature request elsewhere.
+  if (hasLabel(i, 'type: feature')) {
+    if (!i.UpdatedAt && daysOld(i.Created) > 5) {
+      return true;
+    }
+    // We decided in a team meeting to drop this requirement.
+    // if (daysOld(i.created_at) > 180) {
+    //   return true;
+    // }
+  }
+
+  // Make sure if it hasn't been triaged, it's less than 5 days old
+  if (!isTriaged(i) && daysOld(i.Created) > 5) {
+    return true;
+  }
+
+  // It's all good then!
+  return false;
+}
+
+/**
+ * Determine how many days old an issue is
+ * @param date Date to compare
+ */
+function daysOld(date: string) {
+  return (Date.now() - new Date(date).getTime()) / 1000 / 60 / 60 / 24;
+}
+
+/**
+ * Determine how many hours old an issue is
+ * @param date Date to compare
+ */
+function hoursOld(date: string) {
+  return (Date.now() - new Date(date).getTime()) / 1000 / 60 / 60;
+}
+
+/**
+ * Determine if an issue has been triaged. An issue is triaged if:
+ * - It has a `priority` label OR
+ * - It has a `type` label
+ * - For `type: bug`, there must be a `priority` label
+ * - For a P0 or P1 issue, it must have an asignee
+ * - Pull requests don't count.
+ * @param i Issue to analyze
+ */
+export function isTriaged(i: ApiIssue) {
+  if (isPullRequest(i)) {
+    return true;
+  }
+
+  if (hasPriority(i)) {
+    if (isP0(i) || isP1(i)) {
+      return isAssigned(i);
+    }
+    return true;
+  }
+
+  if (hasType(i)) {
+    if (isBug(i)) {
+      return hasPriority(i);
+    }
+    return true;
+  }
+
+  if (hasLabel(i, 'status: investigating')) {
+    return true;
+  }
+
+  return false;
 }

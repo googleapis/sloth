@@ -37,6 +37,7 @@
     "@octokit/rest": "^16.0.0",
     "cli-table": "^0.3.1",
     "csv-string": "^3.1.5",
+    "gaxios": "^2.0.1",
     "meow": "^5.0.0",
     "truncate": "^2.0.1",
     "update-notifier": "^3.0.0"
