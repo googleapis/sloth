@@ -160,4 +160,5 @@ export interface ApiIssue {
     Login: string;
   }>;
   URL: string;
+  PriorityUnknown: boolean;
 }
