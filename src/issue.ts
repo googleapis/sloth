@@ -180,11 +180,10 @@ function tagIssue(
   return octo.issues
     .addLabels({
       labels: [label],
-      number: i.number,
+      issue_number: i.number,
       owner: i.owner,
       repo: i.repo,
-      // tslint:disable-next-line no-any
-    } as any)
+    })
     .catch(e => {
       console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
       console.error(e);
