@@ -71,6 +71,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-monitoring"},
     { "language": "nodejs", "repo": "googleapis/nodejs-os-login"},
     { "language": "nodejs", "repo": "googleapis/nodejs-paginator"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-phishing-protection"}, 
     { "language": "nodejs", "repo": "googleapis/nodejs-precise-date"},
     { "language": "nodejs", "repo": "googleapis/nodejs-projectify"},
     { "language": "nodejs", "repo": "googleapis/nodejs-promisify"},
