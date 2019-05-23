@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.1.0](https://www.github.com/googleapis/sloth/compare/v4.0.1...v4.1.0) (2019-05-23)
+
+
+### Features
+
+* add phishing protection ([#238](https://www.github.com/googleapis/sloth/issues/238)) ([e50481e](https://www.github.com/googleapis/sloth/commit/e50481e))
+
 ### [4.0.1](https://www.github.com/googleapis/sloth/compare/v4.0.0...v4.0.1) (2019-05-20)
 
 
