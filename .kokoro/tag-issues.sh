@@ -18,4 +18,6 @@ set -eo pipefail
 
 export SLOTH_GITHUB_TOKEN=$(cat $KOKORO_KEYSTORE_DIR/73713_yoshi-automation-github-key)
 
+export DRIFT_API_KEY=$(cat $KOKORO_KEYSTORE_DIR/73713_sloth_drift_api_key)
+
 npx https://github.com/googleapis/sloth tag-issues
