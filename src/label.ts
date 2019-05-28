@@ -73,6 +73,36 @@ export async function reconcileLabels() {
         promises.push(p);
       }
     });
+
+    // now clean up common labels we don't want
+    //GET /repos/:owner/:repo/issues/:issue_number/labels
+    const labelsToDelete = [
+      'bug',
+      'enhancement',
+      'kokoro:force-ci',
+      'kokoro: force-run',
+      'kokoro: run',
+      'question',
+    ];
+    oldLabels.forEach(l => {
+      if (labelsToDelete.includes(l.name)) {
+        const p = octo.issues
+          .deleteLabel({
+            name: l.name,
+            owner,
+            repo,
+          })
+          .then(() => {
+            console.log(`Deleted '${l.name}' from ${owner}/${repo}`);
+          })
+          .catch(e => {
+            console.error(`Error deleting label ${l.name} in ${owner}/${repo}`);
+            console.error(e);
+          });
+        promises.push(p);
+      }
+    });
   });
+
   await Promise.all(promises);
 }
