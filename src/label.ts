@@ -75,7 +75,6 @@ export async function reconcileLabels() {
     });
 
     // now clean up common labels we don't want
-    //GET /repos/:owner/:repo/issues/:issue_number/labels
     const labelsToDelete = [
       'bug',
       'enhancement',
@@ -97,7 +96,7 @@ export async function reconcileLabels() {
           })
           .catch(e => {
             console.error(`Error deleting label ${l.name} in ${owner}/${repo}`);
-            console.error(e);
+            console.error(e.stack);
           });
         promises.push(p);
       }
