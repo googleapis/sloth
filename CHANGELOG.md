@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.2.0](https://www.github.com/googleapis/sloth/compare/v4.1.0...v4.2.0) (2019-05-29)
+
+
+### Bug Fixes
+
+* bump minimim version ([#244](https://www.github.com/googleapis/sloth/issues/244)) ([401aefa](https://www.github.com/googleapis/sloth/commit/401aefa))
+
+
+### Features
+
+* remove labels we do not want ([#245](https://www.github.com/googleapis/sloth/issues/245)) ([3b9c046](https://www.github.com/googleapis/sloth/commit/3b9c046))
+
 ## [4.1.0](https://www.github.com/googleapis/sloth/compare/v4.0.1...v4.1.0) (2019-05-23)
 
 
