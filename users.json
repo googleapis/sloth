@@ -313,7 +313,8 @@
         "theacodes",
         "tseaver",
         "tswast",
-        "anguillanneuf"
+        "anguillanneuf",
+        "nnegrey"
       ],
       "repos": [
         "googleapis/dialogflow-python-client-v2",
