@@ -305,7 +305,7 @@ function isBug(i: ApiIssue) {
 }
 
 function isAssigned(i: ApiIssue) {
-  return i.Assignees.length > 0;
+  return i.Assignees && i.Assignees.length > 0;
 }
 
 /**
