@@ -1,0 +1,41 @@
+{
+  "teams": [
+    {
+      "name": "soda",
+      "apis": [
+        "bigtable",
+        "datastore",
+        "firestore",
+        "redis",
+        "spanner",
+        "storage"
+      ]
+    },
+    {
+      "name": "animl",
+      "apis": [
+        "automl",
+        "bigquery",
+        "bigquerydatatransfer",
+        "cloudiot",
+        "datalabeling",
+        "dataproc",
+        "dialogflow",
+        "dlp",
+        "language",
+        "pubsub",
+        "speech",
+        "texttospeech",
+        "translate",
+        "videointelligence",
+        "vision"
+      ]
+    },
+    {
+      "name": "core",
+      "apis": [
+
+      ]
+    }
+  ]
+}

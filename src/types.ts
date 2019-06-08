@@ -14,6 +14,11 @@
 
 import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
 
+export interface Team {
+  name: string;
+  apis: string[];
+}
+
 export interface IssueResult {
   issues: Issue[];
   repo: Repo;
@@ -25,6 +30,7 @@ export interface Member {
 }
 
 export interface Issue {
+  team: string;
   isPR: boolean;
   api?: string;
   types: string[];
@@ -64,6 +70,10 @@ export interface LanguageResult extends Result {
   language: string;
 }
 
+export interface TeamResult extends Result {
+  team: string;
+}
+
 export interface Result {
   total: number;
   p0: number;
@@ -76,6 +86,7 @@ export interface Result {
 export interface Repo {
   repo: string;
   language: string;
+  apiHint?: string;
 }
 
 export interface Users {
@@ -123,6 +134,7 @@ export interface Flags {
   language: string;
   outOfSlo: boolean;
   untriaged: boolean;
+  team: string;
   repo: string;
   api: string;
   pr: boolean;
