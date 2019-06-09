@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.3.0](https://www.github.com/googleapis/sloth/compare/v4.2.1...v4.3.0) (2019-06-09)
+
+
+### Bug Fixes
+
+* update ownership of translation and ndb ([#260](https://www.github.com/googleapis/sloth/issues/260)) ([7e535ac](https://www.github.com/googleapis/sloth/commit/7e535ac))
+
+
+### Features
+
+* provide improved api mapping and teams ([#258](https://www.github.com/googleapis/sloth/issues/258)) ([d84e921](https://www.github.com/googleapis/sloth/commit/d84e921))
+
 ### [4.2.1](https://www.github.com/googleapis/sloth/compare/v4.2.0...v4.2.1) (2019-06-05)
 
 
