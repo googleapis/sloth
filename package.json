@@ -10,6 +10,7 @@
     "build/src",
     "repos.json",
     "labels.json",
+    "teams.json",
     "users.json"
   ],
   "main": "build/src/sloth.js",

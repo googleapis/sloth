@@ -21,7 +21,7 @@ import {
   IssuesApiResponse,
   ApiIssue,
 } from './types';
-import {octo, repos} from './util';
+import {octo, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
@@ -65,13 +65,15 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   }
 
   res!.data.Issues.forEach(r => {
+    const api = getApi(r, repo);
     const issue: Issue = {
       owner,
       name,
       language: repo.language,
       repo: repo.repo,
       types: getTypes(r),
-      api: getApi(r),
+      api,
+      team: getTeam(api),
       isOutOfSLO: isOutOfSLO(r),
       isTriaged: isTriaged(r),
       pri: r.PriorityUnknown ? undefined : r.Priority,
@@ -101,6 +103,9 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         use = false;
       }
       if (flags.untriaged && issue.isTriaged) {
+        use = false;
+      }
+      if (flags.team && issue.team !== flags.team) {
         use = false;
       }
       if (flags.pri && `p${issue.pri}` !== flags.pri) {
@@ -211,7 +216,16 @@ export async function showIssues(options: Flags) {
   });
   let table: Table;
   const output = new Array<string>();
-  const head = ['Issue', 'Triaged', 'InSLO', 'Title', 'Language', 'API', 'Pri'];
+  const head = [
+    'Issue',
+    'Triaged',
+    'InSLO',
+    'Title',
+    'Language',
+    'API',
+    'Pri',
+    'Team',
+  ];
 
   if (options.csv) {
     output.push(CSV.stringify(head));
@@ -228,6 +242,7 @@ export async function showIssues(options: Flags) {
       issue.language,
       issue.api || '',
       issue.pri || '',
+      issue.team,
     ];
     if (options.csv) {
       output.push(CSV.stringify(values));
@@ -260,7 +275,7 @@ function isPullRequest(i: ApiIssue) {
   return !!i.PullRequest;
 }
 
-function getApi(i: ApiIssue) {
+function getApi(i: ApiIssue, repo: Repo) {
   if (i.Labels) {
     for (const label of i.Labels) {
       if (label.startsWith('api: ')) {
@@ -268,16 +283,17 @@ function getApi(i: ApiIssue) {
       }
     }
   }
+  return repo.apiHint;
+}
 
-  // In node.js, we have separate repos for each API. We aren't looking for
-  // a label, we're looking for a repo name.
-  const repoName = i.Repo.startsWith('googleapis/')
-    ? i.Repo.split('/')[1]
-    : i.Repo;
-  if (repoName.startsWith('nodejs-')) {
-    return i.Repo.split('-')[1];
+function getTeam(api?: string) {
+  if (api) {
+    const t = teams.find(x => x.apis.includes(api));
+    if (t) {
+      return t.name;
+    }
   }
-  return undefined;
+  return 'core';
 }
 
 /**

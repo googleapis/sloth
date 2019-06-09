@@ -14,11 +14,12 @@
 
 import * as Octokit from '@octokit/rest';
 
-import {Label, Repo, Users} from './types';
+import {Label, Repo, Users, Team} from './types';
 
 export const repos: Repo[] = require('../../repos.json').repos;
 export const labels: Label[] = require('../../labels.json').labels;
 export const users: Users = require('../../users.json');
+export const teams: Team[] = require('../../teams.json').teams;
 export const languages = [
   'go',
   'nodejs',
