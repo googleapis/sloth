@@ -8,7 +8,8 @@
         "firestore",
         "redis",
         "spanner",
-        "storage"
+        "storage",
+        "ndb"
       ]
     },
     {
@@ -26,7 +27,7 @@
         "pubsub",
         "speech",
         "texttospeech",
-        "translate",
+        "translation",
         "videointelligence",
         "vision"
       ]
