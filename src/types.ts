@@ -30,6 +30,7 @@ export interface Member {
 }
 
 export interface Issue {
+  assignees: string[];
   team: string;
   isPR: boolean;
   api?: string;

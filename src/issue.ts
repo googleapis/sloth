@@ -83,6 +83,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       title: r.Title,
       url: r.URL,
       labels: r.Labels || [],
+      assignees: r.Assignees ? r.Assignees.map(x => x.Login) : [],
     };
 
     let use = true;
