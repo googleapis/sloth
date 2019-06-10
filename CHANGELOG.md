@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.4.0](https://www.github.com/googleapis/sloth/compare/v4.3.0...v4.4.0) (2019-06-10)
+
+
+### Features
+
+* include assignees in returned issue data ([#261](https://www.github.com/googleapis/sloth/issues/261)) ([66faa21](https://www.github.com/googleapis/sloth/commit/66faa21))
+
 ## [4.3.0](https://www.github.com/googleapis/sloth/compare/v4.2.1...v4.3.0) (2019-06-09)
 
 
