@@ -292,7 +292,9 @@
         "tbpg",
         "odeke-em",
         "olavloite",
-        "hongalex"
+        "hongalex",
+        "kurtisvg",
+        "davidcavazos"
       ],
       "repos": [
         "google/go-genproto",
