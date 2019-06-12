@@ -19,6 +19,7 @@
         "bigquery",
         "bigquerydatatransfer",
         "cloudiot",
+        "datacatalog",
         "datalabeling",
         "dataproc",
         "dialogflow",
