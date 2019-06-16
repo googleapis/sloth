@@ -73,7 +73,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       repo: repo.repo,
       types: getTypes(r),
       api,
-      team: getTeam(api),
+      team: getTeam(r.Repo, api),
       isOutOfSLO: isOutOfSLO(r),
       isTriaged: isTriaged(r),
       pri: r.PriorityUnknown ? undefined : r.Priority,
@@ -287,12 +287,16 @@ function getApi(i: ApiIssue, repo: Repo) {
   return repo.apiHint;
 }
 
-function getTeam(api?: string) {
+function getTeam(repo: string, api?: string) {
   if (api) {
-    const t = teams.find(x => x.apis.includes(api));
+    const t = teams.find(x => (x.apis || []).includes(api));
     if (t) {
       return t.name;
     }
+  }
+  const t = teams.find(x => (x.repos || []).includes(repo));
+  if (t) {
+    return t.name;
   }
   return 'core';
 }
