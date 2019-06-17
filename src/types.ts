@@ -17,6 +17,7 @@ import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/re
 export interface Team {
   name: string;
   apis: string[];
+  repos: string[];
 }
 
 export interface IssueResult {

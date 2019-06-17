@@ -34,6 +34,33 @@
       ]
     },
     {
+      "name": "actools",
+      "repos": [
+        "googleapis/gax-nodejs",
+        "googleapis/gax-php",
+        "googleapis/gax-dotnet",
+        "googleapis/gax-go",
+        "googleapis/gax-java",
+        "googleapis/gax-ruby"
+      ]
+    },
+    {
+      "name": "node",
+      "repos": [
+        "googleapis/cloud-debug-nodejs",
+        "googleapis/cloud-trace-nodejs",
+        "googleapis/nodejs-logging-winston",
+        "googleapis/nodejs-logging-bunyan",
+        "googleapis/nodejs-error-reporting"
+      ]
+    },
+    {
+      "name": "cloud-profiler",
+      "repos": [
+        "googleapis/cloud-profiler-nodejs"
+      ]
+    },
+    {
       "name": "core",
       "apis": [
 
