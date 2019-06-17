@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.6.0](https://www.github.com/googleapis/sloth/compare/v4.5.0...v4.6.0) (2019-06-17)
+
+
+### Features
+
+* add more team splitting ([#266](https://www.github.com/googleapis/sloth/issues/266)) ([fe124d5](https://www.github.com/googleapis/sloth/commit/fe124d5))
+
 ## [4.5.0](https://www.github.com/googleapis/sloth/compare/v4.4.0...v4.5.0) (2019-06-13)
 
 
