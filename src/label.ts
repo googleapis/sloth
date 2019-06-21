@@ -36,7 +36,9 @@ export async function reconcileLabels() {
         // check to see if the color matches
         if (match.color !== l.color) {
           console.log(
-            `Updating color for ${match.name} from ${match.color} to ${l.color}.`
+            `Updating color for ${match.name} from ${match.color} to ${
+              l.color
+            }.`
           );
           const p = octo.issues
             .updateLabel({
