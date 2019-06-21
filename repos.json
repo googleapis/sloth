@@ -97,6 +97,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-vision", "apiHint": "vision"},
     { "language": "nodejs", "repo": "googleapis/release-please" },
     { "language": "nodejs", "repo": "googleapis/sloth"},
+    { "language": "nodejs", "repo": "googleapis/teeny-request"},
 
     { "language": "php", "repo": "googleapis/gax-php"},
     { "language": "php", "repo": "googleapis/google-api-php-client"},
