@@ -41,5 +41,8 @@ module.exports = {
     sourceFiles: false,
     systemName: '@justinbeckwith/sloth',
     theme: 'lumen'
+  },
+  markdown: {
+    idInHeadings: true
   }
 };
