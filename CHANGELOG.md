@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.6.1](https://www.github.com/googleapis/sloth/compare/v4.6.0...v4.6.1) (2019-06-26)
+
+
+### Bug Fixes
+
+* **docs:** make anchors work in jsdoc ([#270](https://www.github.com/googleapis/sloth/issues/270)) ([8daf382](https://www.github.com/googleapis/sloth/commit/8daf382))
+
 ## [4.6.0](https://www.github.com/googleapis/sloth/compare/v4.5.0...v4.6.0) (2019-06-17)
 
 
