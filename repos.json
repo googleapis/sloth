@@ -26,7 +26,7 @@
     { "language": "java", "repo": "googleapis/google-cloud-java"},
     { "language": "java", "repo": "googleapis/google-http-java-client"},
     { "language": "java", "repo": "googleapis/google-oauth-java-client"},
-    { "language": "java", "repo": "googleapis/gapic-generator-java"},
+    { "language": "java", "repo": "googleapis/gapic-generator"},
 
     { "language": "nodejs", "repo": "googleapis/cloud-debug-nodejs", "apiHint": "clouddebugger"},
     { "language": "nodejs", "repo": "googleapis/cloud-profiler-nodejs", "apiHint": "cloudprofiler"},
@@ -163,8 +163,6 @@
     { "language": "ruby", "repo": "googleapis/google-cloud-ruby"},
     { "language": "ruby", "repo": "googleapis/ruby-style"},
     { "language": "ruby", "repo": "googleapis/signet"},
-    { "language": "ruby", "repo": "googleapis/gapic-generator-ruby"},
-
-    { "language": "java", "repo": "googleapis/gapic-generator"}
+    { "language": "ruby", "repo": "googleapis/gapic-generator-ruby"}
   ]
 }
