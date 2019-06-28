@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.7.0](https://www.github.com/googleapis/sloth/compare/v4.6.1...v4.7.0) (2019-06-27)
+
+
+### Features
+
+* add actools generator repos ([#272](https://www.github.com/googleapis/sloth/issues/272)) ([bdc4c7f](https://www.github.com/googleapis/sloth/commit/bdc4c7f))
+
 ### [4.6.1](https://www.github.com/googleapis/sloth/compare/v4.6.0...v4.6.1) (2019-06-26)
 
 
