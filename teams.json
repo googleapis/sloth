@@ -12,7 +12,7 @@
       ]
     },
     {
-      "name": "cbr",
+      "name": "code-build-run",
       "apis": [
         "ndb"
       ]
