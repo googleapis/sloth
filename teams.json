@@ -8,8 +8,7 @@
         "firestore",
         "redis",
         "spanner",
-        "storage",
-        "ndb"
+        "storage"
       ]
     },
     {
