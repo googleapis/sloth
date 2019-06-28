@@ -8,7 +8,12 @@
         "firestore",
         "redis",
         "spanner",
-        "storage",
+        "storage"
+      ]
+    },
+    {
+      "name": "code-build-run",
+      "apis": [
         "ndb"
       ]
     },
