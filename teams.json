@@ -13,6 +13,12 @@
       ]
     },
     {
+      "name": "cbr",
+      "apis": [
+        "ndb"
+      ]
+    },
+    {
       "name": "animl",
       "apis": [
         "automl",
