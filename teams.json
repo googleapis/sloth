@@ -8,7 +8,12 @@
         "firestore",
         "redis",
         "spanner",
-        "storage",
+        "storage"
+      ]
+    },
+    {
+      "name": "serverless",
+      "apis": [
         "ndb"
       ]
     },
