@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.7.1](https://www.github.com/googleapis/sloth/compare/v4.7.0...v4.7.1) (2019-06-28)
+
+
+### Bug Fixes
+
+* move ndb api to cbr team ([#277](https://www.github.com/googleapis/sloth/issues/277)) ([c8b362c](https://www.github.com/googleapis/sloth/commit/c8b362c))
+
 ## [4.7.0](https://www.github.com/googleapis/sloth/compare/v4.6.1...v4.7.0) (2019-06-27)
 
 
