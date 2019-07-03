@@ -346,19 +346,14 @@ function hasLabel(issue: ApiIssue, label: string) {
  * @param i Issue to analyze
  */
 function isOutOfSLO(i: ApiIssue) {
-  // Pull requests must be merged within a week, unless they have a
-  // 'needs work' label.  After 90 days, it should just be resolved.
   const pri = i.PriorityUnknown ? undefined : i.Priority;
+
+  // Previously we applied rules around Pull Request closure SLOs.
+  // It had the unintended consequence of folks feeling forced to rush landing
+  // PRs early, when the intent was to cast a light on PRs that may have been
+  // forgotten.  We will come back around and use a bot to solve this in the
+  // future.
   if (isPullRequest(i)) {
-    if (hasLabel(i, 'status: blocked')) {
-      return false;
-    }
-    if (daysOld(i.Created) > 90) {
-      return true;
-    }
-    if (daysOld(i.Created) > 7 && !hasLabel(i, 'needs work')) {
-      return true;
-    }
     return false;
   }
 
