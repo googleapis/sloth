@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.8.0](https://www.github.com/googleapis/sloth/compare/v4.7.1...v4.8.0) (2019-07-03)
+
+
+### Features
+
+* remove SLO for PRs ([#283](https://www.github.com/googleapis/sloth/issues/283)) ([ab900a7](https://www.github.com/googleapis/sloth/commit/ab900a7))
+
 ### [4.7.1](https://www.github.com/googleapis/sloth/compare/v4.7.0...v4.7.1) (2019-06-28)
 
 
