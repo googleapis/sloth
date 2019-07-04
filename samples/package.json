@@ -8,12 +8,16 @@
   "repository": "googleapis/sloth",
   "private": true,
   "scripts": {
-    "test": "echo no tests available 👻"
+    "test": "echo no tests available 👻",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "@justinbeckwith/sloth": "^4.8.0"
+    "@justinbeckwith/sloth": "^4.8.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "mocha": "^6.0.0"
-  }
+  },
+  "snyk": true
 }
