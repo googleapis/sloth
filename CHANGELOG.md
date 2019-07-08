@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.10.0](https://www.github.com/googleapis/sloth/compare/v4.9.0...v4.10.0) (2019-07-08)
+
+
+### Features
+
+* Add Storage and DB team members ([#288](https://www.github.com/googleapis/sloth/issues/288)) ([8d80017](https://www.github.com/googleapis/sloth/commit/8d80017))
+
 ## [4.9.0](https://www.github.com/googleapis/sloth/compare/v4.8.0...v4.9.0) (2019-07-08)
 
 
