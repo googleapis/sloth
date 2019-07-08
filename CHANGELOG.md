@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.9.0](https://www.github.com/googleapis/sloth/compare/v4.8.0...v4.9.0) (2019-07-08)
+
+
+### Features
+
+* update Qlogic users ([#286](https://www.github.com/googleapis/sloth/issues/286)) ([44e5f24](https://www.github.com/googleapis/sloth/commit/44e5f24))
+
 ## [4.8.0](https://www.github.com/googleapis/sloth/compare/v4.7.1...v4.8.0) (2019-07-03)
 
 
