@@ -4,6 +4,27 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.10.0](https://www.github.com/googleapis/sloth/compare/v4.9.0...v4.10.0) (2019-07-08)
+
+
+### Features
+
+* Add Storage and DB team members ([#288](https://www.github.com/googleapis/sloth/issues/288)) ([8d80017](https://www.github.com/googleapis/sloth/commit/8d80017))
+
+## [4.9.0](https://www.github.com/googleapis/sloth/compare/v4.8.0...v4.9.0) (2019-07-08)
+
+
+### Features
+
+* update Qlogic users ([#286](https://www.github.com/googleapis/sloth/issues/286)) ([44e5f24](https://www.github.com/googleapis/sloth/commit/44e5f24))
+
+## [4.8.0](https://www.github.com/googleapis/sloth/compare/v4.7.1...v4.8.0) (2019-07-03)
+
+
+### Features
+
+* remove SLO for PRs ([#283](https://www.github.com/googleapis/sloth/issues/283)) ([ab900a7](https://www.github.com/googleapis/sloth/commit/ab900a7))
+
 ### [4.7.1](https://www.github.com/googleapis/sloth/compare/v4.7.0...v4.7.1) (2019-06-28)
 
 
