@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.11.0](https://www.github.com/googleapis/sloth/compare/v4.10.0...v4.11.0) (2019-07-10)
+
+
+### Features
+
+* ignore external issues from SLO ([#293](https://www.github.com/googleapis/sloth/issues/293)) ([dbfa009](https://www.github.com/googleapis/sloth/commit/dbfa009))
+
 ## [4.10.0](https://www.github.com/googleapis/sloth/compare/v4.9.0...v4.10.0) (2019-07-08)
 
 
