@@ -134,6 +134,11 @@
       "name": "good first issue",
       "description": "This issue is a good place to started contributing to this repository.",
       "color": "520b77"
+    },
+    {
+      "name": "external",
+      "description": "This issue is blocked on a bug with the actual product.",
+      "color": "800080"
     }
   ]
 }
