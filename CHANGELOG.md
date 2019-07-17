@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.12.0](https://www.github.com/googleapis/sloth/compare/v4.11.0...v4.12.0) (2019-07-17)
+
+
+### Features
+
+* Add [@elharo](https://www.github.com/elharo) to yoshi-java ([#295](https://www.github.com/googleapis/sloth/issues/295)) ([68ef46e](https://www.github.com/googleapis/sloth/commit/68ef46e))
+
 ## [4.11.0](https://www.github.com/googleapis/sloth/compare/v4.10.0...v4.11.0) (2019-07-10)
 
 
