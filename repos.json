@@ -99,6 +99,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-video-intelligence", "apiHint": "videointelligence"},
     { "language": "nodejs", "repo": "googleapis/nodejs-vision", "apiHint": "vision"},
     { "language": "nodejs", "repo": "googleapis/release-please" },
+    { "language": "nodejs", "repo": "googleapis/repo-automation-bots" },
     { "language": "nodejs", "repo": "googleapis/sloth"},
     { "language": "nodejs", "repo": "googleapis/teeny-request"},
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript"},
