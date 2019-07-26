@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.13.0](https://www.github.com/googleapis/sloth/compare/v4.12.0...v4.13.0) (2019-07-26)
+
+
+### Features
+
+* add repo-automation-bots repo ([#297](https://www.github.com/googleapis/sloth/issues/297)) ([4adc5cb](https://www.github.com/googleapis/sloth/commit/4adc5cb))
+
 ## [4.12.0](https://www.github.com/googleapis/sloth/compare/v4.11.0...v4.12.0) (2019-07-17)
 
 
