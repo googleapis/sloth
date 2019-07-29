@@ -72,6 +72,13 @@
       ]
     },
     {
+      "name": "cpp",
+      "repos": [
+        "googleapis/google-cloud-cpp",
+        "googleapis/google-cloud-cpp-spanner"
+      ]
+    },
+    {
       "name": "core",
       "apis": [
 
