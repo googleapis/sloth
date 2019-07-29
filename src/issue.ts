@@ -56,8 +56,9 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   try {
     res = await request<IssuesApiResponse>({url});
   } catch (e) {
-    console.error(`Error fetching issues for ${repo.repo}.`);
-    console.error(e);
+    console.warn(`Error fetching issues for ${repo.repo}.`);
+    //console.warn(e);
+    return result;
   }
 
   if (!res.data || !res.data.Issues) {
@@ -357,6 +358,11 @@ function isOutOfSLO(i: ApiIssue) {
     return false;
   }
 
+  // Ignore any issues which are blocked by external APIs
+  if (isExternal(i)) {
+    return false;
+  }
+
   // All P0 issues must receive a reply within 1 day, an update at least daily,
   // and be resolved within 5 days.
   if (pri === 0) {
@@ -424,6 +430,10 @@ function daysOld(date: string) {
  */
 function hoursOld(date: string) {
   return (Date.now() - new Date(date).getTime()) / 1000 / 60 / 60;
+}
+
+function isExternal(i: ApiIssue) {
+  return hasLabel(i, 'external');
 }
 
 /**

@@ -4,6 +4,27 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.13.0](https://www.github.com/googleapis/sloth/compare/v4.12.0...v4.13.0) (2019-07-26)
+
+
+### Features
+
+* add repo-automation-bots repo ([#297](https://www.github.com/googleapis/sloth/issues/297)) ([4adc5cb](https://www.github.com/googleapis/sloth/commit/4adc5cb))
+
+## [4.12.0](https://www.github.com/googleapis/sloth/compare/v4.11.0...v4.12.0) (2019-07-17)
+
+
+### Features
+
+* Add [@elharo](https://www.github.com/elharo) to yoshi-java ([#295](https://www.github.com/googleapis/sloth/issues/295)) ([68ef46e](https://www.github.com/googleapis/sloth/commit/68ef46e))
+
+## [4.11.0](https://www.github.com/googleapis/sloth/compare/v4.10.0...v4.11.0) (2019-07-10)
+
+
+### Features
+
+* ignore external issues from SLO ([#293](https://www.github.com/googleapis/sloth/issues/293)) ([dbfa009](https://www.github.com/googleapis/sloth/commit/dbfa009))
+
 ## [4.10.0](https://www.github.com/googleapis/sloth/compare/v4.9.0...v4.10.0) (2019-07-08)
 
 
