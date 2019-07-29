@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.14.0](https://www.github.com/googleapis/sloth/compare/v4.13.0...v4.14.0) (2019-07-29)
+
+
+### Bug Fixes
+
+* do not crash on error obtaining repo issues ([#300](https://www.github.com/googleapis/sloth/issues/300)) ([95f13ec](https://www.github.com/googleapis/sloth/commit/95f13ec))
+
+
+### Features
+
+* Add C++ team ([#282](https://www.github.com/googleapis/sloth/issues/282)) ([af1f0bf](https://www.github.com/googleapis/sloth/commit/af1f0bf))
+
 ## [4.13.0](https://www.github.com/googleapis/sloth/compare/v4.12.0...v4.13.0) (2019-07-26)
 
 
