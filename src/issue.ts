@@ -56,8 +56,9 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   try {
     res = await request<IssuesApiResponse>({url});
   } catch (e) {
-    console.error(`Error fetching issues for ${repo.repo}.`);
-    console.error(e);
+    console.warn(`Error fetching issues for ${repo.repo}.`);
+    //console.warn(e);
+    return result;
   }
 
   if (!res.data || !res.data.Issues) {
