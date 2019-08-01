@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.14.1](https://www.github.com/googleapis/sloth/compare/v4.14.0...v4.14.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* Add sirtorry to yoshi-python ([#305](https://www.github.com/googleapis/sloth/issues/305)) ([5515933](https://www.github.com/googleapis/sloth/commit/5515933))
+
 ## [4.14.0](https://www.github.com/googleapis/sloth/compare/v4.13.0...v4.14.0) (2019-07-29)
 
 
