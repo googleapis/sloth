@@ -363,27 +363,44 @@ function isOutOfSLO(i: ApiIssue) {
     return false;
   }
 
-  // All P0 issues must receive a reply within 1 day, an update at least daily,
-  // and be resolved within 5 days.
-  if (pri === 0) {
-    if (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) {
-      return true;
-    }
-  }
+  // Priority is only a trigger for an SLO if it's one of the following types:
+  // - question
+  // - bug
+  // - docs
+  const isCustomerIssue =
+    hasLabel(i, 'type: question') ||
+    hasLabel(i, 'type: docs') ||
+    hasLabel(i, 'type: bug');
 
-  // All P1 issues must receive a reply within 5 days, an update at least every
-  // 5 days thereafter, and be resolved within 42 days (six weeks).
-  if (pri === 1) {
-    if (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) {
-      return true;
+  if (isCustomerIssue) {
+    // All P0 issues must receive a reply within 1 day, an update at least daily,
+    // and be resolved within 5 days.
+    if (pri === 0) {
+      if (
+        (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) &&
+        isAssigned(i)
+      ) {
+        return true;
+      }
     }
-  }
 
-  // All P2 issues must receive a reply within 5 days, and be resolved within
-  // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
-  if (pri === 2) {
-    if (daysOld(i.Created) > 180) {
-      return true;
+    // All P1 issues must receive a reply within 5 days, an update at least every
+    // 5 days thereafter, and be resolved within 42 days (six weeks).
+    if (pri === 1) {
+      if (
+        (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) &&
+        isAssigned(i)
+      ) {
+        return true;
+      }
+    }
+
+    // All P2 issues must receive a reply within 5 days, and be resolved within
+    // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
+    if (pri === 2) {
+      if (daysOld(i.Created) > 180) {
+        return true;
+      }
     }
   }
 
@@ -394,9 +411,7 @@ function isOutOfSLO(i: ApiIssue) {
     }
   }
 
-  // All feature requests must receive a reply within 5 days, and be resolved
-  // within 180 days. In this context, resolution may (and often will) entail
-  // simply relocating the feature request elsewhere.
+  // All feature requests must receive a reply within 5 days
   if (hasLabel(i, 'type: feature')) {
     if (!i.UpdatedAt && daysOld(i.Created) > 5) {
       return true;
@@ -451,9 +466,6 @@ function isTriaged(i: ApiIssue) {
   }
 
   if (hasPriority(i)) {
-    if (i.Priority === 0 || i.Priority === 1) {
-      return isAssigned(i);
-    }
     return true;
   }
 
