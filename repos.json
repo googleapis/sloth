@@ -1,5 +1,6 @@
 {
   "repos": [
+    { "language": "cpp", "repo": "googleapis/cpp-cmakefiles"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner"},
 
