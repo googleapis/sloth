@@ -296,6 +296,7 @@
         "googleapis/java-bigquery",
         "googleapis/java-bigquerydatatransfer",
         "googleapis/java-bigquerystorage",
+        "googleapis/java-bigtable",
         "googleapis/java-compute",
         "googleapis/java-container",
         "googleapis/java-containeranalysis",

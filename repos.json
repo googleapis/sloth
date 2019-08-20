@@ -33,6 +33,7 @@
     { "language": "java", "repo": "googleapis/java-bigquery"},
     { "language": "java", "repo": "googleapis/java-bigquerydatatransfer"},
     { "language": "java", "repo": "googleapis/java-bigquerystorage"},
+    { "language": "java", "repo": "googleapis/java-bigtable"},
     { "language": "java", "repo": "googleapis/java-compute"},
     { "language": "java", "repo": "googleapis/java-container"},
     { "language": "java", "repo": "googleapis/java-containeranalysis"},
