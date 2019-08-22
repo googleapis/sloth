@@ -368,7 +368,7 @@
         "davidcavazos"
       ],
       "repos": [
-        "google/go-genproto",
+        "googleapis/go-genproto",
         "googleapis/gax-go",
         "googleapis/google-api-go-client",
         "googleapis/google-cloud-go-testing",
