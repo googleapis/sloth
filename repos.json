@@ -11,7 +11,7 @@
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api"},
 
-    { "language": "go", "repo": "google/go-genproto"},
+    { "language": "go", "repo": "googleapis/go-genproto"},
     { "language": "go", "repo": "googleapis/gax-go"},
     { "language": "go", "repo": "googleapis/google-api-go-client"},
     { "language": "go", "repo": "googleapis/google-cloud-go-testing"},
