@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.15.0](https://www.github.com/googleapis/sloth/compare/v4.14.1...v4.15.0) (2019-08-26)
+
+
+### Bug Fixes
+
+* clean up sloth repos ([#313](https://www.github.com/googleapis/sloth/issues/313)) ([f694f40](https://www.github.com/googleapis/sloth/commit/f694f40))
+
+
+### Features
+
+* add googleapis/cpp-cmakefiles repository ([#308](https://www.github.com/googleapis/sloth/issues/308)) ([f3d5ca2](https://www.github.com/googleapis/sloth/commit/f3d5ca2))
+* add java split repos ([#312](https://www.github.com/googleapis/sloth/issues/312)) ([9a1f83d](https://www.github.com/googleapis/sloth/commit/9a1f83d))
+
 ### [4.14.1](https://www.github.com/googleapis/sloth/compare/v4.14.0...v4.14.1) (2019-08-01)
 
 
