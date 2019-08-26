@@ -65,18 +65,17 @@ export async function reconcileTeams() {
 }
 
 export async function reconcileRepos() {
-  const promises = new Array<Promise<Octokit.AnyResponse | void>>();
   const teams = await reconcileTeams();
-
-  users.membership.forEach(m => {
-    m.repos.forEach(async r => {
+  console.log(teams.map(x => x.name));
+  for (const m of users.membership) {
+    for (const r of m.repos) {
       const [o, repo] = r.split('/');
       const team = getTeam(m.team, o, teams);
       const yoshiAdmins = getTeam('yoshi-admins', o, teams);
       const yoshiTeam = getTeam('yoshi', o, teams);
 
       if (!team) {
-        throw new Error(`Unable to find team '${m.team}`);
+        throw new Error(`Unable to find team '${m.team}'`);
       }
 
       // Add the language specific team
@@ -110,9 +109,8 @@ export async function reconcileRepos() {
         .catch(e => {
           console.error(`Error adding ${r} to 'yoshi'.`);
         });
-    });
-  });
-  // await Promise.all(promises);
+    }
+  }
 }
 
 function getTeam(team: string, org: string, teams: Team[]) {
