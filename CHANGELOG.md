@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.16.0](https://www.github.com/googleapis/sloth/compare/v4.15.0...v4.16.0) (2019-09-06)
+
+
+### Features
+
+* add codyoss to yoshi-java ([#317](https://www.github.com/googleapis/sloth/issues/317)) ([f07aae3](https://www.github.com/googleapis/sloth/commit/f07aae3))
+* add Ilya, Cody, Aleksandra, and Chris to Go ([#319](https://www.github.com/googleapis/sloth/issues/319)) ([24f364e](https://www.github.com/googleapis/sloth/commit/24f364e))
+* tweak SLO logic for customer issues ([#307](https://www.github.com/googleapis/sloth/issues/307)) ([a10014a](https://www.github.com/googleapis/sloth/commit/a10014a))
+
 ## [4.15.0](https://www.github.com/googleapis/sloth/compare/v4.14.1...v4.15.0) (2019-08-26)
 
 
