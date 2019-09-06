@@ -39,6 +39,7 @@
         "cguardia",
         "chingor13",
         "chrisdunelm",
+        "codyoss",
         "crwilcox",
         "danielgsims",
         "danoscarmike",
@@ -79,7 +80,9 @@
         "tmatsuo",
         "tseaver",
         "tswast",
-        "vishald123"
+        "vishald123",
+        "AlisskaPie",
+        "tritone"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -269,6 +272,7 @@
         "benwhitehead",
         "billyjacobson",
         "chingor13",
+        "codyoss",
         "dpcollins-google",
         "elharo",
         "igorbernstein2",
@@ -363,7 +367,11 @@
         "olavloite",
         "hongalex",
         "kurtisvg",
-        "davidcavazos"
+        "davidcavazos",
+        "codyoss",
+        "tritone",
+        "IlyaFaer",
+        "AlisskaPie"
       ],
       "repos": [
         "googleapis/go-genproto",
