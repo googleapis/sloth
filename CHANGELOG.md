@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.16.1](https://www.github.com/googleapis/sloth/compare/v4.16.0...v4.16.1) (2019-09-16)
+
+
+### Bug Fixes
+
+* nodejs-proto-files belongs to actools ([#322](https://www.github.com/googleapis/sloth/issues/322)) ([beca95b](https://www.github.com/googleapis/sloth/commit/beca95b))
+
 ## [4.16.0](https://www.github.com/googleapis/sloth/compare/v4.15.0...v4.16.0) (2019-09-06)
 
 
