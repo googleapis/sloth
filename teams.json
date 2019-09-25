@@ -51,7 +51,7 @@
         "googleapis/gapic-generator-ruby",
         "googleapis/gapic-generator-python",
         "googleapis/gapic-generator-go",
-        "googleapis/gapic-generator-dotnet",
+        "googleapis/gapic-generator-csharp",
         "googleapis/gapic-generator",
         "googleapis/nodejs-proto-files"
       ]
