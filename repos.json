@@ -7,7 +7,7 @@
     { "language": "dotnet", "repo": "googleapis/gax-dotnet"},
     { "language": "dotnet", "repo": "googleapis/google-api-dotnet-client"},
     { "language": "dotnet", "repo": "googleapis/google-cloud-dotnet"},
-    { "language": "dotnet", "repo": "googleapis/gapic-generator-dotnet"},
+    { "language": "dotnet", "repo": "googleapis/gapic-generator-csharp"},
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api"},
 
