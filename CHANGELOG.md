@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.16.2](https://www.github.com/googleapis/sloth/compare/v4.16.1...v4.16.2) (2019-10-01)
+
+
+### Bug Fixes
+
+* remove abhinav and paras ([#327](https://www.github.com/googleapis/sloth/issues/327)) ([1e1dfb3](https://www.github.com/googleapis/sloth/commit/1e1dfb3))
+* update name of gapic csharp generator ([#329](https://www.github.com/googleapis/sloth/issues/329)) ([42431cc](https://www.github.com/googleapis/sloth/commit/42431cc))
+
 ### [4.16.1](https://www.github.com/googleapis/sloth/compare/v4.16.0...v4.16.1) (2019-09-16)
 
 
