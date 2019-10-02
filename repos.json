@@ -2,6 +2,7 @@
   "repos": [
     { "language": "cpp", "repo": "googleapis/cpp-cmakefiles"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp"},
+    { "language": "cpp", "repo": "googleapis/google-cloud-cpp-common"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner"},
 
     { "language": "dotnet", "repo": "googleapis/gax-dotnet"},
