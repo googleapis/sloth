@@ -31,6 +31,7 @@
         "dlp",
         "language",
         "pubsub",
+        "recommender",
         "speech",
         "texttospeech",
         "translation",
@@ -77,6 +78,7 @@
       "repos": [
         "googleapis/cpp-cmakefiles",
         "googleapis/google-cloud-cpp",
+        "googleapis/google-cloud-cpp-common",
         "googleapis/google-cloud-cpp-spanner"
       ]
     },

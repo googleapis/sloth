@@ -33,6 +33,7 @@
         "benwhitehead",
         "billyjacobson",
         "blowmage",
+        "bradmiro",
         "bshaffer",
         "busunkim96",
         "callmehiphop",
@@ -167,6 +168,7 @@
         "ajaaym",
         "alexander-fenster",
         "bcoe",
+        "bradmiro",
         "callmehiphop",
         "crwilcox",
         "jiren",
@@ -363,7 +365,6 @@
         "poy",
         "shollyman",
         "tbpg",
-        "odeke-em",
         "olavloite",
         "hongalex",
         "kurtisvg",
@@ -444,6 +445,7 @@
       "repos": [
         "googleapis/cpp-cmakefiles",
         "googleapis/google-cloud-cpp",
+        "googleapis/google-cloud-cpp-common",
         "googleapis/google-cloud-cpp-spanner"
       ]
     }
