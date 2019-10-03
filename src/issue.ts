@@ -202,7 +202,12 @@ function untagIssue(
   label: string
 ): Promise<void | Octokit.AnyResponse> {
   return octo.issues
-    .removeLabel({name: label, issue_number: i.number, owner: i.owner, repo: i.repo})
+    .removeLabel({
+      name: label,
+      issue_number: i.number,
+      owner: i.owner,
+      repo: i.repo,
+    })
     .catch(e => {
       console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
       console.error(e);
