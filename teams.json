@@ -85,7 +85,6 @@
     {
       "name": "onramp",
       "repos": [
-        "GoogleCloudPlatform/cpp-docs-samples",
         "GoogleCloudPlatform/nodejs-docs-samples",
         "GoogleCloudPlatform/php-docs-samples",
         "GoogleCloudPlatform/ruby-docs-samples",
