@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.17.0](https://www.github.com/googleapis/sloth/compare/v4.16.1...v4.17.0) (2019-10-03)
+
+
+### Bug Fixes
+
+* remove abhinav and paras ([#327](https://www.github.com/googleapis/sloth/issues/327)) ([1e1dfb3](https://www.github.com/googleapis/sloth/commit/1e1dfb3))
+* update name of gapic csharp generator ([#329](https://www.github.com/googleapis/sloth/issues/329)) ([42431cc](https://www.github.com/googleapis/sloth/commit/42431cc))
+* update users.json to include bradmiro ([#336](https://www.github.com/googleapis/sloth/issues/336)) ([7211409](https://www.github.com/googleapis/sloth/commit/7211409))
+
+
+### Features
+
+* add cloudbuild/recommender Java repos ([#337](https://www.github.com/googleapis/sloth/issues/337)) ([971a6b3](https://www.github.com/googleapis/sloth/commit/971a6b3))
+* add new google-cloud-cpp-common repository ([#339](https://www.github.com/googleapis/sloth/issues/339)) ([3f47c14](https://www.github.com/googleapis/sloth/commit/3f47c14))
+* add the onramp repos and team ([#343](https://www.github.com/googleapis/sloth/issues/343)) ([b993ec3](https://www.github.com/googleapis/sloth/commit/b993ec3))
+
 ### [4.16.1](https://www.github.com/googleapis/sloth/compare/v4.16.0...v4.16.1) (2019-09-16)
 
 
