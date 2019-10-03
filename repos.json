@@ -9,8 +9,11 @@
     { "language": "dotnet", "repo": "googleapis/google-api-dotnet-client"},
     { "language": "dotnet", "repo": "googleapis/google-cloud-dotnet"},
     { "language": "dotnet", "repo": "googleapis/gapic-generator-csharp"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/dotnet-docs-samples"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api"},
+    { "language": "elixir", "repo": "GoogleCloudPlatform/elixir-samples"},
 
     { "language": "go", "repo": "googleapis/go-genproto"},
     { "language": "go", "repo": "googleapis/gax-go"},
@@ -18,6 +21,7 @@
     { "language": "go", "repo": "googleapis/google-cloud-go-testing"},
     { "language": "go", "repo": "googleapis/google-cloud-go"},
     { "language": "go", "repo": "googleapis/gapic-generator-go"},
+    { "language": "go", "repo": "GoogleCloudPlatform/golang-samples"},
 
     { "language": "java", "repo": "googleapis/api-common-java"},
     { "language": "java", "repo": "googleapis/cloud-bigtable-client", "apiHint": "bigtable"},
@@ -86,6 +90,8 @@
     { "language": "java", "repo": "googleapis/java-spanner-jdbc", "apiHint": "spanner"},
     { "language": "java", "repo": "googleapis/java-storage-nio", "apiHint": "storage"},
     { "language": "java", "repo": "googleapis/java-notification"},
+    { "language": "java", "repo": "GoogleCloudPlatform/java-docs-samples"},
+    { "language": "java", "repo": "GoogleCloudPlatform/getting-started-java"},
 
     { "language": "nodejs", "repo": "googleapis/cloud-debug-nodejs", "apiHint": "clouddebugger"},
     { "language": "nodejs", "repo": "googleapis/cloud-profiler-nodejs", "apiHint": "cloudprofiler"},
@@ -162,6 +168,8 @@
     { "language": "nodejs", "repo": "googleapis/sloth"},
     { "language": "nodejs", "repo": "googleapis/teeny-request"},
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript"},
+    { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
+    { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
 
     { "language": "php", "repo": "googleapis/gax-php"},
     { "language": "php", "repo": "googleapis/google-api-php-client"},
@@ -201,6 +209,8 @@
     { "language": "php", "repo": "googleapis/google-cloud-php-translate"},
     { "language": "php", "repo": "googleapis/google-cloud-php-videointelligence"},
     { "language": "php", "repo": "googleapis/google-cloud-php-vision"},
+    { "language": "php", "repo": "GoogleCloudPlatform/php-docs-samples"},
+    { "language": "php", "repo": "GoogleCloudPlatform/getting-started-php"},
 
     { "language": "python", "repo": "googleapis/dialogflow-python-client-v2", "apiHint": "dialogflow"},
     { "language": "python", "repo": "googleapis/google-api-python-client"},
@@ -215,6 +225,8 @@
     { "language": "python", "repo": "googleapis/docuploader"},
     { "language": "python", "repo": "googleapis/google-auth-library-python-oauthlib"},
     { "language": "python", "repo": "googleapis/gapic-generator-python"},
+    { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
+    { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
 
     { "language": "ruby", "repo": "googleapis/discovery-artifact-manager"},
     { "language": "ruby", "repo": "googleapis/gax-ruby"},
@@ -223,6 +235,8 @@
     { "language": "ruby", "repo": "googleapis/google-cloud-ruby"},
     { "language": "ruby", "repo": "googleapis/ruby-style"},
     { "language": "ruby", "repo": "googleapis/signet"},
-    { "language": "ruby", "repo": "googleapis/gapic-generator-ruby"}
+    { "language": "ruby", "repo": "googleapis/gapic-generator-ruby"},
+    { "language": "ruby", "repo": "GoogleCloudPlatform/ruby-docs-samples"},
+    { "language": "ruby", "repo": "GoogleCloudPlatform/getting-started-ruby"}
   ]
 }
