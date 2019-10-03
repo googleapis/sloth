@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.17.1](https://www.github.com/googleapis/sloth/compare/v4.17.0...v4.17.1) (2019-10-03)
+
+
+### Bug Fixes
+
+* use issue_number with octokit ([#345](https://www.github.com/googleapis/sloth/issues/345)) ([cf01397](https://www.github.com/googleapis/sloth/commit/cf01397))
+
 ## [4.17.0](https://www.github.com/googleapis/sloth/compare/v4.16.1...v4.17.0) (2019-10-03)
 
 
