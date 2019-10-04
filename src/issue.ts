@@ -381,10 +381,7 @@ function isOutOfSLO(i: ApiIssue) {
     // All P0 issues must receive a reply within 1 day, an update at least daily,
     // and be resolved within 5 days.
     if (pri === 0) {
-      if (
-        (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) &&
-        isAssigned(i)
-      ) {
+      if (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) {
         return true;
       }
     }
@@ -392,10 +389,7 @@ function isOutOfSLO(i: ApiIssue) {
     // All P1 issues must receive a reply within 5 days, an update at least every
     // 5 days thereafter, and be resolved within 42 days (six weeks).
     if (pri === 1) {
-      if (
-        (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) &&
-        isAssigned(i)
-      ) {
+      if (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) {
         return true;
       }
     }
