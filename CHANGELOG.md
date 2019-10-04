@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.17.2](https://www.github.com/googleapis/sloth/compare/v4.17.1...v4.17.2) (2019-10-04)
+
+
+### Bug Fixes
+
+* assigned is not related to SLO ([#347](https://www.github.com/googleapis/sloth/issues/347)) ([e13c621](https://www.github.com/googleapis/sloth/commit/e13c621))
+
 ### [4.17.1](https://www.github.com/googleapis/sloth/compare/v4.17.0...v4.17.1) (2019-10-03)
 
 
