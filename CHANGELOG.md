@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.17.3](https://www.github.com/googleapis/sloth/compare/v4.17.2...v4.17.3) (2019-10-09)
+
+
+### Bug Fixes
+
+* add sneakybueno (esbueno@) - 20%er on Go ([#353](https://www.github.com/googleapis/sloth/issues/353)) ([ecb2834](https://www.github.com/googleapis/sloth/commit/ecb2834))
+
 ### [4.17.2](https://www.github.com/googleapis/sloth/compare/v4.17.1...v4.17.2) (2019-10-04)
 
 
