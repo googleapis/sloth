@@ -147,7 +147,10 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
           const p = octo.teams
-            .addMember({team_id: team.id, username: u})
+            .addOrUpdateMembership({
+              team_id: team.id,
+              username: u,
+            })
             .catch(e => {
               console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
               console.error(e.message);
@@ -164,7 +167,10 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
           const p = octo.teams
-            .removeMember({team_id: team.id, username: u.login})
+            .removeMembership({
+              team_id: team.id,
+              username: u.login,
+            })
             .catch(e => {
               console.error(`Error removing ${u.login} from ${team.name}.`);
               // console.error(e);
