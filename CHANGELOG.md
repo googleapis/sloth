@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.18.0](https://www.github.com/googleapis/sloth/compare/v4.17.2...v4.18.0) (2019-10-12)
+
+
+### Features
+
+* Add new google-cloud-cpp-bigquery repository ([#356](https://www.github.com/googleapis/sloth/issues/356)) ([3efbe2c](https://www.github.com/googleapis/sloth/commit/3efbe2c72b38756e7d9faa915446108e343a043d))
+
+
+### Bug Fixes
+
+* add sneakybueno (esbueno@) - 20%er on Go ([#353](https://www.github.com/googleapis/sloth/issues/353)) ([ecb2834](https://www.github.com/googleapis/sloth/commit/ecb28343c3ee715004e78987d8c0dca0ff8ba914))
+* **deps:** update dependency @octokit/rest to v16.33.1 ([#358](https://www.github.com/googleapis/sloth/issues/358)) ([8c939d9](https://www.github.com/googleapis/sloth/commit/8c939d91ba1aab9167c264804320cfbbb0989dee))
+
 ### [4.17.2](https://www.github.com/googleapis/sloth/compare/v4.17.1...v4.17.2) (2019-10-04)
 
 
