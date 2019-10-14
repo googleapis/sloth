@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.19.0](https://www.github.com/googleapis/sloth/compare/v4.18.0...v4.19.0) (2019-10-14)
+
+
+### Features
+
+* add surferjeffatgoogle to Node.js and yoshi ([#359](https://www.github.com/googleapis/sloth/issues/359)) ([499a256](https://www.github.com/googleapis/sloth/commit/499a2562037f8f3dc87a6aed23bbef8bbb47db86))
+
 ## [4.18.0](https://www.github.com/googleapis/sloth/compare/v4.17.2...v4.18.0) (2019-10-12)
 
 
