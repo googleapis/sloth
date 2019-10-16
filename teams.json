@@ -7,7 +7,6 @@
         "datastore",
         "firestore",
         "redis",
-        "spanner",
         "storage"
       ]
     },
@@ -71,6 +70,12 @@
       "name": "cloud-profiler",
       "repos": [
         "googleapis/cloud-profiler-nodejs"
+      ]
+    },
+    {
+      "name": "spanner",
+      "apis": [
+        "spanner"
       ]
     },
     {
