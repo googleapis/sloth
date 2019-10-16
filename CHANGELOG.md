@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.20.0](https://www.github.com/googleapis/sloth/compare/v4.19.0...v4.20.0) (2019-10-16)
+
+
+### Features
+
+* move spanner to the spanner team ([#362](https://www.github.com/googleapis/sloth/issues/362)) ([9f740a5](https://www.github.com/googleapis/sloth/commit/9f740a579006aa374dde35e47bbf3d60d7bb3eb6))
+
 ## [4.19.0](https://www.github.com/googleapis/sloth/compare/v4.18.0...v4.19.0) (2019-10-14)
 
 
