@@ -112,8 +112,13 @@
     },
     {
       "name": "kokoro:force-run",
-      "description": "Add this label to force Kokoro to re-run the tests.",
+      "description": "Add this label to force Kokoro to re-run the tests when there was an infrastructure error.",
       "color": "C1FFB2"
+    },
+    {
+      "name": "kokoro:run",
+      "description": "Add this label to tell Kokoro to run or re-run the tests.",
+      "color": "87FFC9"
     },
     {
       "name": "cla: yes",
