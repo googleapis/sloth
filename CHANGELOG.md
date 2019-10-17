@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.21.0](https://www.github.com/googleapis/sloth/compare/v4.20.0...v4.21.0) (2019-10-17)
+
+
+### Features
+
+* add kokoro:run label ([#364](https://www.github.com/googleapis/sloth/issues/364)) ([a6545db](https://www.github.com/googleapis/sloth/commit/a6545dbb4297728bea6e595424a9cac16ac7857e))
+
 ## [4.20.0](https://www.github.com/googleapis/sloth/compare/v4.19.0...v4.20.0) (2019-10-16)
 
 
