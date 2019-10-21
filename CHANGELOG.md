@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.22.0](https://www.github.com/googleapis/sloth/compare/v4.21.0...v4.22.0) (2019-10-21)
+
+
+### Features
+
+* Add Chris, Frank to ruby repo ([#367](https://www.github.com/googleapis/sloth/issues/367)) ([0ca4b21](https://www.github.com/googleapis/sloth/commit/0ca4b21a13060891b02a963a69525f6df3911e9e))
+
 ## [4.21.0](https://www.github.com/googleapis/sloth/compare/v4.20.0...v4.21.0) (2019-10-17)
 
 
