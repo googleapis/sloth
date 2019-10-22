@@ -1,7 +1,7 @@
 {
   "name": "@justinbeckwith/sloth",
-  "version": "1.8.4",
-  "repository": "justinbeckwith/sloth",
+  "version": "4.22.0",
+  "repository": "googleapis/sloth",
   "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
     "sloth": "build/src/cli.js"
@@ -10,40 +10,53 @@
     "build/src",
     "repos.json",
     "labels.json",
+    "teams.json",
     "users.json"
   ],
   "main": "build/src/sloth.js",
   "types": "build/src/sloth.d.ts",
   "scripts": {
-    "test": "mocha build/test",
-    "check": "gts check",
+    "test": "nyc mocha build/test",
+    "lint": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run check",
-    "start": "npm run compile && node build/src/slo.js"
+    "start": "npm run compile && node build/src/slo.js",
+    "presystem-test": "npm run compile",
+    "system-test": "mocha build/system-test",
+    "docs": "compodoc src/",
+    "samples-test": "echo no sample tests 👻",
+    "docs-test": "linkinator docs",
+    "predocs-test": "npm run docs"
   },
   "keywords": [],
   "author": "Justin Beckwith",
   "license": "Apache-2.0",
   "dependencies": {
-    "@octokit/rest": "^15.8.1",
+    "@octokit/rest": "16.33.1",
     "cli-table": "^0.3.1",
-    "mail": "https://storage.googleapis.com/cloud-mail-client-libraries/cloudmail-v1alpha3-nodejs.tar.gz",
+    "csv-string": "^3.1.5",
+    "gaxios": "^2.0.1",
     "meow": "^5.0.0",
     "truncate": "^2.0.1",
-    "update-notifier": "^2.5.0"
+    "update-notifier": "^3.0.0"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.9",
     "@types/cli-table": "^0.3.0",
-    "@types/meow": "^4.0.1",
-    "@types/mocha": "^5.2.1",
-    "@types/node": "^10.3.0",
-    "@types/update-notifier": "^2.2.0",
-    "gts": "^0.8.0",
-    "mocha": "^5.2.0",
-    "typescript": "~2.9.1"
+    "@types/meow": "^5.0.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.0.2",
+    "@types/update-notifier": "^2.5.0",
+    "gts": "^1.0.0",
+    "linkinator": "^1.5.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "typescript": "^3.4.5"
+  },
+  "engines": {
+    "node": ">=8.10.0"
   }
 }

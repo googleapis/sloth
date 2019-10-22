@@ -15,19 +15,20 @@
 // limitations under the License.
 
 import * as meow from 'meow';
-import {showSLOs} from './slo';
+import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
 import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 import {syncRepoSettings} from './repos';
 import * as updateNotifier from 'update-notifier';
+import {Flags} from './types';
 
 const pkg = require('../../package.json');
 
 updateNotifier({pkg}).notify();
 
 const cli = meow(
-    `
+  `
 	Usage
 	  $ sloth
 
@@ -39,10 +40,13 @@ const cli = meow(
     --language    Filter by a given language
     --repo        Filter by a given repository
     --pr          Filter to show only PRs
+    --type        Filter to show only issues of a given type
+    --pri         Filter to show only issues with a given priorty
 
 	Examples
     $ sloth [--csv][--api]
-    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr]
+    $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr][--type]
+    $ sloth apis
     $ sloth tag-issues
     $ sloth users
     $ sloth repos
@@ -50,20 +54,23 @@ const cli = meow(
     $ sloth sync-repo-settings
 
 `,
-    {
-      flags: {
-        untriaged: {type: 'boolean'},
-        language: {type: 'string', alias: 'l'},
-        repo: {type: 'string', alias: 'r'},
-        outOfSLO: {type: 'boolean'},
-        csv: {type: 'boolean'},
-        api: {type: 'string'},
-        pr: {type: 'boolean'}
-      }
-    });
+  {
+    flags: {
+      untriaged: {type: 'boolean'},
+      language: {type: 'string', alias: 'l'},
+      repo: {type: 'string', alias: 'r'},
+      outOfSLO: {type: 'boolean'},
+      csv: {type: 'boolean'},
+      api: {type: 'string'},
+      pr: {type: 'boolean'},
+      type: {type: 'string'},
+      pri: {type: 'string'},
+    },
+  }
+);
 
 const cmd = cli.input.length > 0 ? cli.input[0] : null;
-let p: Promise<void|{}>;
+let p: Promise<void | {}>;
 
 switch (cmd) {
   case 'labels':
@@ -79,13 +86,19 @@ switch (cmd) {
     p = reconcileUsers();
     break;
   case 'issues':
-    p = showIssues(cli.flags);
+    p = showIssues(cli.flags as Flags);
     break;
   case 'repos':
     p = reconcileRepos();
     break;
   case 'teams':
     p = reconcileTeams();
+    break;
+  case 'apis':
+    p = showApiSLOs(cli);
+    break;
+  case 'languages':
+    p = showLanguageSLOs(cli);
     break;
   case null:
     p = showSLOs(cli);

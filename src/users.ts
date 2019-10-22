@@ -30,14 +30,18 @@ export async function reconcileTeams() {
     let res: Octokit.AnyResponse;
     console.log(`Fetching teams for ${org}...`);
     do {
-      res = await octo.orgs.getTeams({org, per_page: 100, page});
+      res = await octo.teams.list({org, per_page: 100, page});
       res.data.forEach((t: Team) => {
         t.org = org;
         teams.push(t);
       });
       page++;
-    } while (res && res.headers && res.headers.link &&
-             res.headers.link.indexOf('rel="last"') > -1);
+    } while (
+      res &&
+      res.headers &&
+      res.headers.link &&
+      res.headers.link.indexOf('rel="last"') > -1
+    );
     console.log(`Found ${teams.length} teams in ${org}.`);
     teamMap.set(org, teams);
   });
@@ -47,8 +51,9 @@ export async function reconcileTeams() {
   users.membership.forEach(m => {
     users.orgs.forEach(async org => {
       const orgTeams = teamMap.get(org)!;
-      const match =
-          orgTeams.find(x => x.name.toLowerCase() === m.team.toLowerCase())!;
+      const match = orgTeams.find(
+        x => x.name.toLowerCase() === m.team.toLowerCase()
+      )!;
       if (!match) {
         throw new Error(`Team '${m.team}' does not exist in ${org}.`);
       }
@@ -60,39 +65,65 @@ export async function reconcileTeams() {
 }
 
 export async function reconcileRepos() {
-  const promises = new Array<Promise<Octokit.AnyResponse|void>>();
   const teams = await reconcileTeams();
-  users.membership.forEach(m => {
-    m.repos.forEach(r => {
+  console.log(teams.map(x => x.name));
+  for (const m of users.membership) {
+    for (const r of m.repos) {
       const [o, repo] = r.split('/');
       const team = getTeam(m.team, o, teams);
+      const yoshiAdmins = getTeam('yoshi-admins', o, teams);
+      const yoshiTeam = getTeam('yoshi', o, teams);
+
       if (!team) {
-        throw new Error(`Unable to find team '${m.team}`);
+        throw new Error(`Unable to find team '${m.team}'`);
       }
-      const p =
-          octo.orgs
-              .addTeamRepo(
-                  {team_id: team.id, owner: o, permission: 'push', repo} as
-                  Octokit.OrgsAddTeamRepoParams)
-              .catch(e => {
-                console.error(`Error adding ${r} to ${m.team}.`);
-                // console.error(e);
-              });
-      promises.push(p);
-    });
-  });
-  await Promise.all(promises);
+
+      // Add the language specific team
+      await octo.teams
+        .addOrUpdateRepo({team_id: team.id, owner: o, permission: 'push', repo})
+        .catch(e => {
+          console.error(`Error adding ${r} to ${m.team}.`);
+        });
+
+      // Add the yoshi admins team
+      await octo.teams
+        .addOrUpdateRepo({
+          team_id: yoshiAdmins!.id,
+          owner: o,
+          permission: 'admin',
+          repo,
+        })
+        .catch(e => {
+          console.error(`Error adding ${r} to 'yoshi-admins'.`);
+          console.error(e);
+        });
+
+      // Add the yoshi team
+      await octo.teams
+        .addOrUpdateRepo({
+          team_id: yoshiTeam!.id,
+          owner: o,
+          permission: 'pull',
+          repo,
+        })
+        .catch(e => {
+          console.error(`Error adding ${r} to 'yoshi'.`);
+        });
+    }
+  }
 }
 
 function getTeam(team: string, org: string, teams: Team[]) {
   return teams.find(x => {
-    return x.name.toLowerCase() === team.toLowerCase() &&
-        x.org!.toLowerCase() === org.toLowerCase();
+    return (
+      x.name.toLowerCase() === team.toLowerCase() &&
+      x.org!.toLowerCase() === org.toLowerCase()
+    );
   });
 }
 
 export async function reconcileUsers() {
-  const promises = new Array<Promise<Octokit.AnyResponse|void>>();
+  const promises = new Array<Promise<Octokit.AnyResponse | void>>();
   const teams = await reconcileTeams();
   for (const o of users.orgs) {
     for (const m of users.membership) {
@@ -102,40 +133,48 @@ export async function reconcileUsers() {
       }
 
       // get the current list of team members
-      const res =
-          await octo.orgs.getTeamMembers({team_id: team.id, per_page: 100});
+      const res = await octo.teams.listMembers({
+        team_id: team.id,
+        per_page: 100,
+      });
       const currentMembers = res.data as Member[];
 
       // add any missing users
       for (const u of m.users) {
-        const match =
-            currentMembers.find(x => x.login.toLowerCase() === u.toLowerCase());
+        const match = currentMembers.find(
+          x => x.login.toLowerCase() === u.toLowerCase()
+        );
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.orgs.addTeamMembership({team_id: team.id, username: u})
-                        .catch(e => {
-                          console.error(
-                              `Error adding ${u} to ${team.org}/${team.name}.`);
-                          console.error(e.message);
-                        });
+          const p = octo.teams
+            .addOrUpdateMembership({
+              team_id: team.id,
+              username: u,
+            })
+            .catch(e => {
+              console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
+              console.error(e.message);
+            });
           promises.push(p);
         }
       }
 
       // remove any bonus users
       for (const u of currentMembers) {
-        const match =
-            m.users.find(x => x.toLowerCase() === u.login.toLowerCase());
+        const match = m.users.find(
+          x => x.toLowerCase() === u.login.toLowerCase()
+        );
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
-          const p =
-              octo.orgs
-                  .removeTeamMembership({team_id: team.id, username: u.login})
-                  .catch(e => {
-                    console.error(
-                        `Error removing ${u.login} from ${team.name}.`);
-                    // console.error(e);
-                  });
+          const p = octo.teams
+            .removeMembership({
+              team_id: team.id,
+              username: u.login,
+            })
+            .catch(e => {
+              console.error(`Error removing ${u.login} from ${team.name}.`);
+              // console.error(e);
+            });
           promises.push(p);
         }
       }
