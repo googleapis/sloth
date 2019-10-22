@@ -76,6 +76,11 @@
       "color": "ffa03e"
     },
     {
+      "name": "needs work",
+      "description": "This is a pull request that needs a little love.",
+      "color": "1a3b70"
+    },
+    {
       "name": "type: docs",
       "description": "Improvement to the documentation for an API.",
       "color": "0000A0"
@@ -107,8 +112,38 @@
     },
     {
       "name": "kokoro:force-run",
-      "description": "Add this label to force Kokoro to re-run the tests.",
+      "description": "Add this label to force Kokoro to re-run the tests when there was an infrastructure error.",
       "color": "C1FFB2"
+    },
+    {
+      "name": "kokoro:run",
+      "description": "Add this label to tell Kokoro to run or re-run the tests.",
+      "color": "87FFC9"
+    },
+    {
+      "name": "cla: yes",
+      "description": "This human has signed the Contributor License Agreement.",
+      "color": "0B7601"
+    },
+    {
+      "name": "cla: no",
+      "description": "This human has *not* signed the Contributor License Agreement.",
+      "color": "E402f2"
+    },
+    {
+      "name": "help wanted",
+      "description": "We'd love to have community involvement on this issue.",
+      "color": "3f5e3d"
+    },
+    {
+      "name": "good first issue",
+      "description": "This issue is a good place to started contributing to this repository.",
+      "color": "520b77"
+    },
+    {
+      "name": "external",
+      "description": "This issue is blocked on a bug with the actual product.",
+      "color": "800080"
     }
   ]
 }
