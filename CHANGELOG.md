@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.23.0](https://www.github.com/googleapis/sloth/compare/v4.22.0...v4.23.0) (2019-10-23)
+
+
+### Features
+
+* add cpp-docs-samples repo ([#372](https://www.github.com/googleapis/sloth/issues/372)) ([2831893](https://www.github.com/googleapis/sloth/commit/2831893b8ddaac57d125320dafaf607bcac9b295))
+
 ## [4.22.0](https://www.github.com/googleapis/sloth/compare/v4.21.0...v4.22.0) (2019-10-21)
 
 
