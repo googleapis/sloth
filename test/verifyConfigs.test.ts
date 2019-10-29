@@ -34,6 +34,11 @@ describe('Verify config files', () => {
       const file = fs.readFileSync(USERS_JSON, 'utf-8');
       assert.doesNotThrow(() => JSON.parse(file));
     });
+ 
+    it('has no @ symbol', () => {
+      const file = fs.readFileSync(USERS_JSON, 'utf-8');
+      assert.equal(false, file.includes('@'));
+    });
 
     it('has valid schema', () => {
       // tslint:disable-next-line:no-any
@@ -58,6 +63,7 @@ describe('Verify config files', () => {
 
       assert(Array.isArray(users.membership));
       users.membership.forEach(assertMembership);
-    });
+   
+   });
   });
 });
