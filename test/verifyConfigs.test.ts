@@ -63,6 +63,6 @@ describe('Verify config files', () => {
 
       assert(Array.isArray(users.membership));
       users.membership.forEach(assertMembership);
-      });
-   });
+    });
+  });
 });
