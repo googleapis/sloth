@@ -116,6 +116,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-data-transfer", "apiHint": "bigquerydatatransfer"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigtable", "apiHint": "bigtable"},
     { "language": "nodejs", "repo": "googleapis/nodejs-cloud-container", "apiHint": "container"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-cloudbuild", "apiHint": "cloudbuild"},
     { "language": "nodejs", "repo": "googleapis/nodejs-common"},
     { "language": "nodejs", "repo": "googleapis/nodejs-common-grpc"},
     { "language": "nodejs", "repo": "googleapis/nodejs-compute", "apiHint": "compute"},
