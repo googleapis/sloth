@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.24.0](https://www.github.com/googleapis/sloth/compare/v4.23.1...v4.24.0) (2019-10-31)
+
+
+### Features
+
+* add nodejs-cloudbuild ([#382](https://www.github.com/googleapis/sloth/issues/382)) ([3aa217e](https://www.github.com/googleapis/sloth/commit/3aa217efbfe2efbb0624207f8073a97f48e6af68))
+* adding sofia to sloth users.json ([#378](https://www.github.com/googleapis/sloth/issues/378)) ([2ccff70](https://www.github.com/googleapis/sloth/commit/2ccff7059c917143d5e8c2cc151a29d0c1ec0150))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v16.34.1 ([#384](https://www.github.com/googleapis/sloth/issues/384)) ([8bba2e6](https://www.github.com/googleapis/sloth/commit/8bba2e6dd1f3dcf1a46995938e1ce069f0c543c0))
+
 ### [4.23.1](https://www.github.com/googleapis/sloth/compare/v4.23.0...v4.23.1) (2019-10-24)
 
 
