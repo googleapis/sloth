@@ -222,7 +222,6 @@
     { "language": "python", "repo": "googleapis/python-ndb", "apiHint": "ndb"},
     { "language": "python", "repo": "googleapis/google-cloud-python-happybase", "apiHint": "bigtable"},
     { "language": "python", "repo": "googleapis/google-resumable-media-python", "apiHint": "storage"},
-    { "language": "python", "repo": "googleapis/oauth2client"},
     { "language": "python", "repo": "googleapis/releasetool"},
     { "language": "python", "repo": "googleapis/synthtool"},
     { "language": "python", "repo": "googleapis/docuploader"},

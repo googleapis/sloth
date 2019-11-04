@@ -425,7 +425,6 @@
         "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
         "googleapis/google-resumable-media-python",
-        "googleapis/oauth2client",
         "googleapis/google-auth-library-python-oauthlib"
       ]
     },
