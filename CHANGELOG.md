@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.25.0](https://www.github.com/googleapis/sloth/compare/v4.24.0...v4.25.0) (2019-11-04)
+
+
+### Features
+
+* stop tracking googleapis/oauth2client ([#386](https://www.github.com/googleapis/sloth/issues/386)) ([7e0c39b](https://www.github.com/googleapis/sloth/commit/7e0c39b74be39a2fea6612440f7ef3fc5397a7ed))
+
 ## [4.24.0](https://www.github.com/googleapis/sloth/compare/v4.23.1...v4.24.0) (2019-10-31)
 
 
