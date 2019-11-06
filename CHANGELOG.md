@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.25.1](https://www.github.com/googleapis/sloth/compare/v4.25.0...v4.25.1) (2019-11-06)
+
+
+### Bug Fixes
+
+* add bigtable hbase java repo ([#389](https://www.github.com/googleapis/sloth/issues/389)) ([a398d95](https://www.github.com/googleapis/sloth/commit/a398d950ebf0357df77a6d9d22d4cd46cbe8dffe))
+
 ## [4.25.0](https://www.github.com/googleapis/sloth/compare/v4.24.0...v4.25.0) (2019-11-04)
 
 
