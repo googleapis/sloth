@@ -131,7 +131,6 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-dialogflow", "apiHint": "dialogflow"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dlp", "apiHint": "dlp"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dns", "apiHint": "dns"},
-    { "language": "nodejs", "repo": "googleapis/nodejs-document-ai", "apiHint": "documentai" },
     { "language": "nodejs", "repo": "googleapis/nodejs-error-reporting", "apiHint": "clouderrorreporting"},
     { "language": "nodejs", "repo": "googleapis/nodejs-firestore", "apiHint": "firestore"},
     { "language": "nodejs", "repo": "googleapis/nodejs-firestore-session", "apiHint": "firestore"},
