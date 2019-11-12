@@ -184,6 +184,7 @@
         "vishald123",
         "jesselovelace",
         "sofisl",
+        "tmatsuo",
         "xiaozhenliu-gg5"
       ]
     },
@@ -197,6 +198,7 @@
         "dazuma",
         "dizcology",
         "frankyn",
+        "jskeet",
         "quartzmo",
         "jesselovelace"
       ],
@@ -212,6 +214,7 @@
       "team": "yoshi-dotnet",
       "users": [
         "amanda-tarafa",
+        "bcoe",
         "chrisdunelm",
         "evildour",
         "jskeet",
@@ -228,6 +231,7 @@
       "users": [
         "andrewinc",
         "bshaffer",
+        "busunkim96",
         "chingor13",
         "dwsupplee",
         "jdpedrie",
@@ -284,6 +288,7 @@
         "benwhitehead",
         "chingor13",
         "codyoss",
+        "dwsupplee",
         "dpcollins-google",
         "elharo",
         "igorbernstein2",
@@ -366,6 +371,7 @@
     {
       "team": "yoshi-go",
       "users": [
+        "amanda-tarafa",
         "broady",
         "frankyn",
         "jadekler",
@@ -403,6 +409,7 @@
         "busunkim96",
         "cguardia",
         "chrisrossi",
+        "codyoss",
         "crwilcox",
         "Emar-Kar",
         "HemangChothani",
@@ -436,7 +443,8 @@
       "team": "yoshi-elixir",
       "users": [
         "chingor13",
-        "dazuma"
+        "dazuma",
+        "jadekler"
       ],
       "repos": [
         "googleapis/elixir-google-api"
@@ -447,6 +455,7 @@
       "users": [
         "bcoe",
         "coryan",
+        "dazuma",
         "devbww",
         "devjgm",
         "dopiera",
