@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.26.0](https://www.github.com/googleapis/sloth/compare/v4.25.2...v4.26.0) (2019-11-13)
+
+
+### Features
+
+* add java billing budgets repo ([#395](https://www.github.com/googleapis/sloth/issues/395)) ([f77813f](https://www.github.com/googleapis/sloth/commit/f77813f6757a4d970c8146cb18de15622c51c10c))
+* add missing PHP repos ([#400](https://www.github.com/googleapis/sloth/issues/400)) ([e6e47f5](https://www.github.com/googleapis/sloth/commit/e6e47f5bddef307fd8e5a46c843528d6f378a5e9))
+
+
+### Bug Fixes
+
+* **docs:** add jsdoc-region-tag plugin ([#399](https://www.github.com/googleapis/sloth/issues/399)) ([5aba550](https://www.github.com/googleapis/sloth/commit/5aba55008ab2d0ddaa505accbbf901be9076618e))
+
 ### [4.25.2](https://www.github.com/googleapis/sloth/compare/v4.25.1...v4.25.2) (2019-11-11)
 
 
