@@ -269,14 +269,18 @@
         "googleapis/google-cloud-php-pubsub",
         "googleapis/google-cloud-php-redis",
         "googleapis/google-cloud-php-scheduler",
+        "googleapis/google-cloud-php-security-center",
         "googleapis/google-cloud-php-spanner",
         "googleapis/google-cloud-php-storage",
         "googleapis/google-cloud-php-talent",
+        "googleapis/google-cloud-php-tasks",
         "googleapis/google-cloud-php-text-to-speech",
         "googleapis/google-cloud-php-trace",
         "googleapis/google-cloud-php-translate",
         "googleapis/google-cloud-php-videointelligence",
-        "googleapis/google-cloud-php-vision"
+        "googleapis/google-cloud-php-vision",
+        "googleapis/google-cloud-php-web-risk",
+        "googleapis/google-cloud-php-web-security-scanner"
       ]
     },
     {
