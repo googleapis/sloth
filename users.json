@@ -111,6 +111,7 @@
         "googleapis/google-cloud-kvstore",
         "googleapis/google-cloud-node",
         "googleapis/google-p12-pem",
+        "googleapis/github-repo-automation",
         "googleapis/node-gtoken",
         "googleapis/nodejs-asset",
         "googleapis/nodejs-automl",
