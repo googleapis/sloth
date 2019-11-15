@@ -102,7 +102,7 @@
     { "language": "nodejs", "repo": "googleapis/cloud-trace-nodejs", "apiHint": "cloudtrace"},
     { "language": "nodejs", "repo": "googleapis/gax-nodejs"},
     { "language": "nodejs", "repo": "googleapis/gaxios"},
-    { "language": "nodejs", "repo": "googleapis/gce-images", "apiHint": "compute"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-gce-images", "apiHint": "compute"},
     { "language": "nodejs", "repo": "googleapis/gcp-metadata"},
     { "language": "nodejs", "repo": "googleapis/gcs-resumable-upload", "apiHint": "storage"},
     { "language": "nodejs", "repo": "googleapis/github-repo-automation"},
