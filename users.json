@@ -103,7 +103,7 @@
         "googleapis/cloud-trace-nodejs",
         "googleapis/gax-nodejs",
         "googleapis/gaxios",
-        "googleapis/gce-images",
+        "googleapis/nodejs-gce-images",
         "googleapis/gcp-metadata",
         "googleapis/gcs-resumable-upload",
         "googleapis/google-api-nodejs-client",
@@ -185,7 +185,8 @@
         "jesselovelace",
         "sofisl",
         "tmatsuo",
-        "xiaozhenliu-gg5"
+        "xiaozhenliu-gg5",
+        "steffnay"
       ]
     },
     {
