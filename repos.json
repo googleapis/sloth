@@ -108,7 +108,7 @@
     { "language": "nodejs", "repo": "googleapis/github-repo-automation"},
     { "language": "nodejs", "repo": "googleapis/google-api-nodejs-client"},
     { "language": "nodejs", "repo": "googleapis/google-auth-library-nodejs"},
-    { "language": "nodejs", "repo": "googleapis/google-cloud-kvstore", "apiHint": "datastore"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-datastore-kvstore", "apiHint": "datastore"},
     { "language": "nodejs", "repo": "googleapis/google-cloud-node"},
     { "language": "nodejs", "repo": "googleapis/google-p12-pem"},
     { "language": "nodejs", "repo": "googleapis/node-gtoken"},
