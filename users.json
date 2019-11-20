@@ -108,7 +108,7 @@
         "googleapis/gcs-resumable-upload",
         "googleapis/google-api-nodejs-client",
         "googleapis/google-auth-library-nodejs",
-        "googleapis/google-cloud-kvstore",
+        "googleapis/nodejs-datastore-kvstore",
         "googleapis/google-cloud-node",
         "googleapis/google-p12-pem",
         "googleapis/github-repo-automation",
