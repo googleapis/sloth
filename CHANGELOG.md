@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.27.0](https://www.github.com/googleapis/sloth/compare/v4.26.0...v4.27.0) (2019-11-20)
+
+
+### Features
+
+* add missing PHP repos to users.json ([#401](https://www.github.com/googleapis/sloth/issues/401)) ([7e7c769](https://www.github.com/googleapis/sloth/commit/7e7c769f59c5c4401033ec18afa9beabdf0abbae))
+
+
+### Bug Fixes
+
+* correct repo name for nodejs-datastore-kvstore ([#409](https://www.github.com/googleapis/sloth/issues/409)) ([493a085](https://www.github.com/googleapis/sloth/commit/493a08563676a9827791b8ced3e355481490ad56))
+* gce-images should now be nodejs-gce-images ([#406](https://www.github.com/googleapis/sloth/issues/406)) ([5e98534](https://www.github.com/googleapis/sloth/commit/5e98534f0ec94586a2dd3e328abfb3a5e8e47db0))
+
 ## [4.26.0](https://www.github.com/googleapis/sloth/compare/v4.25.2...v4.26.0) (2019-11-13)
 
 
