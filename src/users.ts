@@ -167,25 +167,6 @@ async function _reconcileUsers(teams: Team[], reconcileAdmins=false) {
         }
       }
 
-      for (const u of users) {
-        const match = currentMembers.find(
-          x => x.login.toLowerCase() === u.toLowerCase()
-        );
-        if (!match) {
-          console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.teams
-            .addOrUpdateMembership({
-              team_id: team.id,
-              username: u,
-            })
-            .catch(e => {
-              console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
-              console.error(e.message);
-            });
-          promises.push(p);
-        }
-      }
-
       // remove any bonus users
       for (const u of currentMembers) {
         const match = users.find(
