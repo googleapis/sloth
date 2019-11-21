@@ -274,6 +274,7 @@
         "googleapis/google-cloud-php-scheduler",
         "googleapis/google-cloud-php-security-center",
         "googleapis/google-cloud-php-spanner",
+        "googleapis/google-cloud-php-speech",
         "googleapis/google-cloud-php-storage",
         "googleapis/google-cloud-php-talent",
         "googleapis/google-cloud-php-tasks",
