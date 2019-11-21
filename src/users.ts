@@ -20,7 +20,6 @@ import {octo, users} from './util';
  * Ensure all provided teams actually exist in all orgs.
  * Create them if they don't.  Return a list of teams with Ids.
  */
-let yoshiTeams;
 export async function reconcileTeams() {
   // obtain all of the teams across all supported orgs
   const teamMap = new Map<string, Team[]>();
@@ -123,19 +122,19 @@ function getTeam(team: string, org: string, teams: Team[]) {
   });
 }
 
-export async function reconcileUsers(reconcileAdmin=false) {
+export async function reconcileUsers(reconcileAdmin = false) {
   const teams = await reconcileTeams();
   await _reconcileUsers(teams);
   await _reconcileUsers(teams, true);
 }
 
-async function _reconcileUsers(teams: Team[], reconcileAdmins=false) {
+async function _reconcileUsers(teams: Team[], reconcileAdmins = false) {
   const promises = new Array<Promise<Octokit.AnyResponse | void>>();
   for (const o of users.orgs) {
     for (const m of users.membership) {
       const teamName = reconcileAdmins ? `${m.team}-admins` : m.team;
       const team = getTeam(teamName, o, teams);
-      const users = reconcileAdmins ? m.admins : m.users; 
+      const users = reconcileAdmins ? m.admins : m.users;
       if (!team) {
         throw new Error(`Unable to find team '${teamName}`);
       }
