@@ -98,8 +98,9 @@ export interface Users {
 
 export interface Membership {
   team: string;
-  users: string[];
   repos: string[];
+  users: string[];
+  admins: string[];
 }
 
 export interface Team {

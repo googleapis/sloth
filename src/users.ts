@@ -20,6 +20,7 @@ import {octo, users} from './util';
  * Ensure all provided teams actually exist in all orgs.
  * Create them if they don't.  Return a list of teams with Ids.
  */
+let yoshiTeams;
 export async function reconcileTeams() {
   // obtain all of the teams across all supported orgs
   const teamMap = new Map<string, Team[]>();
@@ -122,14 +123,21 @@ function getTeam(team: string, org: string, teams: Team[]) {
   });
 }
 
-export async function reconcileUsers() {
-  const promises = new Array<Promise<Octokit.AnyResponse | void>>();
+export async function reconcileUsers(reconcileAdmin=false) {
   const teams = await reconcileTeams();
+  await _reconcileUsers(teams);
+  await _reconcileUsers(teams, true);
+}
+
+async function _reconcileUsers(teams: Team[], reconcileAdmins=false) {
+  const promises = new Array<Promise<Octokit.AnyResponse | void>>();
   for (const o of users.orgs) {
     for (const m of users.membership) {
-      const team = getTeam(m.team, o, teams);
+      const teamName = reconcileAdmins ? `${m.team}-admins` : m.team;
+      const team = getTeam(teamName, o, teams);
+      const users = reconcileAdmins ? m.admins : m.users; 
       if (!team) {
-        throw new Error(`Unable to find team '${m.team}`);
+        throw new Error(`Unable to find team '${teamName}`);
       }
 
       // get the current list of team members
@@ -140,7 +148,26 @@ export async function reconcileUsers() {
       const currentMembers = res.data as Member[];
 
       // add any missing users
-      for (const u of m.users) {
+      for (const u of users) {
+        const match = currentMembers.find(
+          x => x.login.toLowerCase() === u.toLowerCase()
+        );
+        if (!match) {
+          console.log(`Adding ${u} to ${o}/${team.name}...`);
+          const p = octo.teams
+            .addOrUpdateMembership({
+              team_id: team.id,
+              username: u,
+            })
+            .catch(e => {
+              console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
+              console.error(e.message);
+            });
+          promises.push(p);
+        }
+      }
+
+      for (const u of users) {
         const match = currentMembers.find(
           x => x.login.toLowerCase() === u.toLowerCase()
         );
@@ -161,7 +188,7 @@ export async function reconcileUsers() {
 
       // remove any bonus users
       for (const u of currentMembers) {
-        const match = m.users.find(
+        const match = users.find(
           x => x.toLowerCase() === u.login.toLowerCase()
         );
         if (!match) {
