@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.28.0](https://www.github.com/googleapis/sloth/compare/v4.27.0...v4.28.0) (2019-11-21)
+
+
+### Features
+
+* add speech to list of php repos ([#412](https://www.github.com/googleapis/sloth/issues/412)) ([267eabb](https://www.github.com/googleapis/sloth/commit/267eabb70bd4b8b6cb13b5903edd7b6b8fd4bb89))
+
 ## [4.27.0](https://www.github.com/googleapis/sloth/compare/v4.26.0...v4.27.0) (2019-11-20)
 
 
