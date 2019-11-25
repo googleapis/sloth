@@ -236,6 +236,7 @@
     { "language": "python", "repo": "googleapis/gapic-generator-python"},
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
+    { "language": "python", "repo": "googleapis/sample-tester"},
 
     { "language": "ruby", "repo": "googleapis/discovery-artifact-manager"},
     { "language": "ruby", "repo": "googleapis/gax-ruby"},
