@@ -53,7 +53,8 @@
         "googleapis/gapic-generator-go",
         "googleapis/gapic-generator-csharp",
         "googleapis/gapic-generator",
-        "googleapis/nodejs-proto-files"
+        "googleapis/nodejs-proto-files",
+        "googleapis/sample-tester"
       ]
     },
     {
