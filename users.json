@@ -416,6 +416,7 @@
       "users": [
         "alixhami",
         "andrewsg",
+        "anguillanneuf",
         "bcoe",
         "busunkim96",
         "cguardia",
@@ -426,20 +427,20 @@
         "HemangChothani",
         "helinwang",
         "IlyaFaer",
+        "jesselovelace",
         "leahecole",
         "mcdonc",
         "mf2199",
         "michaelawyu",
+        "nnegrey",
         "plamut",
         "sangramql",
+        "sirtorry",
         "software-dov",
         "sumit-ql",
+        "texasmichelle",
         "tseaver",
-        "tswast",
-        "anguillanneuf",
-        "nnegrey",
-        "sirtorry",
-        "jesselovelace"
+        "tswast"
       ],
       "repos": [
         "googleapis/dialogflow-python-client-v2",
