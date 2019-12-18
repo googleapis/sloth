@@ -4,6 +4,23 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.29.0](https://www.github.com/googleapis/sloth/compare/v4.28.0...v4.29.0) (2019-12-18)
+
+
+### Features
+
+* add irm and secretmanager java repos ([#428](https://www.github.com/googleapis/sloth/issues/428)) ([0891882](https://www.github.com/googleapis/sloth/commit/0891882bffd40680d8a0ada67767f311479bf460))
+* add sample-tester repo ([#415](https://www.github.com/googleapis/sloth/issues/415)) ([679b614](https://www.github.com/googleapis/sloth/commit/679b61487e24314f15c477cbfb535964cabca075))
+* add user to yoshi-nodejs ([#418](https://www.github.com/googleapis/sloth/issues/418)) ([f50d779](https://www.github.com/googleapis/sloth/commit/f50d7798dad87baf9bfb72bb1e7b12c2f60a1683))
+
+
+### Bug Fixes
+
+* **deps:** pin TypeScript below 3.7.0 ([50cd2bd](https://www.github.com/googleapis/sloth/commit/50cd2bdd42a0a65a46f7656290ac11e40a0fbc61))
+* add nnegrey to yoshi-java ([#421](https://www.github.com/googleapis/sloth/issues/421)) ([44bf74e](https://www.github.com/googleapis/sloth/commit/44bf74e069344b96bad6cd085f3c0b5914420c1e))
+* **deps:** update dependency @octokit/rest to v16.35.2 ([#426](https://www.github.com/googleapis/sloth/issues/426)) ([018440e](https://www.github.com/googleapis/sloth/commit/018440e8029d75b7a1387ffe854a7dfac7beeac7))
+* **deps:** update dependency update-notifier to v4 ([#424](https://www.github.com/googleapis/sloth/issues/424)) ([56979e9](https://www.github.com/googleapis/sloth/commit/56979e99223ce44f793442e1f9f9918c8a7c4f55))
+
 ## [4.28.0](https://www.github.com/googleapis/sloth/compare/v4.27.0...v4.28.0) (2019-11-21)
 
 
