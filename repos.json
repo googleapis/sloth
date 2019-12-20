@@ -26,7 +26,6 @@
     { "language": "go", "repo": "GoogleCloudPlatform/golang-samples"},
 
     { "language": "java", "repo": "googleapis/api-common-java"},
-    { "language": "java", "repo": "googleapis/cloud-bigtable-client", "apiHint": "bigtable"},
     { "language": "java", "repo": "googleapis/gax-java"},
     { "language": "java", "repo": "googleapis/google-api-java-client"},
     { "language": "java", "repo": "googleapis/google-api-java-client-services"},
