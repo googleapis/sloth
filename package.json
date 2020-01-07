@@ -1,6 +1,6 @@
 {
   "name": "@justinbeckwith/sloth",
-  "version": "4.29.1",
+  "version": "4.29.2",
   "repository": "googleapis/sloth",
   "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
