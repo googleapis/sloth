@@ -4,6 +4,21 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.29.2](https://www.github.com/googleapis/sloth/compare/v4.29.1...v4.29.2) (2020-01-07)
+
+
+### Bug Fixes
+
+* appengine belongs to cbr ([#439](https://www.github.com/googleapis/sloth/issues/439)) ([7f889dc](https://www.github.com/googleapis/sloth/commit/7f889dc757a5dc8e44661953ca54004bfaecf093))
+
+### [4.29.1](https://www.github.com/googleapis/sloth/compare/v4.29.0...v4.29.1) (2020-01-04)
+
+
+### Bug Fixes
+
+* rename to java-bigtable-hbase ([#431](https://www.github.com/googleapis/sloth/issues/431)) ([5721094](https://www.github.com/googleapis/sloth/commit/5721094b972faef23ee1353b9a8fbf67ad8f929e))
+* **deps:** update dependency @octokit/rest to v16.36.0 ([#435](https://www.github.com/googleapis/sloth/issues/435)) ([fc91600](https://www.github.com/googleapis/sloth/commit/fc91600776483c655bec866daf164cdbbd139ceb))
+
 ## [4.29.0](https://www.github.com/googleapis/sloth/compare/v4.28.0...v4.29.0) (2019-12-18)
 
 

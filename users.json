@@ -305,6 +305,7 @@
         "dwsupplee",
         "dpcollins-google",
         "elharo",
+        "frankyn",
         "igorbernstein2",
         "jesselovelace",
         "kolea2",
@@ -318,7 +319,7 @@
       ],
       "repos": [
         "googleapis/api-common-java",
-        "googleapis/cloud-bigtable-client",
+        "googleapis/java-bigtable-hbase",
         "googleapis/gax-java",
         "googleapis/google-api-java-client",
         "googleapis/google-api-java-client-services",
