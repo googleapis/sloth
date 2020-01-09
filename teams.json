@@ -13,7 +13,8 @@
     {
       "name": "code-build-run",
       "apis": [
-        "ndb"
+        "ndb",
+        "appengine"
       ]
     },
     {

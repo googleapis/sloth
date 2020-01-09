@@ -52,7 +52,6 @@
         "HemangChothani",
         "igorbernstein2",
         "IlyaFaer",
-        "jadekler",
         "sneakybueno",
         "jdpedrie",
         "jesselovelace",
@@ -302,6 +301,7 @@
         "dwsupplee",
         "dpcollins-google",
         "elharo",
+        "frankyn",
         "igorbernstein2",
         "jesselovelace",
         "kolea2",
@@ -315,7 +315,7 @@
       ],
       "repos": [
         "googleapis/api-common-java",
-        "googleapis/cloud-bigtable-client",
+        "googleapis/java-bigtable-hbase",
         "googleapis/gax-java",
         "googleapis/google-api-java-client",
         "googleapis/google-api-java-client-services",
@@ -386,7 +386,6 @@
         "amanda-tarafa",
         "broady",
         "frankyn",
-        "jadekler",
         "sneakybueno",
         "jba",
         "noahdietz",
@@ -457,8 +456,7 @@
       "team": "yoshi-elixir",
       "users": [
         "chingor13",
-        "dazuma",
-        "jadekler"
+        "dazuma"
       ],
       "repos": [
         "googleapis/elixir-google-api"
