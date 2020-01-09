@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [4.30.1](https://www.github.com/googleapis/sloth/compare/v4.30.0...v4.30.1) (2020-01-09)
+
+
+### Bug Fixes
+
+* remove emar-kar ([#446](https://www.github.com/googleapis/sloth/issues/446)) ([4b31d22](https://www.github.com/googleapis/sloth/commit/4b31d220d9659942f18c05ff89363a4e5d852471))
+
 ## [4.30.0](https://www.github.com/googleapis/sloth/compare/v4.29.2...v4.30.0) (2020-01-09)
 
 
