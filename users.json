@@ -52,7 +52,6 @@
         "HemangChothani",
         "igorbernstein2",
         "IlyaFaer",
-        "jadekler",
         "sneakybueno",
         "jdpedrie",
         "jesselovelace",
@@ -387,7 +386,6 @@
         "amanda-tarafa",
         "broady",
         "frankyn",
-        "jadekler",
         "sneakybueno",
         "jba",
         "noahdietz",
@@ -458,8 +456,7 @@
       "team": "yoshi-elixir",
       "users": [
         "chingor13",
-        "dazuma",
-        "jadekler"
+        "dazuma"
       ],
       "repos": [
         "googleapis/elixir-google-api"
