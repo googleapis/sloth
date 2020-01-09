@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [4.30.0](https://www.github.com/googleapis/sloth/compare/v4.29.2...v4.30.0) (2020-01-09)
+
+
+### Features
+
+* add frankyn to yoshi-java team ([#441](https://www.github.com/googleapis/sloth/issues/441)) ([b54bd64](https://www.github.com/googleapis/sloth/commit/b54bd64bad91f1f9b32d1c230398d26d2f6f0305))
+* add java-monitoring-dashboards repo ([#444](https://www.github.com/googleapis/sloth/issues/444)) ([815010a](https://www.github.com/googleapis/sloth/commit/815010a374a819023d70894202908b3dbf44bda2))
+
+
+### Bug Fixes
+
+* remove jadekler from yoshi groups ([#442](https://www.github.com/googleapis/sloth/issues/442)) ([5e9e5a1](https://www.github.com/googleapis/sloth/commit/5e9e5a139db4820741b30d4b84f51bedb429dd8b))
+
 ### [4.29.2](https://www.github.com/googleapis/sloth/compare/v4.29.1...v4.29.2) (2020-01-07)
 
 
