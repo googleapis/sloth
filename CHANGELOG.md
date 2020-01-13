@@ -4,6 +4,25 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.0.0](https://www.github.com/googleapis/sloth/compare/v4.30.0...v5.0.0) (2020-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove labels command (#427)
+
+### Features
+
+* add nodejs-monitoring-dashboards, nodejs-secret-manager ([#450](https://www.github.com/googleapis/sloth/issues/450)) ([3184da0](https://www.github.com/googleapis/sloth/commit/3184da0eaf2769c951fe2dffefaaeda42dfc751b))
+* remove labels command ([#427](https://www.github.com/googleapis/sloth/issues/427)) ([d688509](https://www.github.com/googleapis/sloth/commit/d688509eaeae83a6217cb779c39f172cfa7a160e))
+
+
+### Bug Fixes
+
+* cbr owns functions ([#448](https://www.github.com/googleapis/sloth/issues/448)) ([ce7e30a](https://www.github.com/googleapis/sloth/commit/ce7e30a07bdac84a4bbb3656b8dc8788c05e7d32))
+* ml is owned by animl ([#451](https://www.github.com/googleapis/sloth/issues/451)) ([e1cac61](https://www.github.com/googleapis/sloth/commit/e1cac6133b28ba518e97fd543acb6974e0db33fd))
+* remove emar-kar ([#446](https://www.github.com/googleapis/sloth/issues/446)) ([4b31d22](https://www.github.com/googleapis/sloth/commit/4b31d220d9659942f18c05ff89363a4e5d852471))
+
 ## [4.30.0](https://www.github.com/googleapis/sloth/compare/v4.29.2...v4.30.0) (2020-01-09)
 
 
