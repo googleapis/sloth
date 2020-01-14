@@ -157,6 +157,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-pubsub", "apiHint": "pubsub"},
     { "language": "nodejs", "repo": "googleapis/nodejs-rcloadenv", "apiHint": "runtimeconfig"},
     { "language": "nodejs", "repo": "googleapis/nodejs-recaptcha-enterprise", "apiHint": "recaptcha"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-recommender", "apiHint": "recommender"},
     { "language": "nodejs", "repo": "googleapis/nodejs-redis", "apiHint": "redis"},
     { "language": "nodejs", "repo": "googleapis/nodejs-resource", "apiHint": "cloudresourcemanager"},
     { "language": "nodejs", "repo": "googleapis/nodejs-secret-manager", "apiHint": "secretmanager"},
