@@ -115,6 +115,7 @@
         "googleapis/nodejs-bigquery",
         "googleapis/nodejs-bigquery-data-transfer",
         "googleapis/nodejs-bigtable",
+        "googleapis/nodejs-billing-budgets",
         "googleapis/nodejs-cloud-container",
         "googleapis/nodejs-common",
         "googleapis/nodejs-common-grpc",
