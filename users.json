@@ -150,6 +150,7 @@
         "googleapis/nodejs-pubsub",
         "googleapis/nodejs-rcloadenv",
         "googleapis/nodejs-recaptcha-enterprise",
+        "googleapis/nodejs-recommender",
         "googleapis/nodejs-redis",
         "googleapis/nodejs-resource",
         "googleapis/nodejs-secret-manager",
