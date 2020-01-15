@@ -4,6 +4,7 @@
       "name": "soda",
       "apis": [
         "bigtable",
+        "cloudsql",
         "datastore",
         "firestore",
         "redis",
