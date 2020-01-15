@@ -234,6 +234,7 @@
     { "language": "python", "repo": "googleapis/google-cloud-python"},
     { "language": "python", "repo": "googleapis/python-ndb", "apiHint": "ndb"},
     { "language": "python", "repo": "googleapis/python-billingbudgets", "apiHint": "billingbudgets"},
+    { "language": "python", "repo": "googleapis/python-monitoring-dashboards"},
     { "language": "python", "repo": "googleapis/python-secret-manager", "apiHint": "secretmanager"},
     { "language": "python", "repo": "googleapis/python-speech", "apiHint": "speech"},
     { "language": "python", "repo": "googleapis/google-cloud-python-happybase", "apiHint": "bigtable"},
