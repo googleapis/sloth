@@ -17,7 +17,6 @@
 import * as meow from 'meow';
 import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
-import {reconcileLabels} from './label';
 import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
 import {syncRepoSettings} from './repos';
 import * as updateNotifier from 'update-notifier';
@@ -50,7 +49,6 @@ const cli = meow(
     $ sloth tag-issues
     $ sloth users
     $ sloth repos
-    $ sloth labels
     $ sloth sync-repo-settings
 
 `,
@@ -73,9 +71,6 @@ const cmd = cli.input.length > 0 ? cli.input[0] : null;
 let p: Promise<void | {}>;
 
 switch (cmd) {
-  case 'labels':
-    p = reconcileLabels();
-    break;
   case 'sync-repo-settings':
     p = syncRepoSettings();
     break;

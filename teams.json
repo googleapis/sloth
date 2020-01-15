@@ -4,6 +4,7 @@
       "name": "soda",
       "apis": [
         "bigtable",
+        "cloudsql",
         "datastore",
         "firestore",
         "redis",
@@ -14,7 +15,8 @@
       "name": "code-build-run",
       "apis": [
         "ndb",
-        "appengine"
+        "appengine",
+        "functions"
       ]
     },
     {
@@ -30,6 +32,7 @@
         "dialogflow",
         "dlp",
         "language",
+        "ml",
         "pubsub",
         "recommender",
         "speech",
