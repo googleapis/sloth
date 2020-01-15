@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.1.0](https://www.github.com/googleapis/sloth/compare/v5.0.0...v5.1.0) (2020-01-15)
+
+
+### Features
+
+* add dmitry-fa to java and node teams ([#429](https://www.github.com/googleapis/sloth/issues/429)) ([6154b3a](https://www.github.com/googleapis/sloth/commit/6154b3ad84f25bc9021eadab968dcf5e1398c64a))
+* add new googleapis/nodejs-recommender repo ([#454](https://www.github.com/googleapis/sloth/issues/454)) ([422483a](https://www.github.com/googleapis/sloth/commit/422483aa2bf3fd2caa1ba6780bfa408d02ca7da6))
+* adds cloudsql as a monitored label for soda ([#459](https://www.github.com/googleapis/sloth/issues/459)) ([537af78](https://www.github.com/googleapis/sloth/commit/537af78280671e2920bc5453a51c011e03b25b83))
+
+
+### Bug Fixes
+
+* Add crwilcox to java repos ([#458](https://www.github.com/googleapis/sloth/issues/458)) ([5383ab7](https://www.github.com/googleapis/sloth/commit/5383ab774abee0f269c9fd5ccadb9297e5c18887))
+* add python-monitoring-dashboards repo ([#457](https://www.github.com/googleapis/sloth/issues/457)) ([5a3c75e](https://www.github.com/googleapis/sloth/commit/5a3c75e71d1c65677bda4519a9d36f328b43fb9e))
+* remove callmehiphop ([#453](https://www.github.com/googleapis/sloth/issues/453)) ([5eec574](https://www.github.com/googleapis/sloth/commit/5eec5746eb90bf42ce69c01f16f7886298b5d7bd))
+
 ## [5.0.0](https://www.github.com/googleapis/sloth/compare/v4.30.0...v5.0.0) (2020-01-13)
 
 
