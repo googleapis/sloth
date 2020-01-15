@@ -449,7 +449,8 @@
         "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
         "googleapis/google-resumable-media-python",
-        "googleapis/google-auth-library-python-oauthlib"
+        "googleapis/google-auth-library-python-oauthlib",
+        "googleapis/python-monitoring-dashboards"
       ]
     },
     {
