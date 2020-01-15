@@ -6,6 +6,7 @@
     {
       "team": "yoshi-admins",
       "users": [
+        "SurferJeffAtGoogle",
         "broady",
         "danoscarmike",
         "justinbeckwith",
@@ -36,7 +37,6 @@
         "bradmiro",
         "bshaffer",
         "busunkim96",
-        "callmehiphop",
         "cguardia",
         "chingor13",
         "chrisdunelm",
@@ -47,12 +47,10 @@
         "dizcology",
         "dpcollins-google",
         "dwsupplee",
-        "Emar-Kar",
         "evildour",
         "HemangChothani",
         "igorbernstein2",
         "IlyaFaer",
-        "jadekler",
         "sneakybueno",
         "jdpedrie",
         "jesselovelace",
@@ -76,6 +74,7 @@
         "rahulKQL",
         "sangramql",
         "shollyman",
+        "stephaniewang526",
         "stephenplusplus",
         "sumit-ql",
         "surferjeffatgoogle",
@@ -84,7 +83,8 @@
         "tswast",
         "vishald123",
         "AlisskaPie",
-        "tritone"
+        "tritone",
+        "sofisl"
       ],
       "repos": [
         "googleapis/discovery-artifact-manager",
@@ -101,20 +101,22 @@
         "googleapis/cloud-trace-nodejs",
         "googleapis/gax-nodejs",
         "googleapis/gaxios",
-        "googleapis/gce-images",
+        "googleapis/nodejs-gce-images",
         "googleapis/gcp-metadata",
         "googleapis/gcs-resumable-upload",
         "googleapis/google-api-nodejs-client",
         "googleapis/google-auth-library-nodejs",
-        "googleapis/google-cloud-kvstore",
+        "googleapis/nodejs-datastore-kvstore",
         "googleapis/google-cloud-node",
         "googleapis/google-p12-pem",
+        "googleapis/github-repo-automation",
         "googleapis/node-gtoken",
         "googleapis/nodejs-asset",
         "googleapis/nodejs-automl",
         "googleapis/nodejs-bigquery",
         "googleapis/nodejs-bigquery-data-transfer",
         "googleapis/nodejs-bigtable",
+        "googleapis/nodejs-billing-budgets",
         "googleapis/nodejs-cloud-container",
         "googleapis/nodejs-common",
         "googleapis/nodejs-common-grpc",
@@ -139,6 +141,7 @@
         "googleapis/nodejs-logging-bunyan",
         "googleapis/nodejs-logging-winston",
         "googleapis/nodejs-monitoring",
+        "googleapis/nodejs-monitoring-dashboards",
         "googleapis/nodejs-os-login",
         "googleapis/nodejs-paginator",
         "googleapis/nodejs-precise-date",
@@ -148,8 +151,10 @@
         "googleapis/nodejs-pubsub",
         "googleapis/nodejs-rcloadenv",
         "googleapis/nodejs-recaptcha-enterprise",
+        "googleapis/nodejs-recommender",
         "googleapis/nodejs-redis",
         "googleapis/nodejs-resource",
+        "googleapis/nodejs-secret-manager",
         "googleapis/nodejs-scheduler",
         "googleapis/nodejs-security-center",
         "googleapis/nodejs-spanner",
@@ -166,21 +171,27 @@
       ],
       "users": [
         "AVaksman",
+        "AlanGasperini",
         "ajaaym",
         "alexander-fenster",
         "bcoe",
         "bradmiro",
-        "callmehiphop",
         "crwilcox",
         "jiren",
-        "jmdobry",
         "justinbeckwith",
         "jkwlui",
         "laljikanjareeya",
         "praveenqlogic01",
         "stephenplusplus",
         "surferjeffatgoogle",
-        "vishald123"
+        "vishald123",
+        "jesselovelace",
+        "sofisl",
+        "tmatsuo",
+        "xiaozhenliu-gg5",
+        "steffnay",
+        "benwhitehead",
+        "feywind"
       ]
     },
     {
@@ -189,9 +200,13 @@
         "TheRoyalTnetennba",
         "bcoe",
         "blowmage",
+        "crwilcox",
         "dazuma",
         "dizcology",
-        "quartzmo"
+        "frankyn",
+        "jskeet",
+        "quartzmo",
+        "jesselovelace"
       ],
       "repos": [
         "googleapis/gax-ruby",
@@ -205,9 +220,11 @@
       "team": "yoshi-dotnet",
       "users": [
         "amanda-tarafa",
+        "bcoe",
         "chrisdunelm",
         "evildour",
-        "jskeet"
+        "jskeet",
+        "jesselovelace"
       ],
       "repos": [
         "googleapis/gax-dotnet",
@@ -220,10 +237,13 @@
       "users": [
         "andrewinc",
         "bshaffer",
+        "busunkim96",
         "chingor13",
         "dwsupplee",
         "jdpedrie",
-        "tmatsuo"
+        "tmatsuo",
+        "jesselovelace",
+        "noahdietz"
       ],
       "repos": [
         "googleapis/gax-php",
@@ -256,14 +276,19 @@
         "googleapis/google-cloud-php-pubsub",
         "googleapis/google-cloud-php-redis",
         "googleapis/google-cloud-php-scheduler",
+        "googleapis/google-cloud-php-security-center",
         "googleapis/google-cloud-php-spanner",
+        "googleapis/google-cloud-php-speech",
         "googleapis/google-cloud-php-storage",
         "googleapis/google-cloud-php-talent",
+        "googleapis/google-cloud-php-tasks",
         "googleapis/google-cloud-php-text-to-speech",
         "googleapis/google-cloud-php-trace",
         "googleapis/google-cloud-php-translate",
         "googleapis/google-cloud-php-videointelligence",
-        "googleapis/google-cloud-php-vision"
+        "googleapis/google-cloud-php-vision",
+        "googleapis/google-cloud-php-web-risk",
+        "googleapis/google-cloud-php-web-security-scanner"
       ]
     },
     {
@@ -275,20 +300,25 @@
         "benwhitehead",
         "chingor13",
         "codyoss",
+        "crwilcox",
+        "dwsupplee",
         "dpcollins-google",
         "elharo",
+        "frankyn",
         "igorbernstein2",
         "jesselovelace",
         "kolea2",
         "kurtisvg",
+        "nnegrey",
         "olavloite",
         "pmakani",
         "rahulKQL",
-        "shollyman"
+        "shollyman",
+        "stephaniewang526"
       ],
       "repos": [
         "googleapis/api-common-java",
-        "googleapis/cloud-bigtable-client",
+        "googleapis/java-bigtable-hbase",
         "googleapis/gax-java",
         "googleapis/google-api-java-client",
         "googleapis/google-api-java-client-services",
@@ -356,9 +386,9 @@
     {
       "team": "yoshi-go",
       "users": [
+        "amanda-tarafa",
         "broady",
         "frankyn",
-        "jadekler",
         "sneakybueno",
         "jba",
         "noahdietz",
@@ -373,7 +403,8 @@
         "codyoss",
         "tritone",
         "IlyaFaer",
-        "AlisskaPie"
+        "AlisskaPie",
+        "jesselovelace"
       ],
       "repos": [
         "googleapis/go-genproto",
@@ -388,24 +419,30 @@
       "users": [
         "alixhami",
         "andrewsg",
+        "anguillanneuf",
         "bcoe",
         "busunkim96",
         "cguardia",
         "chrisrossi",
+        "codyoss",
         "crwilcox",
-        "Emar-Kar",
         "HemangChothani",
+        "helinwang",
         "IlyaFaer",
+        "jesselovelace",
+        "leahecole",
         "mcdonc",
         "mf2199",
+        "michaelawyu",
+        "nnegrey",
         "plamut",
         "sangramql",
+        "sirtorry",
+        "software-dov",
         "sumit-ql",
+        "texasmichelle",
         "tseaver",
-        "tswast",
-        "anguillanneuf",
-        "nnegrey",
-        "sirtorry"
+        "tswast"
       ],
       "repos": [
         "googleapis/dialogflow-python-client-v2",
@@ -414,7 +451,6 @@
         "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
         "googleapis/google-resumable-media-python",
-        "googleapis/oauth2client",
         "googleapis/google-auth-library-python-oauthlib"
       ]
     },
@@ -433,6 +469,7 @@
       "users": [
         "bcoe",
         "coryan",
+        "dazuma",
         "devbww",
         "devjgm",
         "dopiera",
@@ -441,7 +478,8 @@
         "manish-qlogic",
         "mr-salty",
         "scotthart",
-        "tmatsuo"
+        "tmatsuo",
+        "jesselovelace"
       ],
       "repos": [
         "googleapis/cpp-cmakefiles",

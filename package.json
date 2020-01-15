@@ -1,6 +1,6 @@
 {
   "name": "@justinbeckwith/sloth",
-  "version": "4.21.0",
+  "version": "5.0.0",
   "repository": "googleapis/sloth",
   "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
@@ -9,7 +9,6 @@
   "files": [
     "build/src",
     "repos.json",
-    "labels.json",
     "teams.json",
     "users.json"
   ],
@@ -35,13 +34,13 @@
   "author": "Justin Beckwith",
   "license": "Apache-2.0",
   "dependencies": {
-    "@octokit/rest": "16.33.1",
+    "@octokit/rest": "16.36.0",
     "cli-table": "^0.3.1",
     "csv-string": "^3.1.5",
     "gaxios": "^2.0.1",
     "meow": "^5.0.0",
     "truncate": "^2.0.1",
-    "update-notifier": "^3.0.0"
+    "update-notifier": "^4.0.0"
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.9",
@@ -52,9 +51,9 @@
     "@types/update-notifier": "^2.5.0",
     "gts": "^1.0.0",
     "linkinator": "^1.5.0",
-    "mocha": "^6.1.4",
-    "nyc": "^14.1.1",
-    "typescript": "^3.4.5"
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0",
+    "typescript": "3.6.4"
   },
   "engines": {
     "node": ">=8.10.0"

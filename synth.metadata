@@ -1,12 +1,569 @@
 {
-  "updateTime": "2019-10-03T20:14:51.952017Z",
+  "updateTime": "2020-01-03T12:27:07.750343Z",
   "sources": [
     {
       "template": {
         "name": "node_library",
         "origin": "synthtool.gcp",
-        "version": "2019.5.2"
+        "version": "2019.10.17"
       }
+    }
+  ],
+  "newFiles": [
+    {
+      "path": "synth.metadata"
+    },
+    {
+      "path": ".repo-metadata.json"
+    },
+    {
+      "path": "CONTRIBUTING.md"
+    },
+    {
+      "path": "linkinator.config.json"
+    },
+    {
+      "path": ".compodocrc"
+    },
+    {
+      "path": ".prettierignore"
+    },
+    {
+      "path": "tsconfig.json"
+    },
+    {
+      "path": ".jsdoc.js"
+    },
+    {
+      "path": ".gitignore"
+    },
+    {
+      "path": "synth.py"
+    },
+    {
+      "path": "users.json"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md"
+    },
+    {
+      "path": "README.md"
+    },
+    {
+      "path": ".prettierrc"
+    },
+    {
+      "path": "repos.json"
+    },
+    {
+      "path": "labels.json"
+    },
+    {
+      "path": "codecov.yaml"
+    },
+    {
+      "path": ".nycrc"
+    },
+    {
+      "path": "teams.json"
+    },
+    {
+      "path": "package.json"
+    },
+    {
+      "path": ".eslintrc.yml"
+    },
+    {
+      "path": "renovate.json"
+    },
+    {
+      "path": "LICENSE"
+    },
+    {
+      "path": "CHANGELOG.md"
+    },
+    {
+      "path": ".eslintignore"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md"
+    },
+    {
+      "path": ".github/CONTRIBUTING.md"
+    },
+    {
+      "path": ".github/release-please.yml"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/support_request.md"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md"
+    },
+    {
+      "path": ".kokoro/samples-test.sh"
+    },
+    {
+      "path": ".kokoro/system-test.sh"
+    },
+    {
+      "path": ".kokoro/docs.sh"
+    },
+    {
+      "path": ".kokoro/lint.sh"
+    },
+    {
+      "path": ".kokoro/.gitattributes"
+    },
+    {
+      "path": ".kokoro/publish.sh"
+    },
+    {
+      "path": ".kokoro/trampoline.sh"
+    },
+    {
+      "path": ".kokoro/common.cfg"
+    },
+    {
+      "path": ".kokoro/tag-issues.sh"
+    },
+    {
+      "path": ".kokoro/test.bat"
+    },
+    {
+      "path": ".kokoro/test.sh"
+    },
+    {
+      "path": ".kokoro/release/docs.sh"
+    },
+    {
+      "path": ".kokoro/release/tag-issues.cfg"
+    },
+    {
+      "path": ".kokoro/release/docs.cfg"
+    },
+    {
+      "path": ".kokoro/release/publish.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node12/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node12/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node8/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node8/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/windows/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/windows/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/lint.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/system-test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/docs.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/samples-test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node12/test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node12/common.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node8/test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node8/common.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/lint.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/system-test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/docs.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/common.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/samples-test.cfg"
+    },
+    {
+      "path": "test/verifyConfigs.test.ts"
+    },
+    {
+      "path": "test/test.sloth.ts"
+    },
+    {
+      "path": "test/fixtures/driftResponse.json"
+    },
+    {
+      "path": "system-test/system.ts"
+    },
+    {
+      "path": ".git/shallow"
+    },
+    {
+      "path": ".git/HEAD"
+    },
+    {
+      "path": ".git/config"
+    },
+    {
+      "path": ".git/packed-refs"
+    },
+    {
+      "path": ".git/index"
+    },
+    {
+      "path": ".git/objects/d6/e25e0b1b8e1326666bff681406e3d470b4d626"
+    },
+    {
+      "path": ".git/objects/d6/45695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    {
+      "path": ".git/objects/d6/fd83a7c5b50a9c03918f70990844443a95e9e0"
+    },
+    {
+      "path": ".git/objects/6b/243c215d1211efb92e2df70af0d45c0452de70"
+    },
+    {
+      "path": ".git/objects/6b/4edcb6737e886b551fcd36f51bc98592122849"
+    },
+    {
+      "path": ".git/objects/c2/fb2779a5f9aaae0f6c5e2f778a513d8c27ae8e"
+    },
+    {
+      "path": ".git/objects/85/344b92c7f444698f87bdafba2dc85deae40f52"
+    },
+    {
+      "path": ".git/objects/b5/2581d5cc7bb663fb9d20812995fae9659d534f"
+    },
+    {
+      "path": ".git/objects/1a/0da22fac6293020f3cc9a1f2d059ee3e5861a2"
+    },
+    {
+      "path": ".git/objects/97/1109d231be129b91da75e8e7e8a8b77ddf637c"
+    },
+    {
+      "path": ".git/objects/6c/491b57960a98f0615273ff9b4b501e1c82daf5"
+    },
+    {
+      "path": ".git/objects/6c/3b2d81d13b2b40b11f2bff7131d4577c363391"
+    },
+    {
+      "path": ".git/objects/50/c9b634ff855063aa6e6c438761e0fc33999fd3"
+    },
+    {
+      "path": ".git/objects/99/5869032125fb2e0d6830a2898ea07e0c061499"
+    },
+    {
+      "path": ".git/objects/16/7e15a0393d34a0aadfd0c627ee812f7e3cf7a2"
+    },
+    {
+      "path": ".git/objects/7c/4ad132ae477a98ab141a0b98feaa172ef29fb2"
+    },
+    {
+      "path": ".git/objects/a9/4e2c2ba297fa4be277933f05db485a313d8f7d"
+    },
+    {
+      "path": ".git/objects/c3/e81264481ea02ae43b95e3a81b45bc8e30c054"
+    },
+    {
+      "path": ".git/objects/cf/6f9852b8c7e5935c64a55e85f88dd16be54e5f"
+    },
+    {
+      "path": ".git/objects/62/130a821c89fa0d6977982ec3202bd7c20e15f5"
+    },
+    {
+      "path": ".git/objects/d2/b2aaa60699917875bc82088f8ed50686c66a48"
+    },
+    {
+      "path": ".git/objects/b9/58f235007815f444231e12e85ba167972548ef"
+    },
+    {
+      "path": ".git/objects/26/c8b4d598189dabed5a70cfc8dc565eb0932380"
+    },
+    {
+      "path": ".git/objects/26/ddbb788f46f770cf61d0e81d25c0c2b1039d3f"
+    },
+    {
+      "path": ".git/objects/d8/95a6cff161d8ab8ff8829ce569485bce91bc82"
+    },
+    {
+      "path": ".git/objects/28/2535f55f6a1004719983b7f7fac43423aee5f3"
+    },
+    {
+      "path": ".git/objects/9d/b11bb09d6937c11499d0a9026233ec18c78858"
+    },
+    {
+      "path": ".git/objects/58/3ed8e3c96b3ca9687e382be7374f32a17d4688"
+    },
+    {
+      "path": ".git/objects/98/30057c7ac52470626357069efa547b37b26509"
+    },
+    {
+      "path": ".git/objects/98/595e8ab9ecb53d7e626a7e1444c91e11ad1673"
+    },
+    {
+      "path": ".git/objects/92/dda5b4934961aed76d1dbc28e4f30352e07970"
+    },
+    {
+      "path": ".git/objects/95/2403faedeef1cee177bba1e7fd72dfdb6d7a6e"
+    },
+    {
+      "path": ".git/objects/95/67fcaaaf7e1f58008438e096c1e81bfe64feb5"
+    },
+    {
+      "path": ".git/objects/95/18bf36fdc6ce82ad08aed4f8d8f8c97bf705e7"
+    },
+    {
+      "path": ".git/objects/87/acd4f484eef3f4d1703deeee61eac213682058"
+    },
+    {
+      "path": ".git/objects/db/b0623e811880e501750671b902c8db67cd9164"
+    },
+    {
+      "path": ".git/objects/46/b2a08ea6d1728faf0f111691adde837a0239a7"
+    },
+    {
+      "path": ".git/objects/46/8b8c7197ae5d857234e9bb81b76be3e30dc7ff"
+    },
+    {
+      "path": ".git/objects/4e/cd13bbb8c9c4822bbc54067571b95d7b6341d7"
+    },
+    {
+      "path": ".git/objects/93/327169b7d33edb3ba9d48c4c0f385c37df8f55"
+    },
+    {
+      "path": ".git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": ".git/objects/3e/6fe6edec8560b0e2916f1b4186befb5043feb9"
+    },
+    {
+      "path": ".git/objects/3e/8b67a10b5bdb0647d1a723afa75dcdf1df2f85"
+    },
+    {
+      "path": ".git/objects/fc/5824e6667aeeee5f833dae00a87539d360a1ac"
+    },
+    {
+      "path": ".git/objects/df/6eac074460d9207249e4317071f9cb1726c228"
+    },
+    {
+      "path": ".git/objects/b2/b4e834285b7ae07c9ebb3f687c6d39cc041e12"
+    },
+    {
+      "path": ".git/objects/cc/0bfb2eabe6fc73b136d79ccbe029ec148a8da3"
+    },
+    {
+      "path": ".git/objects/20/e3241c9e9b2997cbe7065cfa14f2418efcfd63"
+    },
+    {
+      "path": ".git/objects/8b/e0e578fada80f20f1a64864fd12509823cc9e0"
+    },
+    {
+      "path": ".git/objects/73/eeec27612d4e7fccfdbf97b7ce79b0b82e2525"
+    },
+    {
+      "path": ".git/objects/3f/a6c33cbfcdf963f77a7f03d231150d2cb40203"
+    },
+    {
+      "path": ".git/objects/9b/e21e36c863c4345484615506fec483b1446441"
+    },
+    {
+      "path": ".git/objects/9b/d4905c4b591a45bb8905beb718f89fc1b35daf"
+    },
+    {
+      "path": ".git/objects/e9/f81e8f3ff7394b7f22a05556c8297d0d87b3bf"
+    },
+    {
+      "path": ".git/objects/e9/da574d7bd47558e2de0f362e99ab4b1e057e28"
+    },
+    {
+      "path": ".git/objects/10/f6418b93cde68a9358e6739985815e5596dc4b"
+    },
+    {
+      "path": ".git/objects/10/548c80632151544b71f72863b2a2fcfc2c6467"
+    },
+    {
+      "path": ".git/objects/c0/8d11a630d01322b51b443ab669f4fa16680955"
+    },
+    {
+      "path": ".git/objects/2d/17ba56d0e8930df40a1d4ea80254f09fd5b257"
+    },
+    {
+      "path": ".git/objects/68/11154a142d522f04046835e1d0ae71cd906ff8"
+    },
+    {
+      "path": ".git/objects/4d/3a0868531a8d2a326c034645720d9a4456e860"
+    },
+    {
+      "path": ".git/objects/4d/93db62235ccaebec3f147e7ad63adc48048e6f"
+    },
+    {
+      "path": ".git/objects/f1/3d62257c7572295679b5c5af210e7f6b7cd29d"
+    },
+    {
+      "path": ".git/objects/2c/5cb78dd47bb2c31660392a3f0617a96224de7d"
+    },
+    {
+      "path": ".git/objects/e1/a74bcf26c146103c82983bf432a77a991a0491"
+    },
+    {
+      "path": ".git/objects/09/b31fe735a0b8ec9e81db4225552b738fe21dbc"
+    },
+    {
+      "path": ".git/objects/36/7688844ebf4b5ff213f4473663d231767953c1"
+    },
+    {
+      "path": ".git/objects/36/a5ce57cff9c45eef2c2dd8b353e6e8a01350c5"
+    },
+    {
+      "path": ".git/objects/f6/fac98b0a8e7c9a222d4dbfdc6efb7ffdb30061"
+    },
+    {
+      "path": ".git/objects/f6/c4cf010e34c952b47ec9777a0649c8cbe71ef2"
+    },
+    {
+      "path": ".git/objects/1f/c05d0f11568308d72fef699835c08f74250d11"
+    },
+    {
+      "path": ".git/objects/1f/62a15dd645d45f66513babf4db16449b573180"
+    },
+    {
+      "path": ".git/objects/63/65857f33c6c4c98eb292cf87dcfa000b301fb9"
+    },
+    {
+      "path": ".git/objects/a3/7b7ed7d2cfb3ae4200d42efcc2a182db8bf6a1"
+    },
+    {
+      "path": ".git/objects/fd/dff757050d447a37543f802e457374f5f14771"
+    },
+    {
+      "path": ".git/objects/96/1a651ce1817824ce3a51b402787da9e73b061d"
+    },
+    {
+      "path": ".git/objects/a6/92962efc0c556f6758f9a4d489c2b45305cf62"
+    },
+    {
+      "path": ".git/objects/0e/191a4f63186dbca0077b74f5d7831f24adb734"
+    },
+    {
+      "path": ".git/objects/b0/3cb0439a6e9c1992e40adf14626cc284a12158"
+    },
+    {
+      "path": ".git/objects/b1/0ee498aefc4a632fe7fa107d06fc409ec720df"
+    },
+    {
+      "path": ".git/objects/57/24ea9478d717c05010eae9ac2dbd62fc0d8324"
+    },
+    {
+      "path": ".git/objects/5b/1e37f016f9b5bf8b91fc1052da30de730528c2"
+    },
+    {
+      "path": ".git/objects/5b/0f7c540f9872cb0cdf2e28b09a09a8f2b0e533"
+    },
+    {
+      "path": ".git/objects/06/4452454fccb91d54c90e6aeeabf6b78521c50c"
+    },
+    {
+      "path": ".git/objects/cd/8b42152a61c8e7b33eb925d2275791bbf467b0"
+    },
+    {
+      "path": ".git/objects/14/d440a3537b57cc1e1eb69722517525c217df0b"
+    },
+    {
+      "path": ".git/objects/9e/1801783366242393d561e710e3698c5afc28a8"
+    },
+    {
+      "path": ".git/objects/9e/4002fab6f563a8a1b920f7babea5c4246e2bfa"
+    },
+    {
+      "path": ".git/objects/d7/80d6bfff5a4893de8b6296807b380c50fa91bc"
+    },
+    {
+      "path": ".git/logs/HEAD"
+    },
+    {
+      "path": ".git/logs/refs/heads/master"
+    },
+    {
+      "path": ".git/logs/refs/heads/autosynth"
+    },
+    {
+      "path": ".git/logs/refs/remotes/origin/HEAD"
+    },
+    {
+      "path": ".git/refs/heads/master"
+    },
+    {
+      "path": ".git/refs/heads/autosynth"
+    },
+    {
+      "path": ".git/refs/remotes/origin/HEAD"
+    },
+    {
+      "path": "src/users.ts"
+    },
+    {
+      "path": "src/cli.ts"
+    },
+    {
+      "path": "src/util.ts"
+    },
+    {
+      "path": "src/slo.ts"
+    },
+    {
+      "path": "src/types.ts"
+    },
+    {
+      "path": "src/repos.ts"
+    },
+    {
+      "path": "src/label.ts"
+    },
+    {
+      "path": "src/issue.ts"
+    },
+    {
+      "path": "samples/package.json"
+    },
+    {
+      "path": "samples/quickstart.js"
+    },
+    {
+      "path": "samples/.eslintrc.yml"
+    },
+    {
+      "path": "__pycache__/synth.cpython-36.pyc"
     }
   ]
 }

@@ -4,6 +4,7 @@
       "name": "soda",
       "apis": [
         "bigtable",
+        "cloudsql",
         "datastore",
         "firestore",
         "redis",
@@ -13,7 +14,9 @@
     {
       "name": "code-build-run",
       "apis": [
-        "ndb"
+        "ndb",
+        "appengine",
+        "functions"
       ]
     },
     {
@@ -29,6 +32,7 @@
         "dialogflow",
         "dlp",
         "language",
+        "ml",
         "pubsub",
         "recommender",
         "speech",
@@ -53,7 +57,8 @@
         "googleapis/gapic-generator-go",
         "googleapis/gapic-generator-csharp",
         "googleapis/gapic-generator",
-        "googleapis/nodejs-proto-files"
+        "googleapis/nodejs-proto-files",
+        "googleapis/sample-tester"
       ]
     },
     {
@@ -85,7 +90,8 @@
         "googleapis/google-cloud-cpp",
         "googleapis/google-cloud-cpp-bigquery",
         "googleapis/google-cloud-cpp-common",
-        "googleapis/google-cloud-cpp-spanner"
+        "googleapis/google-cloud-cpp-spanner",
+        "GoogleCloudPlatform/cpp-docs-samples"
       ]
     },
     {

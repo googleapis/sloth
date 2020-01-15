@@ -4,6 +4,159 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.0.0](https://www.github.com/googleapis/sloth/compare/v4.30.0...v5.0.0) (2020-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove labels command (#427)
+
+### Features
+
+* add nodejs-monitoring-dashboards, nodejs-secret-manager ([#450](https://www.github.com/googleapis/sloth/issues/450)) ([3184da0](https://www.github.com/googleapis/sloth/commit/3184da0eaf2769c951fe2dffefaaeda42dfc751b))
+* remove labels command ([#427](https://www.github.com/googleapis/sloth/issues/427)) ([d688509](https://www.github.com/googleapis/sloth/commit/d688509eaeae83a6217cb779c39f172cfa7a160e))
+
+
+### Bug Fixes
+
+* cbr owns functions ([#448](https://www.github.com/googleapis/sloth/issues/448)) ([ce7e30a](https://www.github.com/googleapis/sloth/commit/ce7e30a07bdac84a4bbb3656b8dc8788c05e7d32))
+* ml is owned by animl ([#451](https://www.github.com/googleapis/sloth/issues/451)) ([e1cac61](https://www.github.com/googleapis/sloth/commit/e1cac6133b28ba518e97fd543acb6974e0db33fd))
+* remove emar-kar ([#446](https://www.github.com/googleapis/sloth/issues/446)) ([4b31d22](https://www.github.com/googleapis/sloth/commit/4b31d220d9659942f18c05ff89363a4e5d852471))
+
+## [4.30.0](https://www.github.com/googleapis/sloth/compare/v4.29.2...v4.30.0) (2020-01-09)
+
+
+### Features
+
+* add frankyn to yoshi-java team ([#441](https://www.github.com/googleapis/sloth/issues/441)) ([b54bd64](https://www.github.com/googleapis/sloth/commit/b54bd64bad91f1f9b32d1c230398d26d2f6f0305))
+* add java-monitoring-dashboards repo ([#444](https://www.github.com/googleapis/sloth/issues/444)) ([815010a](https://www.github.com/googleapis/sloth/commit/815010a374a819023d70894202908b3dbf44bda2))
+
+
+### Bug Fixes
+
+* remove jadekler from yoshi groups ([#442](https://www.github.com/googleapis/sloth/issues/442)) ([5e9e5a1](https://www.github.com/googleapis/sloth/commit/5e9e5a139db4820741b30d4b84f51bedb429dd8b))
+
+### [4.29.2](https://www.github.com/googleapis/sloth/compare/v4.29.1...v4.29.2) (2020-01-07)
+
+
+### Bug Fixes
+
+* appengine belongs to cbr ([#439](https://www.github.com/googleapis/sloth/issues/439)) ([7f889dc](https://www.github.com/googleapis/sloth/commit/7f889dc757a5dc8e44661953ca54004bfaecf093))
+
+### [4.29.1](https://www.github.com/googleapis/sloth/compare/v4.29.0...v4.29.1) (2020-01-04)
+
+
+### Bug Fixes
+
+* rename to java-bigtable-hbase ([#431](https://www.github.com/googleapis/sloth/issues/431)) ([5721094](https://www.github.com/googleapis/sloth/commit/5721094b972faef23ee1353b9a8fbf67ad8f929e))
+* **deps:** update dependency @octokit/rest to v16.36.0 ([#435](https://www.github.com/googleapis/sloth/issues/435)) ([fc91600](https://www.github.com/googleapis/sloth/commit/fc91600776483c655bec866daf164cdbbd139ceb))
+
+## [4.29.0](https://www.github.com/googleapis/sloth/compare/v4.28.0...v4.29.0) (2019-12-18)
+
+
+### Features
+
+* add irm and secretmanager java repos ([#428](https://www.github.com/googleapis/sloth/issues/428)) ([0891882](https://www.github.com/googleapis/sloth/commit/0891882bffd40680d8a0ada67767f311479bf460))
+* add sample-tester repo ([#415](https://www.github.com/googleapis/sloth/issues/415)) ([679b614](https://www.github.com/googleapis/sloth/commit/679b61487e24314f15c477cbfb535964cabca075))
+* add user to yoshi-nodejs ([#418](https://www.github.com/googleapis/sloth/issues/418)) ([f50d779](https://www.github.com/googleapis/sloth/commit/f50d7798dad87baf9bfb72bb1e7b12c2f60a1683))
+
+
+### Bug Fixes
+
+* **deps:** pin TypeScript below 3.7.0 ([50cd2bd](https://www.github.com/googleapis/sloth/commit/50cd2bdd42a0a65a46f7656290ac11e40a0fbc61))
+* add nnegrey to yoshi-java ([#421](https://www.github.com/googleapis/sloth/issues/421)) ([44bf74e](https://www.github.com/googleapis/sloth/commit/44bf74e069344b96bad6cd085f3c0b5914420c1e))
+* **deps:** update dependency @octokit/rest to v16.35.2 ([#426](https://www.github.com/googleapis/sloth/issues/426)) ([018440e](https://www.github.com/googleapis/sloth/commit/018440e8029d75b7a1387ffe854a7dfac7beeac7))
+* **deps:** update dependency update-notifier to v4 ([#424](https://www.github.com/googleapis/sloth/issues/424)) ([56979e9](https://www.github.com/googleapis/sloth/commit/56979e99223ce44f793442e1f9f9918c8a7c4f55))
+
+## [4.28.0](https://www.github.com/googleapis/sloth/compare/v4.27.0...v4.28.0) (2019-11-21)
+
+
+### Features
+
+* add speech to list of php repos ([#412](https://www.github.com/googleapis/sloth/issues/412)) ([267eabb](https://www.github.com/googleapis/sloth/commit/267eabb70bd4b8b6cb13b5903edd7b6b8fd4bb89))
+
+## [4.27.0](https://www.github.com/googleapis/sloth/compare/v4.26.0...v4.27.0) (2019-11-20)
+
+
+### Features
+
+* add missing PHP repos to users.json ([#401](https://www.github.com/googleapis/sloth/issues/401)) ([7e7c769](https://www.github.com/googleapis/sloth/commit/7e7c769f59c5c4401033ec18afa9beabdf0abbae))
+
+
+### Bug Fixes
+
+* correct repo name for nodejs-datastore-kvstore ([#409](https://www.github.com/googleapis/sloth/issues/409)) ([493a085](https://www.github.com/googleapis/sloth/commit/493a08563676a9827791b8ced3e355481490ad56))
+* gce-images should now be nodejs-gce-images ([#406](https://www.github.com/googleapis/sloth/issues/406)) ([5e98534](https://www.github.com/googleapis/sloth/commit/5e98534f0ec94586a2dd3e328abfb3a5e8e47db0))
+
+## [4.26.0](https://www.github.com/googleapis/sloth/compare/v4.25.2...v4.26.0) (2019-11-13)
+
+
+### Features
+
+* add java billing budgets repo ([#395](https://www.github.com/googleapis/sloth/issues/395)) ([f77813f](https://www.github.com/googleapis/sloth/commit/f77813f6757a4d970c8146cb18de15622c51c10c))
+* add missing PHP repos ([#400](https://www.github.com/googleapis/sloth/issues/400)) ([e6e47f5](https://www.github.com/googleapis/sloth/commit/e6e47f5bddef307fd8e5a46c843528d6f378a5e9))
+
+
+### Bug Fixes
+
+* **docs:** add jsdoc-region-tag plugin ([#399](https://www.github.com/googleapis/sloth/issues/399)) ([5aba550](https://www.github.com/googleapis/sloth/commit/5aba55008ab2d0ddaa505accbbf901be9076618e))
+
+### [4.25.2](https://www.github.com/googleapis/sloth/compare/v4.25.1...v4.25.2) (2019-11-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v16.35.0 ([#393](https://www.github.com/googleapis/sloth/issues/393)) ([ce3dd35](https://www.github.com/googleapis/sloth/commit/ce3dd359c812c1054f4938e2c9400b32221e4673))
+
+### [4.25.1](https://www.github.com/googleapis/sloth/compare/v4.25.0...v4.25.1) (2019-11-06)
+
+
+### Bug Fixes
+
+* add bigtable hbase java repo ([#389](https://www.github.com/googleapis/sloth/issues/389)) ([a398d95](https://www.github.com/googleapis/sloth/commit/a398d950ebf0357df77a6d9d22d4cd46cbe8dffe))
+
+## [4.25.0](https://www.github.com/googleapis/sloth/compare/v4.24.0...v4.25.0) (2019-11-04)
+
+
+### Features
+
+* stop tracking googleapis/oauth2client ([#386](https://www.github.com/googleapis/sloth/issues/386)) ([7e0c39b](https://www.github.com/googleapis/sloth/commit/7e0c39b74be39a2fea6612440f7ef3fc5397a7ed))
+
+## [4.24.0](https://www.github.com/googleapis/sloth/compare/v4.23.1...v4.24.0) (2019-10-31)
+
+
+### Features
+
+* add nodejs-cloudbuild ([#382](https://www.github.com/googleapis/sloth/issues/382)) ([3aa217e](https://www.github.com/googleapis/sloth/commit/3aa217efbfe2efbb0624207f8073a97f48e6af68))
+* adding sofia to sloth users.json ([#378](https://www.github.com/googleapis/sloth/issues/378)) ([2ccff70](https://www.github.com/googleapis/sloth/commit/2ccff7059c917143d5e8c2cc151a29d0c1ec0150))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v16.34.1 ([#384](https://www.github.com/googleapis/sloth/issues/384)) ([8bba2e6](https://www.github.com/googleapis/sloth/commit/8bba2e6dd1f3dcf1a46995938e1ce069f0c543c0))
+
+### [4.23.1](https://www.github.com/googleapis/sloth/compare/v4.23.0...v4.23.1) (2019-10-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v16.34.0 ([#374](https://www.github.com/googleapis/sloth/issues/374)) ([09f20a5](https://www.github.com/googleapis/sloth/commit/09f20a53aa9de2c448a3a5087d73154cba25b676))
+* cpp issues to cpp team ([#376](https://www.github.com/googleapis/sloth/issues/376)) ([f0705d5](https://www.github.com/googleapis/sloth/commit/f0705d505dc12b6cbeac2421ad0be4a494c84bf0))
+
+## [4.23.0](https://www.github.com/googleapis/sloth/compare/v4.22.0...v4.23.0) (2019-10-23)
+
+
+### Features
+
+* add cpp-docs-samples repo ([#372](https://www.github.com/googleapis/sloth/issues/372)) ([2831893](https://www.github.com/googleapis/sloth/commit/2831893b8ddaac57d125320dafaf607bcac9b295))
+
+## [4.22.0](https://www.github.com/googleapis/sloth/compare/v4.21.0...v4.22.0) (2019-10-21)
+
+
+### Features
+
+* Add Chris, Frank to ruby repo ([#367](https://www.github.com/googleapis/sloth/issues/367)) ([0ca4b21](https://www.github.com/googleapis/sloth/commit/0ca4b21a13060891b02a963a69525f6df3911e9e))
+
 ## [4.21.0](https://www.github.com/googleapis/sloth/compare/v4.20.0...v4.21.0) (2019-10-17)
 
 
