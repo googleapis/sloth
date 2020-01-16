@@ -212,6 +212,7 @@
     { "language": "php", "repo": "googleapis/google-cloud-php-pubsub"},
     { "language": "php", "repo": "googleapis/google-cloud-php-redis"},
     { "language": "php", "repo": "googleapis/google-cloud-php-scheduler"},
+    { "language": "php", "repo": "googleapis/google-cloud-php-secret-manager", "apiHint": "secretmanager"},
     { "language": "php", "repo": "googleapis/google-cloud-php-security-center"},
     { "language": "php", "repo": "googleapis/google-cloud-php-spanner"},
     { "language": "php", "repo": "googleapis/google-cloud-php-speech"},
