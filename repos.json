@@ -4,6 +4,7 @@
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-bigquery"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-common"},
+    { "language": "cpp", "repo": "googleapis/google-cloud-cpp-pubsub"},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner"},
     { "language": "cpp", "repo": "GoogleCloudPlatform/cpp-docs-samples"},
 
