@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.1.1](https://www.github.com/googleapis/sloth/compare/v5.1.0...v5.1.1) (2020-01-21)
+
+
+### Bug Fixes
+
+* add secret manager repo for php ([#461](https://www.github.com/googleapis/sloth/issues/461)) ([dc64f29](https://www.github.com/googleapis/sloth/commit/dc64f29b4e3a06c7d87a795b3695f42134088f10))
+
 ## [5.1.0](https://www.github.com/googleapis/sloth/compare/v5.0.0...v5.1.0) (2020-01-15)
 
 
