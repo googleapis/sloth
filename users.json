@@ -491,6 +491,7 @@
         "googleapis/google-cloud-cpp",
         "googleapis/google-cloud-cpp-bigquery",
         "googleapis/google-cloud-cpp-common",
+        "googleapis/google-cloud-cpp-pubsub",
         "googleapis/google-cloud-cpp-spanner"
       ]
     }
