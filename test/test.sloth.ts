@@ -14,7 +14,7 @@
 
 import * as assert from 'assert';
 import {describe, it} from 'mocha';
-import { getPriority } from '../src/issue';
+import {getPriority} from '../src/issue';
 
 // TODO:...
 describe('sloth', () => {
@@ -23,8 +23,8 @@ describe('sloth', () => {
   });
 });
 
-describe('getPriority', () =>{
-  it('returns unknown on non "P" items', () =>{
+describe('getPriority', () => {
+  it('returns unknown on non "P" items', () => {
     assert(getPriority('FOO') === 0);
   });
   it('is case insensitive', () => {
@@ -36,5 +36,5 @@ describe('getPriority', () =>{
     assert(getPriority('P2') === 3);
     assert(getPriority('P3') === 4);
     assert(getPriority('P4') === 5);
-  })
+  });
 });

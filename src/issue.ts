@@ -282,20 +282,21 @@ function isPullRequest(i: ApiIssue) {
   return !!i.isPr;
 }
 
-export function getPriority(p: string): number{
-  switch (p.toLowerCase()){
-    case "p0":
+export function getPriority(p: string): number {
+  switch (p.toLowerCase()) {
+    case 'p0':
       return 1;
-    case "p1":
+    case 'p1':
       return 2;
-    case "p2":
+    case 'p2':
       return 3;
-    case "p3":
+    case 'p3':
       return 4;
-    case "p4":
+    case 'p4':
       return 5;
+    default:
+      return 0;
   }
-  return 0;
 }
 
 function getApi(i: ApiIssue, repo: Repo) {
