@@ -157,22 +157,22 @@ export interface GetBranchResult {
 }
 
 export interface IssuesApiResponse {
-  Issues: ApiIssue[];
+  issues: ApiIssue[];
 }
 
 export interface ApiIssue {
-  Labels: string[];
-  PullRequest: boolean;
-  Repo: string; // googleapis/nodejs-rcloadenv
-  Created: string;
-  UpdatedAt: string;
-  IssueID: number;
-  Title: string;
-  Priority: number;
-  Assignees: Array<{
-    ID: number;
-    Login: string;
+  labels: string[];
+  isPr: boolean;
+  repo: string; // googleapis/nodejs-rcloadenv
+  createdAt: string;
+  updatedAt: string;
+  issueId: number;
+  title: string;
+  priority: string;
+  assignees: Array<{
+    id: number;
+    login: string;
   }>;
-  URL: string;
-  PriorityUnknown: boolean;
+  url: string;
+  priorityUnknown: boolean;
 }
