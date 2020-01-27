@@ -486,7 +486,6 @@
         "googleapis/python-iot",
         "googleapis/python-irm",
         "googleapis/python-kms",
-        "googleapis/python-language",
         "googleapis/python-logging",
         "googleapis/python-monitoring",
         "googleapis/python-monitoring-dashboards",

@@ -264,7 +264,6 @@
     { "language": "python", "repo": "googleapis/python-iot", "apiHint": "cloudiot"},
     { "language": "python", "repo": "googleapis/python-irm", "apiHint": "irm"},
     { "language": "python", "repo": "googleapis/python-kms", "apiHint": "cloudkms"},
-    { "language": "python", "repo": "googleapis/python-language", "apiHint": "language"},
     { "language": "python", "repo": "googleapis/python-logging", "apiHint": "logging"},
     { "language": "python", "repo": "googleapis/python-monitoring", "apiHint": "monitoring"},
     { "language": "python", "repo": "googleapis/python-monitoring-dashboards", "apiHint": "monitoring"},
