@@ -279,20 +279,20 @@ function getTypes(i: ApiIssue) {
 }
 
 
-export function getPriority(p: string): number {
+export function getPriority(p: string): number | undefined {
   switch (p.toLowerCase()) {
     case 'p0':
-      return 1;
-    case 'p1':
-      return 2;
-    case 'p2':
-      return 3;
-    case 'p3':
-      return 4;
-    case 'p4':
-      return 5;
-    default:
       return 0;
+    case 'p1':
+      return 1;
+    case 'p2':
+      return 2;
+    case 'p3':
+      return 3;
+    case 'p4':
+      return 4;
+    default:
+      return undefined;
   }
 }
 

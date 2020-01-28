@@ -25,16 +25,16 @@ describe('sloth', () => {
 
 describe('getPriority', () => {
   it('returns unknown on non "P" items', () => {
-    assert(getPriority('FOO') === 0);
+    assert(getPriority('FOO') === undefined);
   });
   it('is case insensitive', () => {
-    assert(getPriority('p0') === 1);
+    assert(getPriority('p0') === 0);
   });
   it('parses correctly', () => {
-    assert(getPriority('P0') === 1);
-    assert(getPriority('P1') === 2);
-    assert(getPriority('P2') === 3);
-    assert(getPriority('P3') === 4);
-    assert(getPriority('P4') === 5);
+    assert(getPriority('P0') === 0);
+    assert(getPriority('P1') === 1);
+    assert(getPriority('P2') === 2);
+    assert(getPriority('P3') === 3);
+    assert(getPriority('P4') === 4);
   });
 });
