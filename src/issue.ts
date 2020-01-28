@@ -78,7 +78,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       isOutOfSLO: isOutOfSLO(r),
       isTriaged: isTriaged(r),
       pri: r.priorityUnknown ? undefined : getPriority(r.priority),
-      isPR: isPullRequest(r),
+      isPR: r.isPr,
       number: r.issueId,
       createdAt: r.createdAt,
       title: r.title,
@@ -278,9 +278,6 @@ function getTypes(i: ApiIssue) {
   return types;
 }
 
-function isPullRequest(i: ApiIssue) {
-  return !!i.isPr;
-}
 
 export function getPriority(p: string): number {
   switch (p.toLowerCase()) {
@@ -376,7 +373,7 @@ function isOutOfSLO(i: ApiIssue) {
   // PRs early, when the intent was to cast a light on PRs that may have been
   // forgotten.  We will come back around and use a bot to solve this in the
   // future.
-  if (isPullRequest(i)) {
+  if (i.isPr) {
     return false;
   }
 
@@ -477,7 +474,7 @@ function isExternal(i: ApiIssue) {
  * @param i Issue to analyze
  */
 function isTriaged(i: ApiIssue) {
-  if (isPullRequest(i)) {
+  if (i.isPr) {
     return true;
   }
 
