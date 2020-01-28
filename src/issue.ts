@@ -278,7 +278,6 @@ function getTypes(i: ApiIssue) {
   return types;
 }
 
-
 export function getPriority(p: string): number | undefined {
   switch (p.toLowerCase()) {
     case 'p0':
