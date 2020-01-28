@@ -269,7 +269,7 @@ export async function showIssues(options: Flags) {
 function getTypes(i: ApiIssue) {
   const types = new Array<string>();
   if (i.labels) {
-    for (const label of i.labels) {
+    for (const label of i.labels.sort()) {
       if (label.startsWith('type: ')) {
         types.push(label.slice(6));
       }
@@ -297,7 +297,7 @@ export function getPriority(p: string): number | undefined {
 
 function getApi(i: ApiIssue, repo: Repo) {
   if (i.labels) {
-    for (const label of i.labels) {
+    for (const label of i.labels.sort()) {
       if (label.startsWith('api: ')) {
         return label.slice(5);
       }
