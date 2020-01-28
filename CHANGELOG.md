@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.2.0](https://www.github.com/googleapis/sloth/compare/v5.1.0...v5.2.0) (2020-01-27)
+
+
+### Features
+
+* add ava12 php ([#470](https://www.github.com/googleapis/sloth/issues/470)) ([2798dc7](https://www.github.com/googleapis/sloth/commit/2798dc7c193ccc12424e84ca8b46a33549b942b5))
+* add google-cloud-cpp-pubsub repository ([#465](https://www.github.com/googleapis/sloth/issues/465)) ([e6027d8](https://www.github.com/googleapis/sloth/commit/e6027d8799284f541bbbe6a4d4520c617de8c42b))
+* add split python repos to users and repos ([#473](https://www.github.com/googleapis/sloth/issues/473)) ([4c3e836](https://www.github.com/googleapis/sloth/commit/4c3e836826864bcd2e88b43338d4783351e3ff8d))
+
+
+### Bug Fixes
+
+* add fhinkel to yoshi-nodejs team ([#468](https://www.github.com/googleapis/sloth/issues/468)) ([c5a7bb4](https://www.github.com/googleapis/sloth/commit/c5a7bb420c5defa6de481e6394fe29c6fb8b19ef))
+* add hongalex to yoshi group ([#463](https://www.github.com/googleapis/sloth/issues/463)) ([57a72af](https://www.github.com/googleapis/sloth/commit/57a72af28e275f291db583024f0a3a6181d79dc5))
+* add secret manager repo for php ([#461](https://www.github.com/googleapis/sloth/issues/461)) ([dc64f29](https://www.github.com/googleapis/sloth/commit/dc64f29b4e3a06c7d87a795b3695f42134088f10))
+
 ## [5.1.0](https://www.github.com/googleapis/sloth/compare/v5.0.0...v5.1.0) (2020-01-15)
 
 
