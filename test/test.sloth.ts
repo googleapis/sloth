@@ -25,7 +25,7 @@ describe('sloth', () => {
 
 describe('getPriority', () => {
   it('returns unknown on non "P" items', () => {
-    assert(getPriority('FOO') === undefined);
+    assert(Number.isNaN(getPriority('FOO')));
   });
   it('is case insensitive', () => {
     assert(getPriority('p0') === 0);

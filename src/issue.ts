@@ -278,22 +278,9 @@ function getTypes(i: ApiIssue) {
   return types;
 }
 
-export function getPriority(p: string): number | undefined {
-  switch (p.toLowerCase()) {
-    case 'p0':
-      return 0;
-    case 'p1':
-      return 1;
-    case 'p2':
-      return 2;
-    case 'p3':
-      return 3;
-    case 'p4':
-      return 4;
-    default:
-      return undefined;
-  }
-}
+// As a part of the gRPC API, the Priority of the Issue is
+// now sent back as a string. "P0", "P1", "P2" etc.
+export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
 
 function getApi(i: ApiIssue, repo: Repo) {
   if (i.labels) {
