@@ -247,7 +247,7 @@
     { "language": "python", "repo": "googleapis/python-bigtable", "apiHint": "bigtable"},
     { "language": "python", "repo": "googleapis/python-bigquery", "apiHint": "bigquery"},
     { "language": "python", "repo": "googleapis/python-bigquery-datatransfer", "apiHint": "bigquerydatatransfer"},
-    { "language": "python", "repo": "googleapis/python-bigquery-storage", "apiHint": "bigquerydatatransfer"},
+    { "language": "python", "repo": "googleapis/python-bigquery-storage", "apiHint": "bigquerystorage"},
     { "language": "python", "repo": "googleapis/python-billingbudgets", "apiHint": "billingbudgets"},
     { "language": "python", "repo": "googleapis/python-cloudbuild", "apiHint": "cloudbuild"},
     { "language": "python", "repo": "googleapis/python-container", "apiHint": "container"},
