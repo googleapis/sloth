@@ -42,6 +42,7 @@
     { "language": "java", "repo": "googleapis/java-bigquerystorage", "apiHint": "bigquerystorage"},
     { "language": "java", "repo": "googleapis/java-bigtable", "apiHint": "bigtable"},
     { "language": "java", "repo": "googleapis/java-bigtable-hbase", "apiHint": "bigtable"},
+    { "language": "java", "repo": "googleapis/java-billing", "apiHint": "billing"},
     { "language": "java", "repo": "googleapis/java-billingbudgets", "apiHint": "billingbudgets"},
     { "language": "java", "repo": "googleapis/java-cloudbuild", "apiHint": "cloudbuild"},
     { "language": "java", "repo": "googleapis/java-compute", "apiHint": "compute"},
