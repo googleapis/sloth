@@ -34,7 +34,7 @@
   "author": "Justin Beckwith",
   "license": "Apache-2.0",
   "dependencies": {
-    "@octokit/rest": "16.40.1",
+    "@octokit/rest": "16.41.0",
     "cli-table": "^0.3.1",
     "csv-string": "^3.1.5",
     "gaxios": "^2.0.1",
