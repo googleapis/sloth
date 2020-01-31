@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.3.1](https://www.github.com/googleapis/sloth/compare/v5.3.0...v5.3.1) (2020-01-31)
+
+
+### Bug Fixes
+
+* bigquerystorage belongs to the animl team ([#481](https://www.github.com/googleapis/sloth/issues/481)) ([d414b61](https://www.github.com/googleapis/sloth/commit/d414b61d9c2be3a082219c21df1265c3b06d0873))
+* python-bigquery-storage should be bigquerystorage ([#482](https://www.github.com/googleapis/sloth/issues/482)) ([aa3b79a](https://www.github.com/googleapis/sloth/commit/aa3b79a72ed551b7820df74b5a91514d03dd07d7))
+* **deps:** update dependency @octokit/rest to v16.41.0 ([#485](https://www.github.com/googleapis/sloth/issues/485)) ([88bd88d](https://www.github.com/googleapis/sloth/commit/88bd88dee53403e5919bb431418a560c2f2c129f))
+
 ## [5.3.0](https://www.github.com/googleapis/sloth/compare/v5.2.0...v5.3.0) (2020-01-30)
 
 
