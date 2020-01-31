@@ -282,6 +282,7 @@
         "googleapis/google-cloud-php-monitoring",
         "googleapis/google-cloud-php-oslogin",
         "googleapis/google-cloud-php-pubsub",
+        "googleapis/google-cloud-php-recommender",
         "googleapis/google-cloud-php-redis",
         "googleapis/google-cloud-php-scheduler",
         "googleapis/google-cloud-php-secret-manager",
