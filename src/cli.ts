@@ -72,7 +72,7 @@ let p: Promise<void | {}>;
 
 switch (cmd) {
   case 'sync-repo-settings':
-    p = syncRepoSettings();
+    p = syncRepoSettings(cli.flags as Flags);
     break;
   case 'tag-issues':
     p = tagIssues();
