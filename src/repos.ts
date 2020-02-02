@@ -160,7 +160,7 @@ const languageConfig: LanguageConfig = {
     ignoredRepos: [
       'GoogleCloudPlatform/nodejs-docs-samples',
       'GoogleCloudPlatform/getting-started-nodejs',
-      'gapic-generator-typescript',
+      'googleapis/gapic-generator-typescript',
     ],
   },
 };
