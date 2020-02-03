@@ -25,6 +25,7 @@
         "automl",
         "bigquery",
         "bigquerydatatransfer",
+        "bigquerystorage",
         "cloudiot",
         "datacatalog",
         "datalabeling",
