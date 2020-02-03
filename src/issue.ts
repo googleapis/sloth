@@ -61,11 +61,11 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
     return result;
   }
 
-  if (!res.data || !res.data.Issues) {
+  if (!res.data || !res.data.issues) {
     return result;
   }
 
-  res!.data.Issues.forEach(r => {
+  res!.data.issues.forEach(r => {
     const api = getApi(r, repo);
     const issue: Issue = {
       owner,
@@ -74,17 +74,17 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       repo: repo.repo,
       types: getTypes(r),
       api,
-      team: getTeam(r.Repo, api),
+      team: getTeam(r.repo, api),
       isOutOfSLO: isOutOfSLO(r),
       isTriaged: isTriaged(r),
-      pri: r.PriorityUnknown ? undefined : r.Priority,
-      isPR: isPullRequest(r),
-      number: r.IssueID,
-      createdAt: r.Created,
-      title: r.Title,
-      url: r.URL,
-      labels: r.Labels || [],
-      assignees: r.Assignees ? r.Assignees.map(x => x.Login) : [],
+      pri: r.priorityUnknown ? undefined : getPriority(r.priority),
+      isPR: r.isPr,
+      number: r.issueId,
+      createdAt: r.createdAt,
+      title: r.title,
+      url: r.url,
+      labels: r.labels || [],
+      assignees: r.assignees ? r.assignees.map(x => x.login) : [],
     };
 
     let use = true;
@@ -98,7 +98,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
           use = false;
         }
       }
-      if (flags.repo && r.Repo !== flags.repo) {
+      if (flags.repo && r.repo !== flags.repo) {
         use = false;
       }
       if (flags.outOfSlo && !issue.isOutOfSLO) {
@@ -268,8 +268,8 @@ export async function showIssues(options: Flags) {
 
 function getTypes(i: ApiIssue) {
   const types = new Array<string>();
-  if (i.Labels) {
-    for (const label of i.Labels) {
+  if (i.labels) {
+    for (const label of i.labels.sort()) {
       if (label.startsWith('type: ')) {
         types.push(label.slice(6));
       }
@@ -278,13 +278,13 @@ function getTypes(i: ApiIssue) {
   return types;
 }
 
-function isPullRequest(i: ApiIssue) {
-  return !!i.PullRequest;
-}
+// As a part of the gRPC API, the Priority of the Issue is
+// now sent back as a string. "P0", "P1", "P2" etc.
+export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
 
 function getApi(i: ApiIssue, repo: Repo) {
-  if (i.Labels) {
-    for (const label of i.Labels) {
+  if (i.labels) {
+    for (const label of i.labels.sort()) {
       if (label.startsWith('api: ')) {
         return label.slice(5);
       }
@@ -332,7 +332,7 @@ function isBug(i: ApiIssue) {
 }
 
 function isAssigned(i: ApiIssue) {
-  return i.Assignees && i.Assignees.length > 0;
+  return i.assignees && i.assignees.length > 0;
 }
 
 /**
@@ -342,8 +342,8 @@ function isAssigned(i: ApiIssue) {
  */
 function hasLabel(issue: ApiIssue, label: string) {
   return (
-    issue.Labels &&
-    issue.Labels.filter(x => x.toLowerCase().indexOf(label) > -1).length > 0
+    issue.labels &&
+    issue.labels.filter(x => x.toLowerCase().indexOf(label) > -1).length > 0
   );
 }
 
@@ -352,14 +352,14 @@ function hasLabel(issue: ApiIssue, label: string) {
  * @param i Issue to analyze
  */
 function isOutOfSLO(i: ApiIssue) {
-  const pri = i.PriorityUnknown ? undefined : i.Priority;
+  const pri = i.priorityUnknown ? undefined : getPriority(i.priority);
 
   // Previously we applied rules around Pull Request closure SLOs.
   // It had the unintended consequence of folks feeling forced to rush landing
   // PRs early, when the intent was to cast a light on PRs that may have been
   // forgotten.  We will come back around and use a bot to solve this in the
   // future.
-  if (isPullRequest(i)) {
+  if (i.isPr) {
     return false;
   }
 
@@ -381,7 +381,7 @@ function isOutOfSLO(i: ApiIssue) {
     // All P0 issues must receive a reply within 1 day, an update at least daily,
     // and be resolved within 5 days.
     if (pri === 0) {
-      if (daysOld(i.Created) > 5 || daysOld(i.UpdatedAt) > 1) {
+      if (daysOld(i.createdAt) > 5 || daysOld(i.updatedAt) > 1) {
         return true;
       }
     }
@@ -389,7 +389,7 @@ function isOutOfSLO(i: ApiIssue) {
     // All P1 issues must receive a reply within 5 days, an update at least every
     // 5 days thereafter, and be resolved within 42 days (six weeks).
     if (pri === 1) {
-      if (daysOld(i.Created) > 42 || daysOld(i.UpdatedAt) > 5) {
+      if (daysOld(i.createdAt) > 42 || daysOld(i.updatedAt) > 5) {
         return true;
       }
     }
@@ -397,7 +397,7 @@ function isOutOfSLO(i: ApiIssue) {
     // All P2 issues must receive a reply within 5 days, and be resolved within
     // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
     if (pri === 2) {
-      if (daysOld(i.Created) > 180) {
+      if (daysOld(i.createdAt) > 180) {
         return true;
       }
     }
@@ -405,14 +405,14 @@ function isOutOfSLO(i: ApiIssue) {
 
   // All questions must receive a reply within 5 days.
   if (hasLabel(i, 'type: question')) {
-    if (!i.UpdatedAt && daysOld(i.Created) > 5) {
+    if (!i.updatedAt && daysOld(i.createdAt) > 5) {
       return true;
     }
   }
 
   // All feature requests must receive a reply within 5 days
   if (hasLabel(i, 'type: feature')) {
-    if (!i.UpdatedAt && daysOld(i.Created) > 5) {
+    if (!i.updatedAt && daysOld(i.createdAt) > 5) {
       return true;
     }
     // We decided in a team meeting to drop this requirement.
@@ -422,7 +422,7 @@ function isOutOfSLO(i: ApiIssue) {
   }
 
   // Make sure if it hasn't been triaged, it's less than 5 days old
-  if (!isTriaged(i) && daysOld(i.Created) > 5) {
+  if (!isTriaged(i) && daysOld(i.createdAt) > 5) {
     return true;
   }
 
@@ -460,7 +460,7 @@ function isExternal(i: ApiIssue) {
  * @param i Issue to analyze
  */
 function isTriaged(i: ApiIssue) {
-  if (isPullRequest(i)) {
+  if (i.isPr) {
     return true;
   }
 
