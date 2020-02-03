@@ -54,6 +54,18 @@ async function updateMasterBranchProtection(repos: Repo[]) {
   console.log('Updating master branch protection...');
   for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
+
+    // get the status checks defined at either the language level, or at the
+    // overridden repository level
+    const config = languageConfig[repo.language];
+    let checks = config.requiredStatusChecks;
+    if (config.repoOverrides) {
+      const customConfig = config.repoOverrides.find(x => x.repo === repo.repo);
+      if (customConfig) {
+        checks = customConfig.requiredStatusChecks;
+      }
+    }
+
     await octo.repos
       .updateBranchProtection({
         branch: 'master',
@@ -64,8 +76,8 @@ async function updateMasterBranchProtection(repos: Repo[]) {
           require_code_owner_reviews: false,
         },
         required_status_checks: {
-          contexts: languageConfig[repo.language].requiredStatusChecks,
-          strict: true,
+          contexts: checks,
+          strict: config.requireUpToDateBranch,
         },
         enforce_admins: true,
         restrictions: null!,
@@ -125,14 +137,15 @@ async function updateRepoOptions(repos: Repo[]) {
   console.log(`Updating commit settings...`);
   for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
+    const config = languageConfig[repo.language];
     await octo.repos
       .update({
         name,
         repo: name,
         owner,
         allow_merge_commit: false,
-        allow_rebase_merge: true,
-        allow_squash_merge: true,
+        allow_rebase_merge: config.enableRebaseMerge,
+        allow_squash_merge: config.enableSquashMerge,
       })
       .catch(e => {
         console.error(`Error changing repo settings on ${repo.repo}`);
@@ -142,7 +155,57 @@ async function updateRepoOptions(repos: Repo[]) {
 }
 
 const languageConfig: LanguageConfig = {
+  java: {
+    enableSquashMerge: true,
+    enableRebaseMerge: false,
+    requireUpToDateBranch: false,
+    requiredStatusChecks: [
+      'Kokoro - Test: Binary Compatibility',
+      'Kokoro - Test: Code Format',
+      'Kokoro - Test: Dependencies',
+      'Kokoro - Test: Integration',
+      'Kokoro - Test: Java 11',
+      'Kokoro - Test: Java 7',
+      'Kokoro - Test: Java 8',
+      'Kokoro - Test: Linkage Monitor',
+      'cla/google',
+    ],
+    ignoredRepos: [
+      'googleapis/api-common-java',
+      'googleapis/gax-java',
+      'googleapis/google-api-java-client',
+      'googleapis/google-api-java-client-services',
+      'googleapis/google-auth-library-java',
+      'googleapis/google-cloud-java',
+      'googleapis/google-http-java-client',
+      'googleapis/google-oauth-java-client',
+      'googleapis/gapic-generator',
+      'GoogleCloudPlatform/java-docs-samples',
+      'GoogleCloudPlatform/getting-started-java',
+      'googleapis/google-cloud-java',
+    ],
+    repoOverrides: [
+      {
+        repo: 'googleapis/java-cloud-bom',
+        requiredStatusChecks: [
+          'Kokoro - Test: BOM Upper Bounds',
+          'Kokoro - Test: Binary Compatibility',
+          'Kokoro - Test: Code Format',
+          'Kokoro - Test: Dependencies',
+          'Kokoro - Test: Integration',
+          'Kokoro - Test: Java 11',
+          'Kokoro - Test: Java 7',
+          'Kokoro - Test: Java 8',
+          'Kokoro - Test: Linkage Monitor',
+          'cla/google',
+        ],
+      },
+    ],
+  },
   python: {
+    enableSquashMerge: true,
+    enableRebaseMerge: true,
+    requireUpToDateBranch: true,
     requiredStatusChecks: ['Kokoro', 'cla/google'],
     ignoredRepos: [
       'GoogleCloudPlatform/python-docs-samples',
@@ -154,6 +217,9 @@ const languageConfig: LanguageConfig = {
     ],
   },
   nodejs: {
+    enableSquashMerge: true,
+    enableRebaseMerge: true,
+    requireUpToDateBranch: true,
     requiredStatusChecks: [
       'ci/kokoro: Samples test',
       'ci/kokoro: System test',
@@ -175,7 +241,16 @@ const languageConfig: LanguageConfig = {
 
 interface LanguageConfig {
   [index: string]: {
+    enableSquashMerge: boolean;
+    enableRebaseMerge: boolean;
+    requireUpToDateBranch: boolean;
     requiredStatusChecks: string[];
     ignoredRepos?: string[];
+    repoOverrides?: [
+      {
+        repo: string;
+        requiredStatusChecks: string[];
+      }
+    ];
   };
 }
