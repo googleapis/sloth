@@ -14,27 +14,10 @@
 
 import * as assert from 'assert';
 import {describe, it} from 'mocha';
-import {getPriority} from '../src/issue';
 
 // TODO:...
 describe('sloth', () => {
   it('should work', () => {
     assert(true);
-  });
-});
-
-describe('getPriority', () => {
-  it('returns unknown on non "P" items', () => {
-    assert(Number.isNaN(getPriority('FOO')));
-  });
-  it('is case insensitive', () => {
-    assert(getPriority('p0') === 0);
-  });
-  it('parses correctly', () => {
-    assert(getPriority('P0') === 0);
-    assert(getPriority('P1') === 1);
-    assert(getPriority('P2') === 2);
-    assert(getPriority('P3') === 3);
-    assert(getPriority('P4') === 4);
   });
 });
