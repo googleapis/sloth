@@ -4,6 +4,24 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.4.0](https://www.github.com/googleapis/sloth/compare/v5.3.1...v5.4.0) (2020-02-03)
+
+
+### Features
+
+* **drghs:** updates drghs API to use new casing ([#474](https://www.github.com/googleapis/sloth/issues/474)) ([121bc66](https://www.github.com/googleapis/sloth/commit/121bc66ac244820231d3a0f655a3db8a1e84389c))
+* add java to repo settings sync ([#495](https://www.github.com/googleapis/sloth/issues/495)) ([6664343](https://www.github.com/googleapis/sloth/commit/666434374b12999d1b0f4190ad4c1c038d81c9c8))
+* add recommender for PHP to users/repos.json ([#487](https://www.github.com/googleapis/sloth/issues/487)) ([3d5e3f5](https://www.github.com/googleapis/sloth/commit/3d5e3f57c589b8e2f2ded01af96ea3aa25729d86))
+* add sync-repo-settings ([#492](https://www.github.com/googleapis/sloth/issues/492)) ([bef1225](https://www.github.com/googleapis/sloth/commit/bef12257be9de02692d2ed47f5f7530a07bfc09f))
+* add viacheslav-rostovtsev to a ruby team in users.json ([#484](https://www.github.com/googleapis/sloth/issues/484)) ([bb1756c](https://www.github.com/googleapis/sloth/commit/bb1756cd90cad9fdee9be7df397213427b82a2e8))
+* support python for repo-settings-sync ([#493](https://www.github.com/googleapis/sloth/issues/493)) ([59a6d93](https://www.github.com/googleapis/sloth/commit/59a6d93f7995d29eb2c5d341c76895808e5817ad))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v16.43.0 ([#491](https://www.github.com/googleapis/sloth/issues/491)) ([d83cea0](https://www.github.com/googleapis/sloth/commit/d83cea00200c880adc7432e01dc610dfd02b1c27))
+* lesv is a javasaur ([#494](https://www.github.com/googleapis/sloth/issues/494)) ([438bb9f](https://www.github.com/googleapis/sloth/commit/438bb9fae0964dc30aff25e6f31db8ee342c8a15))
+
 ### [5.3.1](https://www.github.com/googleapis/sloth/compare/v5.3.0...v5.3.1) (2020-01-31)
 
 
