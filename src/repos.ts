@@ -52,9 +52,9 @@ export async function syncRepoSettings(flags: Flags) {
  */
 async function updateMasterBranchProtection(repos: Repo[]) {
   console.log('Updating master branch protection...');
-  const ps3 = repos.map(repo => {
+  for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
-    return octo.repos
+    await octo.repos
       .updateBranchProtection({
         branch: 'master',
         owner,
@@ -74,8 +74,7 @@ async function updateMasterBranchProtection(repos: Repo[]) {
         console.error(`Error updating branch protection for ${repo.repo}`);
         console.error(e);
       });
-  });
-  await Promise.all(ps3);
+  }
 }
 
 /**
@@ -84,7 +83,7 @@ async function updateMasterBranchProtection(repos: Repo[]) {
  */
 async function updateRepoTeams(repos: Repo[]) {
   console.log(`Update team access...`);
-  const ps = repos.map(repo => {
+  for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
     const teamsToAdd = [
       {
@@ -101,8 +100,8 @@ async function updateRepoTeams(repos: Repo[]) {
       },
     ];
 
-    return teamsToAdd.map(membership => {
-      return octo.teams
+    for (const membership of teamsToAdd) {
+      await octo.teams
         .addOrUpdateRepoInOrg({
           team_slug: membership.slug,
           owner,
@@ -114,9 +113,8 @@ async function updateRepoTeams(repos: Repo[]) {
           console.error(`Error adding ${membership.slug} to ${repo.repo}.`);
           console.error(e);
         });
-    });
-  });
-  await Promise.all(ps);
+    }
+  }
 }
 
 /**
@@ -125,9 +123,9 @@ async function updateRepoTeams(repos: Repo[]) {
  */
 async function updateRepoOptions(repos: Repo[]) {
   console.log(`Updating commit settings...`);
-  const ps = repos.map(repo => {
+  for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
-    return octo.repos
+    await octo.repos
       .update({
         name,
         repo: name,
@@ -140,11 +138,21 @@ async function updateRepoOptions(repos: Repo[]) {
         console.error(`Error changing repo settings on ${repo.repo}`);
         console.error(e);
       });
-  });
-  await Promise.all(ps);
+  }
 }
 
 const languageConfig: LanguageConfig = {
+  python: {
+    requiredStatusChecks: ['Kokoro', 'cla/google'],
+    ignoredRepos: [
+      'GoogleCloudPlatform/python-docs-samples',
+      'GoogleCloudPlatform/getting-started-python',
+      'googleapis/releasetool',
+      'googleapis/sample-tester',
+      'googleapis/synthtool',
+      'googleapis/google-cloud-python',
+    ],
+  },
   nodejs: {
     requiredStatusChecks: [
       'ci/kokoro: Samples test',
