@@ -80,16 +80,24 @@ export async function reconcileRepos() {
 
       // Add the language specific team
       await octo.teams
-        .addOrUpdateRepo({team_id: team.id, owner: o, permission: 'push', repo})
+        .addOrUpdateRepoInOrg({
+          team_slug: team.slug,
+          owner: o,
+          org: o,
+          permission: 'push',
+          repo,
+        })
         .catch(e => {
           console.error(`Error adding ${r} to ${m.team}.`);
+          console.error(e);
         });
 
       // Add the yoshi admins team
       await octo.teams
-        .addOrUpdateRepo({
-          team_id: yoshiAdmins!.id,
+        .addOrUpdateRepoInOrg({
+          team_slug: yoshiAdmins!.slug,
           owner: o,
+          org: o,
           permission: 'admin',
           repo,
         })
@@ -100,9 +108,10 @@ export async function reconcileRepos() {
 
       // Add the yoshi team
       await octo.teams
-        .addOrUpdateRepo({
-          team_id: yoshiTeam!.id,
+        .addOrUpdateRepoInOrg({
+          team_slug: yoshiTeam!.slug,
           owner: o,
+          org: o,
           permission: 'pull',
           repo,
         })
@@ -133,8 +142,9 @@ export async function reconcileUsers() {
       }
 
       // get the current list of team members
-      const res = await octo.teams.listMembers({
-        team_id: team.id,
+      const res = await octo.teams.listMembersInOrg({
+        team_slug: team.slug,
+        org: o,
         per_page: 100,
       });
       const currentMembers = res.data as Member[];
@@ -147,8 +157,9 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
           const p = octo.teams
-            .addOrUpdateMembership({
-              team_id: team.id,
+            .addOrUpdateMembershipInOrg({
+              team_slug: team.slug,
+              org: o,
               username: u,
             })
             .catch(e => {
@@ -167,13 +178,14 @@ export async function reconcileUsers() {
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
           const p = octo.teams
-            .removeMembership({
-              team_id: team.id,
+            .removeMembershipInOrg({
+              team_slug: team.slug,
+              org: o,
               username: u.login,
             })
             .catch(e => {
               console.error(`Error removing ${u.login} from ${team.name}.`);
-              // console.error(e);
+              console.error(e);
             });
           promises.push(p);
         }

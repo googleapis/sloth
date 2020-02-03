@@ -194,6 +194,7 @@
         "telpirion",
         "tmatsuo",
         "xiaozhenliu-gg5",
+        "summer-ji-eng",
         "steffnay",
         "benwhitehead",
         "feywind"
@@ -211,7 +212,8 @@
         "frankyn",
         "jskeet",
         "quartzmo",
-        "jesselovelace"
+        "jesselovelace",
+        "viacheslav-rostovtsev"
       ],
       "repos": [
         "googleapis/gax-ruby",
@@ -281,6 +283,7 @@
         "googleapis/google-cloud-php-monitoring",
         "googleapis/google-cloud-php-oslogin",
         "googleapis/google-cloud-php-pubsub",
+        "googleapis/google-cloud-php-recommender",
         "googleapis/google-cloud-php-redis",
         "googleapis/google-cloud-php-scheduler",
         "googleapis/google-cloud-php-secret-manager",
@@ -323,7 +326,8 @@
         "pmakani",
         "rahulKQL",
         "shollyman",
-        "stephaniewang526"
+        "stephaniewang526",
+        "lesv"
       ],
       "repos": [
         "googleapis/api-common-java",
