@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
+import {Octokit} from '@octokit/rest';
 
 export interface Team {
   name: string;
@@ -147,7 +147,7 @@ export interface Flags {
 
 export interface GetBranchProtectionResult {
   enabled: boolean;
-  required_status_checks: ReposUpdateBranchProtectionParamsRequiredStatusChecks;
+  required_status_checks: Octokit.ReposUpdateBranchProtectionParamsRequiredStatusChecks;
 }
 
 export interface GetBranchResult {
