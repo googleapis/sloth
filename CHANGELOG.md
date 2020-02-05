@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.5.0](https://www.github.com/googleapis/sloth/compare/v5.4.0...v5.5.0) (2020-02-05)
+
+
+### Features
+
+* add GCS DPEs to Yoshi Python team ([#497](https://www.github.com/googleapis/sloth/issues/497)) ([83d2d39](https://www.github.com/googleapis/sloth/commit/83d2d39f54e71a2fba78d9f7f6a438fa6e2270fb))
+
+
+### Bug Fixes
+
+* frankyn github handle ([#499](https://www.github.com/googleapis/sloth/issues/499)) ([f027481](https://www.github.com/googleapis/sloth/commit/f02748111aa23353c3f98340bf92385e376b6449))
+* **deps:** upgrade to the next octokit ([#501](https://www.github.com/googleapis/sloth/issues/501)) ([98b51a8](https://www.github.com/googleapis/sloth/commit/98b51a80f37210b8ab4034a88a5adedecd182f12))
+
 ## [5.4.0](https://www.github.com/googleapis/sloth/compare/v5.3.1...v5.4.0) (2020-02-03)
 
 
