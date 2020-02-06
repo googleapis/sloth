@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as Octokit from '@octokit/rest';
-
-import {Label, Repo, Users, Team} from './types';
+import {Octokit} from '@octokit/rest';
+import {Repo, Users, Team} from './types';
 
 export const repos: Repo[] = require('../../repos.json').repos;
 export const users: Users = require('../../users.json');
@@ -37,5 +36,4 @@ if (!token) {
 }
 
 const octo = new Octokit({auth: `token ${token}`});
-
 export {octo};

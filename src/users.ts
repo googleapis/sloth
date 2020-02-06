@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as Octokit from '@octokit/rest';
+import {Octokit} from '@octokit/rest';
 import {Member, Team} from './types';
 import {octo, users} from './util';
 
