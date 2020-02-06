@@ -35,6 +35,7 @@
     { "language": "java", "repo": "googleapis/google-http-java-client"},
     { "language": "java", "repo": "googleapis/google-oauth-java-client"},
     { "language": "java", "repo": "googleapis/gapic-generator"},
+    { "language": "java", "repo": "googleapis/java-accessapproval", "apiHint": "accessapproval"},
     { "language": "java", "repo": "googleapis/java-asset", "apiHint": "cloudasset"},
     { "language": "java", "repo": "googleapis/java-automl", "apiHint": "automl"},
     { "language": "java", "repo": "googleapis/java-bigquery", "apiHint": "bigquery"},
