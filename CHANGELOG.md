@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.6.0](https://www.github.com/googleapis/sloth/compare/v5.5.0...v5.6.0) (2020-02-08)
+
+
+### Features
+
+* add java-accessapproval repository ([#502](https://www.github.com/googleapis/sloth/issues/502)) ([89d4998](https://www.github.com/googleapis/sloth/commit/89d49982f416ae77a5401642e128222f9ab8eb55))
+
+
+### Bug Fixes
+
+* P1s have a 7 day window ([#507](https://www.github.com/googleapis/sloth/issues/507)) ([3739d5f](https://www.github.com/googleapis/sloth/commit/3739d5f362c070027d01be7a9380a71faaf0e504))
+
 ## [5.5.0](https://www.github.com/googleapis/sloth/compare/v5.4.0...v5.5.0) (2020-02-05)
 
 
