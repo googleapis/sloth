@@ -387,9 +387,9 @@ function isOutOfSLO(i: ApiIssue) {
     }
 
     // All P1 issues must receive a reply within 5 days, an update at least every
-    // 5 days thereafter, and be resolved within 42 days (six weeks).
+    // 5 days thereafter, and be resolved within 7 days.
     if (pri === 1) {
-      if (daysOld(i.createdAt) > 42 || daysOld(i.updatedAt) > 5) {
+      if (daysOld(i.createdAt) > 7 || daysOld(i.updatedAt) > 5) {
         return true;
       }
     }
