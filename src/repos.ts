@@ -210,6 +210,7 @@ const languageConfig: LanguageConfig = {
     ignoredRepos: [
       'GoogleCloudPlatform/python-docs-samples',
       'GoogleCloudPlatform/getting-started-python',
+      'googleapis/gapic-generator-python',
       'googleapis/releasetool',
       'googleapis/sample-tester',
       'googleapis/synthtool',
