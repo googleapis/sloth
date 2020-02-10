@@ -55,9 +55,10 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
 
   let pageToken = '';
   while (pageToken === '' && result.issues.length < 1) {
-    const url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false${
-      pageToken === '' ? '' : 'page=' + pageToken
-    }`;
+    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
+    if (pageToken !== '') {
+      url = url + `&page=${pageToken}`;
+    }
 
     try {
       res = await request<IssuesApiResponse>({url});
