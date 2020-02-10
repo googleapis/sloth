@@ -74,26 +74,27 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
 
     pageToken = res!.data.nextPageToken;
 
-    res!.data.issues.forEach(r => {
-      const api = getApi(r, repo);
+    const issues = res!.data.issues;
+    for (const rIssue of issues) {
+      const api = getApi(rIssue, repo);
       const issue: Issue = {
         owner,
         name,
         language: repo.language,
         repo: repo.repo,
-        types: getTypes(r),
+        types: getTypes(rIssue),
         api,
-        team: getTeam(r.repo, api),
-        isOutOfSLO: isOutOfSLO(r),
-        isTriaged: isTriaged(r),
-        pri: r.priorityUnknown ? undefined : getPriority(r.priority),
-        isPR: r.isPr,
-        number: r.issueId,
-        createdAt: r.createdAt,
-        title: r.title,
-        url: r.url,
-        labels: r.labels || [],
-        assignees: r.assignees ? r.assignees.map(x => x.login) : [],
+        team: getTeam(rIssue.repo, api),
+        isOutOfSLO: isOutOfSLO(rIssue),
+        isTriaged: isTriaged(rIssue),
+        pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
+        isPR: rIssue.isPr,
+        number: rIssue.issueId,
+        createdAt: rIssue.createdAt,
+        title: rIssue.title,
+        url: rIssue.url,
+        labels: rIssue.labels || [],
+        assignees: rIssue.assignees ? rIssue.assignees.map(x => x.login) : [],
       };
 
       let use = true;
@@ -107,7 +108,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
             use = false;
           }
         }
-        if (flags.repo && r.repo !== flags.repo) {
+        if (flags.repo && rIssue.repo !== flags.repo) {
           use = false;
         }
         if (flags.outOfSlo && !issue.isOutOfSLO) {
@@ -146,7 +147,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       if (use) {
         result.issues.push(issue);
       }
-    });
+    }
   }
   return result;
 }
