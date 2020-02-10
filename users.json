@@ -473,6 +473,7 @@
         "googleapis/google-resumable-media-python",
         "googleapis/python-api-core",
         "googleapis/python-cloud-core",
+        "googleapis/python-access-approval",
         "googleapis/python-asset",
         "googleapis/python-automl",
         "googleapis/python-bigtable",

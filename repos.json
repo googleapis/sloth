@@ -244,6 +244,7 @@
     { "language": "python", "repo": "googleapis/google-resumable-media-python", "apiHint": "storage"},
     { "language": "python", "repo": "googleapis/python-api-core"},
     { "language": "python", "repo": "googleapis/python-cloud-core"},
+    { "language": "python", "repo": "googleapis/python-access-approval", "apiHint": "accessapproval"},
     { "language": "python", "repo": "googleapis/python-asset", "apiHint": "cloudasset"},
     { "language": "python", "repo": "googleapis/python-automl", "apiHint": "automl"},
     { "language": "python", "repo": "googleapis/python-bigtable", "apiHint": "bigtable"},
