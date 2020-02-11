@@ -16,7 +16,8 @@
       "apis": [
         "ndb",
         "appengine",
-        "functions"
+        "functions",
+        "run"
       ]
     },
     {
