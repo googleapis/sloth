@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.6.1](https://www.github.com/googleapis/sloth/compare/v5.6.0...v5.6.1) (2020-02-11)
+
+
+### Bug Fixes
+
+* add run API to code-build-run team ([#510](https://www.github.com/googleapis/sloth/issues/510)) ([c75093f](https://www.github.com/googleapis/sloth/commit/c75093fcdfbff54719285916fa637ebfc81e813f))
+
 ## [5.6.0](https://www.github.com/googleapis/sloth/compare/v5.5.0...v5.6.0) (2020-02-08)
 
 
