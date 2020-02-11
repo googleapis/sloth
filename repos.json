@@ -184,6 +184,7 @@
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-storage"},
 
     { "language": "php", "repo": "googleapis/gax-php"},
     { "language": "php", "repo": "googleapis/google-api-php-client"},
