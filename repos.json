@@ -52,6 +52,7 @@
     { "language": "java", "repo": "googleapis/java-datacatalog", "apiHint": "datacatalog"},
     { "language": "java", "repo": "googleapis/java-datalabeling", "apiHint": "datalabeling"},
     { "language": "java", "repo": "googleapis/java-dataproc", "apiHint": "dataproc"},
+    { "language": "java", "repo": "googleapis/java-datastore", "apiHint": "datastore"},
     { "language": "java", "repo": "googleapis/java-dialogflow", "apiHint": "dialogflow"},
     { "language": "java", "repo": "googleapis/java-dlp", "apiHint": "dlp"},
     { "language": "java", "repo": "googleapis/java-dns", "apiHint": "dns"},
