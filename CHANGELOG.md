@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.8.0](https://www.github.com/googleapis/sloth/compare/v5.7.0...v5.8.0) (2020-02-12)
+
+
+### Features
+
+* track java-datastore repo ([#519](https://www.github.com/googleapis/sloth/issues/519)) ([d326cd2](https://www.github.com/googleapis/sloth/commit/d326cd2a8ae5649d4d458a9595a52fbaf69e5e7e))
+
 ## [5.7.0](https://www.github.com/googleapis/sloth/compare/v5.6.1...v5.7.0) (2020-02-12)
 
 
