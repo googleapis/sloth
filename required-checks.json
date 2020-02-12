@@ -71,13 +71,13 @@
     "requiredStatusChecks": [
       "ci/kokoro: Samples test",
       "ci/kokoro: System test",
-      "ci/kokoro: Windows",
-      "ci/kokoro: docs",
-      "ci/kokoro: lint",
-      "ci/kokoro: node8",
-      "ci/kokoro: node10",
-      "ci/kokoro: node12",
-      "cla/google"
+      "docs",
+      "lint",
+      "test (8)",
+      "test (10)",
+      "test (12)",
+      "cla/google",
+      "windows"
     ],
     "ignoredRepos": [
       "GoogleCloudPlatform/nodejs-docs-samples",
