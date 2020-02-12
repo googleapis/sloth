@@ -82,7 +82,8 @@
     "ignoredRepos": [
       "GoogleCloudPlatform/nodejs-docs-samples",
       "GoogleCloudPlatform/getting-started-nodejs",
-      "googleapis/gapic-generator-typescript"
+      "googleapis/gapic-generator-typescript",
+      "googleapis/cloud-profiler-nodejs"
     ]
   }
 }
