@@ -9,6 +9,7 @@
   "files": [
     "build/src",
     "repos.json",
+    "required-checks.json",
     "teams.json",
     "users.json"
   ],
