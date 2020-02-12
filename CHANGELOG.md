@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.7.0](https://www.github.com/googleapis/sloth/compare/v5.6.1...v5.7.0) (2020-02-12)
+
+
+### Features
+
+* Add Andrew Zammit (zamnuts) to yoshi-nodejs team. ([#513](https://www.github.com/googleapis/sloth/issues/513)) ([09ce1b7](https://www.github.com/googleapis/sloth/commit/09ce1b7425d8c8a190e1b2ae8045b39c06641935))
+* add kolea2 to yoshi-nodejs ([#515](https://www.github.com/googleapis/sloth/issues/515)) ([4790f26](https://www.github.com/googleapis/sloth/commit/4790f26cf0241d3debed98cdf3d29c42467da16b))
+* break out required checks into JSON file; update Node.js required checks ([#518](https://www.github.com/googleapis/sloth/issues/518)) ([1d19029](https://www.github.com/googleapis/sloth/commit/1d19029abd3474a50fc763ca5a1482dff4835b11))
+
 ### [5.6.1](https://www.github.com/googleapis/sloth/compare/v5.6.0...v5.6.1) (2020-02-11)
 
 
