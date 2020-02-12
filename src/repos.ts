@@ -154,7 +154,7 @@ async function updateRepoOptions(repos: Repo[]) {
   }
 }
 
-const languageConfig: LanguageConfig =  require('../../required-checks.json');
+const languageConfig: LanguageConfig = require('../../required-checks.json');
 
 interface LanguageConfig {
   [index: string]: {
