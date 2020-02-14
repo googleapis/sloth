@@ -11,6 +11,7 @@ jobs:
           node-version: 12
       - run: npm install
       - run: npm run compile
-      - run: node build/src/exportToBigQuery.js --datasetId yoshi_github_slo --tableId issues_raw --projectId yoshi-status
-
-
+      - run: echo $KEYFILE_CONTENTS | base64 --decode > keyfile.json
+        env:
+          KEYFILE_CONTENTS: ${{ secrets.KEYFILE_CONTENTS }}
+      - run: GOOGLE_APPLICATION_CREDENTIALS=./keyfile.json node ./build/src/exportToBigQuery.js --datasetId yoshi_github_slo --tableId issues_raw --projectId yoshi-status

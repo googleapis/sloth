@@ -60,8 +60,8 @@ export async function main(
     r.issues.forEach(i => {
       i.createdAt = BigQuery.datetime(i.createdAt) as {} as string;
       // tslint: disable-next-line no-any
-      (i as any).recordDate = BigQuery.date((new Date()).toString())
-      issues.push(i)
+      (i as any).recordDate = BigQuery.date((new Date()).toISOString().slice(0,10));
+      issues.push(i);
     });
   });
   const bigquery = new BigQuery({
