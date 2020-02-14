@@ -122,7 +122,6 @@
         "googleapis/nodejs-billing-budgets",
         "googleapis/nodejs-cloud-container",
         "googleapis/nodejs-common",
-        "googleapis/nodejs-common-grpc",
         "googleapis/nodejs-compute",
         "googleapis/nodejs-containeranalysis",
         "googleapis/nodejs-datacatalog",

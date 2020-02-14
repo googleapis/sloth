@@ -127,7 +127,6 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-cloud-container", "apiHint": "container"},
     { "language": "nodejs", "repo": "googleapis/nodejs-cloudbuild", "apiHint": "cloudbuild"},
     { "language": "nodejs", "repo": "googleapis/nodejs-common"},
-    { "language": "nodejs", "repo": "googleapis/nodejs-common-grpc"},
     { "language": "nodejs", "repo": "googleapis/nodejs-compute", "apiHint": "compute"},
     { "language": "nodejs", "repo": "googleapis/nodejs-containeranalysis", "apiHint": "containeranalysis"},
     { "language": "nodejs", "repo": "googleapis/nodejs-datacatalog", "apiHint": "datacatalog"},
