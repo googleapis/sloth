@@ -43,6 +43,13 @@
           "Kokoro - Test: Linkage Monitor",
           "cla/google"
         ]
+      },
+      {
+        "repo": "googleapis/google-api-java-client-services",
+        "requiredStatusChecks": [
+          "Kokoro - Test: Java 8",
+          "cla/google"
+        ]
       }
     ]
   },
