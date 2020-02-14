@@ -1,0 +1,18 @@
+on:
+  schedule:
+    - cron:  '0 2 * * *'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install
+      - run: npm run compile
+      - run: echo $KEYFILE_CONTENTS | base64 --decode > /tmp/keyfile.json
+        env:
+          KEYFILE_CONTENTS: ${{ secrets.KEYFILE_CONTENTS }}
+      - run: cat /tmp/keyfile.json
+      - run: GOOGLE_APPLICATION_CREDENTIALS=/tmp/keyfile.json node ./build/src/exportToBigQuery.js --datasetId yoshi_github_slo --tableId issues_raw --projectId yoshi-status
