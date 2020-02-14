@@ -14,8 +14,8 @@
 
 import {BigQuery} from '@google-cloud/bigquery';
 import meow = require('meow');
-import { getIssues } from './issue';
-import { Issue } from './types';
+import {getIssues} from './issue';
+import {Issue} from './types';
 
 const cli = meow(
   `
@@ -34,7 +34,7 @@ const cli = meow(
     flags: {
       datasetId: {type: 'string'},
       tableId: {type: 'string'},
-      projectId: {type: 'string'}
+      projectId: {type: 'string'},
     },
   }
 );
@@ -50,7 +50,7 @@ if (!cli.flags.projectId) {
 }
 
 export async function main(
-  datasetId: string, 
+  datasetId: string,
   tableId: string,
   projectId: string
 ): Promise<void> {
@@ -58,14 +58,16 @@ export async function main(
   const issues = new Array<Issue>();
   repos.forEach(r => {
     r.issues.forEach(i => {
-      i.createdAt = BigQuery.datetime(i.createdAt) as {} as string;
-      // tslint: disable-next-line no-any
-      (i as any).recordDate = BigQuery.date((new Date()).toISOString().slice(0,10));
+      i.createdAt = (BigQuery.datetime(i.createdAt) as {}) as string;
+      // tslint:disable-next-line no-any
+      (i as any).recordDate = BigQuery.date(
+        new Date().toISOString().slice(0, 10)
+      );
       issues.push(i);
     });
   });
   const bigquery = new BigQuery({
-    projectId: projectId
+    projectId,
   });
   const result = await bigquery
     .dataset(datasetId)
@@ -77,7 +79,7 @@ export async function main(
 main(cli.flags.datasetId, cli.flags.tableId, cli.flags.projectId).catch(err => {
   console.error(err);
   if (err.errors) {
-    for(const e of err.errors) {
+    for (const e of err.errors) {
       console.error(e);
     }
   }
