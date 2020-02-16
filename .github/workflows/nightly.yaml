@@ -1,3 +1,4 @@
+name: bigquery-export
 on:
   schedule:
     - cron:  '* * * * *'
@@ -17,5 +18,5 @@ jobs:
       - run: cat /tmp/keyfile.json
       - run: GOOGLE_APPLICATION_CREDENTIALS=/tmp/keyfile.json node ./build/src/exportToBigQuery.js --datasetId yoshi_github_slo --tableId issues_raw --projectId yoshi-status
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLOTH_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRIFT_API_KEY: ${{ secrets.DRIFT_API_KEY }}
