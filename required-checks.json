@@ -92,5 +92,27 @@
       "googleapis/gapic-generator-typescript",
       "googleapis/cloud-profiler-nodejs"
     ]
+  },
+  "ruby": {
+    "enableSquashMerge": true,
+    "enableRebaseMerge": true,
+    "requireUpToDateBranch": true,
+    "requiredStatusChecks": [
+      "OSx",
+      "Ubuntu",
+      "Windows",
+      "cla/google"
+    ],
+    "ignoredRepos": [
+      "googleapis/discovery-artifact-manager",
+      "googleapis/gax-ruby",
+      "googleapis/google-auth-library-ruby",
+      "googleapis/google-cloud-ruby",
+      "googleapis/ruby-style",
+      "googleapis/signet",
+      "googleapis/gapic-generator-ruby",
+      "GoogleCloudPlatform/ruby-docs-samples",
+      "GoogleCloudPlatform/getting-started-ruby"
+    ]
   }
 }
