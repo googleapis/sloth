@@ -50,6 +50,21 @@
           "Kokoro - Test: Java 8",
           "cla/google"
         ]
+      },
+      {
+        "repo": "GoogleCloudPlatform/getting-started-java",
+        "requiredStatusChecks": [
+          "Kokoro CI",
+          "cla/google"
+        ]
+      },
+      {
+        "repo": "GoogleCloudPlatform/java-docs-samples",
+        "requiredStatusChecks": [
+          "Kokoro CI - Java 11",
+          "Kokoro CI - Java 8",
+          "cla/google"
+        ]
       }
     ]
   },
