@@ -105,7 +105,8 @@
       "GoogleCloudPlatform/nodejs-docs-samples",
       "GoogleCloudPlatform/getting-started-nodejs",
       "googleapis/gapic-generator-typescript",
-      "googleapis/cloud-profiler-nodejs"
+      "googleapis/cloud-profiler-nodejs",
+      "googleapis/google-cloud-node"
     ]
   },
   "ruby": {
