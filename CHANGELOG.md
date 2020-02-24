@@ -4,6 +4,26 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.9.0](https://www.github.com/googleapis/sloth/compare/v5.8.0...v5.9.0) (2020-02-24)
+
+
+### Features
+
+* add arithmetic1728 to yoshi-python ([#531](https://www.github.com/googleapis/sloth/issues/531)) ([ef9db71](https://www.github.com/googleapis/sloth/commit/ef9db7122f92bffafa8ad140512ffdf16cdbe418))
+* add nightly snapshot job ([#524](https://www.github.com/googleapis/sloth/issues/524)) ([ba17d5c](https://www.github.com/googleapis/sloth/commit/ba17d5c00ff43738a72b85bfd292d68f94f2a8ce))
+* add paul1319 to python ([#522](https://www.github.com/googleapis/sloth/issues/522)) ([8028668](https://www.github.com/googleapis/sloth/commit/8028668e3ddc88ceaead50db41ffd4494b74c20d))
+* add repo support to getting started with java and java docs samples ([#534](https://www.github.com/googleapis/sloth/issues/534)) ([5f47d73](https://www.github.com/googleapis/sloth/commit/5f47d738455bd4e56e8d1594039aa9bd26d58ddd))
+* add required checks for google-api-ruby-client ([#533](https://www.github.com/googleapis/sloth/issues/533)) ([ce5c6bc](https://www.github.com/googleapis/sloth/commit/ce5c6bce273dd7a04714d6944c38545575d37d11))
+* updates repos.json ([#537](https://www.github.com/googleapis/sloth/issues/537)) ([7ef1d3d](https://www.github.com/googleapis/sloth/commit/7ef1d3ddec885ca2abfba8f8553a60e6171d0297))
+
+
+### Bug Fixes
+
+* drop nodejs-common-grpc module ([#521](https://www.github.com/googleapis/sloth/issues/521)) ([6a65c0a](https://www.github.com/googleapis/sloth/commit/6a65c0ad776d7f4a6b5d4a81491473733d7aac61))
+* **java:** add required-checks override for googleapis/google-api-java-client-services ([#525](https://www.github.com/googleapis/sloth/issues/525)) ([5f047ee](https://www.github.com/googleapis/sloth/commit/5f047eedb4e3024874f663a93c64d77537589913))
+* no required status checks for google-cloud-node ([#536](https://www.github.com/googleapis/sloth/issues/536)) ([9d8bd93](https://www.github.com/googleapis/sloth/commit/9d8bd933b37e28a1b37f88970012559e8e1dce3d))
+* require node13, repo-automation-bots is a snowflake ([#539](https://www.github.com/googleapis/sloth/issues/539)) ([5aa9b62](https://www.github.com/googleapis/sloth/commit/5aa9b6225bd471ae530aa47339c297c469e30321))
+
 ## [5.8.0](https://www.github.com/googleapis/sloth/compare/v5.7.0...v5.8.0) (2020-02-12)
 
 
