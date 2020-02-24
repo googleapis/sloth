@@ -98,6 +98,7 @@
       "test (8)",
       "test (10)",
       "test (12)",
+      "test (13)",
       "cla/google",
       "windows"
     ],
@@ -106,6 +107,7 @@
       "GoogleCloudPlatform/getting-started-nodejs",
       "googleapis/gapic-generator-typescript",
       "googleapis/cloud-profiler-nodejs",
+      "googleapis/repo-automation-bots",
       "googleapis/google-cloud-node"
     ]
   },
