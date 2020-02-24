@@ -135,6 +135,7 @@
         "googleapis/nodejs-error-reporting",
         "googleapis/nodejs-firestore",
         "googleapis/nodejs-firestore-session",
+        "googleapis/nodejs-game-servers",
         "googleapis/nodejs-googleapis-common",
         "googleapis/nodejs-iot",
         "googleapis/nodejs-kms",
