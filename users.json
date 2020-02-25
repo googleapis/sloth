@@ -118,6 +118,7 @@
         "googleapis/nodejs-automl",
         "googleapis/nodejs-bigquery",
         "googleapis/nodejs-bigquery-data-transfer",
+        "googleapis/nodejs-bigquery-storage",
         "googleapis/nodejs-bigtable",
         "googleapis/nodejs-billing-budgets",
         "googleapis/nodejs-cloud-container",
