@@ -103,12 +103,17 @@
       "windows"
     ],
     "ignoredRepos": [
-      "GoogleCloudPlatform/nodejs-docs-samples",
       "GoogleCloudPlatform/getting-started-nodejs",
       "googleapis/gapic-generator-typescript",
       "googleapis/cloud-profiler-nodejs",
       "googleapis/repo-automation-bots",
       "googleapis/google-cloud-node"
+    ],
+    "repoOverrides": [
+      {
+        "repo": "GoogleCloudPlatform/nodejs-docs-samples",
+        "useBranchProtectionRules": true
+      }
     ]
   },
   "ruby": {
