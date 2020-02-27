@@ -104,7 +104,6 @@
     ],
     "ignoredRepos": [
       "GoogleCloudPlatform/getting-started-nodejs",
-      "googleapis/gapic-generator-typescript",
       "googleapis/cloud-profiler-nodejs",
       "googleapis/repo-automation-bots",
       "googleapis/google-cloud-node"
@@ -113,6 +112,20 @@
       {
         "repo": "GoogleCloudPlatform/nodejs-docs-samples",
         "useBranchProtectionRules": true
+      },
+      {
+        "repo": "googleapis/gapic-generator-typescript",
+        "requiredStatusChecks": [
+          "ci/circleci: dlpLibTest",
+          "ci/circleci: kmsLibTest",
+          "ci/circleci: monitoringLibTest",
+          "ci/circleci: showcaseLibTest",
+          "ci/circleci: showcaseTestApplications",
+          "ci/circleci: testGenerator",
+          "ci/circleci: translateLibTest",
+          "ci/circleci: ttsLibTest",
+          "cla/google"
+        ]
       }
     ]
   },
