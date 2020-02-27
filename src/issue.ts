@@ -88,7 +88,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         isOutOfSLO: isOutOfSLO(rIssue),
         isTriaged: isTriaged(rIssue),
         pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
-        isPR: rIssue.isPr,
+        isPR: !!rIssue.isPr,
         number: rIssue.issueId,
         createdAt: rIssue.createdAt,
         title: rIssue.title,

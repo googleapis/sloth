@@ -4,6 +4,61 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.9.0](https://www.github.com/googleapis/sloth/compare/v5.8.0...v5.9.0) (2020-02-24)
+
+
+### Features
+
+* add arithmetic1728 to yoshi-python ([#531](https://www.github.com/googleapis/sloth/issues/531)) ([ef9db71](https://www.github.com/googleapis/sloth/commit/ef9db7122f92bffafa8ad140512ffdf16cdbe418))
+* add nightly snapshot job ([#524](https://www.github.com/googleapis/sloth/issues/524)) ([ba17d5c](https://www.github.com/googleapis/sloth/commit/ba17d5c00ff43738a72b85bfd292d68f94f2a8ce))
+* add paul1319 to python ([#522](https://www.github.com/googleapis/sloth/issues/522)) ([8028668](https://www.github.com/googleapis/sloth/commit/8028668e3ddc88ceaead50db41ffd4494b74c20d))
+* add repo support to getting started with java and java docs samples ([#534](https://www.github.com/googleapis/sloth/issues/534)) ([5f47d73](https://www.github.com/googleapis/sloth/commit/5f47d738455bd4e56e8d1594039aa9bd26d58ddd))
+* add required checks for google-api-ruby-client ([#533](https://www.github.com/googleapis/sloth/issues/533)) ([ce5c6bc](https://www.github.com/googleapis/sloth/commit/ce5c6bce273dd7a04714d6944c38545575d37d11))
+* updates repos.json ([#537](https://www.github.com/googleapis/sloth/issues/537)) ([7ef1d3d](https://www.github.com/googleapis/sloth/commit/7ef1d3ddec885ca2abfba8f8553a60e6171d0297))
+
+
+### Bug Fixes
+
+* drop nodejs-common-grpc module ([#521](https://www.github.com/googleapis/sloth/issues/521)) ([6a65c0a](https://www.github.com/googleapis/sloth/commit/6a65c0ad776d7f4a6b5d4a81491473733d7aac61))
+* **java:** add required-checks override for googleapis/google-api-java-client-services ([#525](https://www.github.com/googleapis/sloth/issues/525)) ([5f047ee](https://www.github.com/googleapis/sloth/commit/5f047eedb4e3024874f663a93c64d77537589913))
+* no required status checks for google-cloud-node ([#536](https://www.github.com/googleapis/sloth/issues/536)) ([9d8bd93](https://www.github.com/googleapis/sloth/commit/9d8bd933b37e28a1b37f88970012559e8e1dce3d))
+* require node13, repo-automation-bots is a snowflake ([#539](https://www.github.com/googleapis/sloth/issues/539)) ([5aa9b62](https://www.github.com/googleapis/sloth/commit/5aa9b6225bd471ae530aa47339c297c469e30321))
+
+## [5.8.0](https://www.github.com/googleapis/sloth/compare/v5.7.0...v5.8.0) (2020-02-12)
+
+
+### Features
+
+* track java-datastore repo ([#519](https://www.github.com/googleapis/sloth/issues/519)) ([d326cd2](https://www.github.com/googleapis/sloth/commit/d326cd2a8ae5649d4d458a9595a52fbaf69e5e7e))
+
+## [5.7.0](https://www.github.com/googleapis/sloth/compare/v5.6.1...v5.7.0) (2020-02-12)
+
+
+### Features
+
+* Add Andrew Zammit (zamnuts) to yoshi-nodejs team. ([#513](https://www.github.com/googleapis/sloth/issues/513)) ([09ce1b7](https://www.github.com/googleapis/sloth/commit/09ce1b7425d8c8a190e1b2ae8045b39c06641935))
+* add kolea2 to yoshi-nodejs ([#515](https://www.github.com/googleapis/sloth/issues/515)) ([4790f26](https://www.github.com/googleapis/sloth/commit/4790f26cf0241d3debed98cdf3d29c42467da16b))
+* break out required checks into JSON file; update Node.js required checks ([#518](https://www.github.com/googleapis/sloth/issues/518)) ([1d19029](https://www.github.com/googleapis/sloth/commit/1d19029abd3474a50fc763ca5a1482dff4835b11))
+
+### [5.6.1](https://www.github.com/googleapis/sloth/compare/v5.6.0...v5.6.1) (2020-02-11)
+
+
+### Bug Fixes
+
+* add run API to code-build-run team ([#510](https://www.github.com/googleapis/sloth/issues/510)) ([c75093f](https://www.github.com/googleapis/sloth/commit/c75093fcdfbff54719285916fa637ebfc81e813f))
+
+## [5.6.0](https://www.github.com/googleapis/sloth/compare/v5.5.0...v5.6.0) (2020-02-08)
+
+
+### Features
+
+* add java-accessapproval repository ([#502](https://www.github.com/googleapis/sloth/issues/502)) ([89d4998](https://www.github.com/googleapis/sloth/commit/89d49982f416ae77a5401642e128222f9ab8eb55))
+
+
+### Bug Fixes
+
+* P1s have a 7 day window ([#507](https://www.github.com/googleapis/sloth/issues/507)) ([3739d5f](https://www.github.com/googleapis/sloth/commit/3739d5f362c070027d01be7a9380a71faaf0e504))
+
 ## [5.5.0](https://www.github.com/googleapis/sloth/compare/v5.4.0...v5.5.0) (2020-02-05)
 
 
