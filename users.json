@@ -488,6 +488,7 @@
         "googleapis/python-bigquery",
         "googleapis/python-bigquery-datatransfer",
         "googleapis/python-bigquery-storage",
+        "googleapis/python-billing",
         "googleapis/python-billingbudgets",
         "googleapis/python-cloudbuild",
         "googleapis/python-container",
