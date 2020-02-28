@@ -118,7 +118,8 @@
       "GoogleCloudPlatform/getting-started-nodejs",
       "googleapis/cloud-profiler-nodejs",
       "googleapis/repo-automation-bots",
-      "googleapis/google-cloud-node"
+      "googleapis/google-cloud-node",
+      "googleapis/cloud-trace-nodejs"
     ],
     "repoOverrides": [
       {
