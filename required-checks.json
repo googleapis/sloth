@@ -114,6 +114,10 @@
         "useBranchProtectionRules": true
       },
       {
+        "repo": "googleapis/repo-automation-bots",
+        "useBranchProtectionRules": true
+      },
+      {
         "repo": "googleapis/gapic-generator-typescript",
         "requiredStatusChecks": [
           "ci/circleci: dlpLibTest",
