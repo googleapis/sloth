@@ -77,13 +77,25 @@
       "cla/google"
     ],
     "ignoredRepos": [
-      "GoogleCloudPlatform/python-docs-samples",
       "GoogleCloudPlatform/getting-started-python",
       "googleapis/gapic-generator-python",
       "googleapis/releasetool",
       "googleapis/sample-tester",
       "googleapis/synthtool",
       "googleapis/google-cloud-python"
+    ], 
+    "repoOverrides": [
+      {
+        "repo": "GoogleCloudPlatform/python-docs-samples",
+        "requiredStatusChecks": [
+          "Kokoro CI - Python 3.6",
+          "Kokoro CI - Python 3.7",
+          "Kokoro CI - Python 2.7",
+          "Kokoro CI - Python 3.5",
+          "Kokoro CI - Lint",
+          "cla/google"
+        ]
+      }
     ]
   },
   "nodejs": {
