@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.10.0](https://www.github.com/googleapis/sloth/compare/v5.9.0...v5.10.0) (2020-02-28)
+
+
+### Features
+
+* add bigquery-storage ([#542](https://www.github.com/googleapis/sloth/issues/542)) ([f945488](https://www.github.com/googleapis/sloth/commit/f9454884fbcf57277d071667cb1a5abb7e81111d))
+* add nodejs-billing to sloth ([#549](https://www.github.com/googleapis/sloth/issues/549)) ([7becffe](https://www.github.com/googleapis/sloth/commit/7becffe066ce9ef33fe47fb0f38f161cea3c40a7))
+* updates users.json to include Game Servers ([#540](https://www.github.com/googleapis/sloth/issues/540)) ([c115aa4](https://www.github.com/googleapis/sloth/commit/c115aa470e39b5fcc7c2caeba5a5b3406f3e94e2))
+
+
+### Bug Fixes
+
+* add dsymonds to yoshi-go ([#548](https://www.github.com/googleapis/sloth/issues/548)) ([6a413c3](https://www.github.com/googleapis/sloth/commit/6a413c39d359e670596ac11ea6753c792cb941b2))
+* add support for Node Support ([#543](https://www.github.com/googleapis/sloth/issues/543)) ([50d7c9d](https://www.github.com/googleapis/sloth/commit/50d7c9d6346f23ec265b1a994f6829ad0939cf38))
+* add support for Python Samples Docs ([#544](https://www.github.com/googleapis/sloth/issues/544)) ([37a6dc6](https://www.github.com/googleapis/sloth/commit/37a6dc626c6fce9bb692e4913e25fd5722f2d03d))
+
 ## [5.9.0](https://www.github.com/googleapis/sloth/compare/v5.8.0...v5.9.0) (2020-02-24)
 
 
