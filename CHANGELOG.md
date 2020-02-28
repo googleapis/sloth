@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.10.1](https://www.github.com/googleapis/sloth/compare/v5.10.0...v5.10.1) (2020-02-28)
+
+
+### Bug Fixes
+
+* cloud-trace-nodejs has different requirements for tests ([#552](https://www.github.com/googleapis/sloth/issues/552)) ([933e19b](https://www.github.com/googleapis/sloth/commit/933e19b70cf2e3a1e622b0d2fc8191ec128f7c65))
+
 ## [5.10.0](https://www.github.com/googleapis/sloth/compare/v5.9.0...v5.10.0) (2020-02-28)
 
 
