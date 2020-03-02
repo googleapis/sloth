@@ -120,6 +120,7 @@
         "googleapis/nodejs-bigquery-data-transfer",
         "googleapis/nodejs-bigquery-storage",
         "googleapis/nodejs-bigtable",
+        "googleapis/nodejs-billing",
         "googleapis/nodejs-billing-budgets",
         "googleapis/nodejs-cloud-container",
         "googleapis/nodejs-common",
@@ -421,7 +422,8 @@
         "tritone",
         "IlyaFaer",
         "AlisskaPie",
-        "jesselovelace"
+        "jesselovelace",
+        "dsymonds"
       ],
       "repos": [
         "googleapis/go-genproto",
@@ -486,6 +488,7 @@
         "googleapis/python-bigquery",
         "googleapis/python-bigquery-datatransfer",
         "googleapis/python-bigquery-storage",
+        "googleapis/python-billing",
         "googleapis/python-billingbudgets",
         "googleapis/python-cloudbuild",
         "googleapis/python-container",
