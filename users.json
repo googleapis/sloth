@@ -509,6 +509,7 @@
         "googleapis/python-kms",
         "googleapis/python-language",
         "googleapis/python-logging",
+        "googleapis/python-memcache",
         "googleapis/python-monitoring",
         "googleapis/python-monitoring-dashboards",
         "googleapis/python-ndb",

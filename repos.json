@@ -275,6 +275,7 @@
     { "language": "python", "repo": "googleapis/python-kms", "apiHint": "cloudkms"},
     { "language": "python", "repo": "googleapis/python-language", "apiHint": "language"},
     { "language": "python", "repo": "googleapis/python-logging", "apiHint": "logging"},
+    { "language": "python", "repo": "googleapis/python-memcache", "apiHint": "memcache"},
     { "language": "python", "repo": "googleapis/python-monitoring", "apiHint": "monitoring"},
     { "language": "python", "repo": "googleapis/python-monitoring-dashboards", "apiHint": "monitoring"},
     { "language": "python", "repo": "googleapis/python-ndb", "apiHint": "ndb"},
