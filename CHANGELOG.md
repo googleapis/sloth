@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.11.0](https://www.github.com/googleapis/sloth/compare/v5.10.0...v5.11.0) (2020-03-03)
+
+
+### Features
+
+* **python:** add python-billing repo ([#554](https://www.github.com/googleapis/sloth/issues/554)) ([edbc344](https://www.github.com/googleapis/sloth/commit/edbc344e18460fd6719849fa3200d531f5a33a3a))
+* **python:** add python-memcache repo ([#557](https://www.github.com/googleapis/sloth/issues/557)) ([2d5c6c3](https://www.github.com/googleapis/sloth/commit/2d5c6c33087aead27d82e1be41b2fc8f39b51cce))
+
+
+### Bug Fixes
+
+* cloud-trace-nodejs has different requirements for tests ([#552](https://www.github.com/googleapis/sloth/issues/552)) ([933e19b](https://www.github.com/googleapis/sloth/commit/933e19b70cf2e3a1e622b0d2fc8191ec128f7c65))
+
 ## [5.10.0](https://www.github.com/googleapis/sloth/compare/v5.9.0...v5.10.0) (2020-02-28)
 
 
