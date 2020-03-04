@@ -91,7 +91,6 @@
           "Kokoro CI - Python 3.6",
           "Kokoro CI - Python 3.7",
           "Kokoro CI - Python 2.7",
-          "Kokoro CI - Python 3.5",
           "Kokoro CI - Lint",
           "cla/google"
         ]
