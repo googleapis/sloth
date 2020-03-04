@@ -4,6 +4,16 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.11.1](https://www.github.com/googleapis/sloth/compare/v5.11.0...v5.11.1) (2020-03-04)
+
+
+### Bug Fixes
+
+* attributes team by repo before api ([#563](https://www.github.com/googleapis/sloth/issues/563)) ([02b4a3b](https://www.github.com/googleapis/sloth/commit/02b4a3b0a7096992fa70e2a25aae8ae4b2c836f5)), closes [#562](https://www.github.com/googleapis/sloth/issues/562)
+* cbr owns tasks ([#560](https://www.github.com/googleapis/sloth/issues/560)) ([ccc5eb4](https://www.github.com/googleapis/sloth/commit/ccc5eb47b58dbac91eeab58705455557b1bb98f0))
+* remove python 3.5 kokoro requirement ([#561](https://www.github.com/googleapis/sloth/issues/561)) ([a77add2](https://www.github.com/googleapis/sloth/commit/a77add2fcdf5ab8c1c8393cdab772efbed75dbf8))
+* remove tswast from yoshi teams ([#558](https://www.github.com/googleapis/sloth/issues/558)) ([5795e58](https://www.github.com/googleapis/sloth/commit/5795e585f2d781a2ab0e48bb44beb2cb13b5cafa))
+
 ## [5.11.0](https://www.github.com/googleapis/sloth/compare/v5.10.0...v5.11.0) (2020-03-03)
 
 
