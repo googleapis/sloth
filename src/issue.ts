@@ -388,11 +388,20 @@ function isOutOfSLO(i: ApiIssue) {
     hasLabel(i, 'type: docs') ||
     hasLabel(i, 'type: bug');
 
+  // +----------+----------+---------+
+  // | Priority | Response | Closure |
+  // +----------+----------+---------+
+  // |        0 |        1 | 1       |
+  // |        1 |        1 | 7       |
+  // |        2 |     5/90 | 180     |
+  // |        3 |      180 | N/A     |
+  // |        4 |      365 | N/A     |
+  // +----------+----------+---------+
   if (isCustomerIssue) {
     // All P0 issues must receive a reply within 1 day, an update at least daily,
     // and be resolved within 5 days.
     if (pri === 0) {
-      if (daysOld(i.createdAt) > 5 || daysOld(i.updatedAt) > 1) {
+      if (daysOld(i.createdAt) > 1 || daysOld(i.updatedAt) > 1) {
         return true;
       }
     }
@@ -405,10 +414,24 @@ function isOutOfSLO(i: ApiIssue) {
       }
     }
 
-    // All P2 issues must receive a reply within 5 days, and be resolved within
-    // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
+    // All P2 issues must receive a reply within 5 days initially, 90 days
+    // after, and be resolved within 180 days.
     if (pri === 2) {
-      if (daysOld(i.createdAt) > 180) {
+      if (daysOld(i.createdAt) > 180 || daysOld(i.updatedAt) > 5) {
+        return true;
+      }
+    }
+
+    // All P3 issues must receive a reply every 180 days
+    if (pri === 3) {
+      if (daysOld(i.updatedAt) > 180) {
+        return true;
+      }
+    }
+
+    // All P3 issues must receive a reply every 365 days
+    if (pri === 4) {
+      if (daysOld(i.updatedAt) > 365) {
         return true;
       }
     }
