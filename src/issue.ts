@@ -417,7 +417,7 @@ function isOutOfSLO(i: ApiIssue) {
     // All P2 issues must receive a reply within 5 days initially, 90 days
     // after, and be resolved within 180 days.
     if (pri === 2) {
-      if (daysOld(i.createdAt) > 180 || daysOld(i.updatedAt) > 5) {
+      if (daysOld(i.createdAt) > 180 || daysOld(i.updatedAt) > 90) {
         return true;
       }
     }
