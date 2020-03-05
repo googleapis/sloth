@@ -399,7 +399,7 @@ function isOutOfSLO(i: ApiIssue) {
   // +----------+----------+---------+
   if (isCustomerIssue) {
     // All P0 issues must receive a reply within 1 day, an update at least daily,
-    // and be resolved within 5 days.
+    // and be resolved within 1 day.
     if (pri === 0) {
       if (daysOld(i.createdAt) > 1 || daysOld(i.updatedAt) > 1) {
         return true;
