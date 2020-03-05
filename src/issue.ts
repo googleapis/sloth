@@ -52,92 +52,103 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const result = {issues: new Array<Issue>(), repo};
   let res!: GaxiosResponse<IssuesApiResponse>;
   const rootUrl = 'https://drghs.endpoints.devrel-prod.cloud.goog/api/v1';
-  const url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
-  try {
-    res = await request<IssuesApiResponse>({url});
-  } catch (e) {
-    console.warn(`Error fetching issues for ${repo.repo}.`);
-    //console.warn(e);
-    return result;
-  }
 
-  if (!res.data || !res.data.issues) {
-    return result;
-  }
+  let pageToken = '';
+  while (pageToken === '' && result.issues.length < 1) {
+    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
+    if (pageToken !== '') {
+      url = url + `&page=${pageToken}`;
+    }
 
-  res!.data.issues.forEach(r => {
-    const api = getApi(r, repo);
-    const issue: Issue = {
-      owner,
-      name,
-      language: repo.language,
-      repo: repo.repo,
-      types: getTypes(r),
-      api,
-      team: getTeam(r.repo, api),
-      isOutOfSLO: isOutOfSLO(r),
-      isTriaged: isTriaged(r),
-      pri: r.priorityUnknown ? undefined : getPriority(r.priority),
-      isPR: !!r.isPr,
-      number: r.issueId,
-      createdAt: r.createdAt,
-      title: r.title,
-      url: r.url,
-      labels: r.labels || [],
-      assignees: r.assignees ? r.assignees.map(x => x.login) : [],
-    };
+    try {
+      res = await request<IssuesApiResponse>({url});
+    } catch (e) {
+      console.warn(`Error fetching issues for ${repo.repo}.`);
+      // console.warn(e);
+      return result;
+    }
 
-    let use = true;
-    if (flags) {
-      if (flags.api) {
-        const apiTypes = flags.api
-          .split(',')
-          .map(t => t.trim())
-          .filter(t => t.length > 0);
-        if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
-          use = false;
-        }
-      }
-      if (flags.repo && r.repo !== flags.repo) {
-        use = false;
-      }
-      if (flags.outOfSlo && !issue.isOutOfSLO) {
-        use = false;
-      }
-      if (flags.untriaged && issue.isTriaged) {
-        use = false;
-      }
-      if (flags.team && issue.team !== flags.team) {
-        use = false;
-      }
-      if (flags.pri && `p${issue.pri}` !== flags.pri) {
-        use = false;
-      }
-      if (flags.pr && !issue.isPR) {
-        use = false;
-      }
-      if (flags.type) {
-        const flagTypes = flags.type
-          .split(',')
-          .map(t => t.trim())
-          .filter(t => t.length > 0);
-        let found = false;
-        for (const flagType of flagTypes) {
-          for (const issueType of issue.types) {
-            if (flagType === issueType) {
-              found = true;
-            }
+    if (!res.data || !res.data.issues) {
+      return result;
+    }
+
+    pageToken = res!.data.nextPageToken;
+
+    const issues = res!.data.issues;
+    for (const rIssue of issues) {
+      const api = getApi(rIssue, repo);
+      const issue: Issue = {
+        owner,
+        name,
+        language: repo.language,
+        repo: repo.repo,
+        types: getTypes(rIssue),
+        api,
+        team: getTeam(rIssue.repo, api),
+        isOutOfSLO: isOutOfSLO(rIssue),
+        isTriaged: isTriaged(rIssue),
+        pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
+        isPR: !!rIssue.isPr,
+        number: rIssue.issueId,
+        createdAt: rIssue.createdAt,
+        title: rIssue.title,
+        url: rIssue.url,
+        labels: rIssue.labels || [],
+        assignees: rIssue.assignees ? rIssue.assignees.map(x => x.login) : [],
+      };
+
+      let use = true;
+      if (flags) {
+        if (flags.api) {
+          const apiTypes = flags.api
+            .split(',')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
+          if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
+            use = false;
           }
         }
-        if (!found) {
+        if (flags.repo && rIssue.repo !== flags.repo) {
           use = false;
         }
+        if (flags.outOfSlo && !issue.isOutOfSLO) {
+          use = false;
+        }
+        if (flags.untriaged && issue.isTriaged) {
+          use = false;
+        }
+        if (flags.team && issue.team !== flags.team) {
+          use = false;
+        }
+        if (flags.pri && `p${issue.pri}` !== flags.pri) {
+          use = false;
+        }
+        if (flags.pr && !issue.isPR) {
+          use = false;
+        }
+        if (flags.type) {
+          const flagTypes = flags.type
+            .split(',')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
+          let found = false;
+          for (const flagType of flagTypes) {
+            for (const issueType of issue.types) {
+              if (flagType === issueType) {
+                found = true;
+              }
+            }
+          }
+          if (!found) {
+            use = false;
+          }
+        }
+      }
+      if (use) {
+        result.issues.push(issue);
       }
     }
-    if (use) {
-      result.issues.push(issue);
-    }
-  });
+  }
   return result;
 }
 

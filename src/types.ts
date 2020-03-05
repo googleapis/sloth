@@ -158,6 +158,7 @@ export interface GetBranchResult {
 
 export interface IssuesApiResponse {
   issues: ApiIssue[];
+  nextPageToken: string;
 }
 
 export interface ApiIssue {
