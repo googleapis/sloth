@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.11.2](https://www.github.com/googleapis/sloth/compare/v5.11.1...v5.11.2) (2020-03-05)
+
+
+### Bug Fixes
+
+* add samples/docs repos, and remove jskeet from Ruby team ([#564](https://www.github.com/googleapis/sloth/issues/564)) ([a8d72b9](https://www.github.com/googleapis/sloth/commit/a8d72b9977dfce4f80765475e1bf1f0d0cf1809e))
+
 ### [5.11.1](https://www.github.com/googleapis/sloth/compare/v5.11.0...v5.11.1) (2020-03-04)
 
 
