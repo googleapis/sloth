@@ -67,6 +67,7 @@
         "laljikanjareeya",
         "laylasells",
         "mcdonc",
+        "meredithslota",
         "mf2199",
         "muvarov75",
         "olavloite",
@@ -171,7 +172,9 @@
         "googleapis/nodejs-video-intelligence",
         "googleapis/nodejs-vision",
         "googleapis/release-please",
-        "googleapis/sloth"
+        "googleapis/sloth",
+        "GoogleCloudPlatform/nodejs-docs-samples",
+        "GoogleCloudPlatform/nodejs-getting-started"
       ],
       "users": [
         "AVaksman",
@@ -214,7 +217,6 @@
         "dazuma",
         "dizcology",
         "frankyn",
-        "jskeet",
         "quartzmo",
         "jesselovelace",
         "viacheslav-rostovtsev"
@@ -224,7 +226,9 @@
         "googleapis/google-api-ruby-client",
         "googleapis/google-auth-library-ruby",
         "googleapis/google-cloud-ruby",
-        "googleapis/signet"
+        "googleapis/signet",
+        "GoogleCloudPlatform/getting-started-ruby",
+        "GoogleCloudPlatform/ruby-docs-samples"
       ]
     },
     {
@@ -241,7 +245,9 @@
       "repos": [
         "googleapis/gax-dotnet",
         "googleapis/google-api-dotnet-client",
-        "googleapis/google-cloud-dotnet"
+        "googleapis/google-cloud-dotnet",
+        "GoogleCloudPlatform/dotnet-docs-samples",
+        "GoogleCloudPlatform/getting-started-dotnet"
       ]
     },
     {
@@ -303,7 +309,9 @@
         "googleapis/google-cloud-php-videointelligence",
         "googleapis/google-cloud-php-vision",
         "googleapis/google-cloud-php-web-risk",
-        "googleapis/google-cloud-php-web-security-scanner"
+        "googleapis/google-cloud-php-web-security-scanner",
+        "GoogleCloudPlatform/getting-started-php",
+        "GoogleCloudPlatform/php-docs-samples"
       ]
     },
     {
@@ -397,7 +405,9 @@
         "googleapis/java-logging-logback",
         "googleapis/java-spanner-jdbc",
         "googleapis/java-storage-nio",
-        "googleapis/java-notification"
+        "googleapis/java-notification",
+        "GoogleCloudPlatform/getting-started-java",
+        "GoogleCloudPlatform/java-docs-samples"
       ]
     },
     {
@@ -429,7 +439,8 @@
         "googleapis/gax-go",
         "googleapis/google-api-go-client",
         "googleapis/google-cloud-go-testing",
-        "googleapis/google-cloud-go"
+        "googleapis/google-cloud-go",
+        "GoogleCloudPlatform/golang-samples"
       ]
     },
     {
