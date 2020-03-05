@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.12.0](https://www.github.com/googleapis/sloth/compare/v5.11.1...v5.12.0) (2020-03-05)
+
+
+### Features
+
+* add meredithslota to yoshi ([#566](https://www.github.com/googleapis/sloth/issues/566)) ([0f8951a](https://www.github.com/googleapis/sloth/commit/0f8951a28d3ca1c9a11c66fe5f2aa6b88596cb40))
+
+
+### Bug Fixes
+
+* add samples/docs repos, and remove jskeet from Ruby team ([#564](https://www.github.com/googleapis/sloth/issues/564)) ([a8d72b9](https://www.github.com/googleapis/sloth/commit/a8d72b9977dfce4f80765475e1bf1f0d0cf1809e))
+* **drghs:** add pagination support ([#506](https://www.github.com/googleapis/sloth/issues/506)) ([6cd9b22](https://www.github.com/googleapis/sloth/commit/6cd9b22cf2eee790d9a2b67c6adeb33dc1eed310))
+
 ### [5.11.1](https://www.github.com/googleapis/sloth/compare/v5.11.0...v5.11.1) (2020-03-04)
 
 
