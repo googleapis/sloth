@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.13.0](https://www.github.com/googleapis/sloth/compare/v5.12.0...v5.13.0) (2020-03-06)
+
+
+### Features
+
+* update SLO calculation to match policy ([#568](https://www.github.com/googleapis/sloth/issues/568)) ([7d88ffc](https://www.github.com/googleapis/sloth/commit/7d88ffcd47d3fba2325ed81edd758c6929092e0c))
+
+
+### Bug Fixes
+
+* repo issue fetch needs to be serial ([#571](https://www.github.com/googleapis/sloth/issues/571)) ([9ab9cb6](https://www.github.com/googleapis/sloth/commit/9ab9cb6b93744158e83d39ffaa84038c86d7f1c8))
+
 ## [5.12.0](https://www.github.com/googleapis/sloth/compare/v5.11.1...v5.12.0) (2020-03-05)
 
 
