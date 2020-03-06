@@ -35,16 +35,25 @@ if (!apiKey) {
   );
 }
 
+/**
+ * Walk over each configured repository, and obtain a list of issues.
+ * @param flags
+ */
 export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
-  const promises = new Array<Promise<IssueResult>>();
-  repos.forEach(repo => {
+  // This fetch is done serially on purpose. When using the `Promise.all`
+  // approach, it was generating too many concurrent request and causing
+  // 503 errors in the underlying API.  Slowing it to a serial fetch will
+  // make it linearly slower, but more predictable and safe.
+  const results = new Array<IssueResult>();
+  for (const repo of repos) {
     // if we're filtering by --language, don't even snag the issues
     if (flags && flags.language && repo.language !== flags.language) {
-      return;
+      continue;
     }
-    promises.push(getRepoIssues(repo, flags));
-  });
-  return Promise.all(promises);
+    const r = await getRepoIssues(repo, flags);
+    results.push(r);
+  }
+  return results;
 }
 
 async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
