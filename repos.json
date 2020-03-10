@@ -66,6 +66,7 @@
     { "language": "java", "repo": "googleapis/java-kms", "apiHint": "cloudkms"},
     { "language": "java", "repo": "googleapis/java-language", "apiHint": "language"},
     { "language": "java", "repo": "googleapis/java-logging", "apiHint": "logging"},
+    { "language": "java", "repo": "googleapis/java-memcache", "apiHint": "memcache"},
     { "language": "java", "repo": "googleapis/java-monitoring", "apiHint": "monitoring"},
     { "language": "java", "repo": "googleapis/java-monitoring-dashboards", "apiHint": "monitoring"},
     { "language": "java", "repo": "googleapis/java-os-login", "apiHint": "oslogin"},
