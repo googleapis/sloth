@@ -260,6 +260,7 @@
     { "language": "python", "repo": "googleapis/python-cloudbuild", "apiHint": "cloudbuild"},
     { "language": "python", "repo": "googleapis/python-container", "apiHint": "container"},
     { "language": "python", "repo": "googleapis/python-containeranalysis", "apiHint": "containeranalysis"},
+    { "language": "python", "repo": "googleapis/python-crc32c"},
     { "language": "python", "repo": "googleapis/python-datacatalog", "apiHint": "datacatalog"},
     { "language": "python", "repo": "googleapis/python-datalabeling", "apiHint": "datalabeling"},
     { "language": "python", "repo": "googleapis/python-dataproc", "apiHint": "dataproc"},
