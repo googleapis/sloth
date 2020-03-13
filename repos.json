@@ -56,6 +56,7 @@
     { "language": "java", "repo": "googleapis/java-dialogflow"},
     { "language": "java", "repo": "googleapis/java-dlp"},
     { "language": "java", "repo": "googleapis/java-dns"},
+    { "language": "java", "repo": "googleapis/java-document-ai"},
     { "language": "java", "repo": "googleapis/java-errorreporting"},
     { "language": "java", "repo": "googleapis/java-firestore"},
     { "language": "java", "repo": "googleapis/java-gameservices"},
