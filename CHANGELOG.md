@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.14.0](https://www.github.com/googleapis/sloth/compare/v5.13.0...v5.14.0) (2020-03-13)
+
+
+### Features
+
+* add java-memcache repo ([#575](https://www.github.com/googleapis/sloth/issues/575)) ([4e2cb1a](https://www.github.com/googleapis/sloth/commit/4e2cb1aee0350ad50714af7295daa11ff70f8b85))
+* add java-servicedirectory repo ([#580](https://www.github.com/googleapis/sloth/issues/580)) ([55abdf1](https://www.github.com/googleapis/sloth/commit/55abdf1ecc9aabcf19b0da1c2be14c4522f23b04))
+
+
+### Bug Fixes
+
+* do not require API hints ([#583](https://www.github.com/googleapis/sloth/issues/583)) ([990b2f5](https://www.github.com/googleapis/sloth/commit/990b2f59592d313f9a257460f5f55ce939b2256c))
+
 ## [5.13.0](https://www.github.com/googleapis/sloth/compare/v5.12.0...v5.13.0) (2020-03-06)
 
 
