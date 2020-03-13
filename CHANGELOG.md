@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.15.0](https://www.github.com/googleapis/sloth/compare/v5.14.0...v5.15.0) (2020-03-13)
+
+
+### Features
+
+* **java:** add java-document-ai repo ([#584](https://www.github.com/googleapis/sloth/issues/584)) ([8115009](https://www.github.com/googleapis/sloth/commit/8115009199adea1336ac1fdfcb0ec259ea6d42c4))
+* add python-service-directory and python-recommendations-ai ([#586](https://www.github.com/googleapis/sloth/issues/586)) ([85ba7e4](https://www.github.com/googleapis/sloth/commit/85ba7e479b357f55c2bddaab68aec419df9fd0e4))
+* adds Document AI to repos.json ([#582](https://www.github.com/googleapis/sloth/issues/582)) ([df82f91](https://www.github.com/googleapis/sloth/commit/df82f9175733e1136c37715047eb0971b18fffa9))
+
 ## [5.14.0](https://www.github.com/googleapis/sloth/compare/v5.13.0...v5.14.0) (2020-03-13)
 
 
