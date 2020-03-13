@@ -85,7 +85,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
 
     const issues = res!.data.issues;
     for (const rIssue of issues) {
-      const api = getApi(rIssue, repo);
+      const api = getApi(rIssue);
       const issue: Issue = {
         owner,
         name,
@@ -302,7 +302,7 @@ function getTypes(i: ApiIssue) {
 // now sent back as a string. "P0", "P1", "P2" etc.
 export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
 
-function getApi(i: ApiIssue, repo: Repo) {
+function getApi(i: ApiIssue): string | undefined {
   if (i.labels) {
     for (const label of i.labels.sort()) {
       if (label.startsWith('api: ')) {
@@ -310,7 +310,7 @@ function getApi(i: ApiIssue, repo: Repo) {
       }
     }
   }
-  return repo.apiHint;
+  return undefined;
 }
 
 function getTeam(repo: string, api?: string) {
