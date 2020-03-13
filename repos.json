@@ -171,6 +171,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-secret-manager", "apiHint": "secretmanager"},
     { "language": "nodejs", "repo": "googleapis/nodejs-scheduler", "apiHint": "scheduler"},
     { "language": "nodejs", "repo": "googleapis/nodejs-security-center", "apiHint": "securitycenter"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-service-directory", "apiHint": "servicedirectory"},
     { "language": "nodejs", "repo": "googleapis/nodejs-spanner", "apiHint": "spanner"},
     { "language": "nodejs", "repo": "googleapis/nodejs-speech", "apiHint": "speech"},
     { "language": "nodejs", "repo": "googleapis/nodejs-storage", "apiHint": "storage"},
