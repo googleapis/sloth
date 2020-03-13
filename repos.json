@@ -141,6 +141,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-dialogflow"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dlp"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dns"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-document-ai"},
     { "language": "nodejs", "repo": "googleapis/nodejs-error-reporting"},
     { "language": "nodejs", "repo": "googleapis/nodejs-firestore"},
     { "language": "nodejs", "repo": "googleapis/nodejs-firestore-session"},
