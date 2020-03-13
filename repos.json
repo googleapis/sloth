@@ -79,6 +79,7 @@
     { "language": "java", "repo": "googleapis/java-scheduler", "apiHint": "scheduler"},
     { "language": "java", "repo": "googleapis/java-secretmanager", "apiHint": "secretmanager"},
     { "language": "java", "repo": "googleapis/java-securitycenter", "apiHint": "securitycenter"},
+    { "language": "java", "repo": "googleapis/java-servicedirectory", "apiHint": "servicedirectory"},
     { "language": "java", "repo": "googleapis/java-spanner", "apiHint": "spanner"},
     { "language": "java", "repo": "googleapis/java-speech", "apiHint": "speech"},
     { "language": "java", "repo": "googleapis/java-storage", "apiHint": "storage"},
