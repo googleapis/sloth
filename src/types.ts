@@ -88,7 +88,6 @@ export interface Result {
 export interface Repo {
   repo: string;
   language: string;
-  apiHint?: string;
 }
 
 export interface Users {
