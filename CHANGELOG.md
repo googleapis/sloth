@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.15.1](https://www.github.com/googleapis/sloth/compare/v5.15.0...v5.15.1) (2020-03-17)
+
+
+### Bug Fixes
+
+* adds Alex to python-docs-samples ([#587](https://www.github.com/googleapis/sloth/issues/587)) ([d8cb329](https://www.github.com/googleapis/sloth/commit/d8cb3291b66526af8f4ce4dd71a0d8ad5929b448))
+
 ## [5.15.0](https://www.github.com/googleapis/sloth/compare/v5.14.0...v5.15.0) (2020-03-13)
 
 
