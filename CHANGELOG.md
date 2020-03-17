@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.16.0](https://www.github.com/googleapis/sloth/compare/v5.15.0...v5.16.0) (2020-03-17)
+
+
+### Features
+
+* **java:** add java-mediatranslation repo ([#590](https://www.github.com/googleapis/sloth/issues/590)) ([b8fd3d1](https://www.github.com/googleapis/sloth/commit/b8fd3d1c7511379a6aabfaa63d599186d8401387))
+
+
+### Bug Fixes
+
+* adds Alex to python-docs-samples ([#587](https://www.github.com/googleapis/sloth/issues/587)) ([d8cb329](https://www.github.com/googleapis/sloth/commit/d8cb3291b66526af8f4ce4dd71a0d8ad5929b448))
+
 ## [5.15.0](https://www.github.com/googleapis/sloth/compare/v5.14.0...v5.15.0) (2020-03-13)
 
 
