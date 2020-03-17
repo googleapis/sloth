@@ -67,6 +67,7 @@
     { "language": "java", "repo": "googleapis/java-kms"},
     { "language": "java", "repo": "googleapis/java-language"},
     { "language": "java", "repo": "googleapis/java-logging"},
+    { "language": "java", "repo": "googleapis/java-mediatranslation"},
     { "language": "java", "repo": "googleapis/java-memcache"},
     { "language": "java", "repo": "googleapis/java-monitoring"},
     { "language": "java", "repo": "googleapis/java-monitoring-dashboards"},
