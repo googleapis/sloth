@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.17.0](https://www.github.com/googleapis/sloth/compare/v5.16.0...v5.17.0) (2020-03-19)
+
+
+### Features
+
+* add nodejs-media-translation ([#592](https://www.github.com/googleapis/sloth/issues/592)) ([7c58eda](https://www.github.com/googleapis/sloth/commit/7c58edaff18ea4907ab3e2cf64308ea46048d9e7))
+
 ## [5.16.0](https://www.github.com/googleapis/sloth/compare/v5.15.0...v5.16.0) (2020-03-17)
 
 
