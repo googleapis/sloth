@@ -314,15 +314,15 @@ function getApi(i: ApiIssue): string | undefined {
 }
 
 function getTeam(repo: string, api?: string) {
-  const t = teams.find(x => (x.repos || []).includes(repo));
-  if (t) {
-    return t.name;
-  }
   if (api) {
     const t = teams.find(x => (x.apis || []).includes(api));
     if (t) {
       return t.name;
     }
+  }
+  const t = teams.find(x => (x.repos || []).includes(repo));
+  if (t) {
+    return t.name;
   }
   return 'core';
 }
