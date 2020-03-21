@@ -315,7 +315,7 @@ function getApi(i: ApiIssue): string | undefined {
 
 function getTeam(repo: string, api?: string) {
   // if repo issues are managed by a single team, attribute to that team
-  const r = repos.find(x => (x.repo == repo));
+  const r = repos.find(x => (x.repo === repo));
   const t = teams.find(x => (x.repos || []).includes(repo));
   if (r) {
     if (r.isTeamIssue && t) {
