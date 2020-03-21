@@ -88,6 +88,7 @@ export interface Result {
 export interface Repo {
   repo: string;
   language: string;
+  isTeamIssue: boolean;
 }
 
 export interface Users {
