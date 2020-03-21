@@ -8,19 +8,17 @@
         "datastore",
         "firestore",
         "redis",
-        "sql-component",
         "storage"
       ]
     },
     {
       "name": "code-build-run",
       "apis": [
-        "appengine",
-        "cloudfunctions",
-        "cloudtasks",
-        "functions",
         "ndb",
-        "run"
+        "appengine",
+        "functions",
+        "run",
+        "cloudtasks"
       ]
     },
     {

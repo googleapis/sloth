@@ -314,30 +314,16 @@ function getApi(i: ApiIssue): string | undefined {
 }
 
 function getTeam(repo: string, api?: string) {
-  
-  // if repo issues are managed by a single team, attribute to that team
-  const r = repos.find(x => (x.repo == repo));
-  const t = teams.find(x => (x.repos || []).includes(repo));
-  if (r) {
-    if (r.isTeamIssue && t) {
-      return t.name;
-    }
-  }
-
-  // next look for an api label and attribute team accordingly
   if (api) {
     const t = teams.find(x => (x.apis || []).includes(api));
     if (t) {
       return t.name;
     }
   }
-
-  // if no api label
+  const t = teams.find(x => (x.repos || []).includes(repo));
   if (t) {
     return t.name;
   }
-
-  // if no api and no explicit team owner
   return 'core';
 }
 
