@@ -14,11 +14,13 @@
     {
       "name": "code-build-run",
       "apis": [
-        "ndb",
         "appengine",
+        "cloudfunctions",
+        "cloudtasks",
+        "compute",
         "functions",
-        "run",
-        "cloudtasks"
+        "ndb",
+        "run"
       ]
     },
     {
