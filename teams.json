@@ -17,7 +17,6 @@
         "appengine",
         "cloudfunctions",
         "cloudtasks",
-        "compute",
         "functions",
         "ndb",
         "run"
