@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.17.1](https://www.github.com/googleapis/sloth/compare/v5.17.0...v5.17.1) (2020-03-21)
+
+
+### Bug Fixes
+
+* attributes to team before api, when appropriate ([#600](https://www.github.com/googleapis/sloth/issues/600)) ([b56fe5b](https://www.github.com/googleapis/sloth/commit/b56fe5b797bfb580d9d24ca96f92ce73ac73b616)), closes [#562](https://www.github.com/googleapis/sloth/issues/562) [#562](https://www.github.com/googleapis/sloth/issues/562)
+* correct typo in python-media-translation repo name ([#599](https://www.github.com/googleapis/sloth/issues/599)) ([8fdf0f5](https://www.github.com/googleapis/sloth/commit/8fdf0f5567a19911e60949ad0a39aa01a15462c8)), closes [#562](https://www.github.com/googleapis/sloth/issues/562)
+* revert attributes team by repo before api ([#563](https://www.github.com/googleapis/sloth/issues/563)) ([#596](https://www.github.com/googleapis/sloth/issues/596)) ([213c428](https://www.github.com/googleapis/sloth/commit/213c428574bc84ad8c68e042685f5d286801303e))
+
 ## [5.17.0](https://www.github.com/googleapis/sloth/compare/v5.16.0...v5.17.0) (2020-03-19)
 
 
