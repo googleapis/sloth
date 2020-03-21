@@ -285,7 +285,7 @@
     { "language": "python", "repo": "googleapis/python-language"},
     { "language": "python", "repo": "googleapis/python-logging"},
     { "language": "python", "repo": "googleapis/python-memcache"},
-    { "language": "python", "repo": "googleapis/python-memdia-translation"},
+    { "language": "python", "repo": "googleapis/python-media-translation"},
     { "language": "python", "repo": "googleapis/python-monitoring"},
     { "language": "python", "repo": "googleapis/python-monitoring-dashboards"},
     { "language": "python", "repo": "googleapis/python-ndb"},
