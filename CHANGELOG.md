@@ -4,6 +4,34 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.17.1](https://www.github.com/googleapis/sloth/compare/v5.17.0...v5.17.1) (2020-03-21)
+
+
+### Bug Fixes
+
+* attributes to team before api, when appropriate ([#600](https://www.github.com/googleapis/sloth/issues/600)) ([b56fe5b](https://www.github.com/googleapis/sloth/commit/b56fe5b797bfb580d9d24ca96f92ce73ac73b616)), closes [#562](https://www.github.com/googleapis/sloth/issues/562) [#562](https://www.github.com/googleapis/sloth/issues/562)
+* correct typo in python-media-translation repo name ([#599](https://www.github.com/googleapis/sloth/issues/599)) ([8fdf0f5](https://www.github.com/googleapis/sloth/commit/8fdf0f5567a19911e60949ad0a39aa01a15462c8)), closes [#562](https://www.github.com/googleapis/sloth/issues/562)
+* revert attributes team by repo before api ([#563](https://www.github.com/googleapis/sloth/issues/563)) ([#596](https://www.github.com/googleapis/sloth/issues/596)) ([213c428](https://www.github.com/googleapis/sloth/commit/213c428574bc84ad8c68e042685f5d286801303e))
+
+## [5.17.0](https://www.github.com/googleapis/sloth/compare/v5.16.0...v5.17.0) (2020-03-19)
+
+
+### Features
+
+* add nodejs-media-translation ([#592](https://www.github.com/googleapis/sloth/issues/592)) ([7c58eda](https://www.github.com/googleapis/sloth/commit/7c58edaff18ea4907ab3e2cf64308ea46048d9e7))
+
+## [5.16.0](https://www.github.com/googleapis/sloth/compare/v5.15.0...v5.16.0) (2020-03-17)
+
+
+### Features
+
+* **java:** add java-mediatranslation repo ([#590](https://www.github.com/googleapis/sloth/issues/590)) ([b8fd3d1](https://www.github.com/googleapis/sloth/commit/b8fd3d1c7511379a6aabfaa63d599186d8401387))
+
+
+### Bug Fixes
+
+* adds Alex to python-docs-samples ([#587](https://www.github.com/googleapis/sloth/issues/587)) ([d8cb329](https://www.github.com/googleapis/sloth/commit/d8cb3291b66526af8f4ce4dd71a0d8ad5929b448))
+
 ## [5.15.0](https://www.github.com/googleapis/sloth/compare/v5.14.0...v5.15.0) (2020-03-13)
 
 
