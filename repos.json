@@ -71,6 +71,7 @@
     { "language": "java", "repo": "googleapis/java-memcache"},
     { "language": "java", "repo": "googleapis/java-monitoring"},
     { "language": "java", "repo": "googleapis/java-monitoring-dashboards"},
+    { "language": "java", "repo": "googleapis/java-orgpolicy"},
     { "language": "java", "repo": "googleapis/java-os-login"},
     { "language": "java", "repo": "googleapis/java-phishingprotection"},
     { "language": "java", "repo": "googleapis/java-pubsub"},
