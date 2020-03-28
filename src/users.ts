@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Octokit} from '@octokit/rest';
 import {Member, Team} from './types';
 import {octo, users} from './util';
 
@@ -27,7 +26,8 @@ export async function reconcileTeams() {
   const promises = users.orgs.map(async org => {
     const teams = new Array<Team>();
     let page = 1;
-    let res: Octokit.AnyResponse;
+    // tslint:disable-next-line:no-any
+    let res: any;
     console.log(`Fetching teams for ${org}...`);
     do {
       res = await octo.teams.list({org, per_page: 100, page});
@@ -132,7 +132,7 @@ function getTeam(team: string, org: string, teams: Team[]) {
 }
 
 export async function reconcileUsers() {
-  const promises = new Array<Promise<Octokit.AnyResponse | void>>();
+  const promises = new Array<Promise<{} | void>>();
   const teams = await reconcileTeams();
   for (const o of users.orgs) {
     for (const m of users.membership) {
