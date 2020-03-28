@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Octokit} from '@octokit/rest';
-
 export interface Team {
   name: string;
   apis: string[];
@@ -147,7 +145,8 @@ export interface Flags {
 
 export interface GetBranchProtectionResult {
   enabled: boolean;
-  required_status_checks: Octokit.ReposUpdateBranchProtectionParamsRequiredStatusChecks;
+  // tslint:disable-next-line:no-any
+  required_status_checks: any;
 }
 
 export interface GetBranchResult {
