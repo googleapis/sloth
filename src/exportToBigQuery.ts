@@ -59,7 +59,7 @@ export async function main(
   repos.forEach(r => {
     r.issues.forEach(i => {
       i.createdAt = (BigQuery.datetime(i.createdAt) as {}) as string;
-      // tslint:disable-next-line no-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (i as any).recordDate = BigQuery.date(
         new Date().toISOString().slice(0, 10)
       );
@@ -83,5 +83,6 @@ main(cli.flags.datasetId, cli.flags.tableId, cli.flags.projectId).catch(err => {
       console.error(e);
     }
   }
+  // eslint-disable-next-line no-process-exit
   process.exit(-1);
 });

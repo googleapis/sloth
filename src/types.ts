@@ -145,7 +145,7 @@ export interface Flags {
 
 export interface GetBranchProtectionResult {
   enabled: boolean;
-  // tslint:disable-next-line:no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   required_status_checks: any;
 }
 
