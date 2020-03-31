@@ -103,6 +103,7 @@
     { "language": "java", "repo": "googleapis/java-cloud-bom"},
     { "language": "java", "repo": "googleapis/java-gcloud-maven-plugin"},
     { "language": "java", "repo": "googleapis/java-shared-config"},
+    { "language": "java", "repo": "googleapis/java-shared-dependencies"},
     { "language": "java", "repo": "googleapis/java-logging-logback"},
     { "language": "java", "repo": "googleapis/java-spanner-jdbc"},
     { "language": "java", "repo": "googleapis/java-storage-nio"},
