@@ -24,7 +24,8 @@ import {octo, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
-import * as truncate from 'truncate';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const truncate = require('truncate');
 import * as CSV from 'csv-string';
 
 const apiKey = process.env.DRIFT_API_KEY;
