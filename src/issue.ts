@@ -24,8 +24,8 @@ import {octo, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
-const truncate = require('truncate');
-const CSV = require('csv-string');
+import * as truncate from 'truncate';
+import * as CSV from 'csv-string';
 
 const apiKey = process.env.DRIFT_API_KEY;
 if (!apiKey) {
@@ -355,10 +355,6 @@ function hasType(i: ApiIssue) {
  */
 function isBug(i: ApiIssue) {
   return hasLabel(i, 'type: bug');
-}
-
-function isAssigned(i: ApiIssue) {
-  return i.assignees && i.assignees.length > 0;
 }
 
 /**
