@@ -306,6 +306,7 @@
     { "language": "python", "repo": "googleapis/python-securitycenter"},
     { "language": "python", "repo": "googleapis/python-service-directory"},
     { "language": "python", "repo": "googleapis/python-spanner"},
+    { "language": "python", "repo": "googleapis/python-spanner-django"},
     { "language": "python", "repo": "googleapis/python-speech"},
     { "language": "python", "repo": "googleapis/python-storage"},
     { "language": "python", "repo": "googleapis/python-talent"},
@@ -322,7 +323,6 @@
     { "language": "python", "repo": "googleapis/synthtool"},
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
-
 
     { "language": "ruby", "repo": "googleapis/discovery-artifact-manager"},
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
