@@ -26,7 +26,7 @@ export async function reconcileTeams() {
   const promises = users.orgs.map(async org => {
     const teams = new Array<Team>();
     let page = 1;
-    // tslint:disable-next-line:no-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let res: any;
     console.log(`Fetching teams for ${org}...`);
     do {
@@ -115,7 +115,7 @@ export async function reconcileRepos() {
           permission: 'pull',
           repo,
         })
-        .catch(e => {
+        .catch(() => {
           console.error(`Error adding ${r} to 'yoshi'.`);
         });
     }
