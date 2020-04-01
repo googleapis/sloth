@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Octokit} from '@octokit/rest';
 import {
   Flags,
   Issue,
@@ -172,7 +171,7 @@ export interface IssueOptions {
 }
 
 export async function tagIssues() {
-  const promises = new Array<Promise<void | Octokit.AnyResponse>>();
+  const promises = new Array<Promise<void | {}>>();
   const repos = await getIssues();
   repos.forEach(r => {
     r.issues.forEach(i => {
@@ -200,10 +199,7 @@ export async function tagIssues() {
   await Promise.all(promises);
 }
 
-function tagIssue(
-  i: Issue,
-  label: string
-): Promise<void | Octokit.AnyResponse> {
+function tagIssue(i: Issue, label: string) {
   return octo.issues
     .addLabels({
       labels: [label],
@@ -217,10 +213,7 @@ function tagIssue(
     });
 }
 
-function untagIssue(
-  i: Issue,
-  label: string
-): Promise<void | Octokit.AnyResponse> {
+function untagIssue(i: Issue, label: string) {
   return octo.issues
     .removeLabel({
       name: label,
