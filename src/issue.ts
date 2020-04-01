@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {Octokit} from '@octokit/rest';
 import {
   Flags,
   Issue,
@@ -24,9 +25,8 @@ import {octo, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const truncate = require('truncate');
-import * as CSV from 'csv-string';
+const CSV = require('csv-string');
 
 const apiKey = process.env.DRIFT_API_KEY;
 if (!apiKey) {
@@ -172,7 +172,7 @@ export interface IssueOptions {
 }
 
 export async function tagIssues() {
-  const promises = new Array<Promise<void | {}>>();
+  const promises = new Array<Promise<void | Octokit.AnyResponse>>();
   const repos = await getIssues();
   repos.forEach(r => {
     r.issues.forEach(i => {
@@ -200,7 +200,10 @@ export async function tagIssues() {
   await Promise.all(promises);
 }
 
-function tagIssue(i: Issue, label: string) {
+function tagIssue(
+  i: Issue,
+  label: string
+): Promise<void | Octokit.AnyResponse> {
   return octo.issues
     .addLabels({
       labels: [label],
@@ -214,7 +217,10 @@ function tagIssue(i: Issue, label: string) {
     });
 }
 
-function untagIssue(i: Issue, label: string) {
+function untagIssue(
+  i: Issue,
+  label: string
+): Promise<void | Octokit.AnyResponse> {
   return octo.issues
     .removeLabel({
       name: label,
@@ -356,6 +362,10 @@ function hasType(i: ApiIssue) {
  */
 function isBug(i: ApiIssue) {
   return hasLabel(i, 'type: bug');
+}
+
+function isAssigned(i: ApiIssue) {
+  return i.assignees && i.assignees.length > 0;
 }
 
 /**

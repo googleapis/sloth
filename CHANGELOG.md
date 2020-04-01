@@ -4,19 +4,6 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
-## [5.18.0](https://www.github.com/googleapis/sloth/compare/v5.17.1...v5.18.0) (2020-03-25)
-
-
-### Features
-
-* **java:** add java-recommendations-ai and java-securitycenter-settings repos ([#606](https://www.github.com/googleapis/sloth/issues/606)) ([1a0a6e7](https://www.github.com/googleapis/sloth/commit/1a0a6e75d5e1e5c685650d720d49ae1a4cfa1474))
-
-
-### Bug Fixes
-
-* limit yoshi team membership ([#589](https://www.github.com/googleapis/sloth/issues/589)) ([a34ff01](https://www.github.com/googleapis/sloth/commit/a34ff01ca175fddd5cb81955e5ac33053fbe40ad))
-* **deps:** update dependency gaxios to v3 ([#608](https://www.github.com/googleapis/sloth/issues/608)) ([e072e16](https://www.github.com/googleapis/sloth/commit/e072e1668826524707b2c53c1e8cb9759f8a9583))
-
 ### [5.17.1](https://www.github.com/googleapis/sloth/compare/v5.17.0...v5.17.1) (2020-03-21)
 
 

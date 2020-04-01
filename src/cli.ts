@@ -22,7 +22,6 @@ import {syncRepoSettings} from './repos';
 import * as updateNotifier from 'update-notifier';
 import {Flags} from './types';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require('../../package.json');
 
 updateNotifier({pkg}).notify();
@@ -73,7 +72,7 @@ let p: Promise<void | {}>;
 
 switch (cmd) {
   case 'sync-repo-settings':
-    p = syncRepoSettings((cli.flags as unknown) as Flags);
+    p = syncRepoSettings(cli.flags as Flags);
     break;
   case 'tag-issues':
     p = tagIssues();
@@ -82,7 +81,7 @@ switch (cmd) {
     p = reconcileUsers();
     break;
   case 'issues':
-    p = showIssues((cli.flags as unknown) as Flags);
+    p = showIssues(cli.flags as Flags);
     break;
   case 'repos':
     p = reconcileRepos();

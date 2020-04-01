@@ -16,7 +16,6 @@ import {Octokit} from '@octokit/rest';
 import {Repo, Users, Team} from './types';
 
 export const repos: Repo[] = require('../../repos.json').repos;
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 export const users: Users = require('../../users.json');
 export const teams: Team[] = require('../../teams.json').teams;
 export const languages = [

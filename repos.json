@@ -71,7 +71,6 @@
     { "language": "java", "repo": "googleapis/java-memcache"},
     { "language": "java", "repo": "googleapis/java-monitoring"},
     { "language": "java", "repo": "googleapis/java-monitoring-dashboards"},
-    { "language": "java", "repo": "googleapis/java-orgpolicy"},
     { "language": "java", "repo": "googleapis/java-os-login"},
     { "language": "java", "repo": "googleapis/java-phishingprotection"},
     { "language": "java", "repo": "googleapis/java-pubsub"},
@@ -103,7 +102,6 @@
     { "language": "java", "repo": "googleapis/java-cloud-bom"},
     { "language": "java", "repo": "googleapis/java-gcloud-maven-plugin"},
     { "language": "java", "repo": "googleapis/java-shared-config"},
-    { "language": "java", "repo": "googleapis/java-shared-dependencies"},
     { "language": "java", "repo": "googleapis/java-logging-logback"},
     { "language": "java", "repo": "googleapis/java-spanner-jdbc"},
     { "language": "java", "repo": "googleapis/java-storage-nio"},
@@ -306,7 +304,6 @@
     { "language": "python", "repo": "googleapis/python-securitycenter"},
     { "language": "python", "repo": "googleapis/python-service-directory"},
     { "language": "python", "repo": "googleapis/python-spanner"},
-    { "language": "python", "repo": "googleapis/python-spanner-django"},
     { "language": "python", "repo": "googleapis/python-speech"},
     { "language": "python", "repo": "googleapis/python-storage"},
     { "language": "python", "repo": "googleapis/python-talent"},
@@ -323,6 +320,7 @@
     { "language": "python", "repo": "googleapis/synthtool"},
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
+
 
     { "language": "ruby", "repo": "googleapis/discovery-artifact-manager"},
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},

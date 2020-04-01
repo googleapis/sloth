@@ -28,7 +28,7 @@ describe('Verify config files', () => {
     });
 
     it('has valid schema', () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // tslint:disable-next-line:no-any
       const assertRepo = (entry: any) => {
         assert('string', typeof entry.repo);
         assert('string', typeof entry.language);
@@ -51,13 +51,13 @@ describe('Verify config files', () => {
     });
 
     it('has valid schema', () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // tslint:disable-next-line:no-any
       const assertArrayOfStrings = (array: any) =>
         assert(
           Array.isArray(array) && array.every(elem => typeof elem === 'string')
         );
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // tslint:disable-next-line:no-any
       const assertMembership = (membership: any) => {
         assert('string', typeof membership.team);
         assertArrayOfStrings(membership.users);
