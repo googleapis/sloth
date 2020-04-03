@@ -161,6 +161,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-logging-bunyan"},
     { "language": "nodejs", "repo": "googleapis/nodejs-logging-winston"},
     { "language": "nodejs", "repo": "googleapis/nodejs-media-translation"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-memcache"},
     { "language": "nodejs", "repo": "googleapis/nodejs-monitoring"},
     { "language": "nodejs", "repo": "googleapis/nodejs-monitoring-dashboards"},
     { "language": "nodejs", "repo": "googleapis/nodejs-os-login"},
