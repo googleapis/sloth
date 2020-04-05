@@ -94,7 +94,7 @@ async function updateMasterBranchProtection(repos: Repo[]) {
  * @param repos List of repos to iterate.
  */
 async function updateRepoTeams(repos: Repo[]) {
-  console.log(`Update team access...`);
+  console.log('Update team access...');
   for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
     const teamsToAdd = [
@@ -134,7 +134,7 @@ async function updateRepoTeams(repos: Repo[]) {
  * @param repos List of repos to iterate.
  */
 async function updateRepoOptions(repos: Repo[]) {
-  console.log(`Updating commit settings...`);
+  console.log('Updating commit settings...');
   for (const repo of repos) {
     const [owner, name] = repo.repo.split('/');
     const config = languageConfig[repo.language];
@@ -153,7 +153,7 @@ async function updateRepoOptions(repos: Repo[]) {
       });
   }
 }
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const languageConfig: LanguageConfig = require('../../required-checks.json');
 
 interface LanguageConfig {

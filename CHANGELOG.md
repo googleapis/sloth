@@ -4,6 +4,86 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.19.0](https://www.github.com/googleapis/sloth/compare/v5.18.0...v5.19.0) (2020-04-03)
+
+
+### Features
+
+* add dwsupplee to yoshi-go ([#616](https://www.github.com/googleapis/sloth/issues/616)) ([d0fcacf](https://www.github.com/googleapis/sloth/commit/d0fcacf25fee0f05bec6bd3ff6dc5f1fda698e56))
+* **deps:** drop node8 & update dependencies ([#617](https://www.github.com/googleapis/sloth/issues/617)) ([1706df9](https://www.github.com/googleapis/sloth/commit/1706df9838713a9a4e1ab3d7cc6ea44305d9dc83))
+* **java:** add java-shared-dependencies repo ([#615](https://www.github.com/googleapis/sloth/issues/615)) ([be31169](https://www.github.com/googleapis/sloth/commit/be31169d83e4ed6262ac397df1e15e211cb6fa29))
+* add java-accesscontextmanager, java-os-config ([#622](https://www.github.com/googleapis/sloth/issues/622)) ([ef9583a](https://www.github.com/googleapis/sloth/commit/ef9583a6de8d3eb425bfc04264396f59f15db6e6))
+* add java-orgpolicy repo ([#612](https://www.github.com/googleapis/sloth/issues/612)) ([4fa7ec9](https://www.github.com/googleapis/sloth/commit/4fa7ec942cabd86946c6933005c32e1d913325d8))
+* add nodejs-memcache ([#621](https://www.github.com/googleapis/sloth/issues/621)) ([039a6da](https://www.github.com/googleapis/sloth/commit/039a6da5ba87f23a72273d7cc92b81e6de3d55b5))
+
+
+### Bug Fixes
+
+* add python-spanner-django repo ([#618](https://www.github.com/googleapis/sloth/issues/618)) ([52347e8](https://www.github.com/googleapis/sloth/commit/52347e89cd336127071db078546842b2589b5f4d))
+
+## [5.18.0](https://www.github.com/googleapis/sloth/compare/v5.17.1...v5.18.0) (2020-03-25)
+
+
+### Features
+
+* **java:** add java-recommendations-ai and java-securitycenter-settings repos ([#606](https://www.github.com/googleapis/sloth/issues/606)) ([1a0a6e7](https://www.github.com/googleapis/sloth/commit/1a0a6e75d5e1e5c685650d720d49ae1a4cfa1474))
+
+
+### Bug Fixes
+
+* limit yoshi team membership ([#589](https://www.github.com/googleapis/sloth/issues/589)) ([a34ff01](https://www.github.com/googleapis/sloth/commit/a34ff01ca175fddd5cb81955e5ac33053fbe40ad))
+* **deps:** update dependency gaxios to v3 ([#608](https://www.github.com/googleapis/sloth/issues/608)) ([e072e16](https://www.github.com/googleapis/sloth/commit/e072e1668826524707b2c53c1e8cb9759f8a9583))
+
+### [5.17.1](https://www.github.com/googleapis/sloth/compare/v5.17.0...v5.17.1) (2020-03-21)
+
+
+### Bug Fixes
+
+* attributes to team before api, when appropriate ([#600](https://www.github.com/googleapis/sloth/issues/600)) ([b56fe5b](https://www.github.com/googleapis/sloth/commit/b56fe5b797bfb580d9d24ca96f92ce73ac73b616)), closes [#562](https://www.github.com/googleapis/sloth/issues/562) [#562](https://www.github.com/googleapis/sloth/issues/562)
+* correct typo in python-media-translation repo name ([#599](https://www.github.com/googleapis/sloth/issues/599)) ([8fdf0f5](https://www.github.com/googleapis/sloth/commit/8fdf0f5567a19911e60949ad0a39aa01a15462c8)), closes [#562](https://www.github.com/googleapis/sloth/issues/562)
+* revert attributes team by repo before api ([#563](https://www.github.com/googleapis/sloth/issues/563)) ([#596](https://www.github.com/googleapis/sloth/issues/596)) ([213c428](https://www.github.com/googleapis/sloth/commit/213c428574bc84ad8c68e042685f5d286801303e))
+
+## [5.17.0](https://www.github.com/googleapis/sloth/compare/v5.16.0...v5.17.0) (2020-03-19)
+
+
+### Features
+
+* add nodejs-media-translation ([#592](https://www.github.com/googleapis/sloth/issues/592)) ([7c58eda](https://www.github.com/googleapis/sloth/commit/7c58edaff18ea4907ab3e2cf64308ea46048d9e7))
+
+## [5.16.0](https://www.github.com/googleapis/sloth/compare/v5.15.0...v5.16.0) (2020-03-17)
+
+
+### Features
+
+* **java:** add java-mediatranslation repo ([#590](https://www.github.com/googleapis/sloth/issues/590)) ([b8fd3d1](https://www.github.com/googleapis/sloth/commit/b8fd3d1c7511379a6aabfaa63d599186d8401387))
+
+
+### Bug Fixes
+
+* adds Alex to python-docs-samples ([#587](https://www.github.com/googleapis/sloth/issues/587)) ([d8cb329](https://www.github.com/googleapis/sloth/commit/d8cb3291b66526af8f4ce4dd71a0d8ad5929b448))
+
+## [5.15.0](https://www.github.com/googleapis/sloth/compare/v5.14.0...v5.15.0) (2020-03-13)
+
+
+### Features
+
+* **java:** add java-document-ai repo ([#584](https://www.github.com/googleapis/sloth/issues/584)) ([8115009](https://www.github.com/googleapis/sloth/commit/8115009199adea1336ac1fdfcb0ec259ea6d42c4))
+* add python-service-directory and python-recommendations-ai ([#586](https://www.github.com/googleapis/sloth/issues/586)) ([85ba7e4](https://www.github.com/googleapis/sloth/commit/85ba7e479b357f55c2bddaab68aec419df9fd0e4))
+* adds Document AI to repos.json ([#582](https://www.github.com/googleapis/sloth/issues/582)) ([df82f91](https://www.github.com/googleapis/sloth/commit/df82f9175733e1136c37715047eb0971b18fffa9))
+
+## [5.14.0](https://www.github.com/googleapis/sloth/compare/v5.13.0...v5.14.0) (2020-03-13)
+
+
+### Features
+
+* add java-memcache repo ([#575](https://www.github.com/googleapis/sloth/issues/575)) ([4e2cb1a](https://www.github.com/googleapis/sloth/commit/4e2cb1aee0350ad50714af7295daa11ff70f8b85))
+* add java-servicedirectory repo ([#580](https://www.github.com/googleapis/sloth/issues/580)) ([55abdf1](https://www.github.com/googleapis/sloth/commit/55abdf1ecc9aabcf19b0da1c2be14c4522f23b04))
+
+
+### Bug Fixes
+
+* do not require API hints ([#583](https://www.github.com/googleapis/sloth/issues/583)) ([990b2f5](https://www.github.com/googleapis/sloth/commit/990b2f59592d313f9a257460f5f55ce939b2256c))
+
 ## [5.13.0](https://www.github.com/googleapis/sloth/compare/v5.12.0...v5.13.0) (2020-03-06)
 
 
