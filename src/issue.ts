@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Octokit} from '@octokit/rest';
 import {
   Flags,
   Issue,
@@ -25,8 +24,9 @@ import {octo, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const truncate = require('truncate');
-const CSV = require('csv-string');
+import * as CSV from 'csv-string';
 
 const apiKey = process.env.DRIFT_API_KEY;
 if (!apiKey) {
@@ -61,10 +61,26 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const result = {issues: new Array<Issue>(), repo};
   let res!: GaxiosResponse<IssuesApiResponse>;
   const rootUrl = 'https://drghs.endpoints.devrel-prod.cloud.goog/api/v1';
+  const fieldMask = [
+    'assignees',
+    'closedAt',
+    'createdAt',
+    'is_pr',
+    'issueId',
+    'issueType',
+    'labels',
+    'priority',
+    'priorityUnknown',
+    'repo',
+    'reporter',
+    'title',
+    'updatedAt',
+    'url',
+  ].join(',');
 
   let pageToken = '';
   while (pageToken === '' && result.issues.length < 1) {
-    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
+    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false&field_mask=${fieldMask}`;
     if (pageToken !== '') {
       url = url + `&page=${pageToken}`;
     }
@@ -85,7 +101,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
 
     const issues = res!.data.issues;
     for (const rIssue of issues) {
-      const api = getApi(rIssue, repo);
+      const api = getApi(rIssue);
       const issue: Issue = {
         owner,
         name,
@@ -172,7 +188,7 @@ export interface IssueOptions {
 }
 
 export async function tagIssues() {
-  const promises = new Array<Promise<void | Octokit.AnyResponse>>();
+  const promises = new Array<Promise<void | {}>>();
   const repos = await getIssues();
   repos.forEach(r => {
     r.issues.forEach(i => {
@@ -200,10 +216,7 @@ export async function tagIssues() {
   await Promise.all(promises);
 }
 
-function tagIssue(
-  i: Issue,
-  label: string
-): Promise<void | Octokit.AnyResponse> {
+function tagIssue(i: Issue, label: string) {
   return octo.issues
     .addLabels({
       labels: [label],
@@ -217,10 +230,7 @@ function tagIssue(
     });
 }
 
-function untagIssue(
-  i: Issue,
-  label: string
-): Promise<void | Octokit.AnyResponse> {
+function untagIssue(i: Issue, label: string) {
   return octo.issues
     .removeLabel({
       name: label,
@@ -302,7 +312,7 @@ function getTypes(i: ApiIssue) {
 // now sent back as a string. "P0", "P1", "P2" etc.
 export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
 
-function getApi(i: ApiIssue, repo: Repo) {
+function getApi(i: ApiIssue): string | undefined {
   if (i.labels) {
     for (const label of i.labels.sort()) {
       if (label.startsWith('api: ')) {
@@ -310,20 +320,33 @@ function getApi(i: ApiIssue, repo: Repo) {
       }
     }
   }
-  return repo.apiHint;
+  return undefined;
 }
 
 function getTeam(repo: string, api?: string) {
+  // if repo issues are managed by a single team, attribute to that team
+  const r = repos.find(x => x.repo === repo);
   const t = teams.find(x => (x.repos || []).includes(repo));
-  if (t) {
-    return t.name;
+  if (r) {
+    if (r.isTeamIssue && t) {
+      return t.name;
+    }
   }
+
+  // next look for an api label and attribute team accordingly
   if (api) {
     const t = teams.find(x => (x.apis || []).includes(api));
     if (t) {
       return t.name;
     }
   }
+
+  // if no api label
+  if (t) {
+    return t.name;
+  }
+
+  // if no api and no explicit team owner
   return 'core';
 }
 
@@ -349,10 +372,6 @@ function hasType(i: ApiIssue) {
  */
 function isBug(i: ApiIssue) {
   return hasLabel(i, 'type: bug');
-}
-
-function isAssigned(i: ApiIssue) {
-  return i.assignees && i.assignees.length > 0;
 }
 
 /**

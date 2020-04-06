@@ -141,7 +141,15 @@ function getApiResults(repos: IssueResult[], api?: string) {
   });
 
   apis.forEach((issues, api) => {
-    results.set(api, {total: 0, p0: 0, p1: 0, p2: 0, pX: 0, outOfSLO: 0, api});
+    results.set(api, {
+      total: 0,
+      p0: 0,
+      p1: 0,
+      p2: 0,
+      pX: 0,
+      outOfSLO: 0,
+      api,
+    });
     issues.forEach(i => {
       const counts = results.get(api)!;
       counts.total++;
@@ -180,7 +188,7 @@ export async function sendMail() {
   console.log(`Untriaged: ${untriagedIssues.length}`);
   console.log(`Out of SLO: ${outOfSLOIssues.length}`);
 
-  console.log(`repo,issue,title`);
+  console.log('repo,issue,title');
   languages.forEach(l => {
     const untriaged = untriagedIssues.filter(x => x.language === l);
     console.log(`\n\n###\t${l}###`);
@@ -193,10 +201,11 @@ export async function sendMail() {
   });
 }
 
-export async function showApiSLOs(cli: meow.Result) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function showApiSLOs(cli: meow.Result<any>) {
   const output = new Array<string>();
   const issues = await getIssues();
-  const apiResults = getApiResults(issues, cli.flags.api);
+  const apiResults = getApiResults(issues, cli.flags.api as string);
   const apiHeader = [
     'Api',
     'Total',
@@ -226,10 +235,10 @@ export async function showApiSLOs(cli: meow.Result) {
   }
   output.forEach(l => console.log(l));
 }
-
-export async function showLanguageSLOs(cli: meow.Result) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function showLanguageSLOs(cli: meow.Result<any>) {
   const output = new Array<string>();
-  const issues = await getIssues(cli.flags as Flags);
+  const issues = await getIssues((cli.flags as unknown) as Flags);
   const res = getLanguageResults(issues);
   const languageHeader = [
     'Language',
@@ -269,8 +278,8 @@ export async function showLanguageSLOs(cli: meow.Result) {
   }
   output.forEach(l => console.log(l));
 }
-
-export async function showSLOs(cli: meow.Result) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function showSLOs(cli: meow.Result<any>) {
   const output = new Array<string>();
   const issues = await getIssues();
 
@@ -314,8 +323,8 @@ export async function showSLOs(cli: meow.Result) {
     });
 
     const values = [
-      `TOTALS`,
-      `-`,
+      'TOTALS',
+      '-',
       totals.total,
       totals.p0,
       totals.p1,
