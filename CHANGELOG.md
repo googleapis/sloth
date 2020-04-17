@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.20.1](https://www.github.com/googleapis/sloth/compare/v5.20.0...v5.20.1) (2020-04-17)
+
+
+### Bug Fixes
+
+* remove field mask due to closed issues being returned ([#632](https://www.github.com/googleapis/sloth/issues/632)) ([1b0f29f](https://www.github.com/googleapis/sloth/commit/1b0f29f71a6d5c17b19976ad39c5410232c5e6b9))
+
 ## [5.20.0](https://www.github.com/googleapis/sloth/compare/v5.19.0...v5.20.0) (2020-04-17)
 
 
