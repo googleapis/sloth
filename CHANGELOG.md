@@ -4,6 +4,23 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.20.0](https://www.github.com/googleapis/sloth/compare/v5.19.0...v5.20.0) (2020-04-17)
+
+
+### Features
+
+* add bradmiro to java and python ([#627](https://www.github.com/googleapis/sloth/issues/627)) ([6ca8be7](https://www.github.com/googleapis/sloth/commit/6ca8be73826dfc3640963327f677c6a8a423bb67))
+* add suraj-qlogic to java team ([#578](https://www.github.com/googleapis/sloth/issues/578)) ([75adb24](https://www.github.com/googleapis/sloth/commit/75adb24d8a996ca03dcfd8b940647af152a97287))
+* Use field_mask for faster retrieval of issues ([#573](https://www.github.com/googleapis/sloth/issues/573)) ([15e88d9](https://www.github.com/googleapis/sloth/commit/15e88d9abe4b007b7128987f4e6eceeaa432816e))
+
+
+### Bug Fixes
+
+* apache license URL ([#468](https://www.github.com/googleapis/sloth/issues/468)) ([#626](https://www.github.com/googleapis/sloth/issues/626)) ([25ecc34](https://www.github.com/googleapis/sloth/commit/25ecc34fdabfc64abe7026eaf9b287402bab8196))
+* **deps:** update dependency @octokit/rest to v17.2.1 ([#625](https://www.github.com/googleapis/sloth/issues/625)) ([52a8f8d](https://www.github.com/googleapis/sloth/commit/52a8f8da6b814643f81f21a08a88d676c00c8b65))
+* **deps:** update dependency @octokit/rest to v17.3.0 ([#630](https://www.github.com/googleapis/sloth/issues/630)) ([e42eecb](https://www.github.com/googleapis/sloth/commit/e42eecb92a63f20a51a3cb614a3773acdfaa37c1))
+* remove the google-cloud-cpp-bigquery repo ([#631](https://www.github.com/googleapis/sloth/issues/631)) ([369db83](https://www.github.com/googleapis/sloth/commit/369db83b07463e027111afd70febf729e0144104))
+
 ## [5.19.0](https://www.github.com/googleapis/sloth/compare/v5.18.0...v5.19.0) (2020-04-03)
 
 
