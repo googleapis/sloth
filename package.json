@@ -39,7 +39,7 @@
     "@google-cloud/bigquery": "^4.7.0",
     "@octokit/rest": "17.5.1",
     "cli-table": "^0.3.1",
-    "csv-string": "^3.2.0",
+    "csv-string": "^4.0.0",
     "gaxios": "^3.0.2",
     "meow": "^6.1.0",
     "truncate": "^2.1.0",
