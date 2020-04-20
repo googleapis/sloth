@@ -61,9 +61,27 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const result = {issues: new Array<Issue>(), repo};
   let res!: GaxiosResponse<IssuesApiResponse>;
   const rootUrl = 'https://drghs.endpoints.devrel-prod.cloud.goog/api/v1';
+  const fieldMask = [
+    'assignees',
+    'closed',
+    'closedAt',
+    'createdAt',
+    'isPr',
+    'issueId',
+    'issueType',
+    'labels',
+    'priority',
+    'priorityUnknown',
+    'repo',
+    'reporter',
+    'title',
+    'updatedAt',
+    'url',
+  ].join(',');
+
   let pageToken = '';
   while (pageToken === '' && result.issues.length < 1) {
-    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
+    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false&field_mask=${fieldMask}`;
     if (pageToken !== '') {
       url = url + `&page=${pageToken}`;
     }
