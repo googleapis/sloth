@@ -298,6 +298,7 @@
     { "language": "python", "repo": "googleapis/python-oslogin"},
     { "language": "python", "repo": "googleapis/python-phishingprotection"},
     { "language": "python", "repo": "googleapis/python-pubsub"},
+    { "language": "python", "repo": "googleapis/python-recaptcha-enterprise"},
     { "language": "python", "repo": "googleapis/python-recommendations-ai"},
     { "language": "python", "repo": "googleapis/python-recommender"},
     { "language": "python", "repo": "googleapis/python-redis"},
