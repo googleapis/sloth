@@ -484,6 +484,7 @@
         "googleapis/python-oslogin",
         "googleapis/python-phishingprotection",
         "googleapis/python-pubsub",
+        "googleapis/python-recaptcha-enterprise",
         "googleapis/python-recommendations-ai",
         "googleapis/python-recommender",
         "googleapis/python-redis",
