@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.20.2](https://www.github.com/googleapis/sloth/compare/v5.20.1...v5.20.2) (2020-04-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.5.1 ([#636](https://www.github.com/googleapis/sloth/issues/636)) ([e221dc5](https://www.github.com/googleapis/sloth/commit/e221dc539280bbe6d0643d1e9442ab9aa32b3ca1))
+* **deps:** update dependency csv-string to v4 ([#634](https://www.github.com/googleapis/sloth/issues/634)) ([b4a2b69](https://www.github.com/googleapis/sloth/commit/b4a2b69bdc5a3fb33cc54bfa8d948ed7e3d71659))
+* re-enable the field mask ([#638](https://www.github.com/googleapis/sloth/issues/638)) ([11451bc](https://www.github.com/googleapis/sloth/commit/11451bc72793e911fa48b505850926929112eef2))
+
 ### [5.20.1](https://www.github.com/googleapis/sloth/compare/v5.20.0...v5.20.1) (2020-04-17)
 
 
