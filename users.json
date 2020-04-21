@@ -445,6 +445,7 @@
         "googleapis/google-cloud-python",
         "googleapis/google-cloud-python-happybase",
         "googleapis/google-resumable-media-python",
+        "googleapis/python-api-common-protos",
         "googleapis/python-api-core",
         "googleapis/python-cloud-core",
         "googleapis/python-access-approval",
