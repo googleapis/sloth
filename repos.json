@@ -3,7 +3,6 @@
     { "language": "cpp", "repo": "googleapis/cpp-cmakefiles", "isTeamIssue": true},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp", "isTeamIssue": true},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-common", "isTeamIssue": true},
-    { "language": "cpp", "repo": "googleapis/google-cloud-cpp-pubsub", "isTeamIssue": true},
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner", "isTeamIssue": true},
     { "language": "cpp", "repo": "GoogleCloudPlatform/cpp-docs-samples", "isTeamIssue": true},
 
