@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.21.0](https://www.github.com/googleapis/sloth/compare/v5.20.2...v5.21.0) (2020-04-23)
+
+
+### Features
+
+* add python-recaptcha-enterprise ([#639](https://www.github.com/googleapis/sloth/issues/639)) ([2238bb5](https://www.github.com/googleapis/sloth/commit/2238bb51097ff552028e1f270abcdaadc0b46ede))
+* **python:** add python-api-common-protos ([#641](https://www.github.com/googleapis/sloth/issues/641)) ([411d170](https://www.github.com/googleapis/sloth/commit/411d170bf1cb37ad01ab574334091d8db109fe80))
+
+
+### Bug Fixes
+
+* remove the google-cloud-cpp-pubsub repo ([#643](https://www.github.com/googleapis/sloth/issues/643)) ([7337f41](https://www.github.com/googleapis/sloth/commit/7337f41f47f9e7b0bb4465ed5caf35aa46f8b8c3))
+
 ### [5.20.2](https://www.github.com/googleapis/sloth/compare/v5.20.1...v5.20.2) (2020-04-20)
 
 
