@@ -38,7 +38,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@google-cloud/bigquery": "^4.7.0",
-    "@octokit/rest": "17.5.2",
+    "@octokit/rest": "17.6.0",
     "cli-table": "^0.3.1",
     "csv-string": "^4.0.0",
     "gaxios": "^3.0.2",
