@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.21.1](https://www.github.com/googleapis/sloth/compare/v5.21.0...v5.21.1) (2020-04-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.5.2 ([#642](https://www.github.com/googleapis/sloth/issues/642)) ([74233cf](https://www.github.com/googleapis/sloth/commit/74233cf3021c6a2c12d26fc8207d328ed50a0c4c))
+* add nodejs-local-auth ([#647](https://www.github.com/googleapis/sloth/issues/647)) ([1d0c173](https://www.github.com/googleapis/sloth/commit/1d0c1738b62aef335d7d4944b9463ccc6848638f))
+
 ## [5.21.0](https://www.github.com/googleapis/sloth/compare/v5.20.2...v5.21.0) (2020-04-23)
 
 
