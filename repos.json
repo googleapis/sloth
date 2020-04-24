@@ -317,6 +317,7 @@
     { "language": "python", "repo": "googleapis/python-storage"},
     { "language": "python", "repo": "googleapis/python-talent"},
     { "language": "python", "repo": "googleapis/python-tasks"},
+    { "language": "python", "repo": "googleapis/python-test-utils"},
     { "language": "python", "repo": "googleapis/python-texttospeech"},
     { "language": "python", "repo": "googleapis/python-trace"},
     { "language": "python", "repo": "googleapis/python-translate"},

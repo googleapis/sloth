@@ -503,6 +503,7 @@
         "googleapis/python-storage",
         "googleapis/python-talent",
         "googleapis/python-tasks",
+        "googleapis/python-test-utils",
         "googleapis/python-texttospeech",
         "googleapis/python-trace",
         "googleapis/python-translate",
