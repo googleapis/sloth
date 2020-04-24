@@ -157,6 +157,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-irm"},
     { "language": "nodejs", "repo": "googleapis/nodejs-kms"},
     { "language": "nodejs", "repo": "googleapis/nodejs-language"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-local-auth"},
     { "language": "nodejs", "repo": "googleapis/nodejs-logging"},
     { "language": "nodejs", "repo": "googleapis/nodejs-logging-bunyan"},
     { "language": "nodejs", "repo": "googleapis/nodejs-logging-winston"},

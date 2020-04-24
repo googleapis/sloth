@@ -93,6 +93,7 @@
         "googleapis/nodejs-iot",
         "googleapis/nodejs-kms",
         "googleapis/nodejs-language",
+        "googleapis/nodejs-local-auth",
         "googleapis/nodejs-logging",
         "googleapis/nodejs-logging-bunyan",
         "googleapis/nodejs-logging-winston",
