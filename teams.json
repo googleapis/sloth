@@ -8,7 +8,8 @@
         "datastore",
         "firestore",
         "redis",
-        "storage"
+        "storage",
+        "storagetransfer"
       ]
     },
     {
