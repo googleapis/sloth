@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.22.0](https://www.github.com/googleapis/sloth/compare/v5.21.0...v5.22.0) (2020-04-27)
+
+
+### Features
+
+* add BigQuery Connections, BigQuery Reservations repos. ([#649](https://www.github.com/googleapis/sloth/issues/649)) ([1f5ab3a](https://www.github.com/googleapis/sloth/commit/1f5ab3a468784e5d9b9f46a892905c08772180e0))
+* add python-test-utils ([#648](https://www.github.com/googleapis/sloth/issues/648)) ([c4ab444](https://www.github.com/googleapis/sloth/commit/c4ab444aeadf756492562aff6f744631f7db3e61))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.5.2 ([#642](https://www.github.com/googleapis/sloth/issues/642)) ([74233cf](https://www.github.com/googleapis/sloth/commit/74233cf3021c6a2c12d26fc8207d328ed50a0c4c))
+* add nodejs-local-auth ([#647](https://www.github.com/googleapis/sloth/issues/647)) ([1d0c173](https://www.github.com/googleapis/sloth/commit/1d0c1738b62aef335d7d4944b9463ccc6848638f))
+* **deps:** update dependency @octokit/rest to v17.6.0 ([#646](https://www.github.com/googleapis/sloth/issues/646)) ([ea1ed79](https://www.github.com/googleapis/sloth/commit/ea1ed792122b3e14d46a36a0d0a7380008a2d278))
+* add storagetransfer to SoDa ([#654](https://www.github.com/googleapis/sloth/issues/654)) ([179e19b](https://www.github.com/googleapis/sloth/commit/179e19b4000220caa506b19640d6e633349db2ac))
+
 ## [5.21.0](https://www.github.com/googleapis/sloth/compare/v5.20.2...v5.21.0) (2020-04-23)
 
 
