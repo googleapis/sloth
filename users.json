@@ -553,6 +553,16 @@
         "googleapis/google-cloud-cpp-pubsub",
         "googleapis/google-cloud-cpp-spanner"
       ]
+    },
+    {
+      "team": "cloud-trace",
+      "users": [
+        "kintel",
+        "ziweizhao"
+      ],
+      "repos": [
+        "googleapis/cloud-trace-nodejs"
+      ]
     }
   ]
 }
