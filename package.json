@@ -54,7 +54,7 @@
     "@types/node": "^13.9.8",
     "@types/update-notifier": "^4.1.0",
     "c8": "^7.1.0",
-    "gts": "^2.0.0-alpha.9",
+    "gts": "^2.0.0",
     "linkinator": "^2.0.4",
     "mocha": "^7.1.1",
     "typescript": "^3.8.3"
