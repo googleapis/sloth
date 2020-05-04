@@ -100,6 +100,7 @@
     { "language": "java", "repo": "googleapis/java-websecurityscanner"},
     { "language": "java", "repo": "googleapis/java-bigtable-emulator"},
     { "language": "java", "repo": "googleapis/java-conformance-tests"},
+    { "language": "java", "repo": "googleapis/java-common-protos"},
     { "language": "java", "repo": "googleapis/java-core"},
     { "language": "java", "repo": "googleapis/java-cloud-bom"},
     { "language": "java", "repo": "googleapis/java-gcloud-maven-plugin"},
