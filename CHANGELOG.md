@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.23.0](https://www.github.com/googleapis/sloth/compare/v5.22.0...v5.23.0) (2020-05-04)
+
+
+### Features
+
+* **java:** add java-common-protos repo ([#661](https://www.github.com/googleapis/sloth/issues/661)) ([ad27652](https://www.github.com/googleapis/sloth/commit/ad27652b575af1782d8c46a05b16edcd4d077bef))
+
 ## [5.22.0](https://www.github.com/googleapis/sloth/compare/v5.21.0...v5.22.0) (2020-04-27)
 
 
