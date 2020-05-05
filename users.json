@@ -457,6 +457,7 @@
         "googleapis/python-bigtable",
         "googleapis/python-bigquery",
         "googleapis/python-bigquery-datatransfer",
+        "googleapis/python-bigquery-reservation",
         "googleapis/python-bigquery-storage",
         "googleapis/python-billing",
         "googleapis/python-billingbudgets",
