@@ -269,6 +269,7 @@
     { "language": "python", "repo": "googleapis/python-bigtable"},
     { "language": "python", "repo": "googleapis/python-bigquery"},
     { "language": "python", "repo": "googleapis/python-bigquery-datatransfer"},
+    { "language": "python", "repo": "googleapis/python-bigquery-reservation"},
     { "language": "python", "repo": "googleapis/python-bigquery-storage"},
     { "language": "python", "repo": "googleapis/python-billing"},
     { "language": "python", "repo": "googleapis/python-billingbudgets"},
