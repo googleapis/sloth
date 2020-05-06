@@ -61,6 +61,7 @@
     { "language": "java", "repo": "googleapis/java-firestore"},
     { "language": "java", "repo": "googleapis/java-gameservices"},
     { "language": "java", "repo": "googleapis/java-grafeas"},
+    { "language": "java", "repo": "googleapis/java-iam"},
     { "language": "java", "repo": "googleapis/java-iamcredentials"},
     { "language": "java", "repo": "googleapis/java-iot"},
     { "language": "java", "repo": "googleapis/java-irm"},
