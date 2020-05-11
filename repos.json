@@ -168,6 +168,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-memcache"},
     { "language": "nodejs", "repo": "googleapis/nodejs-monitoring"},
     { "language": "nodejs", "repo": "googleapis/nodejs-monitoring-dashboards"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-os-config"},
     { "language": "nodejs", "repo": "googleapis/nodejs-os-login"},
     { "language": "nodejs", "repo": "googleapis/nodejs-paginator"},
     { "language": "nodejs", "repo": "googleapis/nodejs-phishing-protection"},
