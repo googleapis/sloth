@@ -42,14 +42,13 @@
     "cli-table": "^0.3.1",
     "csv-string": "^4.0.0",
     "gaxios": "^3.0.2",
-    "meow": "^6.1.0",
+    "meow": "^7.0.1",
     "truncate": "^2.1.0",
     "update-notifier": "^4.1.0"
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.11",
     "@types/cli-table": "^0.3.0",
-    "@types/meow": "^5.0.0",
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.8",
     "@types/update-notifier": "^4.1.0",
