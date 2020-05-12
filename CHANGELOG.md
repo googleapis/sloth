@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.24.0](https://www.github.com/googleapis/sloth/compare/v5.23.0...v5.24.0) (2020-05-11)
+
+
+### Features
+
+* **java:** add java-iam repo ([#665](https://www.github.com/googleapis/sloth/issues/665)) ([c23e8ad](https://www.github.com/googleapis/sloth/commit/c23e8ad348e4a8d3f9638e1a8f2642b2cd6187c8))
+* add os-config ([#671](https://www.github.com/googleapis/sloth/issues/671)) ([3dbf7f2](https://www.github.com/googleapis/sloth/commit/3dbf7f288138e667f27842b5c56ad94d94623d8b))
+* add python orgpolicy and accesscontextmanager ([#669](https://www.github.com/googleapis/sloth/issues/669)) ([0889093](https://www.github.com/googleapis/sloth/commit/0889093189001d888233c2158d04deb470bf3378))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.7.0 ([#664](https://www.github.com/googleapis/sloth/issues/664)) ([e606eed](https://www.github.com/googleapis/sloth/commit/e606eed707762be08d36da9b8289c1f2f16e39aa))
+* **deps:** update dependency @octokit/rest to v17.8.0 ([#667](https://www.github.com/googleapis/sloth/issues/667)) ([e967305](https://www.github.com/googleapis/sloth/commit/e9673058f5e6a43ad9a6dbbd0acf3a72210b150a))
+* **deps:** upgrade to meow 7.x ([#670](https://www.github.com/googleapis/sloth/issues/670)) ([d5849af](https://www.github.com/googleapis/sloth/commit/d5849af7a9c1046d646e41dac0a901b36610e519))
+
 ## [5.23.0](https://www.github.com/googleapis/sloth/compare/v5.22.0...v5.23.0) (2020-05-04)
 
 
