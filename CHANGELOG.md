@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.25.0](https://www.github.com/googleapis/sloth/compare/v5.24.0...v5.25.0) (2020-05-13)
+
+
+### Features
+
+* adding missing repos and update teams ([#676](https://www.github.com/googleapis/sloth/issues/676)) ([89b9b2e](https://www.github.com/googleapis/sloth/commit/89b9b2eb77c14b5e18585eb499bf6edd62ec4e60))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.9.0 ([#672](https://www.github.com/googleapis/sloth/issues/672)) ([85f9fc4](https://www.github.com/googleapis/sloth/commit/85f9fc4799162fa0bc0b5a26566c253ad3052816))
+* adds intern to python ([#674](https://www.github.com/googleapis/sloth/issues/674)) ([7dfc5d5](https://www.github.com/googleapis/sloth/commit/7dfc5d560f376024c026e07360c0bba2928ac90e)), closes [#673](https://www.github.com/googleapis/sloth/issues/673)
+
 ## [5.24.0](https://www.github.com/googleapis/sloth/compare/v5.23.0...v5.24.0) (2020-05-11)
 
 
