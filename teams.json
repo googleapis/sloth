@@ -20,7 +20,12 @@
         "cloudtasks",
         "functions",
         "ndb",
-        "run"
+        "run",
+        "logging"
+      ],
+      "repos": [
+        "googleapis/nodejs-logging-winston",
+        "googleapis/nodejs-logging-bunyan"
       ]
     },
     {
@@ -35,7 +40,6 @@
         "datalabeling",
         "dataproc",
         "dialogflow",
-        "dlp",
         "language",
         "ml",
         "pubsub",
@@ -71,8 +75,6 @@
       "repos": [
         "googleapis/cloud-debug-nodejs",
         "googleapis/cloud-trace-nodejs",
-        "googleapis/nodejs-logging-winston",
-        "googleapis/nodejs-logging-bunyan",
         "googleapis/nodejs-error-reporting"
       ]
     },
@@ -86,6 +88,11 @@
       "name": "spanner",
       "apis": [
         "spanner"
+      ],
+      "repos": [
+        "googleapis/ruby-spanner-activerecord",
+        "googleapis/java-spanner-jdbc",
+        "googleapis/python-spanner-django"
       ]
     },
     {
