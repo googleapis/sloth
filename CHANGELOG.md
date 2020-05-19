@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.25.2](https://www.github.com/googleapis/sloth/compare/v5.25.1...v5.25.2) (2020-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.9.2 ([#682](https://www.github.com/googleapis/sloth/issues/682)) ([f51967b](https://www.github.com/googleapis/sloth/commit/f51967b5c06231b87881f8f2ee25d92750b31bfa))
+* add java-pubsublite repository ([#684](https://www.github.com/googleapis/sloth/issues/684)) ([ba95d59](https://www.github.com/googleapis/sloth/commit/ba95d59e39439050ad1d64786e1431e19b107df4))
+
 ### [5.25.1](https://www.github.com/googleapis/sloth/compare/v5.25.0...v5.25.1) (2020-05-18)
 
 
