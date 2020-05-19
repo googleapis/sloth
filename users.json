@@ -459,6 +459,7 @@
         "googleapis/python-automl",
         "googleapis/python-bigtable",
         "googleapis/python-bigquery",
+        "googleapis/python-bigquery-connection",
         "googleapis/python-bigquery-datatransfer",
         "googleapis/python-bigquery-reservation",
         "googleapis/python-bigquery-storage",
