@@ -77,6 +77,7 @@
     { "language": "java", "repo": "googleapis/java-os-login"},
     { "language": "java", "repo": "googleapis/java-phishingprotection"},
     { "language": "java", "repo": "googleapis/java-pubsub"},
+    { "language": "java", "repo": "googleapis/java-pubsublite"},
     { "language": "java", "repo": "googleapis/java-recaptchaenterprise"},
     { "language": "java", "repo": "googleapis/java-recommendations-ai"},
     { "language": "java", "repo": "googleapis/java-recommender"},
