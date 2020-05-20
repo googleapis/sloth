@@ -129,6 +129,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-datastore-kvstore"},
     { "language": "nodejs", "repo": "googleapis/google-cloud-node"},
     { "language": "nodejs", "repo": "googleapis/google-p12-pem"},
+    { "language": "nodejs", "repo": "googleapis/jsdoc-fresh"},
     { "language": "nodejs", "repo": "googleapis/node-gtoken"},
     { "language": "nodejs", "repo": "googleapis/nodejs-asset"},
     { "language": "nodejs", "repo": "googleapis/nodejs-automl"},
