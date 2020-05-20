@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.26.0](https://www.github.com/googleapis/sloth/compare/v5.25.2...v5.26.0) (2020-05-20)
+
+
+### Features
+
+* add python-bigquery-connection repo ([#685](https://www.github.com/googleapis/sloth/issues/685)) ([796b8b1](https://www.github.com/googleapis/sloth/commit/796b8b1198de9ac70797ba64e07053600154fe86))
+
+
+### Bug Fixes
+
+* add jsdoc-fresh repos ([#687](https://www.github.com/googleapis/sloth/issues/687)) ([0c2b306](https://www.github.com/googleapis/sloth/commit/0c2b30612c4caaeeb67b1a8b9c987daf17355a91))
+* remove bcoe from teams they're not contributing to ([#688](https://www.github.com/googleapis/sloth/issues/688)) ([b9e17cc](https://www.github.com/googleapis/sloth/commit/b9e17ccc5a824735f849da15cbc23958cb271420))
+
 ### [5.25.2](https://www.github.com/googleapis/sloth/compare/v5.25.1...v5.25.2) (2020-05-19)
 
 
