@@ -7,6 +7,7 @@
         "cloudsql",
         "datastore",
         "firestore",
+        "ndb",
         "redis",
         "storage",
         "storagetransfer"
@@ -19,7 +20,6 @@
         "cloudfunctions",
         "cloudtasks",
         "functions",
-        "ndb",
         "run",
         "logging"
       ],
