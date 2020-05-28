@@ -557,6 +557,81 @@
         "googleapis/google-cloud-cpp-pubsub",
         "googleapis/google-cloud-cpp-spanner"
       ]
+    },
+    {
+      "team": "BigTable DPE",
+      "users": [
+        "billyjacobson",
+        "crwilcox",
+        "dmahugh",
+        "igorbernstein2",
+        "kolea2"
+      ],
+      "repos": [
+        "googleapis/java-bigtable",
+        "googleapis/nodejs-bigtable",
+        "googleapis/python-bigtable",
+        "googleapis/google-cloud-php",
+        "googleapis/google-cloud-ruby",
+        "googleapis/google-cloud-dotnet"
+      ]
+    },
+    {
+      "team": "cloud-sql-dpes",
+      "users": [
+        "dmahugh",
+        "kurtisvg",
+        "shubha-rajan"
+      ],
+      "repos": [
+        
+      ]
+    },
+    {
+      "team": "Firestore DPE",
+      "users": [
+        "benwhitehead",
+        "crwilcox",
+        "dmahugh"
+      ],
+      "repos": [
+        "googleapis/java-firestore",
+        "googleapis/nodejs-firestore",
+        "googleapis/python-firestore",
+        "googleapis/google-cloud-php",
+        "googleapis/google-cloud-ruby",
+        "googleapis/google-cloud-dotnet"
+      ]
+    },
+    {
+      "team": "Storage DPE",
+      "users": [
+        "andrewsg",
+        "frankyn",
+        "jkwlui",
+        "tritone",
+        "jesselovelace"
+      ],
+      "repos": [
+        "googleapis/java-storage",
+        "googleapis/nodejs-storage",
+        "googleapis/python-storage",
+        "googleapis/google-cloud-php",
+        "googleapis/google-cloud-ruby",
+        "googleapis/google-cloud-dotnet"
+      ]
+    },
+    {
+      "team": "GCP DPE SoDa",
+      "users": [
+        "BigTable DPE",
+        "cloud-sql-dpes",
+        "Firestore DPE",
+        "Storage DPE"
+      ],
+      "repos": [
+        
+      ]
     }
   ]
 }
