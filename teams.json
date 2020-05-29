@@ -17,9 +17,12 @@
       "name": "code-build-run",
       "apis": [
         "appengine",
+        "cloudbuild",
         "cloudfunctions",
+        "cloudscheduler",
         "cloudtasks",
-        "functions",
+        "container",
+        "containeranalysis",
         "run",
         "logging"
       ],
