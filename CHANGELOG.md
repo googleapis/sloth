@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.26.1](https://www.github.com/googleapis/sloth/compare/v5.26.0...v5.26.1) (2020-05-29)
+
+
+### Bug Fixes
+
+* assign more APIs to cake ([#692](https://www.github.com/googleapis/sloth/issues/692)) ([c6a5e0e](https://www.github.com/googleapis/sloth/commit/c6a5e0e8cf7ffa396568c7a2251e292cf77a1843))
+
 ## [5.26.0](https://www.github.com/googleapis/sloth/compare/v5.25.2...v5.26.0) (2020-05-20)
 
 
