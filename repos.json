@@ -1,7 +1,6 @@
 {
   "repos": [
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp", "isTeamIssue": true},
-    { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner", "isTeamIssue": true},
     { "language": "cpp", "repo": "GoogleCloudPlatform/cpp-docs-samples", "isTeamIssue": true},
 
     { "language": "dotnet", "repo": "googleapis/gax-dotnet", "isTeamIssue": true},
