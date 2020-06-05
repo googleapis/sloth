@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.26.2](https://www.github.com/googleapis/sloth/compare/v5.26.1...v5.26.2) (2020-06-05)
+
+
+### Bug Fixes
+
+* add meredithslota to teams they triage/assign ([#695](https://www.github.com/googleapis/sloth/issues/695)) ([455eae7](https://www.github.com/googleapis/sloth/commit/455eae723e3de5c469a088f631f076ef9231eb70))
+* **deps:** update dependency @octokit/rest to v17.10.0 ([#698](https://www.github.com/googleapis/sloth/issues/698)) ([a697b7f](https://www.github.com/googleapis/sloth/commit/a697b7fd35df040ff03cb25e4a62f8cf879f3b62))
+* **deps:** update dependency @octokit/rest to v17.9.3 ([#697](https://www.github.com/googleapis/sloth/issues/697)) ([3eef942](https://www.github.com/googleapis/sloth/commit/3eef9420226e1e21086eed5765610a0e715d8eec))
+
 ### [5.26.1](https://www.github.com/googleapis/sloth/compare/v5.26.0...v5.26.1) (2020-05-29)
 
 
