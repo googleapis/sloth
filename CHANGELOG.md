@@ -4,6 +4,20 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.27.0](https://www.github.com/googleapis/sloth/compare/v5.26.2...v5.27.0) (2020-06-10)
+
+
+### Features
+
+* add xiaozhenliu to yoshi-python ([#701](https://www.github.com/googleapis/sloth/issues/701)) ([c64c761](https://www.github.com/googleapis/sloth/commit/c64c76125bce7d7ef8281f8dafa58e86277ed8e6))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.11.0 ([#700](https://www.github.com/googleapis/sloth/issues/700)) ([b834404](https://www.github.com/googleapis/sloth/commit/b834404f1b8b615cf98ed7026570a8904a403d53))
+* add APIs to AnIML teams ([#703](https://www.github.com/googleapis/sloth/issues/703)) ([e096274](https://www.github.com/googleapis/sloth/commit/e0962743aba8b18d107c3fef2bca3c0f80bc87ca))
+* add python-os-config repo ([#704](https://www.github.com/googleapis/sloth/issues/704)) ([813df10](https://www.github.com/googleapis/sloth/commit/813df106c4564a124269fa32e13d39eda97e94bb))
+
 ### [5.26.2](https://www.github.com/googleapis/sloth/compare/v5.26.1...v5.26.2) (2020-06-05)
 
 
