@@ -304,6 +304,7 @@
     { "language": "python", "repo": "googleapis/python-monitoring-dashboards"},
     { "language": "python", "repo": "googleapis/python-ndb"},
     { "language": "python", "repo": "googleapis/python-org-policy"},
+    { "language": "python", "repo": "googleapis/python-os-config"},
     { "language": "python", "repo": "googleapis/python-oslogin"},
     { "language": "python", "repo": "googleapis/python-phishingprotection"},
     { "language": "python", "repo": "googleapis/python-pubsub"},
