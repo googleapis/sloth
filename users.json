@@ -493,6 +493,7 @@
         "googleapis/python-monitoring-dashboards",
         "googleapis/python-ndb",
         "googleapis/python-org-policy",
+        "googleapis/python-os-config",
         "googleapis/python-oslogin",
         "googleapis/python-phishingprotection",
         "googleapis/python-pubsub",
