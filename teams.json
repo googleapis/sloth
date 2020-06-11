@@ -17,9 +17,12 @@
       "name": "code-build-run",
       "apis": [
         "appengine",
+        "cloudbuild",
         "cloudfunctions",
+        "cloudscheduler",
         "cloudtasks",
-        "functions",
+        "container",
+        "containeranalysis",
         "run",
         "logging"
       ],
@@ -33,10 +36,14 @@
       "apis": [
         "automl",
         "bigquery",
+        "bigqueryconnection",
         "bigquerydatatransfer",
+        "bigqueryreservation",
         "bigquerystorage",
         "cloudiot",
+        "composer",
         "datacatalog",
+        "dataflow",
         "datalabeling",
         "dataproc",
         "dialogflow",

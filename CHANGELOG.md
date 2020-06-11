@@ -4,6 +4,36 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.27.0](https://www.github.com/googleapis/sloth/compare/v5.26.2...v5.27.0) (2020-06-10)
+
+
+### Features
+
+* add xiaozhenliu to yoshi-python ([#701](https://www.github.com/googleapis/sloth/issues/701)) ([c64c761](https://www.github.com/googleapis/sloth/commit/c64c76125bce7d7ef8281f8dafa58e86277ed8e6))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @octokit/rest to v17.11.0 ([#700](https://www.github.com/googleapis/sloth/issues/700)) ([b834404](https://www.github.com/googleapis/sloth/commit/b834404f1b8b615cf98ed7026570a8904a403d53))
+* add APIs to AnIML teams ([#703](https://www.github.com/googleapis/sloth/issues/703)) ([e096274](https://www.github.com/googleapis/sloth/commit/e0962743aba8b18d107c3fef2bca3c0f80bc87ca))
+* add python-os-config repo ([#704](https://www.github.com/googleapis/sloth/issues/704)) ([813df10](https://www.github.com/googleapis/sloth/commit/813df106c4564a124269fa32e13d39eda97e94bb))
+
+### [5.26.2](https://www.github.com/googleapis/sloth/compare/v5.26.1...v5.26.2) (2020-06-05)
+
+
+### Bug Fixes
+
+* add meredithslota to teams they triage/assign ([#695](https://www.github.com/googleapis/sloth/issues/695)) ([455eae7](https://www.github.com/googleapis/sloth/commit/455eae723e3de5c469a088f631f076ef9231eb70))
+* **deps:** update dependency @octokit/rest to v17.10.0 ([#698](https://www.github.com/googleapis/sloth/issues/698)) ([a697b7f](https://www.github.com/googleapis/sloth/commit/a697b7fd35df040ff03cb25e4a62f8cf879f3b62))
+* **deps:** update dependency @octokit/rest to v17.9.3 ([#697](https://www.github.com/googleapis/sloth/issues/697)) ([3eef942](https://www.github.com/googleapis/sloth/commit/3eef9420226e1e21086eed5765610a0e715d8eec))
+
+### [5.26.1](https://www.github.com/googleapis/sloth/compare/v5.26.0...v5.26.1) (2020-05-29)
+
+
+### Bug Fixes
+
+* assign more APIs to cake ([#692](https://www.github.com/googleapis/sloth/issues/692)) ([c6a5e0e](https://www.github.com/googleapis/sloth/commit/c6a5e0e8cf7ffa396568c7a2251e292cf77a1843))
+
 ## [5.26.0](https://www.github.com/googleapis/sloth/compare/v5.25.2...v5.26.0) (2020-05-20)
 
 

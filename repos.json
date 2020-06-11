@@ -1,7 +1,6 @@
 {
   "repos": [
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp", "isTeamIssue": true},
-    { "language": "cpp", "repo": "googleapis/google-cloud-cpp-spanner", "isTeamIssue": true},
     { "language": "cpp", "repo": "GoogleCloudPlatform/cpp-docs-samples", "isTeamIssue": true},
 
     { "language": "dotnet", "repo": "googleapis/gax-dotnet", "isTeamIssue": true},
@@ -10,6 +9,8 @@
     { "language": "dotnet", "repo": "googleapis/gapic-generator-csharp", "isTeamIssue": true},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/dotnet-docs-samples"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-code-samples"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/stackdriver-sandbox"},
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api", "isTeamIssue": true},
     { "language": "elixir", "repo": "GoogleCloudPlatform/elixir-samples", "isTeamIssue": true},
@@ -305,6 +306,7 @@
     { "language": "python", "repo": "googleapis/python-monitoring-dashboards"},
     { "language": "python", "repo": "googleapis/python-ndb"},
     { "language": "python", "repo": "googleapis/python-org-policy"},
+    { "language": "python", "repo": "googleapis/python-os-config"},
     { "language": "python", "repo": "googleapis/python-oslogin"},
     { "language": "python", "repo": "googleapis/python-phishingprotection"},
     { "language": "python", "repo": "googleapis/python-pubsub"},
