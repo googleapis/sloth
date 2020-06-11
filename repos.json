@@ -204,6 +204,7 @@
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-storage"},
+    { "language": "nodejs", "repo": "GoogleCloudPlatform/cloud-code-samples"},
 
     { "language": "php", "repo": "googleapis/gax-php", "isTeamIssue": true},
     { "language": "php", "repo": "googleapis/google-api-php-client"},
@@ -337,6 +338,7 @@
     { "language": "python", "repo": "googleapis/synthtool"},
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
+    { "language": "python", "repo": "GoogleCloudPlatform/stackdriver-sandbox"},
 
     { "language": "ruby", "repo": "googleapis/discovery-artifact-manager"},
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
