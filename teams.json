@@ -53,7 +53,7 @@
         "recommender",
         "speech",
         "texttospeech",
-        "translation",
+        "translate",
         "videointelligence",
         "vision"
       ]
