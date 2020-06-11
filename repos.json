@@ -9,6 +9,8 @@
     { "language": "dotnet", "repo": "googleapis/gapic-generator-csharp", "isTeamIssue": true},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/dotnet-docs-samples"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-code-samples"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/stackdriver-sandbox"},
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api", "isTeamIssue": true},
     { "language": "elixir", "repo": "GoogleCloudPlatform/elixir-samples", "isTeamIssue": true},
