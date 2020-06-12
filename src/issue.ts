@@ -20,7 +20,7 @@ import {
   IssuesApiResponse,
   ApiIssue,
 } from './types';
-import {octo, repos, teams} from './util';
+import {gethub, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
@@ -218,31 +218,26 @@ export async function tagIssues() {
 }
 
 function tagIssue(i: Issue, label: string) {
-  return octo.issues
-    .addLabels({
+  return gethub({
+    url: `/repos/${i.owner}/${i.repo}/issues/${i.number}/labels`,
+    method: 'POST',
+    data: {
       labels: [label],
-      issue_number: i.number,
-      owner: i.owner,
-      repo: i.repo,
-    })
-    .catch(e => {
-      console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
-      console.error(e);
-    });
+    },
+  }).catch(e => {
+    console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
+    console.error(e);
+  });
 }
 
 function untagIssue(i: Issue, label: string) {
-  return octo.issues
-    .removeLabel({
-      name: label,
-      issue_number: i.number,
-      owner: i.owner,
-      repo: i.repo,
-    })
-    .catch(e => {
-      console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
-      console.error(e);
-    });
+  return gethub({
+    url: `/repos/${i.owner}/${i.repo}/issues/${i.number}/labels/${label}`,
+    method: 'DELETE',
+  }).catch(e => {
+    console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
+    console.error(e);
+  });
 }
 
 // tslint:disable-next-line no-any
