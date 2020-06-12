@@ -24,7 +24,8 @@
         "container",
         "containeranalysis",
         "run",
-        "logging"
+        "logging",
+        "clouderrorreporting"
       ],
       "repos": [
         "googleapis/nodejs-logging-winston",
@@ -78,11 +79,10 @@
       ]
     },
     {
-      "name": "node",
+      "name": "apm",
       "repos": [
         "googleapis/cloud-debug-nodejs",
-        "googleapis/cloud-trace-nodejs",
-        "googleapis/nodejs-error-reporting"
+        "googleapis/cloud-trace-nodejs"
       ]
     },
     {
