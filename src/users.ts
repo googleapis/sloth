@@ -13,7 +13,8 @@
 // limitations under the License.
 
 import {Member, Team} from './types';
-import {octo, users} from './util';
+import {gethub, users} from './util';
+import {GaxiosResponse} from 'gaxios';
 
 /**
  * Ensure all provided teams actually exist in all orgs.
@@ -26,12 +27,18 @@ export async function reconcileTeams() {
   const promises = users.orgs.map(async org => {
     const teams = new Array<Team>();
     let page = 1;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let res: any;
+    let res: GaxiosResponse<Team[]>;
     console.log(`Fetching teams for ${org}...`);
     do {
-      res = await octo.teams.list({org, per_page: 100, page});
-      res.data.forEach((t: Team) => {
+      res = await gethub({
+        url: `/orgs/${org}/teams`,
+        method: 'GET',
+        params: {
+          per_page: 1000,
+          page,
+        },
+      });
+      res.data.forEach(t => {
         t.org = org;
         teams.push(t);
       });
@@ -71,53 +78,47 @@ export async function reconcileRepos() {
     for (const r of m.repos) {
       const [o, repo] = r.split('/');
       const team = getTeam(m.team, o, teams);
-      const yoshiAdmins = getTeam('yoshi-admins', o, teams);
-      const yoshiTeam = getTeam('yoshi', o, teams);
+      const yoshiAdmins = getTeam('yoshi-admins', o, teams)!;
+      const yoshiTeam = getTeam('yoshi', o, teams)!;
 
       if (!team) {
         throw new Error(`Unable to find team '${m.team}'`);
       }
 
       // Add the language specific team
-      await octo.teams
-        .addOrUpdateRepoInOrg({
-          team_slug: team.slug,
-          owner: o,
-          org: o,
+      await gethub({
+        url: `/orgs/${o}/teams/${team.slug}/repos/${o}/${repo}`,
+        method: 'PUT',
+        data: {
           permission: 'push',
-          repo,
-        })
-        .catch(e => {
-          console.error(`Error adding ${r} to ${m.team}.`);
-          console.error(e);
-        });
+        },
+      }).catch(e => {
+        console.error(`Error adding ${r} to ${m.team}.`);
+        console.error(e);
+      });
 
       // Add the yoshi admins team
-      await octo.teams
-        .addOrUpdateRepoInOrg({
-          team_slug: yoshiAdmins!.slug,
-          owner: o,
-          org: o,
+      await gethub({
+        url: `/orgs/${o}/teams/${yoshiAdmins.slug}/repos/${o}/${repo}`,
+        method: 'PUT',
+        data: {
           permission: 'admin',
-          repo,
-        })
-        .catch(e => {
-          console.error(`Error adding ${r} to 'yoshi-admins'.`);
-          console.error(e);
-        });
+        },
+      }).catch(e => {
+        console.error(`Error adding ${r} to 'yoshi-admins'.`);
+        console.error(e);
+      });
 
       // Add the yoshi team
-      await octo.teams
-        .addOrUpdateRepoInOrg({
-          team_slug: yoshiTeam!.slug,
-          owner: o,
-          org: o,
+      await gethub({
+        url: `/orgs/${o}/teams/${yoshiTeam.slug}/repos/${o}/${repo}`,
+        method: 'PUT',
+        data: {
           permission: 'pull',
-          repo,
-        })
-        .catch(() => {
-          console.error(`Error adding ${r} to 'yoshi'.`);
-        });
+        },
+      }).catch(() => {
+        console.error(`Error adding ${r} to 'yoshi'.`);
+      });
     }
   }
 }
@@ -142,12 +143,14 @@ export async function reconcileUsers() {
       }
 
       // get the current list of team members
-      const res = await octo.teams.listMembersInOrg({
-        team_slug: team.slug,
-        org: o,
-        per_page: 100,
+      const res = await gethub<Member[]>({
+        url: `/orgs/${o}/teams/${team.slug}/members`,
+        method: 'GET',
+        params: {
+          per_page: 100,
+        },
       });
-      const currentMembers = res.data as Member[];
+      const currentMembers = res.data;
 
       // add any missing users
       for (const u of m.users) {
@@ -156,16 +159,13 @@ export async function reconcileUsers() {
         );
         if (!match) {
           console.log(`Adding ${u} to ${o}/${team.name}...`);
-          const p = octo.teams
-            .addOrUpdateMembershipInOrg({
-              team_slug: team.slug,
-              org: o,
-              username: u,
-            })
-            .catch(e => {
-              console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
-              console.error(e.message);
-            });
+          const p = gethub({
+            url: `/orgs/${o}/teams/${team.slug}/memberships/${u}`,
+            method: 'PUT',
+          }).catch(e => {
+            console.error(`Error adding ${u} to ${team.org}/${team.name}.`);
+            console.error(e.message);
+          });
           promises.push(p);
         }
       }
@@ -177,16 +177,13 @@ export async function reconcileUsers() {
         );
         if (!match) {
           console.log(`Removing ${u.login} from ${team.name}...`);
-          const p = octo.teams
-            .removeMembershipInOrg({
-              team_slug: team.slug,
-              org: o,
-              username: u.login,
-            })
-            .catch(e => {
-              console.error(`Error removing ${u.login} from ${team.name}.`);
-              console.error(e);
-            });
+          const p = gethub({
+            url: `/orgs/${o}/teams/${team.slug}/memberships/${u.login}`,
+            method: 'DELETE',
+          }).catch(e => {
+            console.error(`Error removing ${u.login} from ${team.name}.`);
+            console.error(e);
+          });
           promises.push(p);
         }
       }
