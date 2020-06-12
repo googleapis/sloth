@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.28.0](https://www.github.com/googleapis/sloth/compare/v5.27.0...v5.28.0) (2020-06-12)
+
+
+### Features
+
+* **secrets:** begin migration to secret manager from keystore ([#705](https://www.github.com/googleapis/sloth/issues/705)) ([4befa68](https://www.github.com/googleapis/sloth/commit/4befa6892b812207670d9fa9516368f6fe6030d3))
+
+
+### Bug Fixes
+
+* Adding stackdriver-sandbox and cloud-code-samples ([#708](https://www.github.com/googleapis/sloth/issues/708)) ([91f753e](https://www.github.com/googleapis/sloth/commit/91f753ea08a53c7bf82c4c246f6bfe8fd48b489e))
+* corrects shortname for Cloud Translation API ([#711](https://www.github.com/googleapis/sloth/issues/711)) ([a980e00](https://www.github.com/googleapis/sloth/commit/a980e0015156489b9c50eaf19c33addb35b87577))
+
 ## [5.27.0](https://www.github.com/googleapis/sloth/compare/v5.26.2...v5.27.0) (2020-06-10)
 
 
