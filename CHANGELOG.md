@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.28.1](https://www.github.com/googleapis/sloth/compare/v5.28.0...v5.28.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* include new CAKE repos in teams ([#719](https://www.github.com/googleapis/sloth/issues/719)) ([fcd569d](https://www.github.com/googleapis/sloth/commit/fcd569dcc260bd442b9ce7fb030151f27e56e8c0))
+* update APM team attribution ([#717](https://www.github.com/googleapis/sloth/issues/717)) ([5dd9702](https://www.github.com/googleapis/sloth/commit/5dd97024dd399fe7070279c08d20dbf16ea78835))
+
 ## [5.28.0](https://www.github.com/googleapis/sloth/compare/v5.27.0...v5.28.0) (2020-06-12)
 
 
