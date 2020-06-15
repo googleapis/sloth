@@ -29,7 +29,9 @@
       ],
       "repos": [
         "googleapis/nodejs-logging-winston",
-        "googleapis/nodejs-logging-bunyan"
+        "googleapis/nodejs-logging-bunyan",
+        "GoogleCloudPlatform/cloud-code-samples",
+        "GoogleCloudPlatform/stackdriver-sandbox"
       ]
     },
     {
