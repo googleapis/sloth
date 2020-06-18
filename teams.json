@@ -1,6 +1,12 @@
 {
   "teams": [
     {
+      "name": "debug",
+      "repos": [
+        "googleapis/cloud-debug-nodejs"
+      ]
+    },
+    {
       "name": "soda",
       "apis": [
         "bigtable",
