@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.28.2](https://www.github.com/googleapis/sloth/compare/v5.28.1...v5.28.2) (2020-06-19)
+
+
+### Bug Fixes
+
+* update node issue template ([#722](https://www.github.com/googleapis/sloth/issues/722)) ([660f5fd](https://www.github.com/googleapis/sloth/commit/660f5fd91cbe5fbdfc71c5bea81153d2fda38730))
+
 ### [5.28.1](https://www.github.com/googleapis/sloth/compare/v5.28.0...v5.28.1) (2020-06-15)
 
 
