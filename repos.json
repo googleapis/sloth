@@ -134,6 +134,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-asset"},
     { "language": "nodejs", "repo": "googleapis/nodejs-automl"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-connection"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-data-transfer"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigtable"},
     { "language": "nodejs", "repo": "googleapis/nodejs-billing" },
