@@ -9,9 +9,7 @@
   "files": [
     "build/src",
     "repos.json",
-    "required-checks.json",
-    "teams.json",
-    "users.json"
+    "teams.json"
   ],
   "main": "build/src/sloth.js",
   "types": "build/src/sloth.d.ts",
