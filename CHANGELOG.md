@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.28.3](https://www.github.com/googleapis/sloth/compare/v5.28.2...v5.28.3) (2020-06-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @google-cloud/bigquery to v5 ([#724](https://www.github.com/googleapis/sloth/issues/724)) ([2bbf2df](https://www.github.com/googleapis/sloth/commit/2bbf2df8bba00e585170b00d07489419f1fe3f7e))
+
 ### [5.28.2](https://www.github.com/googleapis/sloth/compare/v5.28.1...v5.28.2) (2020-06-19)
 
 
