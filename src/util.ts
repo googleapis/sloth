@@ -12,12 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Repo, Users, Team} from './types';
+import {Repo, Team} from './types';
 import {GaxiosOptions, request} from 'gaxios';
 
 export const repos: Repo[] = require('../../repos.json').repos;
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-export const users: Users = require('../../users.json');
 export const teams: Team[] = require('../../teams.json').teams;
 export const languages = [
   'go',

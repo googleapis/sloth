@@ -89,11 +89,6 @@ export interface Repo {
   isTeamIssue?: boolean;
 }
 
-export interface Users {
-  orgs: string[];
-  membership: Membership[];
-}
-
 export interface Membership {
   team: string;
   users: string[];
