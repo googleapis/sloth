@@ -35,30 +35,36 @@
       ]
     },
     {
-      "name": "animl",
+      "name": "ml",
       "apis": [
         "automl",
-        "bigquery",
-        "bigqueryconnection",
-        "bigquerydatatransfer",
-        "bigqueryreservation",
-        "bigquerystorage",
         "cloudiot",
-        "composer",
-        "datacatalog",
-        "dataflow",
         "datalabeling",
-        "dataproc",
         "dialogflow",
         "language",
         "ml",
-        "pubsub",
         "recommender",
         "speech",
         "texttospeech",
         "translate",
         "videointelligence",
         "vision"
+      ]
+    },
+    {
+      "name": "data-analytics",
+      "apis": [
+        "bigquery",
+        "bigqueryconnection",
+        "bigquerydatatransfer",
+        "bigqueryreservation",
+        "bigquerystorage",
+        "composer",
+        "datacatalog",
+        "dataflow",
+        "dataproc",
+        "pubsub",
+        "pubsublite"
       ]
     },
     {
