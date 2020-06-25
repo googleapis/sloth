@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.29.0](https://www.github.com/googleapis/sloth/compare/v5.28.2...v5.29.0) (2020-06-25)
+
+
+### Features
+
+* data-analytics is its own team ([#731](https://www.github.com/googleapis/sloth/issues/731)) ([294486a](https://www.github.com/googleapis/sloth/commit/294486a97f81fc0afd1cb1e92d2fb84ba421fc55))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @google-cloud/bigquery to v5 ([#724](https://www.github.com/googleapis/sloth/issues/724)) ([2bbf2df](https://www.github.com/googleapis/sloth/commit/2bbf2df8bba00e585170b00d07489419f1fe3f7e))
+
 ### [5.28.2](https://www.github.com/googleapis/sloth/compare/v5.28.1...v5.28.2) (2020-06-19)
 
 
