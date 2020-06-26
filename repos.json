@@ -297,7 +297,6 @@
     { "language": "python", "repo": "googleapis/python-grafeas"},
     { "language": "python", "repo": "googleapis/python-iam"},
     { "language": "python", "repo": "googleapis/python-iot"},
-    { "language": "python", "repo": "googleapis/python-irm"},
     { "language": "python", "repo": "googleapis/python-kms"},
     { "language": "python", "repo": "googleapis/python-language"},
     { "language": "python", "repo": "googleapis/python-logging"},
