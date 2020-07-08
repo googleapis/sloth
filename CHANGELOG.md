@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.29.1](https://www.github.com/googleapis/sloth/compare/v5.29.0...v5.29.1) (2020-07-08)
+
+
+### Bug Fixes
+
+* add BigQuery Reservation ([#736](https://www.github.com/googleapis/sloth/issues/736)) ([6610d78](https://www.github.com/googleapis/sloth/commit/6610d7840e22e8db2f85f5d97fc0b1648969f3cf))
+
 ## [5.29.0](https://www.github.com/googleapis/sloth/compare/v5.28.2...v5.29.0) (2020-06-25)
 
 
