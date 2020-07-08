@@ -136,6 +136,8 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-connection"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-data-transfer"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-reservation"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-storage"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigtable"},
     { "language": "nodejs", "repo": "googleapis/nodejs-billing" },
     { "language": "nodejs", "repo": "googleapis/nodejs-billing-budgets" },
@@ -206,7 +208,6 @@
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript", "isTeamIssue": true},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
-    { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-storage"},
 
     { "language": "php", "repo": "googleapis/gax-php", "isTeamIssue": true},
     { "language": "php", "repo": "googleapis/google-api-php-client"},
