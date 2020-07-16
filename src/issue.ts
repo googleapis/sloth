@@ -46,10 +46,6 @@ export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
   // make it linearly slower, but more predictable and safe.
   const results = new Array<IssueResult>();
   for (const repo of repos) {
-    // if we're filtering by --language, don't even snag the issues
-    if (flags && flags.language && repo.language !== flags.language) {
-      continue;
-    }
     const r = await getRepoIssues(repo, flags);
     results.push(r);
   }
@@ -106,7 +102,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       const issue: Issue = {
         owner,
         name,
-        language: repo.language,
+        language: getLanguage(repo, rIssue),
         repo: repo.repo,
         types: getTypes(rIssue),
         api,
@@ -317,6 +313,21 @@ function getApi(i: ApiIssue): string | undefined {
     }
   }
   return undefined;
+}
+
+/**
+ * Check for a `lang: nodejs` label on the specific issue.
+ * If not present, return the language of the repository.
+ */
+function getLanguage(r: Repo, i: ApiIssue) {
+  if (i.labels) {
+    for (const label of i.labels.sort()) {
+      if (label.startsWith('lang: ')) {
+        return label.slice(6);
+      }
+    }
+  }
+  return r.language;
 }
 
 function getTeam(repo: string, api?: string) {
