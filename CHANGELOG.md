@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.29.2](https://www.github.com/googleapis/sloth/compare/v5.29.1...v5.29.2) (2020-07-16)
+
+
+### Bug Fixes
+
+* add ability to set language via label ([#741](https://www.github.com/googleapis/sloth/issues/741)) ([a8c07a3](https://www.github.com/googleapis/sloth/commit/a8c07a3313d39b0db0a9e963f95333f9893dd286))
+
 ### [5.29.1](https://www.github.com/googleapis/sloth/compare/v5.29.0...v5.29.1) (2020-07-08)
 
 
