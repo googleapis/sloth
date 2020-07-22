@@ -4,14 +4,14 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/sloth.git",
-        "sha": "83cb99c10a7995eac66262252edbebd142338649"
+        "sha": "119ea6d09759a65cc21093a395723204ed73ae4a"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "799d8e6522c1ef7cb55a70d9ea0b15e045c3d00b"
+        "sha": "d82deccf657a66e31bd5da9efdb96c6fa322fc7e"
       }
     }
   ]
