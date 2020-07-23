@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.30.0](https://www.github.com/googleapis/sloth/compare/v5.29.2...v5.30.0) (2020-07-23)
+
+
+### Features
+
+* add python-functions and python-analytics-admin ([#747](https://www.github.com/googleapis/sloth/issues/747)) ([fabb641](https://www.github.com/googleapis/sloth/commit/fabb641f5b65c572b46ac6068e6854a08b5744db))
+
 ### [5.29.2](https://www.github.com/googleapis/sloth/compare/v5.29.1...v5.29.2) (2020-07-16)
 
 
