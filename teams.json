@@ -138,7 +138,10 @@
         "GoogleCloudPlatform/getting-started-php",
         "GoogleCloudPlatform/getting-started-python",
         "GoogleCloudPlatform/getting-started-java",
-        "GoogleCloudPlatform/getting-started-dotnet"
+        "GoogleCloudPlatform/getting-started-dotnet",
+        "googleapis/doc-pipeline",
+        "googleapis/doc-templates",
+        "googleapis/docuploader"
       ]
     },
     {
