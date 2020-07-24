@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.30.1](https://www.github.com/googleapis/sloth/compare/v5.30.0...v5.30.1) (2020-07-24)
+
+
+### Bug Fixes
+
+* add jsdoc-region-tag repository ([#749](https://www.github.com/googleapis/sloth/issues/749)) ([96fbfc2](https://www.github.com/googleapis/sloth/commit/96fbfc2ac036f7bf3ba5fbdc71fb3bde57cf9ff9))
+
 ## [5.30.0](https://www.github.com/googleapis/sloth/compare/v5.29.2...v5.30.0) (2020-07-23)
 
 
