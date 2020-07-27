@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.31.0](https://www.github.com/googleapis/sloth/compare/v5.30.1...v5.31.0) (2020-07-27)
+
+
+### Features
+
+* add doc repos and teams ([#753](https://www.github.com/googleapis/sloth/issues/753)) ([3ec5996](https://www.github.com/googleapis/sloth/commit/3ec5996213f1f638dbb3c20d483764a2d2c03a12))
+* add nodejs-analytics-admin and nodejs-functions ([#752](https://www.github.com/googleapis/sloth/issues/752)) ([ac7725f](https://www.github.com/googleapis/sloth/commit/ac7725fa2dad3c8d7d75327c4b130fb7fa15ad85))
+
 ### [5.30.1](https://www.github.com/googleapis/sloth/compare/v5.30.0...v5.30.1) (2020-07-24)
 
 
