@@ -265,6 +265,8 @@
 
     { "language": "python", "repo": "googleapis/dialogflow-python-client-v2"},
     { "language": "python", "repo": "googleapis/docuploader"},
+    { "language": "python", "repo": "googleapis/doc-pipeline"},
+    { "language": "python", "repo": "googleapis/doc-templates"},
     { "language": "python", "repo": "googleapis/gapic-generator-python", "isTeamIssue": true},
     { "language": "python", "repo": "googleapis/google-api-python-client"},
     { "language": "python", "repo": "googleapis/google-auth-library-python"},
