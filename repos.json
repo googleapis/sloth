@@ -61,7 +61,7 @@
     { "language": "java", "repo": "googleapis/java-errorreporting"},
     { "language": "java", "repo": "googleapis/java-firestore"},
     { "language": "java", "repo": "googleapis/java-functions"},
-    { "language": "java", "repo": "googleapis/java-gameservices"},
+    { "language": "java", "repo": "googleapis/java-game-servers"},
     { "language": "java", "repo": "googleapis/java-grafeas"},
     { "language": "java", "repo": "googleapis/java-iam"},
     { "language": "java", "repo": "googleapis/java-iamcredentials"},
