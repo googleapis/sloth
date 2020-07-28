@@ -274,7 +274,7 @@
     { "language": "python", "repo": "googleapis/google-cloud-python"},
     { "language": "python", "repo": "googleapis/google-cloud-python-happybase"},
     { "language": "python", "repo": "googleapis/google-resumable-media-python"},
-    { "language": "python", "repo": "googleapis/proto-plus-python"},
+    { "language": "python", "repo": "googleapis/proto-plus-python", "isTeamIssue": true},
     { "language": "python", "repo": "googleapis/python-analytics-admin"},
     { "language": "python", "repo": "googleapis/python-api-common-protos"},
     { "language": "python", "repo": "googleapis/python-api-core"},
