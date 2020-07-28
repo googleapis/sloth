@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.31.1](https://www.github.com/googleapis/sloth/compare/v5.31.0...v5.31.1) (2020-07-28)
+
+
+### Bug Fixes
+
+* add proto-plus-python to actools ([#756](https://www.github.com/googleapis/sloth/issues/756)) ([ea4412b](https://www.github.com/googleapis/sloth/commit/ea4412bb107c15ec097d1342c2fbe2775c67b258))
+* makes proto-plus-python issues team managed ([#759](https://www.github.com/googleapis/sloth/issues/759)) ([4913bd6](https://www.github.com/googleapis/sloth/commit/4913bd6bfda738cdfa24a7dd8afd259b677668cb))
+
 ## [5.31.0](https://www.github.com/googleapis/sloth/compare/v5.30.1...v5.31.0) (2020-07-27)
 
 
