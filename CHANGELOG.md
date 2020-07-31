@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.31.3](https://www.github.com/googleapis/sloth/compare/v5.31.2...v5.31.3) (2020-07-31)
+
+
+### Bug Fixes
+
+* **deps:** roll back dependency @justinbeckwith/sloth to ^5.31.1 ([#763](https://www.github.com/googleapis/sloth/issues/763)) ([161f2b7](https://www.github.com/googleapis/sloth/commit/161f2b79fc38942d016a00faa925d2a383d11852))
+
 ### [5.31.2](https://www.github.com/googleapis/sloth/compare/v5.31.1...v5.31.2) (2020-07-31)
 
 
