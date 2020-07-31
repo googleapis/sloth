@@ -282,6 +282,7 @@
     { "language": "python", "repo": "googleapis/python-access-approval"},
     { "language": "python", "repo": "googleapis/python-access-context-manager"},
     { "language": "python", "repo": "googleapis/python-asset"},
+    { "language": "python", "repo": "googleapis/python-audit-log"},
     { "language": "python", "repo": "googleapis/python-automl"},
     { "language": "python", "repo": "googleapis/python-bigtable"},
     { "language": "python", "repo": "googleapis/python-bigquery"},
