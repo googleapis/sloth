@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.31.2](https://www.github.com/googleapis/sloth/compare/v5.31.1...v5.31.2) (2020-07-31)
+
+
+### Bug Fixes
+
+* add python-audit-log to repos ([#761](https://www.github.com/googleapis/sloth/issues/761)) ([67e7f39](https://www.github.com/googleapis/sloth/commit/67e7f39507513b38998f1d4105accada8f1c102f))
+
 ### [5.31.1](https://www.github.com/googleapis/sloth/compare/v5.31.0...v5.31.1) (2020-07-28)
 
 
