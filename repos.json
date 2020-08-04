@@ -121,6 +121,7 @@
     { "language": "nodejs", "repo": "googleapis/cloud-debug-nodejs"},
     { "language": "nodejs", "repo": "googleapis/cloud-profiler-nodejs"},
     { "language": "nodejs", "repo": "googleapis/cloud-trace-nodejs"},
+    { "language": "nodejs", "repo": "googleapis/code-suggester"},
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/gaxios", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/nodejs-gce-images"},
