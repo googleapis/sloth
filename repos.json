@@ -317,6 +317,7 @@
     { "language": "python", "repo": "googleapis/python-media-translation"},
     { "language": "python", "repo": "googleapis/python-monitoring"},
     { "language": "python", "repo": "googleapis/python-monitoring-dashboards"},
+    { "language": "python", "repo": "googleapis/python-notebooks"},
     { "language": "python", "repo": "googleapis/python-ndb"},
     { "language": "python", "repo": "googleapis/python-org-policy"},
     { "language": "python", "repo": "googleapis/python-os-config"},
