@@ -63,6 +63,7 @@
         "datacatalog",
         "dataflow",
         "dataproc",
+        "notebooks",
         "pubsub",
         "pubsublite"
       ]
