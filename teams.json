@@ -17,15 +17,19 @@
       "name": "code-build-run",
       "apis": [
         "appengine",
+        "artifactregistry",
         "cloudbuild",
         "cloudfunctions",
         "cloudscheduler",
         "cloudtasks",
         "container",
-        "containeranalysis",
         "run",
         "logging",
-        "clouderrorreporting"
+        "clouderrorreporting",
+        "monitoring",
+        "cloudtrace",
+        "containeranalysis",
+        "containerregistry"
       ],
       "repos": [
         "googleapis/nodejs-logging-winston",
