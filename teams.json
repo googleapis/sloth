@@ -26,6 +26,8 @@
         "run",
         "logging",
         "clouderrorreporting",
+        "monitoring",
+        "cloudtrace",
         "containeranalysis",
         "containerregistry"
       ],
