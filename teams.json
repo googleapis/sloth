@@ -25,7 +25,9 @@
         "containeranalysis",
         "run",
         "logging",
-        "clouderrorreporting"
+        "clouderrorreporting",
+        "monitoring",
+        "cloudtrace"
       ],
       "repos": [
         "googleapis/nodejs-logging-winston",
