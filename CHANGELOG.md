@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.31.4](https://www.github.com/googleapis/sloth/compare/v5.31.3...v5.31.4) (2020-08-20)
+
+
+### Bug Fixes
+
+* updating list of APIs owned by code-build-run team ([#769](https://www.github.com/googleapis/sloth/issues/769)) ([bad516b](https://www.github.com/googleapis/sloth/commit/bad516beef1370a3db78054068a0e8fc377350f2))
+
 ### [5.31.3](https://www.github.com/googleapis/sloth/compare/v5.31.2...v5.31.3) (2020-07-31)
 
 
