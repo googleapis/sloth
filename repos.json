@@ -347,6 +347,7 @@
     { "language": "python", "repo": "googleapis/python-trace"},
     { "language": "python", "repo": "googleapis/python-translate"},
     { "language": "python", "repo": "googleapis/python-videointelligence"},
+    { "language": "python", "repo": "googleapis/python-video-transcoder"},
     { "language": "python", "repo": "googleapis/python-vision"},
     { "language": "python", "repo": "googleapis/python-webrisk"},
     { "language": "python", "repo": "googleapis/python-websecurityscanner"},
