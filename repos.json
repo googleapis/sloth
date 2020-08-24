@@ -301,6 +301,7 @@
     { "language": "python", "repo": "googleapis/python-datalabeling"},
     { "language": "python", "repo": "googleapis/python-dataproc"},
     { "language": "python", "repo": "googleapis/python-datastore"},
+    { "language": "python", "repo": "googleapis/python-dialogflow-cx"},
     { "language": "python", "repo": "googleapis/python-dlp"},
     { "language": "python", "repo": "googleapis/python-dns"},
     { "language": "python", "repo": "googleapis/python-documentai"},
