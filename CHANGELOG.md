@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.31.5](https://www.github.com/googleapis/sloth/compare/v5.31.4...v5.31.5) (2020-08-24)
+
+
+### Bug Fixes
+
+* add python dialogflow-cx and transcoder repos ([#777](https://www.github.com/googleapis/sloth/issues/777)) ([82470e0](https://www.github.com/googleapis/sloth/commit/82470e00cd237770e9991a5d03faac97506b89c9))
+
 ### [5.31.4](https://www.github.com/googleapis/sloth/compare/v5.31.3...v5.31.4) (2020-08-20)
 
 
