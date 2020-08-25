@@ -157,6 +157,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-datastore"},
     { "language": "nodejs", "repo": "googleapis/nodejs-datastore-session"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dialogflow"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-dialogflow-cx"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dlp"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dns"},
     { "language": "nodejs", "repo": "googleapis/nodejs-document-ai"},
