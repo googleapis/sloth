@@ -48,6 +48,7 @@
         "documentai",
         "language",
         "ml",
+        "notebooks",
         "recommender",
         "speech",
         "texttospeech",
@@ -68,7 +69,6 @@
         "datacatalog",
         "dataflow",
         "dataproc",
-        "notebooks",
         "pubsub",
         "pubsublite"
       ]
