@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.32.1](https://www.github.com/googleapis/sloth/compare/v5.32.0...v5.32.1) (2020-08-26)
+
+
+### Bug Fixes
+
+* update teams.json to fix ownership of "notebooks" API ([#782](https://www.github.com/googleapis/sloth/issues/782)) ([4fb6373](https://www.github.com/googleapis/sloth/commit/4fb6373c5bd8ed105753ed7fbeef363b8c14e16b))
+
 ## [5.32.0](https://www.github.com/googleapis/sloth/compare/v5.31.4...v5.32.0) (2020-08-25)
 
 
