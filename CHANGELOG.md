@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.32.2](https://www.github.com/googleapis/sloth/compare/v5.32.1...v5.32.2) (2020-08-28)
+
+
+### Bug Fixes
+
+* drop java-bigtable-emulator from repos ([#785](https://www.github.com/googleapis/sloth/issues/785)) ([f69f046](https://www.github.com/googleapis/sloth/commit/f69f046dd97800fcb7ac17c1f15f6c2f46a175fc))
+
 ### [5.32.1](https://www.github.com/googleapis/sloth/compare/v5.32.0...v5.32.1) (2020-08-26)
 
 
