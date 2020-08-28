@@ -103,7 +103,6 @@
     { "language": "java", "repo": "googleapis/java-vision"},
     { "language": "java", "repo": "googleapis/java-webrisk"},
     { "language": "java", "repo": "googleapis/java-websecurityscanner"},
-    { "language": "java", "repo": "googleapis/java-bigtable-emulator"},
     { "language": "java", "repo": "googleapis/java-conformance-tests"},
     { "language": "java", "repo": "googleapis/java-common-protos"},
     { "language": "java", "repo": "googleapis/java-core"},
