@@ -106,7 +106,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         repo: repo.repo,
         types: getTypes(rIssue),
         api,
-        team: getTeam(rIssue.repo, api),
+        team: getTeam(rIssue.repo, api, isSampleIssue(rIssue)),
         isOutOfSLO: isOutOfSLO(rIssue),
         isTriaged: isTriaged(rIssue),
         pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
@@ -315,6 +315,10 @@ function getApi(i: ApiIssue): string | undefined {
   return undefined;
 }
 
+function isSampleIssue(i: ApiIssue): boolean {
+  return i.labels?.some(x => x === 'samples');
+}
+
 /**
  * Check for a `lang: nodejs` label on the specific issue.
  * If not present, return the language of the repository.
@@ -330,7 +334,7 @@ function getLanguage(r: Repo, i: ApiIssue) {
   return r.language;
 }
 
-function getTeam(repo: string, api?: string) {
+function getTeam(repo: string, api: string | undefined, isSample: boolean) {
   // if repo issues are managed by a single team, attribute to that team
   const r = repos.find(x => x.repo === repo);
   const t = teams.find(x => (x.repos || []).includes(repo));
@@ -351,6 +355,11 @@ function getTeam(repo: string, api?: string) {
   // if no api label
   if (t) {
     return t.name;
+  }
+
+  // if it's a sample with no explicit owner, to onramp
+  if (isSample) {
+    return 'onramp';
   }
 
   // if no api and no explicit team owner
