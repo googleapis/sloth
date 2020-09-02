@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.32.3](https://www.github.com/googleapis/sloth/compare/v5.32.2...v5.32.3) (2020-09-02)
+
+
+### Bug Fixes
+
+* add nodejs-analytics-data library ([#787](https://www.github.com/googleapis/sloth/issues/787)) ([020662e](https://www.github.com/googleapis/sloth/commit/020662e4bec9cad646b0889340e2c93c74a6f14f))
+
 ### [5.32.2](https://www.github.com/googleapis/sloth/compare/v5.32.1...v5.32.2) (2020-08-28)
 
 
