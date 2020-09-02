@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.32.4](https://www.github.com/googleapis/sloth/compare/v5.32.3...v5.32.4) (2020-09-02)
+
+
+### Bug Fixes
+
+* catch-all samples issues go to onramp ([#789](https://www.github.com/googleapis/sloth/issues/789)) ([1e6672f](https://www.github.com/googleapis/sloth/commit/1e6672ffc848cefdf1b881f5aa9ff5b907f4ce56))
+
 ### [5.32.3](https://www.github.com/googleapis/sloth/compare/v5.32.2...v5.32.3) (2020-09-02)
 
 
