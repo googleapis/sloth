@@ -17,11 +17,10 @@
 import * as meow from 'meow';
 import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
-import {reconcileUsers, reconcileTeams, reconcileRepos} from './users';
-import {syncRepoSettings} from './repos';
 import * as updateNotifier from 'update-notifier';
 import {Flags} from './types';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require('../../package.json');
 
 updateNotifier({pkg}).notify();
@@ -47,7 +46,6 @@ const cli = meow(
     $ sloth issues [--csv][--untriaged][--outOfSLO][--language][--repo][--api][--pr][--type]
     $ sloth apis
     $ sloth tag-issues
-    $ sloth users
     $ sloth repos
     $ sloth sync-repo-settings
 
@@ -71,23 +69,11 @@ const cmd = cli.input.length > 0 ? cli.input[0] : null;
 let p: Promise<void | {}>;
 
 switch (cmd) {
-  case 'sync-repo-settings':
-    p = syncRepoSettings(cli.flags as Flags);
-    break;
   case 'tag-issues':
     p = tagIssues();
     break;
-  case 'users':
-    p = reconcileUsers();
-    break;
   case 'issues':
-    p = showIssues(cli.flags as Flags);
-    break;
-  case 'repos':
-    p = reconcileRepos();
-    break;
-  case 'teams':
-    p = reconcileTeams();
+    p = showIssues((cli.flags as unknown) as Flags);
     break;
   case 'apis':
     p = showApiSLOs(cli);

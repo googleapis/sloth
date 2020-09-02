@@ -1,6 +1,6 @@
 {
   "name": "@justinbeckwith/sloth",
-  "version": "5.9.0",
+  "version": "5.32.2",
   "repository": "googleapis/sloth",
   "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
@@ -9,9 +9,7 @@
   "files": [
     "build/src",
     "repos.json",
-    "required-checks.json",
-    "teams.json",
-    "users.json"
+    "teams.json"
   ],
   "main": "build/src/sloth.js",
   "types": "build/src/sloth.d.ts",
@@ -30,35 +28,38 @@
     "samples-test": "echo no sample tests 👻",
     "docs-test": "linkinator docs",
     "predocs-test": "npm run docs",
-    "prelint": "cd samples; npm link ../; npm i"
+    "prelint": "cd samples; npm link ../; npm install",
+    "precompile": "gts clean",
+    "api-extractor": "api-extractor run --local",
+    "api-documenter": "api-documenter yaml --input-folder=temp"
   },
   "keywords": [],
   "author": "Justin Beckwith",
   "license": "Apache-2.0",
   "dependencies": {
-    "@google-cloud/bigquery": "^4.7.0",
-    "@octokit/rest": "16.43.1",
+    "@google-cloud/bigquery": "^5.0.0",
     "cli-table": "^0.3.1",
-    "csv-string": "^3.1.5",
-    "gaxios": "^2.0.1",
-    "meow": "^5.0.0",
-    "truncate": "^2.0.1",
-    "update-notifier": "^4.0.0"
+    "csv-string": "^4.0.0",
+    "gaxios": "^3.0.2",
+    "meow": "^7.0.1",
+    "truncate": "^2.1.0",
+    "update-notifier": "^4.1.0"
   },
   "devDependencies": {
-    "@compodoc/compodoc": "^1.1.9",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/cli-table": "^0.3.0",
-    "@types/meow": "^5.0.0",
-    "@types/mocha": "^7.0.0",
-    "@types/node": "^12.0.2",
-    "@types/update-notifier": "^4.0.0",
-    "c8": "^7.0.1",
-    "gts": "^1.0.0",
-    "linkinator": "^2.0.0",
-    "mocha": "^7.0.0",
-    "typescript": "3.6.4"
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^13.9.8",
+    "@types/update-notifier": "^4.1.0",
+    "c8": "^7.1.0",
+    "gts": "^2.0.0",
+    "linkinator": "^2.0.4",
+    "mocha": "^8.0.0",
+    "typescript": "^3.8.3",
+    "@microsoft/api-documenter": "^7.8.10",
+    "@microsoft/api-extractor": "^7.8.10"
   },
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10"
   }
 }

@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Octokit} from '@octokit/rest';
 import {
   Flags,
   Issue,
@@ -21,12 +20,13 @@ import {
   IssuesApiResponse,
   ApiIssue,
 } from './types';
-import {octo, repos, teams} from './util';
+import {gethub, repos, teams} from './util';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const truncate = require('truncate');
-const CSV = require('csv-string');
+import * as CSV from 'csv-string';
 
 const apiKey = process.env.DRIFT_API_KEY;
 if (!apiKey) {
@@ -35,16 +35,21 @@ if (!apiKey) {
   );
 }
 
+/**
+ * Walk over each configured repository, and obtain a list of issues.
+ * @param flags
+ */
 export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
-  const promises = new Array<Promise<IssueResult>>();
-  repos.forEach(repo => {
-    // if we're filtering by --language, don't even snag the issues
-    if (flags && flags.language && repo.language !== flags.language) {
-      return;
-    }
-    promises.push(getRepoIssues(repo, flags));
-  });
-  return Promise.all(promises);
+  // This fetch is done serially on purpose. When using the `Promise.all`
+  // approach, it was generating too many concurrent request and causing
+  // 503 errors in the underlying API.  Slowing it to a serial fetch will
+  // make it linearly slower, but more predictable and safe.
+  const results = new Array<IssueResult>();
+  for (const repo of repos) {
+    const r = await getRepoIssues(repo, flags);
+    results.push(r);
+  }
+  return results;
 }
 
 async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
@@ -52,92 +57,120 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
   const result = {issues: new Array<Issue>(), repo};
   let res!: GaxiosResponse<IssuesApiResponse>;
   const rootUrl = 'https://drghs.endpoints.devrel-prod.cloud.goog/api/v1';
-  const url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false`;
-  try {
-    res = await request<IssuesApiResponse>({url});
-  } catch (e) {
-    console.warn(`Error fetching issues for ${repo.repo}.`);
-    //console.warn(e);
-    return result;
-  }
+  const fieldMask = [
+    'assignees',
+    'closed',
+    'closedAt',
+    'createdAt',
+    'isPr',
+    'issueId',
+    'issueType',
+    'labels',
+    'priority',
+    'priorityUnknown',
+    'repo',
+    'reporter',
+    'title',
+    'updatedAt',
+    'url',
+  ].join(',');
 
-  if (!res.data || !res.data.issues) {
-    return result;
-  }
+  let pageToken = '';
+  while (pageToken === '' && result.issues.length < 1) {
+    let url = `${rootUrl}/${repo.repo}/issues?key=${apiKey}&closed=false&field_mask=${fieldMask}`;
+    if (pageToken !== '') {
+      url = url + `&page=${pageToken}`;
+    }
 
-  res!.data.issues.forEach(r => {
-    const api = getApi(r, repo);
-    const issue: Issue = {
-      owner,
-      name,
-      language: repo.language,
-      repo: repo.repo,
-      types: getTypes(r),
-      api,
-      team: getTeam(r.repo, api),
-      isOutOfSLO: isOutOfSLO(r),
-      isTriaged: isTriaged(r),
-      pri: r.priorityUnknown ? undefined : getPriority(r.priority),
-      isPR: !!r.isPr,
-      number: r.issueId,
-      createdAt: r.createdAt,
-      title: r.title,
-      url: r.url,
-      labels: r.labels || [],
-      assignees: r.assignees ? r.assignees.map(x => x.login) : [],
-    };
+    try {
+      res = await request<IssuesApiResponse>({url});
+    } catch (e) {
+      console.warn(`Error fetching issues for ${repo.repo}.`);
+      // console.warn(e);
+      return result;
+    }
 
-    let use = true;
-    if (flags) {
-      if (flags.api) {
-        const apiTypes = flags.api
-          .split(',')
-          .map(t => t.trim())
-          .filter(t => t.length > 0);
-        if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
-          use = false;
-        }
-      }
-      if (flags.repo && r.repo !== flags.repo) {
-        use = false;
-      }
-      if (flags.outOfSlo && !issue.isOutOfSLO) {
-        use = false;
-      }
-      if (flags.untriaged && issue.isTriaged) {
-        use = false;
-      }
-      if (flags.team && issue.team !== flags.team) {
-        use = false;
-      }
-      if (flags.pri && `p${issue.pri}` !== flags.pri) {
-        use = false;
-      }
-      if (flags.pr && !issue.isPR) {
-        use = false;
-      }
-      if (flags.type) {
-        const flagTypes = flags.type
-          .split(',')
-          .map(t => t.trim())
-          .filter(t => t.length > 0);
-        let found = false;
-        for (const flagType of flagTypes) {
-          for (const issueType of issue.types) {
-            if (flagType === issueType) {
-              found = true;
-            }
+    if (!res.data || !res.data.issues) {
+      return result;
+    }
+
+    pageToken = res!.data.nextPageToken;
+
+    const issues = res!.data.issues;
+    for (const rIssue of issues) {
+      const api = getApi(rIssue);
+      const issue: Issue = {
+        owner,
+        name,
+        language: getLanguage(repo, rIssue),
+        repo: repo.repo,
+        types: getTypes(rIssue),
+        api,
+        team: getTeam(rIssue.repo, api),
+        isOutOfSLO: isOutOfSLO(rIssue),
+        isTriaged: isTriaged(rIssue),
+        pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
+        isPR: !!rIssue.isPr,
+        number: rIssue.issueId,
+        createdAt: rIssue.createdAt,
+        title: rIssue.title,
+        url: rIssue.url,
+        labels: rIssue.labels || [],
+        assignees: rIssue.assignees ? rIssue.assignees.map(x => x.login) : [],
+      };
+
+      let use = true;
+      if (flags) {
+        if (flags.api) {
+          const apiTypes = flags.api
+            .split(',')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
+          if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
+            use = false;
           }
         }
-        if (!found) {
+        if (flags.repo && rIssue.repo !== flags.repo) {
           use = false;
         }
+        if (flags.outOfSlo && !issue.isOutOfSLO) {
+          use = false;
+        }
+        if (flags.untriaged && issue.isTriaged) {
+          use = false;
+        }
+        if (flags.team && issue.team !== flags.team) {
+          use = false;
+        }
+        if (flags.pri && `p${issue.pri}` !== flags.pri) {
+          use = false;
+        }
+        if (flags.pr && !issue.isPR) {
+          use = false;
+        }
+        if (flags.type) {
+          const flagTypes = flags.type
+            .split(',')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
+          let found = false;
+          for (const flagType of flagTypes) {
+            for (const issueType of issue.types) {
+              if (flagType === issueType) {
+                found = true;
+              }
+            }
+          }
+          if (!found) {
+            use = false;
+          }
+        }
+      }
+      if (use) {
+        result.issues.push(issue);
       }
     }
-    if (use) {
-      result.issues.push(issue);
-    }
-  });
+  }
   return result;
 }
 
@@ -152,7 +185,7 @@ export interface IssueOptions {
 }
 
 export async function tagIssues() {
-  const promises = new Array<Promise<void | Octokit.AnyResponse>>();
+  const promises = new Array<Promise<void | {}>>();
   const repos = await getIssues();
   repos.forEach(r => {
     r.issues.forEach(i => {
@@ -180,38 +213,27 @@ export async function tagIssues() {
   await Promise.all(promises);
 }
 
-function tagIssue(
-  i: Issue,
-  label: string
-): Promise<void | Octokit.AnyResponse> {
-  return octo.issues
-    .addLabels({
+function tagIssue(i: Issue, label: string) {
+  return gethub({
+    url: `/repos/${i.owner}/${i.repo}/issues/${i.number}/labels`,
+    method: 'POST',
+    data: {
       labels: [label],
-      issue_number: i.number,
-      owner: i.owner,
-      repo: i.repo,
-    })
-    .catch(e => {
-      console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
-      console.error(e);
-    });
+    },
+  }).catch(e => {
+    console.error(`Error tagging ${i.repo}#${i.number} with '${label}'`);
+    console.error(e);
+  });
 }
 
-function untagIssue(
-  i: Issue,
-  label: string
-): Promise<void | Octokit.AnyResponse> {
-  return octo.issues
-    .removeLabel({
-      name: label,
-      issue_number: i.number,
-      owner: i.owner,
-      repo: i.repo,
-    })
-    .catch(e => {
-      console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
-      console.error(e);
-    });
+function untagIssue(i: Issue, label: string) {
+  return gethub({
+    url: `/repos/${i.owner}/${i.repo}/issues/${i.number}/labels/${label}`,
+    method: 'DELETE',
+  }).catch(e => {
+    console.error(`Error un-tagging ${i.repo}#${i.number} with '${label}'`);
+    console.error(e);
+  });
 }
 
 // tslint:disable-next-line no-any
@@ -282,7 +304,7 @@ function getTypes(i: ApiIssue) {
 // now sent back as a string. "P0", "P1", "P2" etc.
 export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
 
-function getApi(i: ApiIssue, repo: Repo) {
+function getApi(i: ApiIssue): string | undefined {
   if (i.labels) {
     for (const label of i.labels.sort()) {
       if (label.startsWith('api: ')) {
@@ -290,20 +312,48 @@ function getApi(i: ApiIssue, repo: Repo) {
       }
     }
   }
-  return repo.apiHint;
+  return undefined;
+}
+
+/**
+ * Check for a `lang: nodejs` label on the specific issue.
+ * If not present, return the language of the repository.
+ */
+function getLanguage(r: Repo, i: ApiIssue) {
+  if (i.labels) {
+    for (const label of i.labels.sort()) {
+      if (label.startsWith('lang: ')) {
+        return label.slice(6);
+      }
+    }
+  }
+  return r.language;
 }
 
 function getTeam(repo: string, api?: string) {
+  // if repo issues are managed by a single team, attribute to that team
+  const r = repos.find(x => x.repo === repo);
+  const t = teams.find(x => (x.repos || []).includes(repo));
+  if (r) {
+    if (r.isTeamIssue && t) {
+      return t.name;
+    }
+  }
+
+  // next look for an api label and attribute team accordingly
   if (api) {
     const t = teams.find(x => (x.apis || []).includes(api));
     if (t) {
       return t.name;
     }
   }
-  const t = teams.find(x => (x.repos || []).includes(repo));
+
+  // if no api label
   if (t) {
     return t.name;
   }
+
+  // if no api and no explicit team owner
   return 'core';
 }
 
@@ -329,10 +379,6 @@ function hasType(i: ApiIssue) {
  */
 function isBug(i: ApiIssue) {
   return hasLabel(i, 'type: bug');
-}
-
-function isAssigned(i: ApiIssue) {
-  return i.assignees && i.assignees.length > 0;
 }
 
 /**
@@ -377,11 +423,20 @@ function isOutOfSLO(i: ApiIssue) {
     hasLabel(i, 'type: docs') ||
     hasLabel(i, 'type: bug');
 
+  // +----------+----------+---------+
+  // | Priority | Response | Closure |
+  // +----------+----------+---------+
+  // |        0 |        1 | 1       |
+  // |        1 |        1 | 7       |
+  // |        2 |     5/90 | 180     |
+  // |        3 |      180 | N/A     |
+  // |        4 |      365 | N/A     |
+  // +----------+----------+---------+
   if (isCustomerIssue) {
     // All P0 issues must receive a reply within 1 day, an update at least daily,
-    // and be resolved within 5 days.
+    // and be resolved within 1 day.
     if (pri === 0) {
-      if (daysOld(i.createdAt) > 5 || daysOld(i.updatedAt) > 1) {
+      if (daysOld(i.createdAt) > 1 || daysOld(i.updatedAt) > 1) {
         return true;
       }
     }
@@ -394,10 +449,24 @@ function isOutOfSLO(i: ApiIssue) {
       }
     }
 
-    // All P2 issues must receive a reply within 5 days, and be resolved within
-    // 180 days. In practice, we use fix-it weeks to burn down the P2 backlog.
+    // All P2 issues must receive a reply within 5 days initially, 90 days
+    // after, and be resolved within 180 days.
     if (pri === 2) {
-      if (daysOld(i.createdAt) > 180) {
+      if (daysOld(i.createdAt) > 180 || daysOld(i.updatedAt) > 90) {
+        return true;
+      }
+    }
+
+    // All P3 issues must receive a reply every 180 days
+    if (pri === 3) {
+      if (daysOld(i.updatedAt) > 180) {
+        return true;
+      }
+    }
+
+    // All P3 issues must receive a reply every 365 days
+    if (pri === 4) {
+      if (daysOld(i.updatedAt) > 365) {
         return true;
       }
     }

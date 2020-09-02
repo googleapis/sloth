@@ -30,11 +30,4 @@ You can also get output in CSV format!  Just pass the `--csv` flag:
 $ sloth --csv
 ```
 
-### Team membership
-Lets organize the users in our many teams/orgs.  First, check out `users.json`.  Then go ahead and run:
-
-```sh
-$ sloth users
-```
-
 That's it 🎉 Enjoy!

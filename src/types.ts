@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Octokit} from '@octokit/rest';
-
 export interface Team {
   name: string;
   apis: string[];
@@ -88,12 +86,7 @@ export interface Result {
 export interface Repo {
   repo: string;
   language: string;
-  apiHint?: string;
-}
-
-export interface Users {
-  orgs: string[];
-  membership: Membership[];
+  isTeamIssue?: boolean;
 }
 
 export interface Membership {
@@ -147,7 +140,8 @@ export interface Flags {
 
 export interface GetBranchProtectionResult {
   enabled: boolean;
-  required_status_checks: Octokit.ReposUpdateBranchProtectionParamsRequiredStatusChecks;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  required_status_checks: any;
 }
 
 export interface GetBranchResult {
@@ -158,6 +152,7 @@ export interface GetBranchResult {
 
 export interface IssuesApiResponse {
   issues: ApiIssue[];
+  nextPageToken: string;
 }
 
 export interface ApiIssue {
