@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.33.0](https://www.github.com/googleapis/sloth/compare/v5.32.4...v5.33.0) (2020-09-03)
+
+
+### Features
+
+* **repos:** adds nodejs-notebooks repo ([#791](https://www.github.com/googleapis/sloth/issues/791)) ([95e59e1](https://www.github.com/googleapis/sloth/commit/95e59e1dacd42283054fe39311199d2848163c87))
+
 ### [5.32.4](https://www.github.com/googleapis/sloth/compare/v5.32.3...v5.32.4) (2020-09-02)
 
 
