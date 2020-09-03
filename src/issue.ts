@@ -28,6 +28,11 @@ import Table = require('cli-table');
 const truncate = require('truncate');
 import * as CSV from 'csv-string';
 
+// Number of times to try and backoff from the drghs api
+const nBackoff = 5;
+// Timeout in ms per backoff (done exponentially)
+const backoffTime = 500;
+
 const apiKey = process.env.DRIFT_API_KEY;
 if (!apiKey) {
   throw new Error(
@@ -82,11 +87,38 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
       url = url + `&page=${pageToken}`;
     }
 
-    try {
-      res = await request<IssuesApiResponse>({url});
-    } catch (e) {
-      console.warn(`Error fetching issues for ${repo.repo}.`);
-      // console.warn(e);
+    let tries = 0;
+    while (tries < nBackoff) {
+      try {
+        console.log(tries);
+        res = await request<IssuesApiResponse>({url});
+        break;
+      } catch (e) {
+        // If DRGHS is not actually tracking issues, log a warn on it and skip; do not
+        // reattempt with backoff
+        if (
+          e.response.status === 404 &&
+          e.response.data.message ===
+            `repository ${repo.repo} is not tracking issues`
+        ) {
+          console.warn(
+            `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
+          );
+          return result;
+        }
+
+        const sleepTime = 2 * tries * backoffTime;
+        console.warn(
+          `Error fetching issues for ${repo.repo}. Sleeping for ${sleepTime} milliseconds.`
+        );
+        console.warn(e);
+        await sleep(sleepTime);
+        tries = tries + 1;
+      }
+    }
+
+    if (tries >= nBackoff) {
+      console.warn(`Backoff exceeded after ${tries} tries. Returning`);
       return result;
     }
 
@@ -558,4 +590,8 @@ function isTriaged(i: ApiIssue) {
   }
 
   return false;
+}
+
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
