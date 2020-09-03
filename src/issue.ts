@@ -90,7 +90,6 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
     let tries = 0;
     while (tries < nBackoff) {
       try {
-        console.log(tries);
         res = await request<IssuesApiResponse>({url});
         break;
       } catch (e) {
