@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.34.0](https://www.github.com/googleapis/sloth/compare/v5.33.0...v5.34.0) (2020-09-12)
+
+
+### Features
+
+* add retry logic with backoff ([#793](https://www.github.com/googleapis/sloth/issues/793)) ([f86ee6f](https://www.github.com/googleapis/sloth/commit/f86ee6f994fe02abcdfdf3532ff6297d324f9a9b))
+
 ## [5.33.0](https://www.github.com/googleapis/sloth/compare/v5.32.4...v5.33.0) (2020-09-03)
 
 
