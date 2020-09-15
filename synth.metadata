@@ -3,15 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "https://github.com/googleapis/sloth.git",
-        "sha": "f86ee6f994fe02abcdfdf3532ff6297d324f9a9b"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "fdd03c161003ab97657cc0218f25c82c89ddf4b6"
+        "remote": "git@github.com:googleapis/sloth.git",
+        "sha": "6dc3bcd6fb6e237f3cddb267830cf6ccd32ae8ec"
       }
     }
   ],
