@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.35.0](https://www.github.com/googleapis/sloth/compare/v5.34.0...v5.35.0) (2020-09-15)
+
+
+### Features
+
+* new node.js libraries ([#801](https://www.github.com/googleapis/sloth/issues/801)) ([e29a531](https://www.github.com/googleapis/sloth/commit/e29a531793ead588dbeeef81907c9798a33a7f9b))
+
+
+### Bug Fixes
+
+* add python-analytics-data and python-area120-tables ([#798](https://www.github.com/googleapis/sloth/issues/798)) ([ae12158](https://www.github.com/googleapis/sloth/commit/ae121583252d5311d62e60078057f1087cce9c10))
+
 ## [5.34.0](https://www.github.com/googleapis/sloth/compare/v5.33.0...v5.34.0) (2020-09-12)
 
 
