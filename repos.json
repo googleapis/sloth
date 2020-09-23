@@ -218,6 +218,7 @@
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
     { "language": "nodejs", "repo": "googleapis/nodejs-bigquery-storage"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-ai-platform"},
     { "language": "nodejs", "repo": "googleapis/nodejs-analytics-data"},
     { "language": "nodejs", "repo": "googleapis/nodejs-analytics-admin"},
     { "language": "nodejs", "repo": "googleapis/nodejs-functions"},
