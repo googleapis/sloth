@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.36.0](https://www.github.com/googleapis/sloth/compare/v5.35.0...v5.36.0) (2020-09-23)
+
+
+### Features
+
+* **repos:** adds nodejs-ai-platform repo ([#804](https://www.github.com/googleapis/sloth/issues/804)) ([b754a29](https://www.github.com/googleapis/sloth/commit/b754a29d59501a8234ef70640e29398abe11a1df))
+
+
+### Bug Fixes
+
+* add nodejs-security-private-ca to repos.json ([#803](https://www.github.com/googleapis/sloth/issues/803)) ([88aaa91](https://www.github.com/googleapis/sloth/commit/88aaa91726f51f3cfae27ed9b03e306b0b411d2c))
+
 ## [5.35.0](https://www.github.com/googleapis/sloth/compare/v5.34.0...v5.35.0) (2020-09-15)
 
 
