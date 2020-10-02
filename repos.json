@@ -344,6 +344,7 @@
     { "language": "python", "repo": "googleapis/python-runtimeconfig"},
     { "language": "python", "repo": "googleapis/python-scheduler"},
     { "language": "python", "repo": "googleapis/python-secret-manager"},
+    { "language": "python", "repo": "googleapis/python-security-private-ca"},
     { "language": "python", "repo": "googleapis/python-securitycenter"},
     { "language": "python", "repo": "googleapis/python-service-directory"},
     { "language": "python", "repo": "googleapis/python-spanner"},
