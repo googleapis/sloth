@@ -4,6 +4,17 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.0.0](https://www.github.com/googleapis/sloth/compare/v5.36.1...v6.0.0) (2020-10-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* update build configuration enable engines strict (#797)
+
+### Build System
+
+* update build configuration enable engines strict ([#797](https://www.github.com/googleapis/sloth/issues/797)) ([6e8458a](https://www.github.com/googleapis/sloth/commit/6e8458a1299a2f5b7deec810b586138528cb0786))
+
 ### [5.36.1](https://www.github.com/googleapis/sloth/compare/v5.36.0...v5.36.1) (2020-10-03)
 
 
