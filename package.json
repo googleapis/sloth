@@ -60,6 +60,6 @@
     "@microsoft/api-extractor": "^7.8.10"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   }
 }
