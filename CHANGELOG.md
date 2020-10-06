@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.36.1](https://www.github.com/googleapis/sloth/compare/v5.36.0...v5.36.1) (2020-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency update-notifier to v5 ([#806](https://www.github.com/googleapis/sloth/issues/806)) ([300a472](https://www.github.com/googleapis/sloth/commit/300a472f326942de85719fd4fd067c0dac61551d))
+
 ## [5.36.0](https://www.github.com/googleapis/sloth/compare/v5.35.0...v5.36.0) (2020-09-23)
 
 
