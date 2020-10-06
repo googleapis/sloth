@@ -23,6 +23,10 @@ jobs:
         with:
           name: actions ${{ matrix.node }}
           fail_ci_if_error: false
+    strategy:
+      matrix:
+        node: [10, 13]
+    steps: echo 'noop'
   windows:
     runs-on: windows-latest
     steps:
