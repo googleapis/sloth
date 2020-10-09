@@ -24,8 +24,7 @@
       "repos": [
         "googleapis/nodejs-logging-winston",
         "googleapis/nodejs-logging-bunyan",
-        "GoogleCloudPlatform/cloud-code-samples",
-        "GoogleCloudPlatform/stackdriver-sandbox"
+        "GoogleCloudPlatform/cloud-ops-sandbox"
       ]
     },
     {
@@ -35,7 +34,6 @@
         "cloudfunctions",
         "cloudscheduler",
         "cloudtasks",
-        "container",
         "run"
       ]
     },
@@ -51,6 +49,7 @@
         "containerregistry"
       ],
       "repos": [
+        "GoogleCloudPlatform/cloud-code-samples",
         "GoogleCloudPlatform/bank-of-anthos",
         "GoogleCloudPlatform/fourkeys"
       ]
