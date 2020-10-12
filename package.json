@@ -1,6 +1,6 @@
 {
   "name": "@justinbeckwith/sloth",
-  "version": "5.36.0",
+  "version": "5.36.2",
   "repository": "googleapis/sloth",
   "description": "sloth is a CLI utility for measuring GitHub response SLOs.",
   "bin": {
@@ -60,6 +60,6 @@
     "@microsoft/api-extractor": "^7.8.10"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   }
 }

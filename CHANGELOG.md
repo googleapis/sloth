@@ -4,6 +4,29 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.36.2](https://www.github.com/googleapis/sloth/compare/v5.36.1...v5.36.2) (2020-10-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* update build configuration enable engines strict (#797)
+
+### Bug Fixes
+
+* **build:** switch to trampoline 2 (release as patch rather than major) ([#813](https://www.github.com/googleapis/sloth/issues/813)) ([ee3a1bd](https://www.github.com/googleapis/sloth/commit/ee3a1bd4f0174d9b5fc9b187d1e185abdc5c71e2))
+
+
+### Build System
+
+* update build configuration enable engines strict ([#797](https://www.github.com/googleapis/sloth/issues/797)) ([6e8458a](https://www.github.com/googleapis/sloth/commit/6e8458a1299a2f5b7deec810b586138528cb0786))
+
+### [5.36.1](https://www.github.com/googleapis/sloth/compare/v5.36.0...v5.36.1) (2020-10-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency update-notifier to v5 ([#806](https://www.github.com/googleapis/sloth/issues/806)) ([300a472](https://www.github.com/googleapis/sloth/commit/300a472f326942de85719fd4fd067c0dac61551d))
+
 ## [5.36.0](https://www.github.com/googleapis/sloth/compare/v5.35.0...v5.36.0) (2020-09-23)
 
 

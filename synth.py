@@ -8,6 +8,6 @@ AUTOSYNTH_MULTIPLE_COMMITS = True
 
 common_templates = gcp.CommonTemplates()
 templates = common_templates.node_library()
-s.copy(templates, excludes=["README.md"])
+s.copy(templates, excludes=["README.md", ".github/workflows/ci.yaml"])
 node.install()
 node.fix()

@@ -3,15 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "https://github.com/googleapis/sloth.git",
-        "sha": "f86ee6f994fe02abcdfdf3532ff6297d324f9a9b"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "05de3e1e14a0b07eab8b474e669164dbd31f81fb"
+        "remote": "git@github.com:googleapis/sloth.git",
+        "sha": "65c21417af6d5a043b2e4d62b5a8487a2d7e5128"
       }
     }
   ],
@@ -23,9 +16,7 @@
     ".github/ISSUE_TEMPLATE/feature_request.md",
     ".github/ISSUE_TEMPLATE/support_request.md",
     ".github/PULL_REQUEST_TEMPLATE.md",
-    ".github/publish.yml",
     ".github/release-please.yml",
-    ".github/workflows/ci.yaml",
     ".kokoro/.gitattributes",
     ".kokoro/common.cfg",
     ".kokoro/continuous/node10/common.cfg",
@@ -55,10 +46,12 @@
     ".kokoro/test.bat",
     ".kokoro/test.sh",
     ".kokoro/trampoline.sh",
+    ".kokoro/trampoline_v2.sh",
     ".mocharc.js",
     ".nycrc",
     ".prettierignore",
     ".prettierrc.js",
+    ".trampolinerc",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
     "LICENSE",
