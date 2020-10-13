@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.36.3](https://www.github.com/googleapis/sloth/compare/v5.36.2...v5.36.3) (2020-10-13)
+
+
+### Bug Fixes
+
+* CAKE team sloth reorg ([#810](https://www.github.com/googleapis/sloth/issues/810)) ([5d2e381](https://www.github.com/googleapis/sloth/commit/5d2e381dd5f412468d36fd75a0e8b57ad9cdae76))
+
 ### [5.36.2](https://www.github.com/googleapis/sloth/compare/v5.36.1...v5.36.2) (2020-10-07)
 
 
