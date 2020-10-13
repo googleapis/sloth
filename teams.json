@@ -14,28 +14,44 @@
       ]
     },
     {
-      "name": "code-build-run",
+      "name": "operations",
       "apis": [
-        "appengine",
-        "artifactregistry",
-        "cloudbuild",
-        "cloudfunctions",
-        "cloudscheduler",
-        "cloudtasks",
-        "container",
-        "run",
         "logging",
         "clouderrorreporting",
         "monitoring",
-        "cloudtrace",
-        "containeranalysis",
-        "containerregistry"
+        "cloudtrace"
       ],
       "repos": [
         "googleapis/nodejs-logging-winston",
         "googleapis/nodejs-logging-bunyan",
+        "GoogleCloudPlatform/cloud-ops-sandbox"
+      ]
+    },
+    {
+      "name": "serverless",
+      "apis": [
+        "appengine",
+        "cloudfunctions",
+        "cloudscheduler",
+        "cloudtasks",
+        "run"
+      ]
+    },
+    {
+      "name": "devplat",
+      "apis": [
+        "artifactregistry",
+        "binaryauthorization",
+        "cloudbuild",
+        "cloudshell",
+        "container",
+        "containeranalysis",
+        "containerregistry"
+      ],
+      "repos": [
         "GoogleCloudPlatform/cloud-code-samples",
-        "GoogleCloudPlatform/stackdriver-sandbox"
+        "GoogleCloudPlatform/bank-of-anthos",
+        "GoogleCloudPlatform/fourkeys"
       ]
     },
     {

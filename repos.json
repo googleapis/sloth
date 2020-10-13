@@ -10,7 +10,7 @@
     { "language": "dotnet", "repo": "GoogleCloudPlatform/dotnet-docs-samples"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-code-samples"},
-    { "language": "dotnet", "repo": "GoogleCloudPlatform/stackdriver-sandbox"},
+    { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-ops-sandbox"},
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api", "isTeamIssue": true},
     { "language": "elixir", "repo": "GoogleCloudPlatform/elixir-samples", "isTeamIssue": true},
@@ -114,6 +114,7 @@
     { "language": "java", "repo": "googleapis/java-spanner-jdbc"},
     { "language": "java", "repo": "googleapis/java-storage-nio"},
     { "language": "java", "repo": "googleapis/java-notification"},
+    { "language": "java", "repo": "GoogleCloudPlatform/bank-of-anthos"},
     { "language": "java", "repo": "GoogleCloudPlatform/java-docs-samples"},
     { "language": "java", "repo": "GoogleCloudPlatform/getting-started-java"},
 
@@ -366,6 +367,7 @@
     { "language": "python", "repo": "googleapis/releasetool"},
     { "language": "python", "repo": "googleapis/sample-tester"},
     { "language": "python", "repo": "googleapis/synthtool"},
+    { "language": "python", "repo": "GoogleCloudPlatform/four-keys"},
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
 
