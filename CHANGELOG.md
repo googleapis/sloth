@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.36.4](https://www.github.com/googleapis/sloth/compare/v5.36.3...v5.36.4) (2020-10-15)
+
+
+### Bug Fixes
+
+* update teams.json ([#818](https://www.github.com/googleapis/sloth/issues/818)) ([a0c69ac](https://www.github.com/googleapis/sloth/commit/a0c69ac3e899d681b7d3fce17c3e3687109c9340))
+
 ### [5.36.3](https://www.github.com/googleapis/sloth/compare/v5.36.2...v5.36.3) (2020-10-13)
 
 
