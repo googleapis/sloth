@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.36.5](https://www.github.com/googleapis/sloth/compare/v5.36.4...v5.36.5) (2020-10-16)
+
+
+### Bug Fixes
+
+* remove trailing comma ([#820](https://www.github.com/googleapis/sloth/issues/820)) ([8432ccd](https://www.github.com/googleapis/sloth/commit/8432ccdc4d5330da15632099cadc45b013fe11e0))
+
 ### [5.36.4](https://www.github.com/googleapis/sloth/compare/v5.36.3...v5.36.4) (2020-10-15)
 
 
