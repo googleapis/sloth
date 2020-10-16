@@ -17,7 +17,7 @@
       "name": "operations",
       "apis": [
         "logging",
-        "clouderrorreporting",
+        "clouderrorreporting"
       ],
       "repos": [
         "googleapis/nodejs-logging-winston",
