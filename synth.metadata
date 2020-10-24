@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/sloth.git",
-        "sha": "c16fc0ec7f2144099c126ab39ebfa9bce76bf746"
+        "sha": "283e846e91a9ab565c19191b70db92c5531ad0f5"
       }
     },
     {
@@ -65,6 +65,6 @@
     "api-extractor.json",
     "renovate.json",
     "samples/package-lock.json",
-    "samples/package-lock.json.1759647639"
+    "samples/package-lock.json.1150295946"
   ]
 }
