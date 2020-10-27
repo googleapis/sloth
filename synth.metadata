@@ -4,14 +4,14 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/sloth.git",
-        "sha": "283e846e91a9ab565c19191b70db92c5531ad0f5"
+        "sha": "b945a2630db818c513ce2cd091489176ecda4444"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "901ddd44e9ef7887ee681b9183bbdea99437fdcc"
+        "sha": "5f6ef0ec5501d33c4667885b37a7685a30d41a76"
       }
     }
   ],
@@ -63,8 +63,6 @@
     "CONTRIBUTING.md",
     "LICENSE",
     "api-extractor.json",
-    "renovate.json",
-    "samples/package-lock.json",
-    "samples/package-lock.json.1150295946"
+    "renovate.json"
   ]
 }
