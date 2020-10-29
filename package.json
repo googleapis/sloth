@@ -43,7 +43,7 @@
     "express": "^4.17.1",
     "gaxios": "^4.0.0",
     "googleapis": "^62.0.0",
-    "meow": "^7.0.1",
+    "meow": "^8.0.0",
     "truncate": "^2.1.0",
     "update-notifier": "^5.0.0"
   },
