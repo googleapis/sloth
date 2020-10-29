@@ -4,6 +4,15 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [5.36.6](https://www.github.com/googleapis/sloth/compare/v5.36.5...v5.36.6) (2020-10-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency gaxios to v4 ([#826](https://www.github.com/googleapis/sloth/issues/826)) ([c16fc0e](https://www.github.com/googleapis/sloth/commit/c16fc0ec7f2144099c126ab39ebfa9bce76bf746))
+* **deps:** update dependency googleapis to v62 ([#835](https://www.github.com/googleapis/sloth/issues/835)) ([930e94e](https://www.github.com/googleapis/sloth/commit/930e94ec229bb3fe98e40264b8edea43833184fe))
+* **deps:** update dependency meow to v8 ([#836](https://www.github.com/googleapis/sloth/issues/836)) ([0e65442](https://www.github.com/googleapis/sloth/commit/0e6544259fa3295cf2fb0d0761c522f3767e52f7))
+
 ### [5.36.5](https://www.github.com/googleapis/sloth/compare/v5.36.4...v5.36.5) (2020-10-16)
 
 

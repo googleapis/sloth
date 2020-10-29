@@ -11,7 +11,7 @@
     "test": "echo no tests available 👻"
   },
   "dependencies": {
-    "@justinbeckwith/sloth": "^5.36.5"
+    "@justinbeckwith/sloth": "^5.36.6"
   },
   "devDependencies": {
     "mocha": "^8.0.0"
