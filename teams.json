@@ -30,8 +30,6 @@
       "apis": [
         "appengine",
         "cloudfunctions",
-        "cloudscheduler",
-        "cloudtasks",
         "run"
       ]
     },
