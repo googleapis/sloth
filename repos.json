@@ -310,6 +310,7 @@
     { "language": "python", "repo": "googleapis/python-container"},
     { "language": "python", "repo": "googleapis/python-containeranalysis"},
     { "language": "python", "repo": "googleapis/python-crc32c"},
+    { "language": "python", "repo": "googleapis/python-data-qna"},
     { "language": "python", "repo": "googleapis/python-datacatalog"},
     { "language": "python", "repo": "googleapis/python-datalabeling"},
     { "language": "python", "repo": "googleapis/python-dataproc"},
