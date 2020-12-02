@@ -1,16 +1,21 @@
 {
   "teams": [
     {
-      "name": "soda",
+      "name": "storage",
+      "apis": [
+        "redis",
+        "storage",
+        "storagetransfer"
+      ]
+    },
+    {
+      "name": "databases",
       "apis": [
         "bigtable",
         "cloudsql",
         "datastore",
         "firestore",
-        "ndb",
-        "redis",
-        "storage",
-        "storagetransfer"
+        "ndb"
       ]
     },
     {
