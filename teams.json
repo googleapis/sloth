@@ -102,6 +102,7 @@
         "googleapis/gax-go",
         "googleapis/gax-java",
         "googleapis/gax-ruby",
+        "googleapis/gaxios",
         "googleapis/gapic-generator-typescript",
         "googleapis/gapic-generator-ruby",
         "googleapis/gapic-generator-python",
