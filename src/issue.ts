@@ -467,7 +467,7 @@ function isOutOfSLO(i: ApiIssue) {
   // | Priority | Response | Closure |
   // +----------+----------+---------+
   // |        0 |        1 | 1       |
-  // |        1 |        1 | 7       |
+  // |        1 |        5 | 7       |
   // |        2 |     5/90 | 180     |
   // |        3 |      180 | N/A     |
   // |        4 |      365 | N/A     |
@@ -504,7 +504,7 @@ function isOutOfSLO(i: ApiIssue) {
       }
     }
 
-    // All P3 issues must receive a reply every 365 days
+    // All P4 issues must receive a reply every 365 days
     if (pri === 4) {
       if (daysOld(i.updatedAt) > 365) {
         return true;
