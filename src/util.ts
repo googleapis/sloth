@@ -12,13 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as Octokit from '@octokit/rest';
-
-import {Label, Repo, Users, Team} from './types';
+import {Repo, Team} from './types';
+import {GaxiosOptions, request} from 'gaxios';
 
 export const repos: Repo[] = require('../../repos.json').repos;
-export const labels: Label[] = require('../../labels.json').labels;
-export const users: Users = require('../../users.json');
 export const teams: Team[] = require('../../teams.json').teams;
 export const languages = [
   'go',
@@ -37,6 +34,10 @@ if (!token) {
   throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
 }
 
-const octo = new Octokit({auth: `token ${token}`});
-
-export {octo};
+export async function gethub<T = unknown>(options: GaxiosOptions) {
+  options.baseURL = 'https://api.github.com';
+  options.headers = {
+    Authorization: `token ${token}`,
+  };
+  return request<T>(options);
+}

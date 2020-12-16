@@ -30,18 +30,4 @@ You can also get output in CSV format!  Just pass the `--csv` flag:
 $ sloth --csv
 ```
 
-### Updating labels
-Lets use the same labels in all of our repos.  First, check out `labels.json`.  Then go ahead and run:
-
-```sh
-$ sloth labels
-```
-
-### Team membership
-Lets organize the users in our many teams/orgs.  First, check out `users.json`.  Then go ahead and run:
-
-```sh
-$ sloth users
-```
-
 That's it 🎉 Enjoy!

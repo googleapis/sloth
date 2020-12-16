@@ -1,41 +1,96 @@
 {
   "teams": [
     {
-      "name": "soda",
+      "name": "storage",
       "apis": [
-        "bigtable",
-        "datastore",
-        "firestore",
         "redis",
-        "storage"
+        "storage",
+        "storagetransfer"
       ]
     },
     {
-      "name": "code-build-run",
+      "name": "databases",
       "apis": [
+        "bigtable",
+        "cloudsql",
+        "datastore",
+        "firestore",
         "ndb"
       ]
     },
     {
-      "name": "animl",
+      "name": "operations",
+      "apis": [
+        "logging",
+        "clouderrorreporting"
+      ],
+      "repos": [
+        "googleapis/nodejs-logging-winston",
+        "googleapis/nodejs-logging-bunyan",
+        "GoogleCloudPlatform/cloud-ops-sandbox"
+      ]
+    },
+    {
+      "name": "serverless",
+      "apis": [
+        "appengine",
+        "cloudfunctions",
+        "cloudscheduler",
+        "cloudtasks",
+        "run"
+      ]
+    },
+    {
+      "name": "devplat",
+      "apis": [
+        "artifactregistry",
+        "binaryauthorization",
+        "cloudbuild",
+        "cloudshell",
+        "container",
+        "containeranalysis",
+        "containerregistry"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/cloud-code-samples",
+        "GoogleCloudPlatform/bank-of-anthos",
+        "GoogleCloudPlatform/fourkeys"
+      ]
+    },
+    {
+      "name": "cloud-ai",
       "apis": [
         "automl",
-        "bigquery",
-        "bigquerydatatransfer",
         "cloudiot",
-        "datacatalog",
         "datalabeling",
-        "dataproc",
         "dialogflow",
-        "dlp",
+        "documentai",
         "language",
-        "pubsub",
+        "ml",
+        "notebooks",
         "recommender",
         "speech",
         "texttospeech",
-        "translation",
+        "translate",
         "videointelligence",
         "vision"
+      ]
+    },
+    {
+      "name": "data-analytics",
+      "apis": [
+        "bigquery",
+        "bigqueryconnection",
+        "bigquerydatatransfer",
+        "bigqueryreservation",
+        "bigquerystorage",
+        "composer",
+        "datacatalog",
+        "dataflow",
+        "dataproc",
+        "dataqna",
+        "pubsub",
+        "pubsublite"
       ]
     },
     {
@@ -53,17 +108,16 @@
         "googleapis/gapic-generator-go",
         "googleapis/gapic-generator-csharp",
         "googleapis/gapic-generator",
-        "googleapis/nodejs-proto-files"
+        "googleapis/nodejs-proto-files",
+        "googleapis/proto-plus-python",
+        "googleapis/sample-tester"
       ]
     },
     {
-      "name": "node",
+      "name": "apm",
       "repos": [
         "googleapis/cloud-debug-nodejs",
-        "googleapis/cloud-trace-nodejs",
-        "googleapis/nodejs-logging-winston",
-        "googleapis/nodejs-logging-bunyan",
-        "googleapis/nodejs-error-reporting"
+        "googleapis/cloud-trace-nodejs"
       ]
     },
     {
@@ -76,6 +130,11 @@
       "name": "spanner",
       "apis": [
         "spanner"
+      ],
+      "repos": [
+        "googleapis/ruby-spanner-activerecord",
+        "googleapis/java-spanner-jdbc",
+        "googleapis/python-spanner-django"
       ]
     },
     {
@@ -85,6 +144,7 @@
         "googleapis/google-cloud-cpp",
         "googleapis/google-cloud-cpp-bigquery",
         "googleapis/google-cloud-cpp-common",
+        "googleapis/google-cloud-cpp-pubsub",
         "googleapis/google-cloud-cpp-spanner",
         "GoogleCloudPlatform/cpp-docs-samples"
       ]
@@ -105,7 +165,10 @@
         "GoogleCloudPlatform/getting-started-php",
         "GoogleCloudPlatform/getting-started-python",
         "GoogleCloudPlatform/getting-started-java",
-        "GoogleCloudPlatform/getting-started-dotnet"
+        "GoogleCloudPlatform/getting-started-dotnet",
+        "googleapis/doc-pipeline",
+        "googleapis/doc-templates",
+        "googleapis/docuploader"
       ]
     },
     {

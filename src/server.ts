@@ -1,4 +1,4 @@
-// Copyright 2018 Google LLC
+// Copyright 2020 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,12 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as assert from 'assert';
-import {describe, it} from 'mocha';
+import * as express from 'express';
+import {exportToSheets} from './exportToSheets';
 
-// TODO:...
-describe('sloth', () => {
-  it('should work', () => {
-    assert(true);
-  });
+// This simple server exposes endpoints that are used with Cloud Scheduler
+// to perform regular sync to a sheet that powers go/yoshi-live.
+
+const app = express();
+const port = process.env.PORT || 8080;
+
+app.post('/exportToSheets', async (req, res) => {
+  await exportToSheets();
+  res.sendStatus(202);
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });

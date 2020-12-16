@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {ReposUpdateBranchProtectionParamsRequiredStatusChecks} from '@octokit/rest';
-
 export interface Team {
   name: string;
   apis: string[];
@@ -88,12 +86,7 @@ export interface Result {
 export interface Repo {
   repo: string;
   language: string;
-  apiHint?: string;
-}
-
-export interface Users {
-  orgs: string[];
-  membership: Membership[];
+  isTeamIssue?: boolean;
 }
 
 export interface Membership {
@@ -147,7 +140,8 @@ export interface Flags {
 
 export interface GetBranchProtectionResult {
   enabled: boolean;
-  required_status_checks: ReposUpdateBranchProtectionParamsRequiredStatusChecks;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  required_status_checks: any;
 }
 
 export interface GetBranchResult {
@@ -157,22 +151,23 @@ export interface GetBranchResult {
 }
 
 export interface IssuesApiResponse {
-  Issues: ApiIssue[];
+  issues: ApiIssue[];
+  nextPageToken: string;
 }
 
 export interface ApiIssue {
-  Labels: string[];
-  PullRequest: boolean;
-  Repo: string; // googleapis/nodejs-rcloadenv
-  Created: string;
-  UpdatedAt: string;
-  IssueID: number;
-  Title: string;
-  Priority: number;
-  Assignees: Array<{
-    ID: number;
-    Login: string;
+  labels: string[];
+  isPr: boolean;
+  repo: string; // googleapis/nodejs-rcloadenv
+  createdAt: string;
+  updatedAt: string;
+  issueId: number;
+  title: string;
+  priority: string;
+  assignees: Array<{
+    id: number;
+    login: string;
   }>;
-  URL: string;
-  PriorityUnknown: boolean;
+  url: string;
+  priorityUnknown: boolean;
 }
