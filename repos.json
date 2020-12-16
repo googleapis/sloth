@@ -154,6 +154,7 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-common"},
     { "language": "nodejs", "repo": "googleapis/nodejs-compute"},
     { "language": "nodejs", "repo": "googleapis/nodejs-containeranalysis"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-data-qna", "apiHint": "dataqna"},
     { "language": "nodejs", "repo": "googleapis/nodejs-datacatalog"},
     { "language": "nodejs", "repo": "googleapis/nodejs-datalabeling"},
     { "language": "nodejs", "repo": "googleapis/nodejs-dataproc"},
