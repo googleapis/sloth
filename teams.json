@@ -60,6 +60,7 @@
     {
       "name": "cloud-ai",
       "apis": [
+        "aiplatform",
         "automl",
         "cloudiot",
         "datalabeling",
