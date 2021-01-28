@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as Repos from './repos.json';
+
+export type Repo = typeof Repos.repos[number];
+
 export interface Team {
   name: string;
   apis: string[];
@@ -81,12 +85,6 @@ export interface Result {
   p2: number;
   pX: number;
   outOfSLO: number;
-}
-
-export interface Repo {
-  repo: string;
-  language: string;
-  isTeamIssue?: boolean;
 }
 
 export interface Membership {
@@ -170,4 +168,13 @@ export interface ApiIssue {
   }>;
   url: string;
   priorityUnknown: boolean;
+}
+
+export interface GitHubRepo {
+  name: string;
+  owner: {
+    login: string;
+  };
+  language: string;
+  archived: boolean;
 }

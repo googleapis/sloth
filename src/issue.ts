@@ -16,11 +16,14 @@ import {
   Flags,
   Issue,
   IssueResult,
-  Repo,
   IssuesApiResponse,
   ApiIssue,
+  GitHubRepo,
 } from './types';
-import {gethub, repos, teams} from './util';
+import {gethub} from './util';
+import * as RepoJson from './repos.json';
+import {teams} from './teams.json';
+import {Repo} from './types';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 
@@ -40,11 +43,77 @@ if (!apiKey) {
   );
 }
 
+let _repos: Repo[];
+
+export async function getRepos() {
+  if (_repos) {
+    return _repos;
+  }
+  // fetch all repositories for a configured org
+  const repos: Repo[] = [];
+  for (const org of RepoJson.orgs) {
+    for (let page = 1; ; page++) {
+      const res = await gethub<GitHubRepo[]>({
+        url: `/orgs/${org}/repos`,
+        params: {
+          type: 'public',
+          page,
+          per_page: 100,
+        },
+      });
+      for (const r of res.data) {
+        if (r.archived) {
+          continue;
+        }
+        // re-map the language to maintain consistency with prior approach
+        let language = (r.language || '').toLowerCase();
+        switch (language) {
+          case 'javascript':
+          case 'typescript':
+            language = 'nodejs';
+            break;
+          case 'c#':
+            language = 'dotnet';
+            break;
+          case 'c++':
+            language = 'cpp';
+            break;
+        }
+        repos.push({
+          language,
+          repo: `${r.owner.login}/${r.name}`,
+        });
+      }
+      if (res.data.length < 100) {
+        break;
+      }
+    }
+  }
+
+  // If a repo already exists in the list, lay the apiHint or isTeamIssue
+  // properties over top.  Otherwise, add it to the list.
+  for (const localRepo of RepoJson.repos) {
+    const ghRepo = repos.find(x => {
+      return x.repo.toLowerCase() === localRepo.repo.toLowerCase();
+    });
+    if (ghRepo) {
+      ghRepo.apiHint = localRepo.apiHint;
+      ghRepo.isTeamIssue = localRepo.isTeamIssue;
+    } else {
+      repos.push(localRepo);
+    }
+  }
+  _repos = repos;
+  return _repos;
+}
+
 /**
  * Walk over each configured repository, and obtain a list of issues.
  * @param flags
  */
 export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
+  const repos = await getRepos();
+  console.log(`analyzing ${repos.length} repositories...`);
   // This fetch is done serially on purpose. When using the `Promise.all`
   // approach, it was generating too many concurrent request and causing
   // 503 errors in the underlying API.  Slowing it to a serial fetch will
@@ -367,7 +436,7 @@ function getLanguage(r: Repo, i: ApiIssue) {
 
 function getTeam(repo: string, api: string | undefined, isSample: boolean) {
   // if repo issues are managed by a single team, attribute to that team
-  const r = repos.find(x => x.repo === repo);
+  const r = _repos.find(x => x.repo === repo);
   const t = teams.find(x => (x.repos || []).includes(repo));
   if (r) {
     if (r.isTeamIssue && t) {

@@ -37,6 +37,7 @@
         "cloudfunctions",
         "cloudscheduler",
         "cloudtasks",
+        "eventarc",
         "run"
       ]
     },

@@ -21,7 +21,6 @@ import {
   LanguageResult,
   RepoResult,
 } from './types';
-import {languages} from './util';
 
 import Table = require('cli-table');
 import * as meow from 'meow';
@@ -85,6 +84,7 @@ function getLanguageResults(repos: IssueResult[]) {
       issues.push(i);
     });
   });
+  const languages = Array.from(new Set(issues.map(i => i.language)));
   languages.forEach(l => {
     results.set(l, {
       total: 0,
@@ -189,6 +189,7 @@ export async function sendMail() {
   console.log(`Out of SLO: ${outOfSLOIssues.length}`);
 
   console.log('repo,issue,title');
+  const languages = Array.from(new Set(issues.map(i => i.language)));
   languages.forEach(l => {
     const untriaged = untriagedIssues.filter(x => x.language === l);
     console.log(`\n\n###\t${l}###`);

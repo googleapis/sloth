@@ -10,7 +10,6 @@ FROM node:14-alpine
 ENV NODE_ENV=production
 WORKDIR /usr/src/app
 COPY package*.json ./
-COPY repos.json teams.json ./
 RUN npm ci --only=production
 COPY --from=builder /usr/src/app/build ./build
 EXPOSE 8080
