@@ -12,24 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Repo, Team} from './types';
 import {GaxiosOptions, request} from 'gaxios';
 
-export const repos: Repo[] = require('../../repos.json').repos;
-export const teams: Team[] = require('../../teams.json').teams;
-export const languages = [
-  'go',
-  'nodejs',
-  'ruby',
-  'python',
-  'php',
-  'dotnet',
-  'java',
-  'elixir',
-  'cpp',
-];
-
-const token = process.env.SLOTH_GITHUB_TOKEN;
+const token = process.env.SLOTH_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
 if (!token) {
   throw new Error('Please set the `SLOTH_GITHUB_TOKEN` environment variable.');
 }

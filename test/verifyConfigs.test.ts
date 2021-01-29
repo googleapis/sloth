@@ -17,29 +17,33 @@ import {describe, it} from 'mocha';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const REPOS_JSON = path.join(__dirname, '../../repos.json');
+const REPOS_JSON = path.join(__dirname, '../src/repos.json');
+const TEAMS_JSON = path.join(__dirname, '../src/teams.json');
 
 describe('Verify config files', () => {
-  describe('repos.json', () => {
-    it('is valid json', () => {
-      const file = fs.readFileSync(REPOS_JSON, 'utf-8');
-      assert.doesNotThrow(() => JSON.parse(file));
-    });
+  it('repos.json is valid json', () => {
+    const file = fs.readFileSync(REPOS_JSON, 'utf-8');
+    assert.doesNotThrow(() => JSON.parse(file));
+  });
 
-    it('has valid schema', () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const assertRepo = (entry: any) => {
-        assert('string', typeof entry.repo);
-        assert('string', typeof entry.language);
-      };
+  it('teams.json is valid json', () => {
+    const file = fs.readFileSync(TEAMS_JSON, 'utf-8');
+    assert.doesNotThrow(() => JSON.parse(file));
+  });
 
-      const file = fs.readFileSync(REPOS_JSON, 'utf-8');
-      const repos = JSON.parse(file);
+  it('repos.json has valid schema', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const assertRepo = (entry: any) => {
+      assert('string', typeof entry.repo);
+      assert('string', typeof entry.language);
+    };
 
-      assert('object', repos);
-      assert(Array.isArray(repos.repos));
+    const file = fs.readFileSync(REPOS_JSON, 'utf-8');
+    const repos = JSON.parse(file);
 
-      repos.repos.forEach(assertRepo);
-    });
+    assert('object', repos);
+    assert(Array.isArray(repos.repos));
+
+    repos.repos.forEach(assertRepo);
   });
 });
