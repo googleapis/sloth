@@ -38,7 +38,8 @@
         "cloudscheduler",
         "cloudtasks",
         "eventarc",
-        "run"
+        "run",
+        "workflows"
       ]
     },
     {
