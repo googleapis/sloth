@@ -168,7 +168,9 @@ async function hasMergeCommitsDisabled(repo: GitHubRepo) {
  * list is purposefully small. We can expand as needed.
  */
 async function hasLicense(repo: GitHubRepo) {
-  return ['apache-2.0', 'mit'].includes(repo.license?.key);
+  console.log(repo.license);
+  const validLicenses = ['apache-2.0', 'mit', 'bsd-3-clause'];
+  return validLicenses.includes(repo.license?.key);
 }
 
 /**
