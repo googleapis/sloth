@@ -18,7 +18,8 @@ import * as meow from 'meow';
 import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
 import * as updateNotifier from 'update-notifier';
-import {Flags} from './types';
+import {Flags, GitHubRepo} from './types';
+import * as policy from './policy';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require('../../package.json');
@@ -48,6 +49,7 @@ const cli = meow(
     $ sloth tag-issues
     $ sloth repos
     $ sloth sync-repo-settings
+    $ sloth policy [--repo][--search QUERY]
 
 `,
   {
@@ -61,31 +63,51 @@ const cli = meow(
       pr: {type: 'boolean'},
       type: {type: 'string'},
       pri: {type: 'string'},
+      search: {type: 'string'},
     },
   }
 );
 
 const cmd = cli.input.length > 0 ? cli.input[0] : null;
-let p: Promise<void | {}>;
 
-switch (cmd) {
-  case 'tag-issues':
-    p = tagIssues();
-    break;
-  case 'issues':
-    p = showIssues((cli.flags as unknown) as Flags);
-    break;
-  case 'apis':
-    p = showApiSLOs(cli);
-    break;
-  case 'languages':
-    p = showLanguageSLOs(cli);
-    break;
-  case null:
-    p = showSLOs(cli);
-    break;
-  default:
-    cli.showHelp();
+async function main() {
+  switch (cmd) {
+    case 'tag-issues':
+      await tagIssues();
+      break;
+    case 'issues':
+      await showIssues((cli.flags as unknown) as Flags);
+      break;
+    case 'apis':
+      await showApiSLOs(cli);
+      break;
+    case 'languages':
+      await showLanguageSLOs(cli);
+      break;
+    case 'policy': {
+      const repos: GitHubRepo[] = [];
+      if (cli.flags.repo) {
+        const repo = await policy.getRepo(cli.flags.repo);
+        repos.push(repo);
+      } else if (cli.flags.search) {
+        const r = await policy.getRepos(cli.flags.search);
+        repos.push(...r);
+      } else {
+        cli.showHelp();
+        return;
+      }
+      for (const repo of repos) {
+        const res = await policy.checkRepoPolicy(repo);
+        console.log(res);
+      }
+      break;
+    }
+    case null:
+      await showSLOs(cli);
+      break;
+    default:
+      cli.showHelp();
+  }
 }
 
-p!.catch(console.error);
+main().catch(console.error);
