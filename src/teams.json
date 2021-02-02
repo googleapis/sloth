@@ -23,6 +23,9 @@
         "datastore",
         "firestore",
         "ndb"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/cloud-bigtable-examples"
       ]
     },
     {

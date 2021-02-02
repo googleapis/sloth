@@ -19,12 +19,14 @@
     { "language": "go", "repo": "googleapis/gax-go", "isTeamIssue": true},
     { "language": "go", "repo": "googleapis/gapic-generator-go", "isTeamIssue": true},
     { "language": "go", "repo": "GoogleCloudPlatform/golang-samples"},
+    { "language": "go", "repo": "GoogleCloudPlatform/cloudsql-proxy", "isTeamIssue": true},
 
     { "language": "java", "repo": "googleapis/gax-java", "isTeamIssue": true},
     { "language": "java", "repo": "googleapis/gapic-generator", "isTeamIssue": true},
     { "language": "java", "repo": "GoogleCloudPlatform/bank-of-anthos"},
     { "language": "java", "repo": "GoogleCloudPlatform/java-docs-samples"},
     { "language": "java", "repo": "GoogleCloudPlatform/getting-started-java"},
+    { "language": "java", "repo": "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory ", "isTeamIssue": true},
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/gaxios", "isTeamIssue": true},
@@ -32,6 +34,7 @@
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript", "isTeamIssue": true},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
+
     { "language": "php", "repo": "googleapis/gax-php", "isTeamIssue": true},
     { "language": "php", "repo": "GoogleCloudPlatform/php-docs-samples"},
     { "language": "php", "repo": "GoogleCloudPlatform/getting-started-php"},
@@ -41,11 +44,14 @@
     { "language": "python", "repo": "GoogleCloudPlatform/fourkeys"},
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
+    { "language": "python", "repo": "GoogleCloudPlatform/cloud-sql-python-connector", "isTeamIssue": true},
 
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
     { "language": "ruby", "repo": "googleapis/gapic-generator-ruby", "isTeamIssue": true},
     { "language": "ruby", "repo": "GoogleCloudPlatform/ruby-docs-samples"},
     { "language": "ruby", "repo": "GoogleCloudPlatform/getting-started-ruby"},
-    { "language": "ruby", "repo": "googleapis/ruby-spanner-activerecord", "isTeamIssue": true}
+    { "language": "ruby", "repo": "googleapis/ruby-spanner-activerecord", "isTeamIssue": true},
+
+    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true}
   ]
 }
