@@ -204,6 +204,12 @@ export interface GitHubRepo {
     url: string;
     node_id: string;
   };
+  code_of_conduct: {
+    key: string;
+    name: string;
+    html_url: string;
+    url: string;
+  };
 }
 
 export interface GetBranchProtectionResult {
