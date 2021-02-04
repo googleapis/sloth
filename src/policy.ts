@@ -103,7 +103,7 @@ async function checkFileExists(
  * RenovateBot is enabled
  */
 async function hasRenovate(repo: GitHubRepo) {
-  return checkFileExists(repo, 'renovate.json', false);
+  return checkFileExists(repo, 'renovate.json', true);
 }
 
 /**
