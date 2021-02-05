@@ -179,7 +179,10 @@ async function hasLicense(repo: GitHubRepo) {
  * Ensure there is a Code of Conduct
  */
 async function hasCodeOfConduct(repo: GitHubRepo) {
-  return repo.code_of_conduct && repo.code_of_conduct.key !== 'none';
+  // NOTE: With a flag, the GitHub API will return this from the
+  // `orgs/${org}/repos` endpoint, but it will NOT be returned
+  // from the search endpoint.
+  return checkFileExists(repo, 'CODE_OF_CONDUCT.md', true);
 }
 
 /**
