@@ -120,6 +120,9 @@ async function hasBranchProtection(repo: GitHubRepo) {
     validateStatus: () => true,
   });
   if (res.status !== 200) {
+    console.error(
+      `Error checking branch protection for ${repo.full_name}: ${res.status} - ${res.statusText}`
+    );
     // no branch protection at all 😱
     return false;
   }
@@ -168,7 +171,6 @@ async function hasMergeCommitsDisabled(repo: GitHubRepo) {
  * list is purposefully small. We can expand as needed.
  */
 async function hasLicense(repo: GitHubRepo) {
-  console.log(repo.license);
   const validLicenses = ['apache-2.0', 'mit', 'bsd-3-clause'];
   return validLicenses.includes(repo.license?.key);
 }
@@ -177,7 +179,7 @@ async function hasLicense(repo: GitHubRepo) {
  * Ensure there is a Code of Conduct
  */
 async function hasCodeOfConduct(repo: GitHubRepo) {
-  return checkFileExists(repo, 'CODE_OF_CONDUCT.md', true);
+  return repo.code_of_conduct && repo.code_of_conduct.key !== 'none';
 }
 
 /**

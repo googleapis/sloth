@@ -23,6 +23,7 @@ export async function gethub<T = unknown>(options: GaxiosOptions) {
   options.baseURL = 'https://api.github.com';
   options.headers = {
     Authorization: `token ${token}`,
+    Accept: 'application/vnd.github.scarlet-witch-preview+json',
   };
   return request<T>(options);
 }
