@@ -3,16 +3,23 @@
     {
       "name": "storage",
       "apis": [
-        "redis",
         "storage",
         "storagetransfer"
       ]
     },
     {
-      "name": "databases",
+      "name": "infra-databases",
+      "apis": [
+        "cloudsql",
+        "redis",
+        "memcache"
+      ]
+    },
+    {
+      "name": "cloud-native-databases",
       "apis": [
         "bigtable",
-        "cloudsql",
+        "bigtableadmin",
         "datastore",
         "firestore",
         "ndb"
