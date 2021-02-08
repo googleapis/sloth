@@ -17,7 +17,10 @@
 import {gethub} from "./util";
 import {GitHubRepoFile} from "./types";
 
-
+/**
+ * Download the index of APIs from GitHub
+ * @return {Object}
+ */
 export async function getIndex() {
     const atob = require('atob');
     const protos: {[index: string]:any} = {};
