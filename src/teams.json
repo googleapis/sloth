@@ -13,6 +13,11 @@
         "cloudsql",
         "redis",
         "memcache"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/cloudsql-proxy",
+        "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory",
+        "GoogleCloudPlatform/cloud-sql-python-connector"
       ]
     },
     {
