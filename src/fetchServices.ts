@@ -14,9 +14,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const {google} = require('googleapis');
-const serviceNames: string[] = [];
+import {google} from 'googleapis';
 
+/**
+ * Create an Auth client for googleapis
+ */
 async function createAuthClient() {
     const auth = new google.auth.GoogleAuth({
         scopes: ['https://www.googleapis.com/auth/cloud-platform']
@@ -25,56 +27,91 @@ async function createAuthClient() {
     return authClient;
 }
 
-export async function getAllServiceNames(nextPageToken: string = ''): Promise<string[]> {
+/**
+ * Make a call to the Google Cloud Service Management API's services.list endpoint
+ * @return {string[]} an array of hostnames ('foo.googleapis.com') for all available services
+ */
+async function getAllServiceNames(nextPageToken: string = ''): Promise<string[]> {
     try {
         const servicemanagement = google.servicemanagement('v1');
         const authClient = await createAuthClient();
+        const serviceNames: string[] = [];
 
         const res = await servicemanagement.services.list({
             auth: authClient,
-            pageSize: '100',
+            pageSize: 100,
             pageToken: nextPageToken,
         });
 
-        res.data.services.map((item: any) => {
-            serviceNames.push(item.serviceName);
-            }
-        );
+        if (res.data.services) {
+            res.data.services.map((item: any) => {
+                serviceNames.push(item.serviceName)
+            });
+        }
 
         if (res.data.nextPageToken) {
             await getAllServiceNames(res.data.nextPageToken);
         }
+
         return serviceNames;
     }
     catch(e) {
         console.log(e);
-        throw new Error("Yikes!");
+        throw e;
     }
 }
 
-export async function getServiceConfig(serviceName: string): Promise<any> {
+/**
+ * Make a call to the Google Cloud Service Management API's services.getConfig endpoint
+ * @param {string} serviceName - the hostname of a service ('foo.googleapis.com')
+ * @return {Object} the service config of the passed hostname
+ */
+async function getServiceConfig(serviceName: string): Promise<any> {
     try {
         const servicemanagement = google.servicemanagement('v1');
         const authClient = await createAuthClient();
-        const res = await servicemanagement.services.configs.get({
+        const res = await servicemanagement.services.getConfig({
             auth: authClient,
             serviceName: serviceName,
         });
+        console.log(res.data);
         return res.data;
     }
     catch(e) {
         console.log(e);
-        throw new Error("Wu-oh!");
+        throw e;
     }
 }
 
-getAllServiceNames().then(names => {
-    console.log(names);
-    return names;
-}).then(arr =>
-    console.log(arr.length)
-);
+/**
+ * Get service configs for all available services.
+ * @return {Object}
+ */
+export async function getAllServiceConfigs(): Promise<any> {
+    const backoff = require('backoff');
+    try {
+        const serviceNames = await getAllServiceNames();
+        const serviceConfigs = serviceNames.map(async (name: string) => {
+            let call = backoff.call(getServiceConfig, [name], function (err: any, res: any) {
+                console.log('Num retries: ' + call.getNumRetries());
 
-getServiceConfig('vision.googleapis.com').then(config => {
-    console.log(config)
-});
+                if (err) {
+                    console.log('Error: ' + err.message);
+                } else {
+                    console.log('Status: ' + res.statusCode);
+                }
+            });
+            call.retryIf(function (err: any) {
+                return err.status == 503;
+            });
+            call.setStrategy(new backoff.ExponentialStrategy());
+            call.failAfter(10);
+            call.start();
+        });
+        return serviceConfigs;
+    }
+    catch(e) {
+        console.log(e);
+        throw e;
+    }
+}
