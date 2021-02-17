@@ -21,7 +21,7 @@ import {GitHubRepoFile} from "./types";
  * Download the index of APIs from GitHub
  * @return {Object}
  */
-export async function getIndex() {
+export async function getIndex(): Promise<any> {
     const atob = require('atob');
     const protos: {[index: string]:any} = {};
     // fetch api index from google-cloud-dotnet repo
@@ -36,15 +36,14 @@ export async function getIndex() {
                 if (item.Version !in protos[hostname]["versions"]) {
                     protos[hostname]["versions"].push(item.Version);
                 }
-
             } else {
                 protos[hostname] = {"title": item.Title, "versions": [item.Version]};
             }
         });
-        console.log(protos);
+        return protos;
     }
     catch(e) {
         console.log(e);
-        return;
+        throw e;
     }
 }
