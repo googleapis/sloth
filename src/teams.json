@@ -169,7 +169,8 @@
         "googleapis/google-cloud-cpp-common",
         "googleapis/google-cloud-cpp-pubsub",
         "googleapis/google-cloud-cpp-spanner",
-        "GoogleCloudPlatform/cpp-docs-samples"
+        "GoogleCloudPlatform/cpp-docs-samples",
+        "GoogleCloudPlatform/functions-framework-cpp"
       ]
     },
     {
