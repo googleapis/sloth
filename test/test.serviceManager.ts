@@ -14,28 +14,40 @@
 
 import * as assert from 'assert';
 import {describe, it} from 'mocha';
-import {getAllServiceNames, getServiceConfig, isCloudApi} from '../src/fetchServices'
+import {
+  getAllServiceNames,
+  getServiceConfig,
+  isCloudApi,
+} from '../src/fetchServices';
 
-describe('Service Manager', function() {
-  describe('getAllServiceNames()', function() {
-    it('returns an object with >300 elements, and including: `storage.googleapis.com`', async function() {
+describe('Service Manager', () => {
+  describe('getAllServiceNames()', () => {
+    it('returns an object with >300 elements, and including: `storage.googleapis.com`', async () => {
       const serviceNames = await getAllServiceNames();
       assert.strictEqual(serviceNames.length > 300, true);
       assert.strictEqual(serviceNames.includes('storage.googleapis.com'), true);
-      assert.strictEqual(serviceNames.includes('assuredworkloads.googleapis.com'), true);
+      assert.strictEqual(
+        serviceNames.includes('assuredworkloads.googleapis.com'),
+        true
+      );
     });
   });
 
-  describe('getServiceConfig()', function() {
-    it('returns a service config', async function() {
+  describe('getServiceConfig()', () => {
+    it('returns a service config', async () => {
       const config = await getServiceConfig('storage.googleapis.com');
       assert.strictEqual('apis' in config, true);
-      assert.strictEqual(config.usage.requirements.includes('serviceusage.googleapis.com/tos/cloud'), true);
+      assert.strictEqual(
+        config.usage.requirements.includes(
+          'serviceusage.googleapis.com/tos/cloud'
+        ),
+        true
+      );
     });
   });
 
-  describe('isCloudApi()', function() {
-    it('correctly attributes to Cloud', async function() {
+  describe('isCloudApi()', () => {
+    it('correctly attributes to Cloud', async () => {
       // Ads: false
       assert.strictEqual(await isCloudApi('adsense.googleapis.com'), false);
       // Workspace: true
@@ -48,6 +60,6 @@ describe('Service Manager', function() {
       assert.strictEqual(await isCloudApi('storage.googleapis.com'), true);
       // YouTube: false
       assert.strictEqual(await isCloudApi('youtube.googleapis.com'), false);
-    })
-  })
+    });
+  });
 });
