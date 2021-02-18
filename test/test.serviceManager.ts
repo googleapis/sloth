@@ -14,7 +14,7 @@
 
 import * as assert from 'assert';
 import {describe, it} from 'mocha';
-import {getAllServiceNames, getServiceConfig} from '../src/fetchServices'
+import {getAllServiceNames, getServiceConfig, isCloudApi} from '../src/fetchServices'
 
 describe('Service Manager', function() {
   describe('getAllServiceNames()', function() {
@@ -34,4 +34,20 @@ describe('Service Manager', function() {
     });
   });
 
+  describe('isCloudApi()', function() {
+    it('correctly attributes to Cloud', async function() {
+      // Ads: false
+      assert.strictEqual(await isCloudApi('adsense.googleapis.com'), false);
+      // Workspace: true
+      assert.strictEqual(await isCloudApi('drive.googleapis.com'), true);
+      // Firebase: false
+      assert.strictEqual(await isCloudApi('fcm.googleapis.com'), false);
+      // Workspace: true
+      assert.strictEqual(await isCloudApi('script.googleapis.com'), true);
+      // GCS : true
+      assert.strictEqual(await isCloudApi('storage.googleapis.com'), true);
+      // YouTube: false
+      assert.strictEqual(await isCloudApi('youtube.googleapis.com'), false);
+    })
+  })
 });

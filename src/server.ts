@@ -15,6 +15,7 @@
 import * as express from 'express';
 import {exportToSheets} from './exportToSheets';
 import {exportPolicyToSheets} from './policy';
+import {exportApisToSheets} from "./fetchServices";
 
 // This simple server exposes endpoints that are used with Cloud Scheduler
 // to perform regular sync to a sheet that powers go/yoshi-live.
@@ -30,6 +31,16 @@ app.post('/exportToSheets', async (req, res) => {
 app.post('/exportPolicyToSheets', async (req, res) => {
   try {
     await exportPolicyToSheets();
+    res.sendStatus(202);
+  } catch (e) {
+    console.error(e);
+    res.sendStatus(500);
+  }
+});
+
+app.post('/exportApisToSheets', async (req, res) => {
+  try {
+    await exportApisToSheets();
     res.sendStatus(202);
   } catch (e) {
     console.error(e);
