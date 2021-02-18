@@ -307,5 +307,5 @@ export interface GitHubRepoFile {
     git: string;
     self: string;
     html: string;
-  }
+  };
 }
