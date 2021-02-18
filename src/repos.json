@@ -5,6 +5,7 @@
   "repos": [
     { "language": "cpp", "repo": "googleapis/google-cloud-cpp", "isTeamIssue": true},
     { "language": "cpp", "repo": "GoogleCloudPlatform/cpp-docs-samples", "isTeamIssue": true},
+    { "language": "cpp", "repo": "GoogleCloudPlatform/functions-framework-cpp", "isTeamIssue": true},
 
     { "language": "dotnet", "repo": "googleapis/gax-dotnet", "isTeamIssue": true},
     { "language": "dotnet", "repo": "googleapis/gapic-generator-csharp", "isTeamIssue": true},
