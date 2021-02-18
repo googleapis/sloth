@@ -15,6 +15,20 @@
 // limitations under the License.
 
 import {google, servicemanagement_v1} from 'googleapis';
+const auth = new google.auth.GoogleAuth({
+  scopes: [
+    'https://www.googleapis.com/auth/cloud-platform',
+    'https://www.googleapis.com/auth/spreadsheets',
+  ],
+});
+const servicemanagement = google.servicemanagement({
+  version: 'v1',
+  auth: auth,
+});
+const sheets = google.sheets({
+  version: 'v4',
+  auth: auth,
+});
 const spreadsheetId = '14JYzl_8W3HyD0c1jYDXQJA2sVWBZiMoxT8Sp57xGWvk';
 
 /**
@@ -22,15 +36,8 @@ const spreadsheetId = '14JYzl_8W3HyD0c1jYDXQJA2sVWBZiMoxT8Sp57xGWvk';
  * @return an array of hostnames ('foo.googleapis.com') for all available services
  */
 export async function getAllServiceNames(): Promise<string[]> {
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/cloud-platform'],
-  });
-  const client = google.servicemanagement({
-    version: 'v1',
-    auth: auth,
-  });
   const serviceNames: string[] = [];
-  return await listServices(client, serviceNames);
+  return await listServices(servicemanagement, serviceNames);
 }
 
 export async function listServices(
@@ -51,7 +58,7 @@ export async function listServices(
   );
 
   if (res.data.services) {
-    res.data.services.map(item => {
+    res.data.services.forEach(item => {
       if (item.serviceName) {
         serviceNames.push(item.serviceName);
       }
@@ -72,13 +79,6 @@ export async function listServices(
 export async function getServiceConfig(
   serviceName: string
 ): Promise<servicemanagement_v1.Schema$Service> {
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/cloud-platform'],
-  });
-  const servicemanagement = google.servicemanagement({
-    version: 'v1',
-    auth: auth,
-  });
   const res = await servicemanagement.services.getConfig(
     {
       serviceName: serviceName,
@@ -97,9 +97,9 @@ export async function getServiceConfig(
  * @param serviceName - the hostname of a service ('foo.googleapis.com')
  * @return well is it, or not?
  */
-export async function isCloudApi(serviceName: string): Promise<boolean> {
-  const serviceConfig = await getServiceConfig(serviceName);
-
+export async function isCloudApi(
+  serviceConfig: servicemanagement_v1.Schema$Service
+): Promise<boolean> {
   if (serviceConfig.title?.includes('Firebase')) {
     return false;
   }
@@ -140,21 +140,15 @@ export async function isCloudApi(serviceName: string): Promise<boolean> {
  * Classify all available services as Cloud API or not and export to a known Google Sheet.
  */
 export async function exportApisToSheets() {
-  const services: string[] = await Promise.all(await getAllServiceNames());
+  const services: string[] = await getAllServiceNames();
   const values: string[][] = await Promise.all(
     services.map(async s => {
-      return [s, String(await isCloudApi(s))];
+      const config = await getServiceConfig(s);
+      return [s, String(config.title), String(await isCloudApi(config))];
     })
   );
-  values.unshift(['Service', 'isCloud']);
+  values.unshift(['Service', 'Title', 'isCloud']);
 
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-  });
-  const sheets = google.sheets({
-    version: 'v4',
-    auth,
-  });
   // clear the current text in the sheet
   await sheets.spreadsheets.values.clear({
     spreadsheetId,
