@@ -93,18 +93,6 @@ export async function getServiceConfig(
 }
 
 /**
- * Get service configs for all available services.
- * @return the service configuration object
- */
-export async function getAllServiceConfigs() {
-  const serviceNames = await getAllServiceNames();
-  const serviceConfigs = serviceNames.map(async (name: string) => {
-    await getServiceConfig(name);
-  });
-  return serviceConfigs;
-}
-
-/**
  * Determines if a given service is a 'Cloud API'.
  * @param serviceName - the hostname of a service ('foo.googleapis.com')
  * @return well is it, or not?
@@ -116,7 +104,7 @@ export async function isCloudApi(serviceName: string): Promise<boolean> {
     return false;
   }
   if (serviceConfig.authentication?.rules) {
-    const scopes: boolean[] = serviceConfig.authentication.rules.map(item => {
+    const scopes = serviceConfig.authentication.rules.map(item => {
       if (item.oauth?.canonicalScopes) {
         const scopesStr: string = item.oauth.canonicalScopes;
         if (scopesStr.includes('auth/firebase')) {
