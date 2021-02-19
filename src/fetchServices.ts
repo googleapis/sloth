@@ -97,9 +97,7 @@ export async function getServiceConfig(
  * @param serviceName - the hostname of a service ('foo.googleapis.com')
  * @return well is it, or not?
  */
-export async function isCloudApi(
-  serviceConfig: servicemanagement_v1.Schema$Service
-): Promise<boolean> {
+export function isCloudApi(serviceConfig: servicemanagement_v1.Schema$Service) {
   if (serviceConfig.title?.includes('Firebase')) {
     return false;
   }
@@ -144,7 +142,7 @@ export async function exportApisToSheets() {
   const values: string[][] = await Promise.all(
     services.map(async s => {
       const config = await getServiceConfig(s);
-      return [s, String(config.title), String(await isCloudApi(config))];
+      return [s, String(config.title), String(isCloudApi(config))];
     })
   );
   values.unshift(['Service', 'Title', 'isCloud']);
