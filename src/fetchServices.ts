@@ -144,7 +144,12 @@ export async function exportApisToSheets() {
   const values: string[][] = await Promise.all(
     services.map(async s => {
       const config = await getServiceConfig(s);
-      return [s, String(config.title), String(isCloudApi(config)), String(config.usage?.rules)];
+      return [
+        s,
+        String(config.title),
+        String(isCloudApi(config)),
+        String(config.usage?.rules),
+      ];
     })
   );
   values.unshift(['Service', 'Title', 'isCloud', 'ToS']);
@@ -179,14 +184,14 @@ export async function exportApisToSheets() {
  * Terms of service: serviceusage.googleapis.com/tos/cloud, ...
  */
 if (require.main === module) {
-  let rl = readline.createInterface({
+  const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
 
-  rl.question('Enter service shortname (e.g. "spanner"): ', async (shortname) => {
+  rl.question('Enter service shortname (e.g. "spanner"): ', async shortname => {
     try {
-      const service = shortname + ".googleapis.com";
+      const service = shortname + '.googleapis.com';
       const config = await getServiceConfig(service);
       console.log('Service name: ' + service);
       console.log('Service title: ' + config.title);
