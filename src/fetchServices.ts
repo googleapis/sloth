@@ -15,6 +15,8 @@
 // limitations under the License.
 
 import {google, servicemanagement_v1} from 'googleapis';
+import * as readline from 'readline';
+
 const auth = new google.auth.GoogleAuth({
   scopes: [
     'https://www.googleapis.com/auth/cloud-platform',
@@ -142,10 +144,10 @@ export async function exportApisToSheets() {
   const values: string[][] = await Promise.all(
     services.map(async s => {
       const config = await getServiceConfig(s);
-      return [s, String(config.title), String(isCloudApi(config))];
+      return [s, String(config.title), String(isCloudApi(config)), String(config.usage?.rules)];
     })
   );
-  values.unshift(['Service', 'Title', 'isCloud']);
+  values.unshift(['Service', 'Title', 'isCloud', 'ToS']);
 
   // clear the current text in the sheet
   await sheets.spreadsheets.values.clear({
@@ -165,5 +167,34 @@ export async function exportApisToSheets() {
         },
       ],
     },
+  });
+}
+
+/**
+ * Allow this file to be run locally.
+ * User may enter a single service shortname (e.g. 'spanner') to print the following details to screen:
+ * Service name: spanner.googleapis.com
+ * Service title: Cloud Spanner API
+ * Cloud API: true
+ * Terms of service: serviceusage.googleapis.com/tos/cloud, ...
+ */
+if (require.main === module) {
+  let rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.question('Enter service shortname (e.g. "spanner"): ', async (shortname) => {
+    try {
+      const service = shortname + ".googleapis.com";
+      const config = await getServiceConfig(service);
+      console.log('Service name: ' + service);
+      console.log('Service title: ' + config.title);
+      console.log('Cloud API: ' + String(isCloudApi(config)));
+      console.log('ToS: ' + String(config.usage?.requirements));
+      rl.close();
+    } catch (e) {
+      console.log(e);
+    }
   });
 }
