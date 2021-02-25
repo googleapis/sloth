@@ -15,6 +15,8 @@
 // limitations under the License.
 
 import {google, servicemanagement_v1} from 'googleapis';
+import * as meow from 'meow';
+import Table = require('cli-table');
 
 const auth = new google.auth.GoogleAuth({
   scopes: [
@@ -135,22 +137,27 @@ export function isCloudApi(serviceConfig: servicemanagement_v1.Schema$Service) {
   return false;
 }
 
-/**
- * Classify all available services as Cloud API or not and export to a known Google Sheet.
- */
-export async function exportApisToSheets() {
+export async function getResults(): Promise<string[][]> {
   const services: string[] = await getAllServiceNames();
-  const values: string[][] = await Promise.all(
+  const results: string[][] = await Promise.all(
     services.map(async s => {
       const config = await getServiceConfig(s);
       return [
         s,
         String(config.title),
         String(isCloudApi(config)),
-        String(config.usage?.rules),
+        String(config.usage?.requirements),
       ];
     })
   );
+  return results;
+}
+
+/**
+ * Export results to a known Google Sheet.
+ */
+export async function exportApisToSheets() {
+  const values = await getResults();
   values.unshift(['Service', 'Title', 'isCloud', 'ToS']);
 
   // clear the current text in the sheet
@@ -172,4 +179,34 @@ export async function exportApisToSheets() {
       ],
     },
   });
+}
+
+/**
+ * Output results for CLI command `sloth services`
+ * @param cli
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function showCloudApis(cli: meow.Result<any>) {
+  const output = new Array<string>();
+  const res = await getResults();
+  const serviceHeader = ['Name', 'Title', 'isCloudApi', 'ToS'];
+  let table: Table;
+  if (cli.flags.csv) {
+    output.push('\n');
+    output.push(serviceHeader.join(','));
+  } else {
+    table = new Table({head: serviceHeader});
+  }
+
+  res.forEach(x => {
+    if (cli.flags.csv) {
+      output.push(x.join(','));
+    } else {
+      table.push(x);
+    }
+  });
+  if (table!) {
+    output.push(table!.toString());
+  }
+  output.forEach(l => console.log(l));
 }
