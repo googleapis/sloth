@@ -105,6 +105,14 @@ export function isCloudApi(serviceConfig: servicemanagement_v1.Schema$Service) {
     return false;
   }
   if (serviceConfig.authentication?.rules) {
+    const workspace = [
+      'auth/drive',
+      'auth/apps',
+      'auth/gmail',
+      'auth/calendar',
+      'auth/contacts',
+      'auth/tasks',
+    ];
     const scopes = serviceConfig.authentication.rules.map(item => {
       if (item.oauth?.canonicalScopes) {
         const scopesStr: string = item.oauth.canonicalScopes;
@@ -112,10 +120,8 @@ export function isCloudApi(serviceConfig: servicemanagement_v1.Schema$Service) {
           return false;
         } else if (scopesStr.includes('auth/cloud-platform')) {
           return true;
-        } else if (scopesStr.includes('auth/drive')) {
-          return true;
-        } else if (scopesStr.includes('auth/apps')) {
-          return true;
+        } else {
+          return workspace.some(scope => scopesStr.includes(scope));
         }
       }
       return false;
