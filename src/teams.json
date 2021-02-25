@@ -137,6 +137,7 @@
         "googleapis/google-auth-library-swift",
         "googleapis/google-api-swift-client",
         "googleapis/api-common-protos",
+        "googleapis/api-common-java",
         "googleapis/googleapis.github.io",
         "googleapis/kiosk",
         "googleapis/gax-kotlin",
