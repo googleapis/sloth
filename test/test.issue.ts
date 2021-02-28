@@ -16,6 +16,11 @@ import * as assert from 'assert';
 import {describe, it, afterEach} from 'mocha';
 import * as fs from 'fs';
 import * as nock from 'nock';
+
+// This must be set before `issue` is imported
+process.env.GITHUB_TOKEN = 'not-a-token';
+process.env.DRIFT_API_KEY = 'not-a-key';
+
 import * as issue from '../src/issue';
 
 const reposFixture = JSON.parse(
