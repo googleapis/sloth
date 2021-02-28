@@ -29,7 +29,7 @@ const reposFixture = JSON.parse(
 
 nock.disableNetConnect();
 
-describe(__filename, () => {
+describe('issues', () => {
   afterEach(() => {
     nock.cleanAll();
   });
