@@ -62,7 +62,7 @@ export async function getRepos() {
         },
       });
       for (const r of res.data) {
-        if (r.archived) {
+        if (r.archived || r.topics?.includes('experimental')) {
           continue;
         }
         // re-map the language to maintain consistency with prior approach
@@ -336,7 +336,6 @@ function untagIssue(i: Issue, label: string) {
   });
 }
 
-// tslint:disable-next-line no-any
 export async function showIssues(options: Flags) {
   const repos = await getIssues(options);
   const issues = new Array<Issue>();

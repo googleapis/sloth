@@ -14,6 +14,8 @@
     "**/test",
     "**/*.d.ts",
     ".jsdoc.js",
+    ".mocharc.js",
+    ".prettierrc.js",
     "**/.jsdoc.js",
     "karma.conf.js",
     "webpack-tests.config.js",
