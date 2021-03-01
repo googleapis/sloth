@@ -16,12 +16,13 @@ import * as assert from 'assert';
 import {describe, it, afterEach} from 'mocha';
 import * as nock from 'nock';
 import * as sinon from 'sinon';
+import * as google from 'googleapis';
 
 // This must be set before `issue` is imported
 process.env.GITHUB_TOKEN = 'not-a-token';
 process.env.DRIFT_API_KEY = 'not-a-key';
 
-import {exportToSheets} from '../src/exportToSheets';
+import * as ets from '../src/exportToSheets';
 import * as issues from '../src/issue';
 
 nock.disableNetConnect();
@@ -63,6 +64,13 @@ describe('exportToSheets', () => {
         issues: [issue],
       },
     ]);
+    sandbox.stub(ets, 'getGoogleAuth').returns(({
+      getClient: async () => {
+        return {
+          getToken: () => 'not-a-token',
+        };
+      },
+    } as unknown) as google.Auth.GoogleAuth);
     const sheetPath =
       '/v4/spreadsheets/1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
     const scopes = [
@@ -75,7 +83,7 @@ describe('exportToSheets', () => {
         .post(`${sheetPath}/values:batchUpdate`)
         .reply(200),
     ];
-    await exportToSheets();
+    await ets.exportToSheets();
     scopes.forEach(s => s.done());
     assert.ok(getIssuesStub.calledOnce);
   });
