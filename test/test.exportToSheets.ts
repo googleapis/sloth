@@ -22,7 +22,7 @@ import * as google from 'googleapis';
 process.env.GITHUB_TOKEN = 'not-a-token';
 process.env.DRIFT_API_KEY = 'not-a-key';
 
-import * as ets from '../src/exportToSheets';
+import {exportToSheets, fixtures} from '../src/exportToSheets';
 import * as issues from '../src/issue';
 
 nock.disableNetConnect();
@@ -64,27 +64,19 @@ describe('exportToSheets', () => {
         issues: [issue],
       },
     ]);
-    sandbox.stub(ets, 'getGoogleAuth').returns(({
-      getClient: async () => {
-        return {
-          getToken: () => 'not-a-token',
-        };
-      },
-    } as unknown) as google.Auth.GoogleAuth);
+    const jwt = new google.Auth.JWT();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    sandbox.stub(jwt as any, 'getRequestMetadataAsync').resolves({headers: {}});
+    sandbox.stub(fixtures, 'getClient').resolves(jwt);
     const sheetPath =
       '/v4/spreadsheets/1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
-    const scopes = [
-      nock('https://oauth2.googleapis.com')
-        .post('/token')
-        .reply(200, {access_token: 'not-a-token'}),
-      nock('https://sheets.googleapis.com')
-        .post(`${sheetPath}/values/A1%3AZ10000:clear`)
-        .reply(200)
-        .post(`${sheetPath}/values:batchUpdate`)
-        .reply(200),
-    ];
-    await ets.exportToSheets();
-    scopes.forEach(s => s.done());
+    const scope = nock('https://sheets.googleapis.com')
+      .post(`${sheetPath}/values/A1%3AZ10000:clear`)
+      .reply(200)
+      .post(`${sheetPath}/values:batchUpdate`)
+      .reply(200);
+    await exportToSheets();
+    scope.done();
     assert.ok(getIssuesStub.calledOnce);
   });
 });
