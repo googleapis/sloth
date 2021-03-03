@@ -17,6 +17,14 @@ import {getIssues} from './issue';
 import {Issue} from './types';
 const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
 
+export const fixtures = {
+  getClient: async () => {
+    return await google.auth.getClient({
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+  },
+};
+
 /**
  * List all open issues, and synchronize them to a known Google Sheet.
  */
@@ -63,12 +71,9 @@ export async function exportToSheets() {
     'Asignee',
   ]);
 
-  const auth = await google.auth.getClient({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-  });
   const sheets = google.sheets({
     version: 'v4',
-    auth,
+    auth: await fixtures.getClient(),
   });
   // clear the current text in the sheet
   await sheets.spreadsheets.values.clear({
