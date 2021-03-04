@@ -159,6 +159,17 @@ async function hasCodeOwners(repo: GitHubRepo) {
 }
 
 /**
+ * Ensure there is a `SECURITY.md` file.
+ *
+ * In future, also check for:
+ * - Reference to SECURITY.md in README.md
+ * - Contents of SECURITY.md
+ */
+async function hasSecurityPolicy(repo: GitHubRepo) {
+  return checkFileExists(repo, 'SECURITY.md', true);
+}
+
+/**
  * Merge Commits are disabled
  */
 async function hasMergeCommitsDisabled(repo: GitHubRepo) {
@@ -208,6 +219,7 @@ export async function checkRepoPolicy(repo: GitHubRepo) {
     codeowners,
     branchProtection,
     mergeCommitsDisabled,
+    securityPolicy,
   ] = await Promise.all([
     hasRenovate(repo),
     hasLicense(repo),
@@ -216,6 +228,7 @@ export async function checkRepoPolicy(repo: GitHubRepo) {
     hasCodeOwners(repo),
     hasBranchProtection(repo),
     hasMergeCommitsDisabled(repo),
+    hasSecurityPolicy(repo),
   ]);
   const results = {
     repo: repo.full_name,
@@ -227,6 +240,7 @@ export async function checkRepoPolicy(repo: GitHubRepo) {
     codeowners,
     branchProtection,
     mergeCommitsDisabled,
+    securityPolicy,
   };
   return results;
 }
@@ -265,6 +279,7 @@ export async function exportPolicyToSheets() {
       i.license,
       i.mergeCommitsDisabled,
       i.renovate,
+      i.securityPolicy,
     ];
   });
   values.unshift([
@@ -277,6 +292,7 @@ export async function exportPolicyToSheets() {
     'License',
     'No Merge Commits',
     'Renovate',
+    'Security Policy',
   ]);
 
   // By setting SLOTH_LOCAL_AUTH to `true`, and passing a path to a keyfile
