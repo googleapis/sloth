@@ -134,7 +134,16 @@
         "googleapis/gapic-generator",
         "googleapis/nodejs-proto-files",
         "googleapis/proto-plus-python",
-        "googleapis/sample-tester"
+        "googleapis/sample-tester",
+        "googleapis/google-auth-library-swift",
+        "googleapis/google-api-swift-client",
+        "googleapis/api-common-protos",
+        "googleapis/api-common-java",
+        "googleapis/googleapis.github.io",
+        "googleapis/kiosk",
+        "googleapis/gax-kotlin",
+        "googleapis/disco-to-proto3-converter",
+        "googleapis/api-linter"
       ]
     },
     {

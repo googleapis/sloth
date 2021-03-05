@@ -172,36 +172,6 @@ function getApiResults(repos: IssueResult[], api?: string) {
   return sortedResults;
 }
 
-export async function sendMail() {
-  const repos = await getIssues();
-  const issues = new Array<Issue>();
-  repos.forEach(r => {
-    r.issues.forEach(i => {
-      i.repo = r.repo.repo;
-      issues.push(i);
-    });
-  });
-  console.log(`Issues: ${issues.length}`);
-  // const issues: Issue[] = [].concat.apply([], repos);
-  const untriagedIssues = issues.filter(x => !x.isTriaged);
-  const outOfSLOIssues = issues.filter(x => x.isOutOfSLO);
-  console.log(`Untriaged: ${untriagedIssues.length}`);
-  console.log(`Out of SLO: ${outOfSLOIssues.length}`);
-
-  console.log('repo,issue,title');
-  const languages = Array.from(new Set(issues.map(i => i.language)));
-  languages.forEach(l => {
-    const untriaged = untriagedIssues.filter(x => x.language === l);
-    console.log(`\n\n###\t${l}###`);
-    console.log(`Untriaged: ${untriaged.length}`);
-    untriaged.forEach(x => {
-      console.log(`${x.repo},${x.number},${x.title}`);
-    });
-    // const outOfSLO = outOfSLOIssues.filter(x => x.language === l);
-    // console.log(`Out of SLO [${l}]: ${outOfSLO.length}`);
-  });
-}
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function showApiSLOs(cli: meow.Result<any>) {
   const output = new Array<string>();

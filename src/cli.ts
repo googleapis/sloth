@@ -17,6 +17,7 @@
 import * as meow from 'meow';
 import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
+import {showCloudApis, getServiceConfig} from './fetchServices';
 import * as updateNotifier from 'update-notifier';
 import {Flags, GitHubRepo} from './types';
 import * as policy from './policy';
@@ -50,6 +51,7 @@ const cli = meow(
     $ sloth repos
     $ sloth sync-repo-settings
     $ sloth policy [--repo][--search QUERY]
+    $ sloth services [--api]
 
 `,
   {
@@ -99,6 +101,14 @@ async function main() {
       for (const repo of repos) {
         const res = await policy.checkRepoPolicy(repo);
         console.log(res);
+      }
+      break;
+    }
+    case 'services': {
+      if (cli.flags.api) {
+        console.log(await getServiceConfig(cli.flags.api + '.googleapis.com'));
+      } else {
+        await showCloudApis(cli);
       }
       break;
     }
