@@ -4,6 +4,49 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.37.0](https://www.github.com/googleapis/sloth/compare/v5.36.5...v5.37.0) (2021-03-22)
+
+
+### Features
+
+* add policy check for SECURITY.md ([#892](https://www.github.com/googleapis/sloth/issues/892)) ([e8c75df](https://www.github.com/googleapis/sloth/commit/e8c75dfbbb75d0702718d2ddc7ae218567927828))
+* add policy tracking ([#876](https://www.github.com/googleapis/sloth/issues/876)) ([7fa16a8](https://www.github.com/googleapis/sloth/commit/7fa16a8964b3df5f57f1f7e5d7420f5792ea5aaf))
+* add pubsublite python and java repos ([#849](https://www.github.com/googleapis/sloth/issues/849)) ([b38ee61](https://www.github.com/googleapis/sloth/commit/b38ee61c51a24913a7d24cfaf2846a94cfe92039))
+* add storage and database teams ([#854](https://www.github.com/googleapis/sloth/issues/854)) ([4542728](https://www.github.com/googleapis/sloth/commit/45427289cd0587065e4b2b3570c1d1e4a10e9269))
+* adds export of Cloud API classification ([#884](https://www.github.com/googleapis/sloth/issues/884)) ([4ddf13d](https://www.github.com/googleapis/sloth/commit/4ddf13de4efe1ef0556a275adee6ca02e4672d29))
+* adds usage/ToS to Cloud APIs export ([#887](https://www.github.com/googleapis/sloth/issues/887)) ([feb4fc0](https://www.github.com/googleapis/sloth/commit/feb4fc0de11424719b49c1b5f0cb2529bed45c47))
+* new c++ repository ([#883](https://www.github.com/googleapis/sloth/issues/883)) ([430e05c](https://www.github.com/googleapis/sloth/commit/430e05ce551f12abe2838aac692408fb71503e0d))
+* **node:** add nodejs-video-transcoder ([#838](https://www.github.com/googleapis/sloth/issues/838)) ([f154fd7](https://www.github.com/googleapis/sloth/commit/f154fd77ff671b7b58224e10300af0d6a6fcf101))
+* **nodejs:** add API Gateway ([#893](https://www.github.com/googleapis/sloth/issues/893)) ([eb8c992](https://www.github.com/googleapis/sloth/commit/eb8c992e67b9fd0cf283d110577dc12d1f3c19fa))
+* **python:** add data-qna repo ([#853](https://www.github.com/googleapis/sloth/issues/853)) ([28f96ce](https://www.github.com/googleapis/sloth/commit/28f96ce24de0518b3acb25c175678142abe019dc))
+* **python:** add python-channel and python-retail ([#866](https://www.github.com/googleapis/sloth/issues/866)) ([d2e24e3](https://www.github.com/googleapis/sloth/commit/d2e24e3a230223fdb193768082788538eb87e70e))
+* **python:** add python-compute and python-binary-authorzation ([#865](https://www.github.com/googleapis/sloth/issues/865)) ([1d5f753](https://www.github.com/googleapis/sloth/commit/1d5f753e74d50077a59be3dab6869b21c655286f))
+* **python:** add python-network-connectivity and python-domains ([#868](https://www.github.com/googleapis/sloth/issues/868)) ([e0c86e8](https://www.github.com/googleapis/sloth/commit/e0c86e83c73f2729c5e96ff3c3a760bad12210f4))
+* scan entire googleapis org ([#873](https://www.github.com/googleapis/sloth/issues/873)) ([03eca08](https://www.github.com/googleapis/sloth/commit/03eca081b16a4ed2d47a33aaca4fe8d5d9662904))
+* update SoDa repos ([#877](https://www.github.com/googleapis/sloth/issues/877)) ([61bedc4](https://www.github.com/googleapis/sloth/commit/61bedc421b1632f9f7119c16670bd4d7c4c35cd5))
+
+
+### Bug Fixes
+
+* add nodejs-data-qna to repos ([#859](https://www.github.com/googleapis/sloth/issues/859)) ([f1ecd56](https://www.github.com/googleapis/sloth/commit/f1ecd56996d5b3b548831dabcb5a9ecb441936e5))
+* assign ownership of repos to actools ([#889](https://www.github.com/googleapis/sloth/issues/889)) ([770af7e](https://www.github.com/googleapis/sloth/commit/770af7e5d8883e38a4e93ce8cb0730db3efc43eb))
+* **deps:** update dependency gaxios to v4 ([#826](https://www.github.com/googleapis/sloth/issues/826)) ([c16fc0e](https://www.github.com/googleapis/sloth/commit/c16fc0ec7f2144099c126ab39ebfa9bce76bf746))
+* **deps:** update dependency googleapis to v62 ([#835](https://www.github.com/googleapis/sloth/issues/835)) ([930e94e](https://www.github.com/googleapis/sloth/commit/930e94ec229bb3fe98e40264b8edea43833184fe))
+* **deps:** update dependency googleapis to v63 ([#842](https://www.github.com/googleapis/sloth/issues/842)) ([c5f19cd](https://www.github.com/googleapis/sloth/commit/c5f19cdccf5d342d7787b937f0d4c435fc7445df))
+* **deps:** update dependency googleapis to v64 ([#847](https://www.github.com/googleapis/sloth/issues/847)) ([5b1aaec](https://www.github.com/googleapis/sloth/commit/5b1aaec81e1074f523d77c3d9b82097aa853910b))
+* **deps:** update dependency googleapis to v65 ([#851](https://www.github.com/googleapis/sloth/issues/851)) ([f95e58f](https://www.github.com/googleapis/sloth/commit/f95e58f0d8dff84ce7f8174b31459da4deb761d2))
+* **deps:** update dependency googleapis to v66 ([#855](https://www.github.com/googleapis/sloth/issues/855)) ([ec7703f](https://www.github.com/googleapis/sloth/commit/ec7703f339fbb5719075bfcbc1cfbe718959aee1))
+* **deps:** update dependency googleapis to v67 ([#862](https://www.github.com/googleapis/sloth/issues/862)) ([f1e7a5d](https://www.github.com/googleapis/sloth/commit/f1e7a5d15389e68c22b000c63c58ad4e7e6aa334))
+* **deps:** update dependency googleapis to v68 ([#894](https://www.github.com/googleapis/sloth/issues/894)) ([14f5739](https://www.github.com/googleapis/sloth/commit/14f5739b7683e111dd5bfb8c0b7a4f4bf8c5096c))
+* **deps:** update dependency meow to v8 ([#836](https://www.github.com/googleapis/sloth/issues/836)) ([0e65442](https://www.github.com/googleapis/sloth/commit/0e6544259fa3295cf2fb0d0761c522f3767e52f7))
+* **deps:** update dependency meow to v9 ([#861](https://www.github.com/googleapis/sloth/issues/861)) ([6d186ff](https://www.github.com/googleapis/sloth/commit/6d186ff9e1a729c80bc181a0e3ae51c77be266da))
+* do not use preview CoC API ([#882](https://www.github.com/googleapis/sloth/issues/882)) ([40dc4f9](https://www.github.com/googleapis/sloth/commit/40dc4f9b113cd6a2fd20d4bbb80116f370fa3ff0))
+* ignore experimental repos ([#890](https://www.github.com/googleapis/sloth/issues/890)) ([d5e2026](https://www.github.com/googleapis/sloth/commit/d5e20265a798cd6e647c94b096f5f9467a688457))
+* include cpp functions framework for cxx team ([#885](https://www.github.com/googleapis/sloth/issues/885)) ([8d0e0dd](https://www.github.com/googleapis/sloth/commit/8d0e0dd841eb056983f2ba45ec10a8cdd74fca7e))
+* renovate.json can be in the .github directory ([#879](https://www.github.com/googleapis/sloth/issues/879)) ([16a2e91](https://www.github.com/googleapis/sloth/commit/16a2e91da81598f2ed1f3db7b4bd782936d3321b))
+* separate databases team into infra and cloud native ([#881](https://www.github.com/googleapis/sloth/issues/881)) ([3fa0d0f](https://www.github.com/googleapis/sloth/commit/3fa0d0f8f24ae656b98da639702affa38bdeef45))
+* use GitHub API to fetch code of conduct ([#880](https://www.github.com/googleapis/sloth/issues/880)) ([16cdc60](https://www.github.com/googleapis/sloth/commit/16cdc6078955838bf6b1e3257b179019e00c2a82))
+
 ### [5.36.5](https://www.github.com/googleapis/sloth/compare/v5.36.4...v5.36.5) (2020-10-16)
 
 
