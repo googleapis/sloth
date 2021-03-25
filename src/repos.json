@@ -47,6 +47,7 @@
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
     { "language": "python", "repo": "GoogleCloudPlatform/cloud-sql-python-connector", "isTeamIssue": true},
+    { "language": "python", "repo": "GoogleCloudPlatform/microservices-demo", "isTeamIssue": true},
 
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
     { "language": "ruby", "repo": "googleapis/gapic-generator-ruby", "isTeamIssue": true},
