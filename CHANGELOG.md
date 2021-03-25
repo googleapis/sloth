@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.38.0](https://www.github.com/googleapis/sloth/compare/v5.37.0...v5.38.0) (2021-03-25)
+
+
+### Features
+
+* adds microservices-demo repo to DevPlat team ([#898](https://www.github.com/googleapis/sloth/issues/898)) ([b27c68e](https://www.github.com/googleapis/sloth/commit/b27c68e3578a00e9335d1a0eb1ddf43d907a0863))
+
 ## [5.37.0](https://www.github.com/googleapis/sloth/compare/v5.36.5...v5.37.0) (2021-03-22)
 
 
