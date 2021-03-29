@@ -31,6 +31,7 @@
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/gaxios", "isTeamIssue": true},
+    { "language": "nodejs", "repo": "googleapis/nodejs-api-gateway", "apiHint": "apigateway"},
     { "language": "nodejs", "repo": "googleapis/nodejs-data-qna", "apiHint": "dataqna"},
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript", "isTeamIssue": true},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
@@ -46,6 +47,7 @@
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
     { "language": "python", "repo": "GoogleCloudPlatform/cloud-sql-python-connector", "isTeamIssue": true},
+    { "language": "python", "repo": "GoogleCloudPlatform/microservices-demo", "isTeamIssue": true},
 
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
     { "language": "ruby", "repo": "googleapis/gapic-generator-ruby", "isTeamIssue": true},

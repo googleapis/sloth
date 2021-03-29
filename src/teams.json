@@ -71,7 +71,8 @@
       "repos": [
         "GoogleCloudPlatform/cloud-code-samples",
         "GoogleCloudPlatform/bank-of-anthos",
-        "GoogleCloudPlatform/fourkeys"
+        "GoogleCloudPlatform/fourkeys",
+        "GoogleCloudPlatform/microservices-demo"
       ]
     },
     {
