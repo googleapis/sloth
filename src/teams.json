@@ -210,6 +210,12 @@
       "apis": [
 
       ]
+    },
+    {
+      "name": "cloud-iot",
+      "apis": [
+        "cloudiot"
+      ]
     }
   ]
 }
