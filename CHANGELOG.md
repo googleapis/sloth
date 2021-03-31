@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.39.0](https://www.github.com/googleapis/sloth/compare/v5.38.0...v5.39.0) (2021-03-31)
+
+
+### Features
+
+* adds discrete team for Cloud IoT ([#900](https://www.github.com/googleapis/sloth/issues/900)) ([808df93](https://www.github.com/googleapis/sloth/commit/808df932e90376d338a07fd795998f63096af599))
+
 ## [5.38.0](https://www.github.com/googleapis/sloth/compare/v5.37.0...v5.38.0) (2021-03-25)
 
 
