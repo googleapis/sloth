@@ -80,7 +80,6 @@
       "apis": [
         "aiplatform",
         "automl",
-        "cloudiot",
         "datalabeling",
         "dialogflow",
         "documentai",
@@ -209,6 +208,12 @@
       "name": "core",
       "apis": [
 
+      ]
+    },
+    {
+      "name": "cloud-iot",
+      "apis": [
+        "cloudiot"
       ]
     }
   ]
