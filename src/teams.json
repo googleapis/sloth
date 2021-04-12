@@ -69,6 +69,7 @@
         "containerregistry"
       ],
       "repos": [
+        "GoogleCloudPlatform/workflows-samples",
         "GoogleCloudPlatform/cloud-code-samples",
         "GoogleCloudPlatform/bank-of-anthos",
         "GoogleCloudPlatform/fourkeys",
