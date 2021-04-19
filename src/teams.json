@@ -55,6 +55,9 @@
         "eventarc",
         "run",
         "workflows"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/workflows-samples"
       ]
     },
     {
@@ -69,7 +72,6 @@
         "containerregistry"
       ],
       "repos": [
-        "GoogleCloudPlatform/workflows-samples",
         "GoogleCloudPlatform/cloud-code-samples",
         "GoogleCloudPlatform/bank-of-anthos",
         "GoogleCloudPlatform/fourkeys",
