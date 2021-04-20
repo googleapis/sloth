@@ -55,6 +55,9 @@
         "eventarc",
         "run",
         "workflows"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/workflows-samples"
       ]
     },
     {
@@ -142,7 +145,8 @@
         "googleapis/kiosk",
         "googleapis/gax-kotlin",
         "googleapis/disco-to-proto3-converter",
-        "googleapis/api-linter"
+        "googleapis/api-linter",
+        "googleapis/proto-breaking-change-detector"
       ]
     },
     {
