@@ -57,7 +57,7 @@
 
     { "language": "yaml", "repo": "GoogleCloudPlatform/workflows-samples"},
 
-    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true}
+    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true},
     { "language": "terraform", "repo": "GoogleCloudPlatform/anthos-samples", "isTeamIssue": true}
   ]
 }
