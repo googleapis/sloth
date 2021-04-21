@@ -55,9 +55,6 @@
         "eventarc",
         "run",
         "workflows"
-      ],
-      "repos": [
-        "GoogleCloudPlatform/workflows-samples"
       ]
     },
     {
