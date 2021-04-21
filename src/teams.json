@@ -53,11 +53,7 @@
         "cloudscheduler",
         "cloudtasks",
         "eventarc",
-        "run",
-        "workflows"
-      ],
-      "repos": [
-        "GoogleCloudPlatform/workflows-samples"
+        "run"
       ]
     },
     {
@@ -219,6 +215,15 @@
       "name": "cloud-iot",
       "apis": [
         "cloudiot"
+      ]
+    },
+    {
+      "name": "workflows",
+      "apis": [
+        "workflows"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/workflows-samples"
       ]
     }
   ]
