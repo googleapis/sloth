@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.40.0](https://www.github.com/googleapis/sloth/compare/v5.39.1...v5.40.0) (2021-04-19)
+
+
+### Features
+
+* add GoogleCloudPlatform/workflows-samples to tracked repositories ([#905](https://www.github.com/googleapis/sloth/issues/905)) ([f3aea79](https://www.github.com/googleapis/sloth/commit/f3aea79e4e33c2b3395693d854b83e102aadb611))
+
 ### [5.39.1](https://www.github.com/googleapis/sloth/compare/v5.39.0...v5.39.1) (2021-04-08)
 
 
