@@ -71,7 +71,8 @@
         "GoogleCloudPlatform/cloud-code-samples",
         "GoogleCloudPlatform/bank-of-anthos",
         "GoogleCloudPlatform/fourkeys",
-        "GoogleCloudPlatform/microservices-demo"
+        "GoogleCloudPlatform/microservices-demo",
+        "GoogleCloudPlatform/anthos-samples"
       ]
     },
     {
