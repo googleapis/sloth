@@ -4,6 +4,19 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.41.0](https://www.github.com/googleapis/sloth/compare/v5.40.0...v5.41.0) (2021-04-23)
+
+
+### Features
+
+* split workflows out to a new team ([#915](https://www.github.com/googleapis/sloth/issues/915)) ([f0038a1](https://www.github.com/googleapis/sloth/commit/f0038a1548f64385b708f8f204e4d363a056c8c8))
+* update repos.json and teams.json to include anthos-samples ([#913](https://www.github.com/googleapis/sloth/issues/913)) ([bfd801c](https://www.github.com/googleapis/sloth/commit/bfd801c3899ef91080bf6bf9d3eb06ae563705b1))
+
+
+### Bug Fixes
+
+* **deps:** update dependency googleapis to v72 ([#917](https://www.github.com/googleapis/sloth/issues/917)) ([49aa49e](https://www.github.com/googleapis/sloth/commit/49aa49e136210240ed4a4a6618f60cc27652a40e))
+
 ## [5.40.0](https://www.github.com/googleapis/sloth/compare/v5.39.1...v5.40.0) (2021-04-19)
 
 
