@@ -55,6 +55,9 @@
     { "language": "ruby", "repo": "GoogleCloudPlatform/getting-started-ruby"},
     { "language": "ruby", "repo": "googleapis/ruby-spanner-activerecord", "isTeamIssue": true},
 
-    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true}
+    { "language": "yaml", "repo": "GoogleCloudPlatform/workflows-samples"},
+
+    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true},
+    { "language": "terraform", "repo": "GoogleCloudPlatform/anthos-samples", "isTeamIssue": true}
   ]
 }

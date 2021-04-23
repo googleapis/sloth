@@ -53,8 +53,7 @@
         "cloudscheduler",
         "cloudtasks",
         "eventarc",
-        "run",
-        "workflows"
+        "run"
       ]
     },
     {
@@ -72,7 +71,8 @@
         "GoogleCloudPlatform/cloud-code-samples",
         "GoogleCloudPlatform/bank-of-anthos",
         "GoogleCloudPlatform/fourkeys",
-        "GoogleCloudPlatform/microservices-demo"
+        "GoogleCloudPlatform/microservices-demo",
+        "GoogleCloudPlatform/anthos-samples"
       ]
     },
     {
@@ -80,7 +80,6 @@
       "apis": [
         "aiplatform",
         "automl",
-        "cloudiot",
         "datalabeling",
         "dialogflow",
         "documentai",
@@ -144,7 +143,8 @@
         "googleapis/kiosk",
         "googleapis/gax-kotlin",
         "googleapis/disco-to-proto3-converter",
-        "googleapis/api-linter"
+        "googleapis/api-linter",
+        "googleapis/proto-breaking-change-detector"
       ]
     },
     {
@@ -210,6 +210,21 @@
       "name": "core",
       "apis": [
 
+      ]
+    },
+    {
+      "name": "cloud-iot",
+      "apis": [
+        "cloudiot"
+      ]
+    },
+    {
+      "name": "workflows",
+      "apis": [
+        "workflows"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/workflows-samples"
       ]
     }
   ]
