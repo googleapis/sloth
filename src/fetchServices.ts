@@ -17,6 +17,8 @@
 import {google, servicemanagement_v1} from 'googleapis';
 import * as meow from 'meow';
 import Table = require('cli-table');
+import {allow, deny} from './services.json';
+import * as CSV from 'csv-string';
 
 const auth = new google.auth.GoogleAuth({
   scopes: [
@@ -100,47 +102,74 @@ export async function getServiceConfig(
  * @param serviceName - the hostname of a service ('foo.googleapis.com')
  * @return well is it, or not?
  */
-export function isCloudApi(serviceConfig: servicemanagement_v1.Schema$Service) {
-  if (serviceConfig.title?.includes('Firebase')) {
-    return false;
-  }
-  if (serviceConfig.authentication?.rules) {
-    const workspace = [
-      'auth/drive',
-      'auth/apps',
-      'auth/gmail',
-      'auth/calendar',
-      'auth/contacts',
-      'auth/tasks',
-    ];
-    const scopes = serviceConfig.authentication.rules.map(item => {
-      if (item.oauth?.canonicalScopes) {
-        const scopesStr: string = item.oauth.canonicalScopes;
-        if (scopesStr.includes('auth/firebase')) {
-          return false;
-        } else if (scopesStr.includes('auth/cloud-platform')) {
-          return true;
-        } else {
-          return workspace.some(scope => scopesStr.includes(scope));
-        }
+export function getApiClientScope(
+  serviceConfig: servicemanagement_v1.Schema$Service
+) {
+  let category = null;
+  let hasSurface = true;
+  let inScope = true;
+
+  if (serviceConfig.name && serviceConfig.name.endsWith('googleapis.com')) {
+    const hostname = serviceConfig.name.split('.')[0];
+
+    if (!serviceConfig.apis) {
+      hasSurface = false;
+      inScope = false;
+    }
+
+    allow.forEach(x => {
+      if (
+        x.services.includes(hostname) ||
+        x.slugs.some(slug => {
+          return serviceConfig.title?.includes(slug);
+        })
+      ) {
+        category = x.category;
+        inScope = x.in_scope;
       }
-      return false;
     });
 
-    if (scopes.includes(true)) {
-      return true;
-    }
-  }
+    deny.forEach(y => {
+      if (y.services.includes(hostname)) {
+        category = y.category;
+        inScope = false;
+      }
+    });
 
-  // usage: { requirements: [ 'serviceusage.googleapis.com/tos/cloud' ] }
-  if (serviceConfig.usage?.requirements) {
-    const usage: string[] = serviceConfig.usage.requirements;
-    if (usage.includes('serviceusage.googleapis.com/tos/cloud')) {
-      return true;
+    if (category !== null) {
+      return [category, hasSurface, inScope];
     }
-  }
 
-  return false;
+    if (serviceConfig.authentication?.rules) {
+      allow.forEach(x => {
+        serviceConfig.authentication?.rules?.forEach(rule => {
+          if (
+            x.auth_scopes.some(a => {
+              return rule.oauth?.canonicalScopes?.includes(a);
+            })
+          ) {
+            category = x.category;
+            inScope = x.in_scope;
+          }
+        });
+      });
+    }
+
+    if (category !== null) {
+      return [category, hasSurface, inScope];
+    }
+
+    // Config JSON snippet: "usage: { requirements: [ 'serviceusage.googleapis.com/tos/cloud' ] }"
+    if (serviceConfig.usage?.requirements) {
+      const usage: string[] = serviceConfig.usage?.requirements;
+      if (usage.includes('serviceusage.googleapis.com/tos/cloud')) {
+        return ['Cloud/GCP', hasSurface, inScope];
+      }
+    }
+    return ['Not Cloud (Other)', hasSurface, false];
+  } else {
+    return ['Third party endpoint', hasSurface, false];
+  }
 }
 
 export async function getResults(): Promise<string[][]> {
@@ -148,10 +177,13 @@ export async function getResults(): Promise<string[][]> {
   const results: string[][] = await Promise.all(
     services.map(async s => {
       const config = await getServiceConfig(s);
+      const category: (string | boolean)[] = getApiClientScope(config);
       return [
-        s,
+        String(s),
         String(config.title),
-        String(isCloudApi(config)),
+        String(category[0]),
+        String(category[1]),
+        String(category[2]),
         String(config.usage?.requirements),
       ];
     })
@@ -164,7 +196,7 @@ export async function getResults(): Promise<string[][]> {
  */
 export async function exportApisToSheets() {
   const values = await getResults();
-  values.unshift(['Service', 'Title', 'isCloud', 'ToS']);
+  values.unshift(['Service', 'Title', 'Group', 'HasSurface', 'InScope', 'ToS']);
 
   // clear the current text in the sheet
   await sheets.spreadsheets.values.clear({
@@ -195,18 +227,17 @@ export async function exportApisToSheets() {
 export async function showCloudApis(cli: meow.Result<any>) {
   const output = new Array<string>();
   const res = await getResults();
-  const serviceHeader = ['Name', 'Title', 'isCloudApi', 'ToS'];
+  const head = ['Service', 'Title', 'Group', 'HasSurface', 'InScope', 'ToS'];
   let table: Table;
   if (cli.flags.csv) {
-    output.push('\n');
-    output.push(serviceHeader.join(','));
+    output.push(CSV.stringify(head));
   } else {
-    table = new Table({head: serviceHeader});
+    table = new Table({head: head});
   }
 
   res.forEach(x => {
     if (cli.flags.csv) {
-      output.push(x.join(','));
+      output.push(CSV.stringify(x));
     } else {
       table.push(x);
     }
@@ -214,5 +245,6 @@ export async function showCloudApis(cli: meow.Result<any>) {
   if (table!) {
     output.push(table!.toString());
   }
-  output.forEach(l => console.log(l));
+  output.forEach(l => process.stdout.write(l));
+  process.stdout.write('\n');
 }

@@ -1,0 +1,93 @@
+{
+  "allow": [
+    {
+      "category": "Cloud/GCP",
+      "auth_scopes": ["auth/cloud-platform"],
+      "slugs": [],
+      "services": [
+        "cloudchannel",
+        "identitytoolkit"
+      ],
+      "in_scope": true
+    },
+    {
+      "category": "Cloud/Workspace",
+      "auth_scopes": [
+        "auth/apps",
+        "auth/calendar",
+        "auth/chat",
+        "auth/classroom",
+        "auth/cloud_search",
+        "auth/drive",
+        "auth/gmail",
+        "auth/postmaster",
+        "auth/tasks"
+      ],
+      "slugs": ["Workspace", "G Suite", "GSuite"],
+      "services": [
+        "admin",
+        "audit",
+        "people",
+        "picker",
+        "vault"
+      ],
+      "in_scope": false
+    },
+    {
+      "category": "Not Cloud (Firebase)",
+      "auth_scopes": [
+        "auth/firebase"
+      ],
+      "slugs": ["Firebase"],
+      "services": [
+        "fcmregistrations",
+        "mlkit",
+        "mobilecrashreporting",
+        "securetoken",
+        "testing",
+        "toolresults"
+      ],
+      "in_scope": false
+    }
+  ],
+  "deny": [
+    {
+      "category": "Cloud/GCP",
+      "services": [
+        "cloudlatencytest",
+        "containerthreatdetection",
+        "deploymentmanager",
+        "dns",
+        "endpoints",
+        "endpointsportal",
+        "gkeconnect",
+        "googlecloudmessaging",
+        "meshconfig",
+        "meshtelemetry",
+        "remotebuildexecution",
+        "stackdriver",
+        "sts",
+        "threatdetection",
+        "zync"
+      ]
+    },
+    {
+      "category": "Cloud/Workspace",
+      "services": [
+        "realtime"
+      ]
+    },
+    {
+      "category": "Not Cloud (Other)",
+      "services": [
+        "actions",
+        "area120tables",
+        "copresence",
+        "games",
+        "plus",
+        "plusdomains",
+        "plushangouts"
+      ]
+    }
+  ]
+}
