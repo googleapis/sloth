@@ -1,0 +1,707 @@
+[
+  {
+    "name": "spanner.googleapis.com",
+    "title": "Cloud Spanner API",
+    "apis": [
+      {
+        "name": "google.cloud.keyvisualizer.KeyVisualizer",
+        "methods": [ { "name": "ListScans" }, { "name": "GetScan" } ],
+        "version": "v1"
+      },
+      {
+        "name": "google.longrunning.Operations",
+        "methods": [
+          { "name": "ListOperations" },
+          { "name": "GetOperation" },
+          { "name": "DeleteOperation" },
+          { "name": "CancelOperation" },
+          { "name": "WaitOperation" }
+        ],
+        "version": "v1"
+      },
+      {
+        "name": "google.spanner.admin.database.v1.DatabaseAdmin",
+        "methods": [
+          { "name": "ListDatabases" },
+          { "name": "CreateDatabase" },
+          { "name": "GetDatabase" },
+          { "name": "UpdateDatabaseDdl" },
+          { "name": "DropDatabase" },
+          { "name": "GetDatabaseDdl" },
+          { "name": "SetIamPolicy" },
+          { "name": "SetIamPolicyOnBackupInternalOnly" },
+          { "name": "GetIamPolicy" },
+          { "name": "GetIamPolicyOnBackupInternalOnly" },
+          { "name": "TestIamPermissions" },
+          { "name": "TestIamPermissionsOnBackupInternalOnly" },
+          { "name": "CreateBackup" },
+          { "name": "GetBackup" },
+          { "name": "UpdateBackup" },
+          { "name": "DeleteBackup" },
+          { "name": "ListBackups" },
+          { "name": "RestoreDatabase" },
+          { "name": "ListDatabaseOperations" },
+          { "name": "ListBackupOperations" }
+        ],
+        "version": "v1"
+      },
+      {
+        "name": "google.spanner.admin.instance.v1.InstanceAdmin",
+        "methods": [
+          { "name": "ListInstanceConfigs" },
+          { "name": "GetInstanceConfig" },
+          { "name": "ListInstances" },
+          { "name": "GetInstance" },
+          { "name": "CreateInstance" },
+          { "name": "UpdateInstance" },
+          { "name": "DeleteInstance" },
+          { "name": "SetIamPolicy" },
+          { "name": "GetIamPolicy" },
+          { "name": "TestIamPermissions" }
+        ],
+        "version": "v1"
+      },
+      {
+        "name": "google.spanner.v1.Spanner",
+        "methods": [
+          { "name": "CreateSession" },
+          { "name": "BatchCreateSessions" },
+          { "name": "GetSession" },
+          { "name": "ListSessions" },
+          { "name": "DeleteSession" },
+          { "name": "ExecuteSql" },
+          { "name": "ExecuteStreamingSql" },
+          { "name": "ExecuteBatchDml" },
+          { "name": "Read" },
+          { "name": "StreamingRead" },
+          { "name": "BeginTransaction" },
+          { "name": "Commit" },
+          { "name": "Rollback" },
+          { "name": "PartitionQuery" },
+          { "name": "PartitionRead" }
+        ],
+        "version": "v1"
+      },
+      {
+        "name": "google.discovery.Discovery",
+        "methods": [ { "name": "GetDiscovery" }, { "name": "GetDiscoveryRest" } ],
+        "version": "v1"
+      }
+    ],
+    "documentation": {
+      "summary": "Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service."
+    },
+    "quota": {
+      "limits": [
+        {
+          "name": "AdminInstanceCreateMethodQuotaPerMinutePerProject",
+          "metric": "spanner.googleapis.com/admin_instance_create_method_quota",
+          "unit": "1/min/{project}",
+          "values": { "STANDARD": "5" }
+        },
+        {
+          "name": "AdminInstanceCreateMethodQuotaPerMinutePerUser",
+          "metric": "spanner.googleapis.com/admin_instance_create_method_quota",
+          "unit": "1/min/{project}/{user}",
+          "values": { "STANDARD": "5" }
+        },
+        {
+          "name": "AdminInstanceDeleteMethodQuotaPerMinutePerProject",
+          "metric": "spanner.googleapis.com/admin_instance_delete_method_quota",
+          "unit": "1/min/{project}",
+          "values": { "STANDARD": "10" }
+        },
+        {
+          "name": "AdminInstanceDeleteMethodQuotaPerMinutePerUser",
+          "metric": "spanner.googleapis.com/admin_instance_delete_method_quota",
+          "unit": "1/min/{project}/{user}",
+          "values": { "STANDARD": "10" }
+        },
+        {
+          "name": "AdminInstanceGetMethodQuotaPerMinutePerUser",
+          "metric": "spanner.googleapis.com/admin_instance_get_instance_method_quota",
+          "unit": "1/min/{project}/{user}",
+          "values": { "STANDARD": "10000" }
+        },
+        {
+          "name": "AdminMethodQuotaPerMinutePerProject",
+          "metric": "spanner.googleapis.com/admin_method_quota",
+          "unit": "1/min/{project}",
+          "values": { "STANDARD": "300" }
+        },
+        {
+          "name": "AdminMethodQuotaPerMinutePerUser",
+          "metric": "spanner.googleapis.com/admin_method_quota",
+          "unit": "1/min/{project}/{user}",
+          "values": { "STANDARD": "300" }
+        },
+        {
+          "name": "EAPQuotaPerMinutePerProject",
+          "metric": "spanner.googleapis.com/e_a_p_quota",
+          "unit": "1/min/{project}",
+          "values": { "STANDARD": "-1" }
+        },
+        {
+          "name": "SpannerNodesPerProject",
+          "metric": "spanner.googleapis.com/nodes",
+          "unit": "1/{project}/{region}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25",
+            "VERY_LOW/us-west1": "3",
+            "LOW/us-west1": "5",
+            "STANDARD/us-west1": "100",
+            "HIGH/us-west1": "100",
+            "VERY_HIGH/us-west1": "100",
+            "VERY_LOW/asia-northeast1": "3",
+            "LOW/asia-northeast1": "5",
+            "STANDARD/asia-northeast1": "100",
+            "HIGH/asia-northeast1": "100",
+            "VERY_HIGH/asia-northeast1": "100",
+            "VERY_LOW/asia-south1": "3",
+            "LOW/asia-south1": "5",
+            "STANDARD/asia-south1": "100",
+            "HIGH/asia-south1": "100",
+            "VERY_HIGH/asia-south1": "100",
+            "VERY_LOW/us-east1": "3",
+            "LOW/us-east1": "5",
+            "STANDARD/us-east1": "100",
+            "HIGH/us-east1": "100",
+            "VERY_HIGH/us-east1": "100",
+            "VERY_LOW/us-central1": "3",
+            "LOW/us-central1": "5",
+            "STANDARD/us-central1": "100",
+            "HIGH/us-central1": "100",
+            "VERY_HIGH/us-central1": "100"
+          }
+        },
+        {
+          "name": "NodesAsia1PerProject",
+          "metric": "spanner.googleapis.com/nodes_asia1",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam3PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam3",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNamEurAsia1PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam_eur_asia1",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesEur3PerProject",
+          "metric": "spanner.googleapis.com/nodes_eur3",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesEur5PerProject",
+          "metric": "spanner.googleapis.com/nodes_eur5",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesEur6PerProject",
+          "metric": "spanner.googleapis.com/nodes_eur6",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam6PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam6",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam7PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam7",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam8PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam8",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam9PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam9",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam10PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam10",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam11PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam11",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        },
+        {
+          "name": "NodesNam12PerProject",
+          "metric": "spanner.googleapis.com/nodes_nam12",
+          "unit": "1/{project}",
+          "values": {
+            "VERY_LOW": "3",
+            "LOW": "5",
+            "STANDARD": "15",
+            "HIGH": "25",
+            "VERY_HIGH": "25"
+          }
+        }
+      ]
+    },
+    "authentication": {
+      "rules": [
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.admin, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        },
+        {
+          "oauth": {
+            "canonicalScopes": "https://www.googleapis.com/auth/spanner.data, https://www.googleapis.com/auth/cloud-platform"
+          }
+        }
+      ]
+    },
+    "usage": {
+      "requirements": [
+        "serviceusage.googleapis.com/tos/cloud",
+        "serviceusage.googleapis.com/billing-enabled"
+      ]
+    },
+    "endpoints": [
+      { "name": "spanner.googleapis.com" },
+      { "name": "spanner.clients6.google.com" },
+      { "name": "content-spanner.googleapis.com" },
+      { "name": "spanner2.googleapis.com" },
+      { "name": "spanner2.clients6.google.com" },
+      { "name": "content-spanner2.googleapis.com" },
+      { "name": "batch-spanner.googleapis.com" },
+      { "name": "batch-spanner.clients6.google.com" },
+      { "name": "content-batch-spanner.googleapis.com" },
+      { "name": "nam3-spanner.googleapis.com" },
+      { "name": "nam3-spanner.clients6.google.com" },
+      { "name": "content-nam3-spanner.googleapis.com" },
+      { "name": "batch-nam3-spanner.googleapis.com" },
+      { "name": "batch-nam3-spanner.clients6.google.com" },
+      { "name": "content-batch-nam3-spanner.googleapis.com" },
+      { "name": "spanner-cloud-api.main.gslb.googleprod.com" },
+      { "name": "spanner-cloud-api-esf.blade.gslb.googleprod.com" }
+    ],
+    "monitoredResources": [
+      {
+        "type": "serviceruntime.googleapis.com/api",
+        "labels": [
+          { "key": "cloud.googleapis.com/location" },
+          { "key": "cloud.googleapis.com/uid" },
+          { "key": "serviceruntime.googleapis.com/api_version" },
+          { "key": "serviceruntime.googleapis.com/api_method" },
+          { "key": "serviceruntime.googleapis.com/consumer_project" },
+          { "key": "cloud.googleapis.com/project" },
+          { "key": "cloud.googleapis.com/service" }
+        ]
+      }
+    ],
+    "monitoring": {
+      "consumerDestinations": [
+        {
+          "monitoredResource": "serviceruntime.googleapis.com/api",
+          "metrics": [
+            "serviceruntime.googleapis.com/api/consumer/quota_used_count"
+          ]
+        }
+      ]
+    },
+    "id": "spanner-22.8.2"
+  },
+  {
+    "name": "cloudapis.googleapis.com",
+    "title": "Google Cloud APIs",
+    "documentation": {
+      "summary": "This is a meta service for Google Cloud APIs for convenience. Enabling this service enables all commonly used Google Cloud APIs for the project. By default, it is enabled for all projects created through Google Cloud Console and Google Cloud SDK, and should be manually enabled for all other projects that intend to use Google Cloud APIs. Note: disabling this service has no effect on other services.\n"
+    },
+    "quota": {},
+    "authentication": {},
+    "usage": { "requirements": [ "serviceusage.googleapis.com/tos/cloud" ] },
+    "endpoints": [ { "name": "cloudapis.googleapis.com" } ],
+    "monitoring": {},
+    "id": "2016-12-07r0"
+  },
+  {
+    "name": "fcmregistrations.googleapis.com",
+    "title": "FCM Registration API",
+    "apis": [
+      {
+        "name": "google.discovery.Discovery",
+        "methods": [ { "name": "GetDiscovery" }, { "name": "GetDiscoveryRest" } ],
+        "version": "v1"
+      },
+      {
+        "name": "google.firebase.fcm.registration.v1.RegistrationApi",
+        "methods": [
+          { "name": "CreateRegistration" },
+          { "name": "DeleteRegistration" },
+          { "name": "UpdateRegistration" }
+        ],
+        "version": "v1"
+      }
+    ],
+    "documentation": {},
+    "quota": {
+      "limits": [
+        {
+          "name": "CreateRequestsPerMinutePerProjectPerUser",
+          "metric": "fcmregistrations.googleapis.com/create_request",
+          "unit": "1/min/{project}/{user}",
+          "values": { "STANDARD": "10" }
+        }
+      ]
+    },
+    "authentication": { "rules": [ {}, {}, {} ] },
+    "usage": { "requirements": [ "serviceusage.googleapis.com/tos/universal" ] },
+    "endpoints": [
+      { "name": "fcmregistrations.googleapis.com" },
+      { "name": "fcmregistrations.clients6.google.com" },
+      { "name": "content-fcmregistrations.googleapis.com" }
+    ],
+    "monitoring": {},
+    "id": "boq_firebase-messaging-registration_20210504.17_p0"
+  }
+]
