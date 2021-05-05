@@ -41,7 +41,6 @@ describe('services', () => {
 
   it('should default to config file override', async () => {
     const scope = fetchServices.getApiClientScope(serviceConfigs[2]);
-    assert.strictEqual(scope[0], "Not Cloud (Firebase)");
-  })
-
+    assert.strictEqual(scope[0], 'Not Cloud (Firebase)');
+  });
 });
