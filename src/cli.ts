@@ -106,7 +106,9 @@ async function main() {
     }
     case 'services': {
       if (cli.flags.api) {
-        console.log(await getServiceConfig(cli.flags.api + '.googleapis.com'));
+        console.dir(await getServiceConfig(cli.flags.api + '.googleapis.com'), {
+          depth: null,
+        });
       } else {
         await showCloudApis(cli);
       }
