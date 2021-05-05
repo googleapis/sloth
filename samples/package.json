@@ -9,11 +9,5 @@
   "private": true,
   "scripts": {
     "test": "echo no tests available 👻"
-  },
-  "dependencies": {
-    "@justinbeckwith/sloth": "^5.36.5"
-  },
-  "devDependencies": {
-    "mocha": "^8.0.0"
   }
 }
