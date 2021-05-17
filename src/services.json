@@ -64,6 +64,7 @@
         "googlecloudmessaging",
         "meshconfig",
         "meshtelemetry",
+        "recommendationengine",
         "remotebuildexecution",
         "stackdriver",
         "sts",
