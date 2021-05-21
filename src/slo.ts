@@ -209,7 +209,7 @@ export async function showApiSLOs(cli: meow.Result<any>) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function showLanguageSLOs(cli: meow.Result<any>) {
   const output = new Array<string>();
-  const issues = await getIssues((cli.flags as unknown) as Flags);
+  const issues = await getIssues(cli.flags as unknown as Flags);
   const res = getLanguageResults(issues);
   const languageHeader = [
     'Language',
