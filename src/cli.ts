@@ -78,7 +78,7 @@ async function main() {
       await tagIssues();
       break;
     case 'issues':
-      await showIssues((cli.flags as unknown) as Flags);
+      await showIssues(cli.flags as unknown as Flags);
       break;
     case 'apis':
       await showApiSLOs(cli);
