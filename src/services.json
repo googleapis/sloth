@@ -55,6 +55,7 @@
       "category": "Cloud/GCP",
       "services": [
         "cloudlatencytest",
+        "cloudvideosearch",
         "containerthreatdetection",
         "deploymentmanager",
         "dns",
