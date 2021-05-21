@@ -58,7 +58,7 @@ export async function main(
   const issues = new Array<Issue>();
   repos.forEach(r => {
     r.issues.forEach(i => {
-      i.createdAt = (BigQuery.datetime(i.createdAt) as {}) as string;
+      i.createdAt = BigQuery.datetime(i.createdAt) as {} as string;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (i as any).recordDate = BigQuery.date(
         new Date().toISOString().slice(0, 10)
