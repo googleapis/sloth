@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [5.42.0](https://www.github.com/googleapis/sloth/compare/v5.41.1...v5.42.0) (2021-05-22)
+
+
+### Features
+
+* adds inScope classification and other details ([#888](https://www.github.com/googleapis/sloth/issues/888)) ([6c34dce](https://www.github.com/googleapis/sloth/commit/6c34dce0b80830ec66c615ca73f4f66d25e5efb1))
+
 ### [5.41.1](https://www.github.com/googleapis/sloth/compare/v5.41.0...v5.41.1) (2021-05-05)
 
 
