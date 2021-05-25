@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.0.0](https://www.github.com/googleapis/sloth/compare/v5.42.0...v6.0.0) (2021-05-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove policy tools (#934)
+
+### Bug Fixes
+
+* **deps:** update dependency googleapis to v74 ([#931](https://www.github.com/googleapis/sloth/issues/931)) ([f5ce271](https://www.github.com/googleapis/sloth/commit/f5ce271414bd6da68f68d357149363350e206f68))
+* remove policy tools ([#934](https://www.github.com/googleapis/sloth/issues/934)) ([d935f09](https://www.github.com/googleapis/sloth/commit/d935f097ee6aca3485a2092c193d41dcdd8286ac))
+
 ## [5.42.0](https://www.github.com/googleapis/sloth/compare/v5.41.1...v5.42.0) (2021-05-22)
 
 
