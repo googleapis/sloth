@@ -41,13 +41,10 @@ const spreadsheetId = '14JYzl_8W3HyD0c1jYDXQJA2sVWBZiMoxT8Sp57xGWvk';
  */
 export async function getAllServiceNames(): Promise<string[]> {
   const serviceNames: string[] = [];
-  const [services] = await servicemanagement.listServices({});
-  if (services) {
-    services.forEach(item => {
-      if (item.serviceName) {
-        serviceNames.push(item.serviceName);
-      }
-    });
+  for await (const service of servicemanagement.listServicesAsync()) {
+    if (service.serviceName) {
+      serviceNames.push(service.serviceName);
+    }
   }
   return serviceNames;
 }
