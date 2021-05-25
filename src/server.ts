@@ -14,7 +14,6 @@
 
 import * as express from 'express';
 import {exportToSheets} from './exportToSheets';
-import {exportPolicyToSheets} from './policy';
 import {exportApisToSheets} from './fetchServices';
 
 // This simple server exposes endpoints that are used with Cloud Scheduler
@@ -26,16 +25,6 @@ const port = process.env.PORT || 8080;
 app.post('/exportToSheets', async (req, res) => {
   await exportToSheets();
   res.sendStatus(202);
-});
-
-app.post('/exportPolicyToSheets', async (req, res) => {
-  try {
-    await exportPolicyToSheets();
-    res.sendStatus(202);
-  } catch (e) {
-    console.error(e);
-    res.sendStatus(500);
-  }
 });
 
 app.post('/exportApisToSheets', async (req, res) => {
