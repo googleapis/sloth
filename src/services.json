@@ -54,6 +54,7 @@
     {
       "category": "Cloud/GCP",
       "services": [
+        "baremetalsolution",
         "cloudlatencytest",
         "cloudvideosearch",
         "containerthreatdetection",

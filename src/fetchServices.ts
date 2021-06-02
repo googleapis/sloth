@@ -16,7 +16,7 @@
 
 import {google} from 'googleapis';
 import {ServiceManagerClient, protos} from '@google-cloud/service-management';
-
+import * as Throttle from 'p-throttle';
 import * as meow from 'meow';
 import Table = require('cli-table');
 import {allow, deny} from './services.json';
@@ -135,19 +135,25 @@ export function getApiClientScope(serviceConfig: protos.google.api.IService) {
 
 export async function getResults(): Promise<string[][]> {
   const services: string[] = await getAllServiceNames();
-  const results: string[][] = await Promise.all(
-    services.map(async s => {
-      const config = await getServiceConfig(s);
-      const category: (string | boolean)[] = getApiClientScope(config);
-      return [
-        String(s),
-        String(config.title),
-        String(category[0]),
-        String(category[1]),
-        String(category[2]),
-        String(config.usage?.requirements),
-      ];
-    })
+  const throttle = Throttle({
+    limit: 2,
+    interval: 2200,
+  });
+  const throttledGetServiceConfig = throttle(async (s: string) => {
+    console.log(`requesteing service config: ${s}`);
+    const config = await getServiceConfig(s);
+    const category: (string | boolean)[] = getApiClientScope(config);
+    return [
+      String(s),
+      String(config.title),
+      String(category[0]),
+      String(category[1]),
+      String(category[2]),
+      String(config.usage?.requirements),
+    ];
+  });
+  const results = await Promise.all(
+    services.map(s => throttledGetServiceConfig(s))
   );
   return results;
 }
