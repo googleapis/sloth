@@ -14,24 +14,33 @@
 
 import * as assert from 'assert';
 import {describe, it, afterEach} from 'mocha';
+import * as fs from 'fs';
 import * as nock from 'nock';
-import * as policy from '../src/policy';
+
+// This must be set before `issue` is imported
+process.env.GITHUB_TOKEN = 'not-a-token';
+process.env.DRIFT_API_KEY = 'not-a-key';
+
+import * as fetchServices from '../src/fetchServices';
+
+const serviceConfigs = JSON.parse(
+  fs.readFileSync('./test/fixtures/serviceConfigList.json', 'utf8')
+);
 
 nock.disableNetConnect();
 
-describe('policy', () => {
+describe('services', () => {
   afterEach(() => {
     nock.cleanAll();
   });
 
-  it('should fetch repo metadata', async () => {
-    const repo = 'googleapis/repo1';
-    const data = {test: 'data'};
-    const scope = nock('https://api.github.com')
-      .get(`/repos/${repo}`)
-      .reply(200, data);
-    const res = await policy.getRepo(repo);
-    assert.deepStrictEqual(res, data);
-    scope.done();
+  it('should identify services with no APIs', async () => {
+    const scope = fetchServices.getApiClientScope(serviceConfigs[1]);
+    assert.strictEqual(scope[1], false);
+  });
+
+  it('should default to config file override', async () => {
+    const scope = fetchServices.getApiClientScope(serviceConfigs[2]);
+    assert.strictEqual(scope[0], 'Not Cloud (Firebase)');
   });
 });

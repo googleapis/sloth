@@ -19,8 +19,7 @@ import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
 import {showCloudApis, getServiceConfig} from './fetchServices';
 import * as updateNotifier from 'update-notifier';
-import {Flags, GitHubRepo} from './types';
-import * as policy from './policy';
+import {Flags} from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require('../../package.json');
@@ -50,7 +49,6 @@ const cli = meow(
     $ sloth tag-issues
     $ sloth repos
     $ sloth sync-repo-settings
-    $ sloth policy [--repo][--search QUERY]
     $ sloth services [--api]
 
 `,
@@ -78,7 +76,7 @@ async function main() {
       await tagIssues();
       break;
     case 'issues':
-      await showIssues((cli.flags as unknown) as Flags);
+      await showIssues(cli.flags as unknown as Flags);
       break;
     case 'apis':
       await showApiSLOs(cli);
@@ -86,27 +84,11 @@ async function main() {
     case 'languages':
       await showLanguageSLOs(cli);
       break;
-    case 'policy': {
-      const repos: GitHubRepo[] = [];
-      if (cli.flags.repo) {
-        const repo = await policy.getRepo(cli.flags.repo);
-        repos.push(repo);
-      } else if (cli.flags.search) {
-        const r = await policy.getRepos(cli.flags.search);
-        repos.push(...r);
-      } else {
-        cli.showHelp();
-        return;
-      }
-      for (const repo of repos) {
-        const res = await policy.checkRepoPolicy(repo);
-        console.log(res);
-      }
-      break;
-    }
     case 'services': {
       if (cli.flags.api) {
-        console.log(await getServiceConfig(cli.flags.api + '.googleapis.com'));
+        console.dir(await getServiceConfig(cli.flags.api + '.googleapis.com'), {
+          depth: null,
+        });
       } else {
         await showCloudApis(cli);
       }

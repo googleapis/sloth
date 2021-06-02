@@ -4,6 +4,39 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.0.1](https://www.github.com/googleapis/sloth/compare/v6.0.0...v6.0.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* correct spelling of baremetalsolution ([#938](https://www.github.com/googleapis/sloth/issues/938)) ([f0a2838](https://www.github.com/googleapis/sloth/commit/f0a28385c0aebd7a5464714479133315fcffa7b0))
+
+## [6.0.0](https://www.github.com/googleapis/sloth/compare/v5.42.0...v6.0.0) (2021-05-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove policy tools (#934)
+
+### Bug Fixes
+
+* **deps:** update dependency googleapis to v74 ([#931](https://www.github.com/googleapis/sloth/issues/931)) ([f5ce271](https://www.github.com/googleapis/sloth/commit/f5ce271414bd6da68f68d357149363350e206f68))
+* remove policy tools ([#934](https://www.github.com/googleapis/sloth/issues/934)) ([d935f09](https://www.github.com/googleapis/sloth/commit/d935f097ee6aca3485a2092c193d41dcdd8286ac))
+
+## [5.42.0](https://www.github.com/googleapis/sloth/compare/v5.41.1...v5.42.0) (2021-05-22)
+
+
+### Features
+
+* adds inScope classification and other details ([#888](https://www.github.com/googleapis/sloth/issues/888)) ([6c34dce](https://www.github.com/googleapis/sloth/commit/6c34dce0b80830ec66c615ca73f4f66d25e5efb1))
+
+### [5.41.1](https://www.github.com/googleapis/sloth/compare/v5.41.0...v5.41.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency googleapis to v73 ([#920](https://www.github.com/googleapis/sloth/issues/920)) ([f425e12](https://www.github.com/googleapis/sloth/commit/f425e12a55196475639be7231621945a891be962))
+
 ## [5.41.0](https://www.github.com/googleapis/sloth/compare/v5.40.0...v5.41.0) (2021-04-23)
 
 
