@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.0.1](https://www.github.com/googleapis/sloth/compare/v6.0.0...v6.0.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* correct spelling of baremetalsolution ([#938](https://www.github.com/googleapis/sloth/issues/938)) ([f0a2838](https://www.github.com/googleapis/sloth/commit/f0a28385c0aebd7a5464714479133315fcffa7b0))
+
 ## [6.0.0](https://www.github.com/googleapis/sloth/compare/v5.42.0...v6.0.0) (2021-05-25)
 
 
