@@ -73,7 +73,7 @@ export function getApiClientScope(serviceConfig: protos.google.api.IService) {
   if (serviceConfig.name && serviceConfig.name.endsWith('googleapis.com')) {
     const hostname = serviceConfig.name.split('.')[0];
 
-    if (!serviceConfig.apis) {
+    if (!serviceConfig.apis || serviceConfig.apis.length === 0) {
       hasSurface = false;
       inScope = false;
     }
@@ -140,7 +140,7 @@ export async function getResults(): Promise<string[][]> {
     interval: 2200,
   });
   const throttledGetServiceConfig = throttle(async (s: string) => {
-    console.log(`requesteing service config: ${s}`);
+    console.log(`requesting service config: ${s}`);
     const config = await getServiceConfig(s);
     const category: (string | boolean)[] = getApiClientScope(config);
     return [
