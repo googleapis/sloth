@@ -55,6 +55,7 @@
       "category": "Cloud/GCP",
       "services": [
         "baremetalsolution",
+        "bigtabletableadmin",
         "cloudlatencytest",
         "cloudvideosearch",
         "containerthreatdetection",
