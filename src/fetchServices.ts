@@ -14,7 +14,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {google, servicemanagement_v1} from 'googleapis';
+import {google} from 'googleapis';
+import {ServiceManagerClient, protos} from '@google-cloud/service-management';
+import * as Throttle from 'p-throttle';
 import * as meow from 'meow';
 import Table = require('cli-table');
 import {allow, deny} from './services.json';
@@ -26,10 +28,7 @@ const auth = new google.auth.GoogleAuth({
     'https://www.googleapis.com/auth/spreadsheets',
   ],
 });
-const servicemanagement = google.servicemanagement({
-  version: 'v1',
-  auth: auth,
-});
+const servicemanagement = new ServiceManagerClient();
 const sheets = google.sheets({
   version: 'v4',
   auth: auth,
@@ -42,36 +41,10 @@ const spreadsheetId = '14JYzl_8W3HyD0c1jYDXQJA2sVWBZiMoxT8Sp57xGWvk';
  */
 export async function getAllServiceNames(): Promise<string[]> {
   const serviceNames: string[] = [];
-  return await listServices(servicemanagement, serviceNames);
-}
-
-export async function listServices(
-  client: servicemanagement_v1.Servicemanagement,
-  serviceNames: string[],
-  nextPageToken = ''
-): Promise<string[]> {
-  const res = await client.services.list(
-    {
-      pageSize: 100,
-      pageToken: nextPageToken,
-    },
-    {
-      retryConfig: {
-        retry: 10,
-      },
+  for await (const service of servicemanagement.listServicesAsync()) {
+    if (service.serviceName) {
+      serviceNames.push(service.serviceName);
     }
-  );
-
-  if (res.data.services) {
-    res.data.services.forEach(item => {
-      if (item.serviceName) {
-        serviceNames.push(item.serviceName);
-      }
-    });
-  }
-
-  if (res.data.nextPageToken) {
-    await listServices(client, serviceNames, res.data.nextPageToken);
   }
   return serviceNames;
 }
@@ -81,30 +54,18 @@ export async function listServices(
  * @param serviceName - the hostname of a service ('foo.googleapis.com')
  * @return the service config of the passed hostname
  */
-export async function getServiceConfig(
-  serviceName: string
-): Promise<servicemanagement_v1.Schema$Service> {
-  const res = await servicemanagement.services.getConfig(
-    {
-      serviceName: serviceName,
-    },
-    {
-      retryConfig: {
-        retry: 10,
-      },
-    }
-  );
-  return res.data;
+export async function getServiceConfig(serviceName: string) {
+  const [config] = await servicemanagement.getServiceConfig({
+    serviceName: serviceName,
+  });
+  return config;
 }
-
 /**
  * Determines if a given service is a 'Cloud API'.
  * @param serviceName - the hostname of a service ('foo.googleapis.com')
  * @return well is it, or not?
  */
-export function getApiClientScope(
-  serviceConfig: servicemanagement_v1.Schema$Service
-) {
+export function getApiClientScope(serviceConfig: protos.google.api.IService) {
   let category = null;
   let hasSurface = true;
   let inScope = true;
@@ -112,7 +73,7 @@ export function getApiClientScope(
   if (serviceConfig.name && serviceConfig.name.endsWith('googleapis.com')) {
     const hostname = serviceConfig.name.split('.')[0];
 
-    if (!serviceConfig.apis) {
+    if (!serviceConfig.apis || serviceConfig.apis.length === 0) {
       hasSurface = false;
       inScope = false;
     }
@@ -174,19 +135,25 @@ export function getApiClientScope(
 
 export async function getResults(): Promise<string[][]> {
   const services: string[] = await getAllServiceNames();
-  const results: string[][] = await Promise.all(
-    services.map(async s => {
-      const config = await getServiceConfig(s);
-      const category: (string | boolean)[] = getApiClientScope(config);
-      return [
-        String(s),
-        String(config.title),
-        String(category[0]),
-        String(category[1]),
-        String(category[2]),
-        String(config.usage?.requirements),
-      ];
-    })
+  const throttle = Throttle({
+    limit: 2,
+    interval: 2200,
+  });
+  const throttledGetServiceConfig = throttle(async (s: string) => {
+    console.log(`requesting service config: ${s}`);
+    const config = await getServiceConfig(s);
+    const category: (string | boolean)[] = getApiClientScope(config);
+    return [
+      String(s),
+      String(config.title),
+      String(category[0]),
+      String(category[1]),
+      String(category[2]),
+      String(config.usage?.requirements),
+    ];
+  });
+  const results = await Promise.all(
+    services.map(s => throttledGetServiceConfig(s))
   );
   return results;
 }
