@@ -55,6 +55,7 @@
       "category": "Cloud/GCP",
       "services": [
         "baremetalsolution",
+        "bigtabletableadmin",
         "cloudlatencytest",
         "cloudvideosearch",
         "containerthreatdetection",
@@ -70,7 +71,9 @@
         "ml",
         "recommendationengine",
         "remotebuildexecution",
+        "run",
         "runtimeconfig",
+        "sourcerepo",
         "stackdriver",
         "sts",
         "threatdetection",
