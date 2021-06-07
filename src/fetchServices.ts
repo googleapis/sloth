@@ -215,3 +215,32 @@ export async function showCloudApis(cli: meow.Result<any>) {
   output.forEach(l => process.stdout.write(l));
   process.stdout.write('\n');
 }
+
+/**
+ * Output results for CLI command `sloth services --api=<foo>`
+ * @param cli
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function showSingleCloudApi(cli: meow.Result<any>, api: string) {
+  const output = new Array<string>();
+  const config = await getServiceConfig(api + '.googleapis.com');
+  const apiScope = await getApiClientScope(config);
+  if (config.title) {
+    apiScope.unshift(config.title);
+  } else {
+    apiScope.unshift("");
+  }
+  apiScope.unshift(api);
+  if (config.usage?.requirements) {
+    apiScope.push(String(config.usage?.requirements));
+  }
+
+  const head = ['Service', 'Title', 'Group', 'HasSurface', 'InScope', 'ToS'];
+  let table: Table = new Table({head: head});
+  table.push(apiScope);
+  if (table!) {
+    output.push(table!.toString());
+  }
+  output.forEach(l => process.stdout.write(l));
+  process.stdout.write('\n');
+}

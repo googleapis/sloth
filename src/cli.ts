@@ -17,7 +17,7 @@
 import * as meow from 'meow';
 import {showSLOs, showApiSLOs, showLanguageSLOs} from './slo';
 import {showIssues, tagIssues} from './issue';
-import {showCloudApis, getServiceConfig} from './fetchServices';
+import {showCloudApis, showSingleCloudApi, getServiceConfig} from './fetchServices';
 import * as updateNotifier from 'update-notifier';
 import {Flags} from './types';
 
@@ -49,7 +49,7 @@ const cli = meow(
     $ sloth tag-issues
     $ sloth repos
     $ sloth sync-repo-settings
-    $ sloth services [--api]
+    $ sloth services [--api][--config]
 
 `,
   {
@@ -58,6 +58,7 @@ const cli = meow(
       language: {type: 'string', alias: 'l'},
       repo: {type: 'string', alias: 'r'},
       outOfSLO: {type: 'boolean'},
+      config: {type: 'string'},
       csv: {type: 'boolean'},
       api: {type: 'string'},
       pr: {type: 'boolean'},
@@ -85,12 +86,14 @@ async function main() {
       await showLanguageSLOs(cli);
       break;
     case 'services': {
-      if (cli.flags.api) {
-        console.dir(await getServiceConfig(cli.flags.api + '.googleapis.com'), {
+      if (cli.flags.config) {
+        console.dir(await getServiceConfig(cli.flags.config + '.googleapis.com'), {
           depth: null,
         });
+      } else if (cli.flags.api) {
+        await showSingleCloudApi(cli, cli.flags.api);
       } else {
-        await showCloudApis(cli);
+          await showCloudApis(cli);
       }
       break;
     }
