@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.0.2](https://www.github.com/googleapis/sloth/compare/v6.0.1...v6.0.2) (2021-06-08)
+
+
+### Bug Fixes
+
+* use the service management module ([#936](https://www.github.com/googleapis/sloth/issues/936)) ([b5fd186](https://www.github.com/googleapis/sloth/commit/b5fd18694875865e0c64065162194063e430babd))
+
 ### [6.0.1](https://www.github.com/googleapis/sloth/compare/v6.0.0...v6.0.1) (2021-05-27)
 
 
