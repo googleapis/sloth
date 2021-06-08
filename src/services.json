@@ -69,6 +69,7 @@
         "meshconfig",
         "meshtelemetry",
         "ml",
+        "ondemandscanning",
         "recommendationengine",
         "remotebuildexecution",
         "run",
