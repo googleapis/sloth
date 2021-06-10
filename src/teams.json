@@ -63,14 +63,21 @@
         "binaryauthorization",
         "cloudbuild",
         "cloudshell",
-        "container",
         "containeranalysis",
         "containerregistry"
       ],
       "repos": [
         "GoogleCloudPlatform/cloud-code-samples",
+        "GoogleCloudPlatform/fourkeys"
+      ]
+    },
+    {
+      "name": "anthos",
+      "apis": [
+        "container"
+      ],
+      "repos": [
         "GoogleCloudPlatform/bank-of-anthos",
-        "GoogleCloudPlatform/fourkeys",
         "GoogleCloudPlatform/microservices-demo",
         "GoogleCloudPlatform/anthos-samples"
       ]
