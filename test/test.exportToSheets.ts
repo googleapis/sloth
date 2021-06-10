@@ -16,7 +16,7 @@ import * as assert from 'assert';
 import {describe, it, afterEach} from 'mocha';
 import * as nock from 'nock';
 import * as sinon from 'sinon';
-import * as google from 'googleapis';
+import * as google from '@googleapis/sheets';
 
 // This must be set before `issue` is imported
 process.env.GITHUB_TOKEN = 'not-a-token';
@@ -64,7 +64,7 @@ describe('exportToSheets', () => {
         issues: [issue],
       },
     ]);
-    const jwt = new google.Auth.JWT();
+    const jwt = new google.auth.JWT();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     sandbox.stub(jwt as any, 'getRequestMetadataAsync').resolves({headers: {}});
     sandbox.stub(fixtures, 'getClient').resolves(jwt);

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {google} from 'googleapis';
+import * as google from '@googleapis/sheets';
 import {getIssues} from './issue';
 import {Issue} from './types';
 const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
