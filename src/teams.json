@@ -192,22 +192,8 @@
       ]
     },
     {
-      "name": "onramp",
+      "name": "cxe",
       "repos": [
-        "GoogleCloudPlatform/nodejs-docs-samples",
-        "GoogleCloudPlatform/php-docs-samples",
-        "GoogleCloudPlatform/ruby-docs-samples",
-        "GoogleCloudPlatform/elixir-samples",
-        "GoogleCloudPlatform/golang-samples",
-        "GoogleCloudPlatform/python-docs-samples",
-        "GoogleCloudPlatform/java-docs-samples",
-        "GoogleCloudPlatform/dotnet-docs-samples",
-        "GoogleCloudPlatform/nodejs-getting-started",
-        "GoogleCloudPlatform/getting-started-ruby",
-        "GoogleCloudPlatform/getting-started-php",
-        "GoogleCloudPlatform/getting-started-python",
-        "GoogleCloudPlatform/getting-started-java",
-        "GoogleCloudPlatform/getting-started-dotnet",
         "googleapis/doc-pipeline",
         "googleapis/doc-templates",
         "googleapis/docuploader"
