@@ -30,7 +30,6 @@
     { "language": "java", "repo": "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory", "isTeamIssue": true},
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
-    { "language": "nodejs", "repo": "googleapis/gaxios", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/nodejs-api-gateway", "apiHint": "apigateway"},
     { "language": "nodejs", "repo": "googleapis/nodejs-data-qna", "apiHint": "dataqna"},
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript", "isTeamIssue": true},
