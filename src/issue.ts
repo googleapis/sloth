@@ -456,11 +456,6 @@ function getTeam(repo: string, api: string | undefined, isSample: boolean) {
     return t.name;
   }
 
-  // if it's a sample with no explicit owner, to onramp
-  if (isSample) {
-    return 'onramp';
-  }
-
   // if no api and no explicit team owner
   return 'core';
 }
