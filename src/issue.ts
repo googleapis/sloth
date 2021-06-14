@@ -206,7 +206,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         repo: repo.repo,
         types: getTypes(rIssue),
         api,
-        team: getTeam(rIssue.repo, api, isSampleIssue(rIssue)),
+        team: getTeam(rIssue.repo, api),
         isOutOfSLO: isOutOfSLO(rIssue),
         isTriaged: isTriaged(rIssue),
         pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
@@ -414,10 +414,6 @@ function getApi(i: ApiIssue): string | undefined {
   return undefined;
 }
 
-function isSampleIssue(i: ApiIssue): boolean {
-  return i.labels?.some(x => x === 'samples');
-}
-
 /**
  * Check for a `lang: nodejs` label on the specific issue.
  * If not present, return the language of the repository.
@@ -433,7 +429,7 @@ function getLanguage(r: Repo, i: ApiIssue) {
   return r.language;
 }
 
-function getTeam(repo: string, api: string | undefined, isSample: boolean) {
+function getTeam(repo: string, api: string | undefined) {
   // if repo issues are managed by a single team, attribute to that team
   const r = _repos.find(x => x.repo === repo);
   const t = teams.find(x => (x.repos || []).includes(repo));
