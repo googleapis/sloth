@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.0.3](https://www.github.com/googleapis/sloth/compare/v6.0.2...v6.0.3) (2021-06-15)
+
+
+### Bug Fixes
+
+* remove onramp specific assignment for samples ([#961](https://www.github.com/googleapis/sloth/issues/961)) ([f5ed3b9](https://www.github.com/googleapis/sloth/commit/f5ed3b985287ab813c33643b7249971d0449b2c9))
+* samples to yoshi ([#959](https://www.github.com/googleapis/sloth/issues/959)) ([a643371](https://www.github.com/googleapis/sloth/commit/a6433714155ea30f3257704b73f9b9f3de63795d))
+
 ### [6.0.2](https://www.github.com/googleapis/sloth/compare/v6.0.1...v6.0.2) (2021-06-08)
 
 
