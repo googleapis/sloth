@@ -196,7 +196,8 @@
       "repos": [
         "googleapis/doc-pipeline",
         "googleapis/doc-templates",
-        "googleapis/docuploader"
+        "googleapis/docuploader",
+        "googleapis/sphinx-docfx-yaml"
       ]
     },
     {
