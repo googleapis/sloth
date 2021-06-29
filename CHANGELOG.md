@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.1.0](https://www.github.com/googleapis/sloth/compare/v6.0.3...v6.1.0) (2021-06-25)
+
+
+### Features
+
+* add sphinx-docfx-yaml repo under CXE team ([#963](https://www.github.com/googleapis/sloth/issues/963)) ([6db5d1a](https://www.github.com/googleapis/sloth/commit/6db5d1ac367cab8d460fe7c7581fb82a4e868dcf))
+
 ### [6.0.3](https://www.github.com/googleapis/sloth/compare/v6.0.2...v6.0.3) (2021-06-15)
 
 
