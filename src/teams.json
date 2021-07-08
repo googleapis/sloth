@@ -30,7 +30,8 @@
         "ndb"
       ],
       "repos": [
-        "GoogleCloudPlatform/cloud-bigtable-examples"
+        "GoogleCloudPlatform/cloud-bigtable-examples",
+        "googleapis/google-cloud-datastore"
       ]
     },
     {
