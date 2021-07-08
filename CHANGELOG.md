@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.2.0](https://www.github.com/googleapis/sloth/compare/v6.1.0...v6.2.0) (2021-07-08)
+
+
+### Features
+
+* add google-cloud-datastore repo under cloud-native-databases team ([#967](https://www.github.com/googleapis/sloth/issues/967)) ([3170dca](https://www.github.com/googleapis/sloth/commit/3170dca8f55fc2cab2dd43122373fbfa5bfb73ee))
+
 ## [6.1.0](https://www.github.com/googleapis/sloth/compare/v6.0.3...v6.1.0) (2021-06-25)
 
 
