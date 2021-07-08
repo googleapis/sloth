@@ -58,6 +58,7 @@
         "bigtabletableadmin",
         "cloudlatencytest",
         "cloudvideosearch",
+        "containerfilesystem",
         "containerthreatdetection",
         "deploymentmanager",
         "dns",
