@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.2.1](https://www.github.com/googleapis/sloth/compare/v6.2.0...v6.2.1) (2021-07-09)
+
+
+### Bug Fixes
+
+* send experimental headers to github to fix experimental filtering ([#971](https://www.github.com/googleapis/sloth/issues/971)) ([63c5ffa](https://www.github.com/googleapis/sloth/commit/63c5ffafd3dbd8ea5229c980b66e56ed10b129ca))
+
 ## [6.2.0](https://www.github.com/googleapis/sloth/compare/v6.1.0...v6.2.0) (2021-07-08)
 
 
