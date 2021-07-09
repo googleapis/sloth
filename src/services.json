@@ -82,6 +82,7 @@
         "stackdriver",
         "sts",
         "threatdetection",
+        "trafficdirector",
         "zync"
       ]
     },
