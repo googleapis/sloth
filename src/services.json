@@ -87,6 +87,7 @@
         "sts",
         "threatdetection",
         "trafficdirector",
+        "vmwareengine",
         "zync"
       ]
     },
