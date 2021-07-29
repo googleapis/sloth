@@ -43,7 +43,8 @@
       "repos": [
         "googleapis/nodejs-logging-winston",
         "googleapis/nodejs-logging-bunyan",
-        "GoogleCloudPlatform/cloud-ops-sandbox"
+        "GoogleCloudPlatform/cloud-ops-sandbox",
+        "googleapis/env-tests-logging"
       ]
     },
     {
