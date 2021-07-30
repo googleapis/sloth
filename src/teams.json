@@ -146,6 +146,7 @@
         "googleapis/gapic-generator",
         "googleapis/nodejs-proto-files",
         "googleapis/proto-plus-python",
+        "googleapis/protoc-docs-plugin",
         "googleapis/sample-tester",
         "googleapis/google-auth-library-swift",
         "googleapis/google-api-swift-client",
