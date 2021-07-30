@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.3.0](https://www.github.com/googleapis/sloth/compare/v6.2.1...v6.3.0) (2021-07-30)
+
+
+### Features
+
+* add env-tests-logging repo under operations team ([#976](https://www.github.com/googleapis/sloth/issues/976)) ([0b0bed1](https://www.github.com/googleapis/sloth/commit/0b0bed16c1dd7a59b1e6f0cf44b85232af059b22))
+* add protoc-docs-plugin repo under actools team ([#978](https://www.github.com/googleapis/sloth/issues/978)) ([e9e5411](https://www.github.com/googleapis/sloth/commit/e9e5411adac2e2c68474ad348ad10fa64728e016))
+
 ### [6.2.1](https://www.github.com/googleapis/sloth/compare/v6.2.0...v6.2.1) (2021-07-09)
 
 
