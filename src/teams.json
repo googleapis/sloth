@@ -119,6 +119,7 @@
         "datacatalog",
         "dataflow",
         "dataproc",
+        "datascienceonramp",
         "dataqna",
         "pubsub",
         "pubsublite"
