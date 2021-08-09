@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.3.1](https://www.github.com/googleapis/sloth/compare/v6.3.0...v6.3.1) (2021-08-09)
+
+
+### Bug Fixes
+
+* **build:** migrate to using main branch ([#983](https://www.github.com/googleapis/sloth/issues/983)) ([849120d](https://www.github.com/googleapis/sloth/commit/849120d752f26710bfb1dd0e46999f0c05662265))
+
 ## [6.3.0](https://www.github.com/googleapis/sloth/compare/v6.2.1...v6.3.0) (2021-07-30)
 
 
