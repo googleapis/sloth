@@ -31,7 +31,8 @@
       ],
       "repos": [
         "GoogleCloudPlatform/cloud-bigtable-examples",
-        "googleapis/google-cloud-datastore"
+        "googleapis/google-cloud-datastore",
+        "googleapis/google-cloud-python-happybase"
       ]
     },
     {
