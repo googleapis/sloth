@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.4.0](https://www.github.com/googleapis/sloth/compare/v6.3.1...v6.4.0) (2021-08-16)
+
+
+### Features
+
+* assign google-cloud-python-happybase to cloud-native-databases ([#986](https://www.github.com/googleapis/sloth/issues/986)) ([70bfcb3](https://www.github.com/googleapis/sloth/commit/70bfcb3406df14307d3c6fed678c17b48064a3e4))
+
+
+### Bug Fixes
+
+* use Cloud Run for bigquery exports ([#989](https://www.github.com/googleapis/sloth/issues/989)) ([3d6fd5c](https://www.github.com/googleapis/sloth/commit/3d6fd5ca9b6a854edb58544697bc5164dae0222f))
+
 ### [6.3.1](https://www.github.com/googleapis/sloth/compare/v6.3.0...v6.3.1) (2021-08-09)
 
 
