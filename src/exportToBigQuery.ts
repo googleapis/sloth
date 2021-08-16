@@ -13,43 +13,10 @@
 // limitations under the License.
 
 import {BigQuery} from '@google-cloud/bigquery';
-import meow = require('meow');
 import {getIssues} from './issue';
 import {Issue} from './types';
 
-const cli = meow(
-  `
-	Usage
-	  $ build/src/exportToBigQuery
-
-  Options
-    --datasetId   DataSetId to use in BigQuery
-    --tableId     TableId to use in BigQuery
-    --projectId   ProjectId to use in BigQuery
-
-	Examples
-    $ build/src/exportToBigQuery --datasetId mydata --tableId records --projectId el-gato
-`,
-  {
-    flags: {
-      datasetId: {type: 'string'},
-      tableId: {type: 'string'},
-      projectId: {type: 'string'},
-    },
-  }
-);
-
-if (!cli.flags.datasetId) {
-  throw new Error('datasetId is required');
-}
-if (!cli.flags.tableId) {
-  throw new Error('tableId is required');
-}
-if (!cli.flags.projectId) {
-  throw new Error('projectId is required');
-}
-
-export async function main(
+export async function exportToBigQuery(
   datasetId: string,
   tableId: string,
   projectId: string
@@ -76,13 +43,19 @@ export async function main(
   console.log(result);
 }
 
-main(cli.flags.datasetId, cli.flags.tableId, cli.flags.projectId).catch(err => {
-  console.error(err);
-  if (err.errors) {
-    for (const e of err.errors) {
-      console.error(e);
-    }
+if (module === require.main) {
+  const args = process.argv.slice(2);
+  if (args.length !== 3) {
+    throw new Error(
+      'Usage: node exportToBigQuery.js <datasetId> <tableId> <projectId>'
+    );
   }
-  // eslint-disable-next-line no-process-exit
-  process.exit(-1);
-});
+  exportToBigQuery(args[0], args[1], args[2]).catch(err => {
+    console.error(err);
+    if (err.errors) {
+      for (const e of err.errors) {
+        console.error(e);
+      }
+    }
+  });
+}
