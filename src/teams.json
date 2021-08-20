@@ -5,6 +5,9 @@
       "apis": [
         "storage",
         "storagetransfer"
+      ],
+      "repos": [
+        "googleapis/storage-testbench"
       ]
     },
     {
