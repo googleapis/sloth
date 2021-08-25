@@ -186,7 +186,8 @@
       "repos": [
         "googleapis/ruby-spanner-activerecord",
         "googleapis/java-spanner-jdbc",
-        "googleapis/python-spanner-django"
+        "googleapis/python-spanner-django",
+        "googleapis/dotnet-spanner-entity-framework"
       ]
     },
     {
