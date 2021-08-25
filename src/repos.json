@@ -9,6 +9,7 @@
 
     { "language": "dotnet", "repo": "googleapis/gax-dotnet", "isTeamIssue": true},
     { "language": "dotnet", "repo": "googleapis/gapic-generator-csharp", "isTeamIssue": true},
+    { "language": "dotnet", "repo": "googleapis/dotnet-spanner-entity-framework", "isTeamsIssue": true},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/dotnet-docs-samples"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-code-samples"},
