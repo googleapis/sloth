@@ -34,7 +34,7 @@
   "dependencies": {
     "@google-cloud/bigquery": "^5.0.0",
     "@google-cloud/local-auth": "^1.0.0",
-    "@google-cloud/service-management": "^0.2.1",
+    "@google-cloud/service-management": "^0.3.0",
     "@googleapis/sheets": "^0.3.0",
     "cli-table": "^0.3.1",
     "csv-string": "^4.0.0",
