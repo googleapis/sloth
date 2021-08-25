@@ -15,6 +15,7 @@
 import * as express from 'express';
 import {exportToSheets} from './exportToSheets';
 import {exportApisToSheets} from './fetchServices';
+import {exportToBigQuery} from './exportToBigQuery';
 
 // This simple server exposes endpoints that are used with Cloud Scheduler
 // to perform regular sync to a sheet that powers go/yoshi-live.
@@ -30,6 +31,19 @@ app.post('/exportToSheets', async (req, res) => {
 app.post('/exportApisToSheets', async (req, res) => {
   try {
     await exportApisToSheets();
+    res.sendStatus(202);
+  } catch (e) {
+    console.error(e);
+    res.sendStatus(500);
+  }
+});
+
+app.post('/exportToBigQuery', async (req, res) => {
+  try {
+    const datasetId = 'yoshi_github_slo';
+    const tableId = 'issues_raw';
+    const projectId = 'yoshi-status';
+    await exportToBigQuery(datasetId, tableId, projectId);
     res.sendStatus(202);
   } catch (e) {
     console.error(e);
