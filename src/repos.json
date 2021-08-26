@@ -13,6 +13,7 @@
     { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-code-samples"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-ops-sandbox"},
+    { "language": "dotnet", "repo": "googleapis/dotnet-spanner-entity-framework"},    
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api", "isTeamIssue": true},
     { "language": "elixir", "repo": "GoogleCloudPlatform/elixir-samples", "isTeamIssue": true},
