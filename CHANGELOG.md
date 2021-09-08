@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.4.2](https://www.github.com/googleapis/sloth/compare/v6.4.1...v6.4.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* ACTools owns gapic_rules ([#998](https://www.github.com/googleapis/sloth/issues/998)) ([f576d88](https://www.github.com/googleapis/sloth/commit/f576d88cfb1970548ac550a1b675cc1aa2eb366c))
+
 ### [6.4.1](https://www.github.com/googleapis/sloth/compare/v6.4.0...v6.4.1) (2021-08-26)
 
 
