@@ -85,8 +85,8 @@
       "repos": [
         "GoogleCloudPlatform/bank-of-anthos",
         "GoogleCloudPlatform/microservices-demo",
-        "GoogleCloudPlatform/kubernetes-engine-samples", 
-        "GoogleCloudPlatform/anthos-config-management-samples", 
+        "GoogleCloudPlatform/kubernetes-engine-samples",
+        "GoogleCloudPlatform/anthos-config-management-samples",
         "GoogleCloudPlatform/anthos-service-mesh-samples",
         "GoogleCloudPlatform/anthos-samples"
       ]
@@ -162,7 +162,8 @@
         "googleapis/gax-kotlin",
         "googleapis/disco-to-proto3-converter",
         "googleapis/api-linter",
-        "googleapis/proto-breaking-change-detector"
+        "googleapis/proto-breaking-change-detector",
+        "googleapis/rules_gapic"
       ]
     },
     {
