@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.4.3](https://www.github.com/googleapis/sloth/compare/v6.4.2...v6.4.3) (2021-09-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency truncate to v3 ([#1003](https://www.github.com/googleapis/sloth/issues/1003)) ([24eaed2](https://www.github.com/googleapis/sloth/commit/24eaed26eedf969adda12ab0ae4d1496eab59fdb))
+
 ### [6.4.2](https://www.github.com/googleapis/sloth/compare/v6.4.1...v6.4.2) (2021-09-08)
 
 
