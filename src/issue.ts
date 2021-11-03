@@ -26,6 +26,7 @@ import {teams} from './teams.json';
 import {Repo} from './types';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
+import {inspect} from 'util';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const truncate = require('truncate');
@@ -179,7 +180,12 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         console.warn(
           `Error fetching issues for ${repo.repo}. Sleeping for ${sleepTime} milliseconds.`
         );
-        console.warn(e);
+        // strip keys from the url
+        const errorText = inspect(e, false, 100).replace(
+          /key=.*'/,
+          '[redacted]'
+        );
+        console.warn(errorText);
         await sleep(sleepTime);
         tries = tries + 1;
       }
