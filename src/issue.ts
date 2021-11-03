@@ -183,7 +183,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         // strip keys from the url
         const errorText = inspect(e, false, 100).replace(
           /key=.*'/,
-          '[redacted]'
+          'key=[redacted]'
         );
         console.warn(errorText);
         await sleep(sleepTime);
