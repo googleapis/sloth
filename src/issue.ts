@@ -181,7 +181,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
           `Error fetching issues for ${repo.repo}. Sleeping for ${sleepTime} milliseconds.`
         );
         // strip keys from the url
-        const errorText = inspect(e, false, 100).replaceAll(
+        const errorText = inspect(e, false, 100).replace(
           /key=.*'/g,
           'key=[redacted]'
         );
