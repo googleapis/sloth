@@ -13,7 +13,7 @@
     { "language": "dotnet", "repo": "GoogleCloudPlatform/getting-started-dotnet"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-code-samples"},
     { "language": "dotnet", "repo": "GoogleCloudPlatform/cloud-ops-sandbox"},
-    { "language": "dotnet", "repo": "googleapis/dotnet-spanner-entity-framework"},    
+    { "language": "dotnet", "repo": "googleapis/dotnet-spanner-entity-framework"},
 
     { "language": "elixir", "repo": "googleapis/elixir-google-api", "isTeamIssue": true},
     { "language": "elixir", "repo": "GoogleCloudPlatform/elixir-samples", "isTeamIssue": true},
@@ -22,6 +22,7 @@
     { "language": "go", "repo": "googleapis/gapic-generator-go", "isTeamIssue": true},
     { "language": "go", "repo": "GoogleCloudPlatform/golang-samples"},
     { "language": "go", "repo": "GoogleCloudPlatform/cloudsql-proxy", "isTeamIssue": true},
+    { "language": "go", "repo": "GoogleCloudPlatform/kubernetes-engine-samples", "isTeamIssue": true},
 
     { "language": "java", "repo": "googleapis/gax-java", "isTeamIssue": true},
     { "language": "java", "repo": "googleapis/gapic-generator", "isTeamIssue": true},
@@ -29,6 +30,7 @@
     { "language": "java", "repo": "GoogleCloudPlatform/java-docs-samples"},
     { "language": "java", "repo": "GoogleCloudPlatform/getting-started-java"},
     { "language": "java", "repo": "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory", "isTeamIssue": true},
+    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true},
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/nodejs-api-gateway", "apiHint": "apigateway"},
@@ -56,8 +58,9 @@
     { "language": "ruby", "repo": "googleapis/ruby-spanner-activerecord", "isTeamIssue": true},
 
     { "language": "yaml", "repo": "GoogleCloudPlatform/workflows-samples"},
+    { "language": "yaml", "repo": "GoogleCloudPlatform/anthos-service-mesh-samples", "isTeamIssue": true},
 
-    { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true},
-    { "language": "terraform", "repo": "GoogleCloudPlatform/anthos-samples", "isTeamIssue": true}
+    { "language": "terraform", "repo": "GoogleCloudPlatform/anthos-samples", "isTeamIssue": true},
+    { "language": "bash", "repo": "GoogleCloudPlatform/anthos-config-management-samples", "isTeamIssue": true}
   ]
 }
