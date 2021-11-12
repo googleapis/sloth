@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.4.4](https://www.github.com/googleapis/sloth/compare/v6.4.3...v6.4.4) (2021-11-09)
+
+
+### Bug Fixes
+
+* add anthos/gke dpe repos to the repos.json ([#1017](https://www.github.com/googleapis/sloth/issues/1017)) ([efc359c](https://www.github.com/googleapis/sloth/commit/efc359c1b090a634b48dbb91315818bf2d56c0d1))
+* use replace instead of replaceAll ([#1014](https://www.github.com/googleapis/sloth/issues/1014)) ([c9cd971](https://www.github.com/googleapis/sloth/commit/c9cd971e8538dd832112b4909ff6a38fd46c004b))
+
 ### [6.4.3](https://www.github.com/googleapis/sloth/compare/v6.4.2...v6.4.3) (2021-09-29)
 
 
