@@ -217,6 +217,9 @@
       "name": "core",
       "apis": [
 
+      ],
+      "repos": [
+        "googleapis/elixir-google-api"
       ]
     },
     {
