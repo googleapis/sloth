@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.5.0](https://www.github.com/googleapis/sloth/compare/v6.4.4...v6.5.0) (2021-12-09)
+
+
+### Features
+
+* add elixir to core repos ([#1020](https://www.github.com/googleapis/sloth/issues/1020)) ([e9407ac](https://www.github.com/googleapis/sloth/commit/e9407ac2337633bb492cfab8a8fd10955209d99b))
+
 ### [6.4.4](https://www.github.com/googleapis/sloth/compare/v6.4.3...v6.4.4) (2021-11-09)
 
 
