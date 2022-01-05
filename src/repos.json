@@ -59,6 +59,7 @@
 
     { "language": "yaml", "repo": "GoogleCloudPlatform/workflows-samples"},
     { "language": "yaml", "repo": "GoogleCloudPlatform/anthos-service-mesh-samples", "isTeamIssue": true},
+    { "language": "yaml", "repo": "GoogleCloudPlatform/anthos-edge-usecases", "isTeamIssue": true},
 
     { "language": "terraform", "repo": "GoogleCloudPlatform/anthos-samples", "isTeamIssue": true},
     { "language": "bash", "repo": "GoogleCloudPlatform/anthos-config-management-samples", "isTeamIssue": true}
