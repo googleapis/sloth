@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.5.1](https://www.github.com/googleapis/sloth/compare/v6.5.0...v6.5.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* add anthos-edge-usecases ([#1023](https://www.github.com/googleapis/sloth/issues/1023)) ([a68a96d](https://www.github.com/googleapis/sloth/commit/a68a96d7936532b1d8ddcab5dd3a80d4dcbb4277))
+
 ## [6.5.0](https://www.github.com/googleapis/sloth/compare/v6.4.4...v6.5.0) (2021-12-09)
 
 
