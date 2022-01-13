@@ -36,8 +36,11 @@
     { "language": "nodejs", "repo": "googleapis/nodejs-api-gateway", "apiHint": "apigateway"},
     { "language": "nodejs", "repo": "googleapis/nodejs-data-qna", "apiHint": "dataqna"},
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript", "isTeamIssue": true},
+    { "language": "nodejs", "repo": "googleapis/synthtool"},
+    { "language": "nodejs", "repo": "googleapis/releasetool"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
+    
 
     { "language": "php", "repo": "googleapis/gax-php", "isTeamIssue": true},
     { "language": "php", "repo": "GoogleCloudPlatform/php-docs-samples"},
