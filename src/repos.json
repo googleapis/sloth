@@ -31,6 +31,7 @@
     { "language": "java", "repo": "GoogleCloudPlatform/getting-started-java"},
     { "language": "java", "repo": "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory", "isTeamIssue": true},
     { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true},
+    { "language": "java", "repo": "googleapis/google-auth-library-java", "isTeamIssue": true},
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/nodejs-api-gateway", "apiHint": "apigateway"},
@@ -50,6 +51,9 @@
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
     { "language": "python", "repo": "GoogleCloudPlatform/cloud-sql-python-connector", "isTeamIssue": true},
     { "language": "python", "repo": "GoogleCloudPlatform/microservices-demo", "isTeamIssue": true},
+    { "language": "python", "repo": "googleapis/google-auth-library-python", "isTeamIssue": true},
+    { "language": "python", "repo": "googleapis/google-auth-library-python-httplib2", "isTeamIssue": true},
+    { "language": "python", "repo": "googleapis/google-auth-library-python-oauthlib", "isTeamIssue": true},
 
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
     { "language": "ruby", "repo": "googleapis/gapic-generator-ruby", "isTeamIssue": true},
