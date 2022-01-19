@@ -168,6 +168,16 @@
       ]
     },
     {
+      "name": "auth",
+      "repos": [
+        "googleapis/google-auth-library-java",
+        "googleapis/google-oauth-java-client",
+        "googleapis/google-auth-library-python",
+        "googleapis/google-auth-library-python-oauthlib",
+        "googleapis/google-auth-library-python-httplib2"
+      ]
+    },
+    {
       "name": "apm",
       "repos": [
         "googleapis/cloud-debug-nodejs",
