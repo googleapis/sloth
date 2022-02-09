@@ -5,15 +5,15 @@ branchProtectionRules:
 - pattern: main
   isAdminEnforced: true
   requiredStatusCheckContexts:
-    - 'ci/kokoro: Samples test',
-    - 'ci/kokoro: System test',
-    - 'docs',
-    - 'lint',
-    - 'test (12)',
-    - 'test (14)',
-    - 'test (16)',
-    - 'cla/google',
-    - 'windows',
+    - 'ci/kokoro: Samples test'
+    - 'ci/kokoro: System test'
+    - 'docs'
+    - 'lint'
+    - 'test (12)'
+    - 'test (14)'
+    - 'test (16)'
+    - 'cla/google'
+    - 'windows'
     - 'OwlBot Post Processor'
   requiredApprovingReviewCount: 1
   requiresCodeOwnerReviews: true
