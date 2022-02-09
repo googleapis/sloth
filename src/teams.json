@@ -87,7 +87,7 @@
         "GoogleCloudPlatform/microservices-demo",
         "GoogleCloudPlatform/kubernetes-engine-samples",
         "GoogleCloudPlatform/anthos-config-management-samples",
-        "GoogleCloudPlatform/anthos-edge-usecases",
+        "GoogleCloudPlatform/point-of-sale",
         "GoogleCloudPlatform/anthos-service-mesh-samples",
         "GoogleCloudPlatform/anthos-samples"
       ]
