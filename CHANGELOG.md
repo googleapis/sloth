@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.6.0](https://github.com/googleapis/sloth/compare/v6.5.1...v6.6.0) (2022-02-16)
+
+
+### Features
+
+* update in scope services ([#1038](https://github.com/googleapis/sloth/issues/1038)) ([f24f064](https://github.com/googleapis/sloth/commit/f24f06467d557592b6984d438ea12e2e25c223ed))
+
 ### [6.5.1](https://www.github.com/googleapis/sloth/compare/v6.5.0...v6.5.1) (2022-01-05)
 
 
