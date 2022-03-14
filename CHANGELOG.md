@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.6.1](https://github.com/googleapis/sloth/compare/v6.6.0...v6.6.1) (2022-03-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @google-cloud/service-management to ^0.4.0 ([#1042](https://github.com/googleapis/sloth/issues/1042)) ([c81eaa4](https://github.com/googleapis/sloth/commit/c81eaa462316cdb492b13624c41b0b3d77025bce))
+
 ## [6.6.0](https://github.com/googleapis/sloth/compare/v6.5.1...v6.6.0) (2022-02-16)
 
 
