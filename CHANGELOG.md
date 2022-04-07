@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.6.2](https://github.com/googleapis/sloth/compare/v6.6.1...v6.6.2) (2022-04-07)
+
+
+### Bug Fixes
+
+* update exportApisToSheets to populate all_apis sheet ([5c0b86c](https://github.com/googleapis/sloth/commit/5c0b86c17eade428dba2802e62d8cf9f31ca4f4b))
+
 ### [6.6.1](https://github.com/googleapis/sloth/compare/v6.6.0...v6.6.1) (2022-03-14)
 
 
