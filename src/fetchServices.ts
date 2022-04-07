@@ -168,7 +168,7 @@ export async function exportApisToSheets() {
   // clear the current text in the sheet
   await sheets.spreadsheets.values.clear({
     spreadsheetId,
-    range: 'A1:Z10000',
+    range: 'all_apis!A1:Z10000',
   });
 
   // insert it into the sheet
@@ -178,7 +178,7 @@ export async function exportApisToSheets() {
       valueInputOption: 'USER_ENTERED',
       data: [
         {
-          range: 'A1',
+          range: 'all_apis!A1',
           values,
         },
       ],
