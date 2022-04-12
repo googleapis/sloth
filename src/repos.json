@@ -42,6 +42,8 @@
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
     
+    { "language": "nodejs", "repo": "googleapis/repo-automation-bots", "apiHint": "automation-team", "isTeamIssue": true},
+    { "language": "nodejs", "repo": "googleapis/release-please", "apiHint": "automation-team", "isTeamIssue": true},
 
     { "language": "php", "repo": "googleapis/gax-php", "isTeamIssue": true},
     { "language": "php", "repo": "GoogleCloudPlatform/php-docs-samples"},

@@ -44,6 +44,10 @@ if (!apiKey) {
   );
 }
 
+const WORK_STREAMS = [
+  'automation-team'
+];
+
 let _repos: Repo[];
 
 export async function getRepos() {
@@ -412,7 +416,9 @@ export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
 function getApi(i: ApiIssue): string | undefined {
   if (i.labels) {
     for (const label of i.labels.sort()) {
-      if (label.startsWith('api: ')) {
+      if (WORK_STREAMS.includes(label)) {
+        return label;
+      } else if (label.startsWith('api: ')) {
         return label.slice(5);
       }
     }
