@@ -44,9 +44,7 @@ if (!apiKey) {
   );
 }
 
-const WORK_STREAMS = [
-  'automation-team'
-];
+const WORK_STREAMS = ['automation-team'];
 
 let _repos: Repo[];
 
