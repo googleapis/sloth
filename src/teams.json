@@ -1,6 +1,16 @@
 {
   "teams": [
     {
+      "name": "automation-team",
+      "apis": [
+
+      ],
+      "repos": [
+        "googleapis/release-please",
+        "googleapis/repo-automation-bots"
+      ]
+    },
+    {
       "name": "storage",
       "apis": [
         "storage",
