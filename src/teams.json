@@ -1,6 +1,17 @@
 {
   "teams": [
     {
+      "name": "automation-team",
+      "apis": [
+
+      ],
+      "repos": [
+        "googleapis/release-please",
+        "googleapis/repo-automation-bots",
+        "googleapis/synthtool"
+      ]
+    },
+    {
       "name": "storage",
       "apis": [
         "storage",

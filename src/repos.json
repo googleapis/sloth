@@ -42,6 +42,9 @@
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
     
+    { "language": "nodejs", "repo": "googleapis/repo-automation-bots","isTeamIssue": true},
+    { "language": "nodejs", "repo": "googleapis/release-please", "isTeamIssue": true},
+    { "language": "nodejs", "repo": "googleapis/synthtool", "isTeamIssue": true},
 
     { "language": "php", "repo": "googleapis/gax-php", "isTeamIssue": true},
     { "language": "php", "repo": "GoogleCloudPlatform/php-docs-samples"},
