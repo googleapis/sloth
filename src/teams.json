@@ -144,7 +144,6 @@
     {
       "name": "actools",
       "repos": [
-        "googleapis/gax-nodejs",
         "googleapis/gax-php",
         "googleapis/gax-dotnet",
         "googleapis/gax-go",
@@ -152,7 +151,6 @@
         "googleapis/gax-ruby",
         "googleapis/artman",
         "googleapis/gapic-showcase",
-        "googleapis/gapic-generator-typescript",
         "googleapis/gapic-generator-ruby",
         "googleapis/gapic-generator-python",
         "googleapis/gapic-generator-go",
@@ -161,7 +159,6 @@
         "googleapis/gapic-generator-java",
         "googleapis/gapic-generator-kotlin",
         "googleapis/gapic-generator",
-        "googleapis/nodejs-proto-files",
         "googleapis/proto-plus-python",
         "googleapis/protoc-docs-plugin",
         "googleapis/sample-tester",
