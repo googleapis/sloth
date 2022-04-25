@@ -4,6 +4,18 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.8.0](https://github.com/googleapis/sloth/compare/v6.7.0...v6.8.0) (2022-04-25)
+
+
+### Features
+
+* **nodejs:** merge actools and core teams ([#1055](https://github.com/googleapis/sloth/issues/1055)) ([7e2e64d](https://github.com/googleapis/sloth/commit/7e2e64d863cae2e98d3a9e2a59921e0a7d09abed))
+
+
+### Bug Fixes
+
+* **deps:** update dependency gaxios to v5 ([#1054](https://github.com/googleapis/sloth/issues/1054)) ([8717531](https://github.com/googleapis/sloth/commit/8717531f395fd1e613424a8fecab620f67469062))
+
 ## [6.7.0](https://github.com/googleapis/sloth/compare/v6.6.2...v6.7.0) (2022-04-12)
 
 
