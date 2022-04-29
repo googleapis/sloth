@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.9.0](https://github.com/googleapis/sloth/compare/v6.8.0...v6.9.0) (2022-04-29)
+
+
+### Features
+
+* **python:** merge actools and core teams ([#1057](https://github.com/googleapis/sloth/issues/1057)) ([f7dd48d](https://github.com/googleapis/sloth/commit/f7dd48dbb3217340de30cdc0d44525db13236660))
+* transfer releasetool repo to automation-team ([#1058](https://github.com/googleapis/sloth/issues/1058)) ([82eb7af](https://github.com/googleapis/sloth/commit/82eb7af0694e277e6f6770755c911811858c06d8))
+
 ## [6.8.0](https://github.com/googleapis/sloth/compare/v6.7.0...v6.8.0) (2022-04-25)
 
 
