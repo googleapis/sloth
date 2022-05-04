@@ -26,6 +26,8 @@
       "name": "infra-databases",
       "apis": [
         "cloudsql",
+        "redis",
+        "memcache"
       ],
       "repos": [
         "GoogleCloudPlatform/cloudsql-proxy",
