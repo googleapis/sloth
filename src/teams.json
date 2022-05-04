@@ -254,6 +254,28 @@
       "repos": [
         "GoogleCloudPlatform/workflows-samples"
       ]
+    },
+    {
+      "name": "ga-devrel",
+      "apis": [
+        "analytics-data"
+      ],
+      "repos": [
+        "googleapis/nodejs-analytics-data",
+        "googleapis/python-analytics-data",
+        "googleapis/java-analytics-data"
+      ]
+    },
+    {
+      "name": "ga-devrel",
+      "apis": [
+        "analytics-admin"
+      ],
+      "repos": [
+        "googleapis/nodejs-analytics-admin",
+        "googleapis/python-analytics-admin",
+        "googleapis/java-analytics-admin"
+      ]
     }
   ]
 }
