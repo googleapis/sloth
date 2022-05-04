@@ -26,13 +26,12 @@
       "name": "infra-databases",
       "apis": [
         "cloudsql",
-        "redis",
-        "memcache"
       ],
       "repos": [
         "GoogleCloudPlatform/cloudsql-proxy",
         "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory",
-        "GoogleCloudPlatform/cloud-sql-python-connector"
+        "GoogleCloudPlatform/cloud-sql-python-connector",
+        "GoogleCloudPlatform/cloud-sql-go-connector",
       ]
     },
     {
