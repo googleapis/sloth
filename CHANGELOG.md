@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.10.0](https://github.com/googleapis/sloth/compare/v6.9.1...v6.10.0) (2022-05-05)
+
+
+### Features
+
+* add analytics-data and analytics-admin teams ([#1063](https://github.com/googleapis/sloth/issues/1063)) ([56d7419](https://github.com/googleapis/sloth/commit/56d7419d1dff25f617ee8ade142b131d0f2c77a2))
+
 ### [6.9.1](https://github.com/googleapis/sloth/compare/v6.9.0...v6.9.1) (2022-05-05)
 
 
