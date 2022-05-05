@@ -255,6 +255,13 @@
       "repos": [
         "GoogleCloudPlatform/workflows-samples"
       ]
+    },
+    {
+      "name": "ga-devrel",
+      "apis": [
+        "analyticsadmin",
+        "analyticsdata"
+      ]
     }
   ]
 }
