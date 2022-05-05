@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [6.9.1](https://github.com/googleapis/sloth/compare/v6.9.0...v6.9.1) (2022-05-05)
+
+
+### Bug Fixes
+
+* update team from aiplatform to vertex-ai ([#1064](https://github.com/googleapis/sloth/issues/1064)) ([58ed3ea](https://github.com/googleapis/sloth/commit/58ed3eaccfb82e20b8239327a3d09dc5ae680fef))
+
 ## [6.9.0](https://github.com/googleapis/sloth/compare/v6.8.0...v6.9.0) (2022-04-29)
 
 
