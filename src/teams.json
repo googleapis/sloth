@@ -107,7 +107,6 @@
     {
       "name": "cloud-ai",
       "apis": [
-        "aiplatform",
         "automl",
         "datalabeling",
         "dialogflow",
@@ -120,6 +119,7 @@
         "speech",
         "texttospeech",
         "translate",
+        "vertex-ai",
         "videointelligence",
         "vision"
       ]
