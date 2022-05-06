@@ -26,6 +26,9 @@
       "name": "infra-databases",
       "apis": [
         "cloudsql",
+        "cloudsql-mysql",
+        "cloudsql-postgres",
+        "cloudsql-sqlserver",
         "redis",
         "memcache"
       ],
