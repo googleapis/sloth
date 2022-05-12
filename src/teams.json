@@ -9,7 +9,9 @@
         "googleapis/release-please",
         "googleapis/releasetool",
         "googleapis/repo-automation-bots",
-        "googleapis/synthtool"
+        "googleapis/sloth",
+        "googleapis/synthtool",
+        "google-github-actions/release-please-action"
       ]
     },
     {
@@ -243,6 +245,15 @@
       ],
       "repos": [
         "googleapis/elixir-google-api"
+      ]
+    },
+    {
+      "name": "core-nodejs",
+      "apis": [
+
+      ],
+      "repos": [
+        "google/gts"
       ]
     },
     {
