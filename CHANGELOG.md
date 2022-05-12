@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [6.11.0](https://github.com/googleapis/sloth/compare/v6.10.0...v6.11.0) (2022-05-12)
+
+
+### Features
+
+* add additional core/automation repos ([da2c048](https://github.com/googleapis/sloth/commit/da2c048e061af9d95f219b50ede4ed07350a4593))
+
 ## [6.10.0](https://github.com/googleapis/sloth/compare/v6.9.1...v6.10.0) (2022-05-05)
 
 
