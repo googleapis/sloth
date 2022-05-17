@@ -166,8 +166,8 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         // If DRGHS is not actually tracking issues, log a warn on it and skip; do not
         // reattempt with backoff
         if (
-          e.response.status === 404 &&
-          e.response.data.message ===
+          (e as {response: {status: number}}).response.status === 404 &&
+          (e as {response: {data: {message: string}}}).response.data.message ===
             `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
