@@ -6,5 +6,6 @@
   "name": "sloth",
   "name_pretty": "🤖",
   "release_level": "preview",
-  "repo": "googleapis/sloth"
+  "repo": "googleapis/sloth",
+  "codeowner_team": "@googleapis/github-automation"
 }
