@@ -248,15 +248,6 @@
       ]
     },
     {
-      "name": "core-nodejs",
-      "apis": [
-
-      ],
-      "repos": [
-        "google/gts"
-      ]
-    },
-    {
       "name": "cloud-iot",
       "apis": [
         "cloudiot"
