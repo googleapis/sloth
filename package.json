@@ -33,7 +33,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@google-cloud/bigquery": "^5.0.0",
-    "@google-cloud/local-auth": "^1.0.0",
+    "@google-cloud/local-auth": "^2.0.0",
     "@google-cloud/service-management": "^0.4.0",
     "@googleapis/sheets": "^0.3.0",
     "cli-table": "^0.3.1",
