@@ -35,11 +35,14 @@
     { "language": "java", "repo": "googleapis/google-auth-library-java", "isTeamIssue": true},
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
+    { "language": "nodejs", "repo": "google/gts", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/nodejs-api-gateway", "apiHint": "apigateway"},
     { "language": "nodejs", "repo": "googleapis/nodejs-data-qna", "apiHint": "dataqna"},
     { "language": "nodejs", "repo": "googleapis/gapic-generator-typescript", "isTeamIssue": true},
+    { "language": "nodejs", "repo": "googleapis/sloth", "isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/synthtool"},
     { "language": "nodejs", "repo": "googleapis/releasetool"},
+    { "language": "nodejs", "repo": "google-github-actions/release-please-action", "isTeamIssue": true},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
     
