@@ -22,6 +22,7 @@
     { "language": "go", "repo": "googleapis/gapic-generator-go", "isTeamIssue": true},
     { "language": "go", "repo": "GoogleCloudPlatform/golang-samples"},
     { "language": "go", "repo": "GoogleCloudPlatform/cloudsql-proxy", "isTeamIssue": true},
+    { "language": "go", "repo": "GoogleCloudPlatform/cloud-sql-go-connector", "isTeamIssue": true},
     { "language": "go", "repo": "GoogleCloudPlatform/kubernetes-engine-samples", "isTeamIssue": true},
 
     { "language": "java", "repo": "googleapis/gax-java", "isTeamIssue": true},
