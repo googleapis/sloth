@@ -4,6 +4,22 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [7.0.0](https://github.com/googleapis/sloth/compare/v6.11.0...v7.0.0) (2022-05-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* update library to use Node 12 (#1074)
+
+### Bug Fixes
+
+* **deps:** update dependency @google-cloud/local-auth to v2 ([#1076](https://github.com/googleapis/sloth/issues/1076)) ([6d02c93](https://github.com/googleapis/sloth/commit/6d02c935d69990739940f255440373b44a79be41))
+
+
+### Build System
+
+* update library to use Node 12 ([#1074](https://github.com/googleapis/sloth/issues/1074)) ([abd8547](https://github.com/googleapis/sloth/commit/abd8547409c28d633e44e58d886892a944472a37))
+
 ## [6.11.0](https://github.com/googleapis/sloth/compare/v6.10.0...v6.11.0) (2022-05-12)
 
 
