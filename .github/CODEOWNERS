@@ -5,8 +5,8 @@
 # https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners#codeowners-syntax
 
 
-# This repository is owned by the github-automation team.
-*     @googleapis/github-automation
+# The yoshi-nodejs team is the default owner for nodejs repositories.
+*     @googleapis/yoshi-nodejs
 
 # The github automation team is the default owner for the auto-approve file.
 .github/auto-approve.yml @googleapis/github-automation
