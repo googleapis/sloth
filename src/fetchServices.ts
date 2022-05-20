@@ -189,7 +189,6 @@ export async function exportApisToSheets() {
     spreadsheetId,
     range: `all_apis!A${start}:Z${end}`,
   });
-
 }
 
 /**

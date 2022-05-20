@@ -98,5 +98,4 @@ export async function exportToSheets() {
     spreadsheetId,
     range: `A${start}:Z${end}`,
   });
-
 }
