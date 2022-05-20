@@ -135,9 +135,11 @@ export function getApiClientScope(serviceConfig: protos.google.api.IService) {
 
 export async function getResults(): Promise<string[][]> {
   const services: string[] = await getAllServiceNames();
+  // We bumped the API quota to 1,200/minute (20 QPS). Let's start with
+  // 50% of the quota limit.
   const throttle = Throttle({
-    limit: 2,
-    interval: 2200,
+    limit: 10,
+    interval: 1000,
   });
   const throttledGetServiceConfig = throttle(async (s: string) => {
     console.log(`requesting service config: ${s}`);
