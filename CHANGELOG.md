@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [7.0.1](https://github.com/googleapis/sloth/compare/v7.0.0...v7.0.1) (2022-05-20)
+
+
+### Bug Fixes
+
+* allow higher QPS for getServiceConfig ([#1085](https://github.com/googleapis/sloth/issues/1085)) ([5aabbbe](https://github.com/googleapis/sloth/commit/5aabbbee0e13cc687dfbc249e6979f83a518894a))
+* preserve field names in the first row ([#1089](https://github.com/googleapis/sloth/issues/1089)) ([1cb3364](https://github.com/googleapis/sloth/commit/1cb336455ca6f87e7b2ae2650c2cf9f97e815e69))
+
 ## [7.0.0](https://github.com/googleapis/sloth/compare/v6.11.0...v7.0.0) (2022-05-18)
 
 
