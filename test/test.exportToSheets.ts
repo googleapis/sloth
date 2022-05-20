@@ -71,7 +71,7 @@ describe('exportToSheets', () => {
     const sheetPath =
       '/v4/spreadsheets/1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
     const scope = nock('https://sheets.googleapis.com')
-      .post(`${sheetPath}/values/A1%3AZ10000:clear`)
+      .post(`${sheetPath}/values/A2%3AZ10000:clear`)
       .reply(200)
       .post(`${sheetPath}/values:batchUpdate`)
       .reply(200);

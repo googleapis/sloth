@@ -75,10 +75,11 @@ export async function exportToSheets() {
     version: 'v4',
     auth: await fixtures.getClient(),
   });
-  // clear the current text in the sheet
+  // clear the current text in the sheet except for the field labels
+  // on the first row.
   await sheets.spreadsheets.values.clear({
     spreadsheetId,
-    range: 'A1:Z10000',
+    range: 'A2:Z10000',
   });
 
   // insert it into the sheet
