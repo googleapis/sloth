@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+### [7.0.1](https://github.com/googleapis/sloth/compare/v7.0.0...v7.0.1) (2022-05-20)
+
+
+### Bug Fixes
+
+* allow higher QPS for getServiceConfig ([#1085](https://github.com/googleapis/sloth/issues/1085)) ([5aabbbe](https://github.com/googleapis/sloth/commit/5aabbbee0e13cc687dfbc249e6979f83a518894a))
+
 ## [7.0.0](https://github.com/googleapis/sloth/compare/v6.11.0...v7.0.0) (2022-05-18)
 
 
