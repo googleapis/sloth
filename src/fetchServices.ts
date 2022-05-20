@@ -21,6 +21,7 @@ import * as meow from 'meow';
 import Table = require('cli-table');
 import {allow, deny} from './services.json';
 import * as CSV from 'csv-string';
+import {NUMBER_TO_DELETE} from './util';
 
 const auth = new google.auth.GoogleAuth({
   scopes: [
@@ -183,7 +184,7 @@ export async function exportApisToSheets() {
 
   // then clear the excess data
   const start = values.length + 1;
-  const end = start + 10000;
+  const end = start + NUMBER_TO_DELETE;
 
   await sheets.spreadsheets.values.clear({
     spreadsheetId,

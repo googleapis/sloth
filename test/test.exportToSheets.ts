@@ -24,6 +24,7 @@ process.env.DRIFT_API_KEY = 'not-a-key';
 
 import {exportToSheets, fixtures} from '../src/exportToSheets';
 import * as issues from '../src/issue';
+import {NUMBER_TO_DELETE} from '../src/util';
 
 nock.disableNetConnect();
 const sandbox = sinon.createSandbox();
@@ -73,7 +74,7 @@ describe('exportToSheets', () => {
 
     // The test data has one row plus the file name row.
     const start = 3;
-    const end = start + 10000;
+    const end = start + NUMBER_TO_DELETE;
     const scope = nock('https://sheets.googleapis.com')
       .post(`${sheetPath}/values:batchUpdate`)
       .reply(200)

@@ -15,6 +15,7 @@
 import * as google from '@googleapis/sheets';
 import {getIssues} from './issue';
 import {Issue} from './types';
+import {NUMBER_TO_DELETE} from './util';
 const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
 
 export const fixtures = {
@@ -92,7 +93,7 @@ export async function exportToSheets() {
 
   // then clear the excess data
   const start = values.length + 1;
-  const end = start + 10000;
+  const end = start + NUMBER_TO_DELETE;
 
   await sheets.spreadsheets.values.clear({
     spreadsheetId,
