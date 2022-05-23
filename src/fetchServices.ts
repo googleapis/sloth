@@ -21,6 +21,7 @@ import * as meow from 'meow';
 import Table = require('cli-table');
 import {allow, deny} from './services.json';
 import * as CSV from 'csv-string';
+import {NUMBER_TO_DELETE} from './util';
 
 const auth = new google.auth.GoogleAuth({
   scopes: [
@@ -167,14 +168,7 @@ export async function exportApisToSheets() {
   const values = await getResults();
   values.unshift(['Service', 'Title', 'Group', 'HasSurface', 'InScope', 'ToS']);
 
-  // clear the current text in the sheet except for the field labels
-  // on the first row.
-  await sheets.spreadsheets.values.clear({
-    spreadsheetId,
-    range: 'all_apis!A2:Z10000',
-  });
-
-  // insert it into the sheet
+  // first update the data into the sheet
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId: spreadsheetId,
     requestBody: {
@@ -186,6 +180,15 @@ export async function exportApisToSheets() {
         },
       ],
     },
+  });
+
+  // then clear the excess data
+  const start = values.length + 1;
+  const end = start + NUMBER_TO_DELETE;
+
+  await sheets.spreadsheets.values.clear({
+    spreadsheetId,
+    range: `all_apis!A${start}:Z${end}`,
   });
 }
 

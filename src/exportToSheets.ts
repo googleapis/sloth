@@ -15,6 +15,7 @@
 import * as google from '@googleapis/sheets';
 import {getIssues} from './issue';
 import {Issue} from './types';
+import {NUMBER_TO_DELETE} from './util';
 const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
 
 export const fixtures = {
@@ -75,14 +76,8 @@ export async function exportToSheets() {
     version: 'v4',
     auth: await fixtures.getClient(),
   });
-  // clear the current text in the sheet except for the field labels
-  // on the first row.
-  await sheets.spreadsheets.values.clear({
-    spreadsheetId,
-    range: 'A2:Z10000',
-  });
 
-  // insert it into the sheet
+  // first update the data into the sheet
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
     requestBody: {
@@ -94,5 +89,14 @@ export async function exportToSheets() {
         },
       ],
     },
+  });
+
+  // then clear the excess data
+  const start = values.length + 1;
+  const end = start + NUMBER_TO_DELETE;
+
+  await sheets.spreadsheets.values.clear({
+    spreadsheetId,
+    range: `A${start}:Z${end}`,
   });
 }
