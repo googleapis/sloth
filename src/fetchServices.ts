@@ -21,7 +21,6 @@ import * as meow from 'meow';
 import Table = require('cli-table');
 import {allow, deny} from './services.json';
 import * as CSV from 'csv-string';
-import {NUMBER_TO_DELETE} from './util';
 
 const auth = new google.auth.GoogleAuth({
   scopes: [
@@ -182,9 +181,10 @@ export async function exportApisToSheets() {
     },
   });
 
-  // then clear the excess data
+  // Then clear the excess data. Batch operations is limited to the
+  // current size of the sheet.
   const start = values.length + 1;
-  const end = start + NUMBER_TO_DELETE;
+  const end = values.length * 2;
 
   await sheets.spreadsheets.values.clear({
     spreadsheetId,
