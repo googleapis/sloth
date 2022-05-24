@@ -15,7 +15,7 @@
 import * as google from '@googleapis/sheets';
 import {getIssues} from './issue';
 import {Issue} from './types';
-import {NUMBER_TO_DELETE} from './util';
+
 const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
 
 export const fixtures = {
@@ -91,9 +91,10 @@ export async function exportToSheets() {
     },
   });
 
-  // then clear the excess data
+  // Then clear the excess data. Batch operations is limited to the
+  // current size of the sheet.
   const start = values.length + 1;
-  const end = start + NUMBER_TO_DELETE;
+  const end = values.length * 2;
 
   await sheets.spreadsheets.values.clear({
     spreadsheetId,

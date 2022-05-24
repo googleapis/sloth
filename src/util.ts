@@ -27,5 +27,3 @@ export async function gethub<T = unknown>(options: GaxiosOptions) {
   };
   return request<T>(options);
 }
-
-export const NUMBER_TO_DELETE = 10000;
