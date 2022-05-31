@@ -4,6 +4,17 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [7.0.1](https://github.com/googleapis/sloth/compare/v7.0.0...v7.0.1) (2022-05-31)
+
+
+### Bug Fixes
+
+* allow higher QPS for getServiceConfig ([#1085](https://github.com/googleapis/sloth/issues/1085)) ([5aabbbe](https://github.com/googleapis/sloth/commit/5aabbbee0e13cc687dfbc249e6979f83a518894a))
+* delete only excess data ([#1092](https://github.com/googleapis/sloth/issues/1092)) ([554504c](https://github.com/googleapis/sloth/commit/554504c037d0d0a4c0ff126050cd96933c93c1e6))
+* **deps:** update dependency @google-cloud/bigquery to v6 ([#1100](https://github.com/googleapis/sloth/issues/1100)) ([1bf10c8](https://github.com/googleapis/sloth/commit/1bf10c81ac216abc63602af960373e4965ac8cf1))
+* limit the delete range ([#1097](https://github.com/googleapis/sloth/issues/1097)) ([218700e](https://github.com/googleapis/sloth/commit/218700e4fdcfc174cd33acacf3570bccb0b86c46)), closes [#1096](https://github.com/googleapis/sloth/issues/1096)
+* preserve field names in the first row ([#1089](https://github.com/googleapis/sloth/issues/1089)) ([1cb3364](https://github.com/googleapis/sloth/commit/1cb336455ca6f87e7b2ae2650c2cf9f97e815e69))
+
 ## [7.0.0](https://github.com/googleapis/sloth/compare/v6.11.0...v7.0.0) (2022-05-18)
 
 
