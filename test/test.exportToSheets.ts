@@ -70,10 +70,14 @@ describe('exportToSheets', () => {
     sandbox.stub(fixtures, 'getClient').resolves(jwt);
     const sheetPath =
       '/v4/spreadsheets/1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
+
+    // The test data has one row plus the file name row.
+    const start = 3;
+    const end = 4;
     const scope = nock('https://sheets.googleapis.com')
-      .post(`${sheetPath}/values/A1%3AZ10000:clear`)
-      .reply(200)
       .post(`${sheetPath}/values:batchUpdate`)
+      .reply(200)
+      .post(`${sheetPath}/values/A${start}%3AZ${end}:clear`)
       .reply(200);
     await exportToSheets();
     scope.done();

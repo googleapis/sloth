@@ -135,9 +135,11 @@ export function getApiClientScope(serviceConfig: protos.google.api.IService) {
 
 export async function getResults(): Promise<string[][]> {
   const services: string[] = await getAllServiceNames();
+  // We bumped the API quota to 1,200/minute (20 QPS). Let's start with
+  // 50% of the quota limit.
   const throttle = Throttle({
-    limit: 2,
-    interval: 2200,
+    limit: 10,
+    interval: 1000,
   });
   const throttledGetServiceConfig = throttle(async (s: string) => {
     console.log(`requesting service config: ${s}`);
@@ -165,13 +167,7 @@ export async function exportApisToSheets() {
   const values = await getResults();
   values.unshift(['Service', 'Title', 'Group', 'HasSurface', 'InScope', 'ToS']);
 
-  // clear the current text in the sheet
-  await sheets.spreadsheets.values.clear({
-    spreadsheetId,
-    range: 'all_apis!A1:Z10000',
-  });
-
-  // insert it into the sheet
+  // first update the data into the sheet
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId: spreadsheetId,
     requestBody: {
@@ -183,6 +179,16 @@ export async function exportApisToSheets() {
         },
       ],
     },
+  });
+
+  // Then clear the excess data. Batch operations is limited to the
+  // current size of the sheet.
+  const start = values.length + 1;
+  const end = values.length * 2;
+
+  await sheets.spreadsheets.values.clear({
+    spreadsheetId,
+    range: `all_apis!A${start}:Z${end}`,
   });
 }
 

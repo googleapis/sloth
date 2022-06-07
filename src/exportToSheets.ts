@@ -15,6 +15,7 @@
 import * as google from '@googleapis/sheets';
 import {getIssues} from './issue';
 import {Issue} from './types';
+
 const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
 
 export const fixtures = {
@@ -75,13 +76,8 @@ export async function exportToSheets() {
     version: 'v4',
     auth: await fixtures.getClient(),
   });
-  // clear the current text in the sheet
-  await sheets.spreadsheets.values.clear({
-    spreadsheetId,
-    range: 'A1:Z10000',
-  });
 
-  // insert it into the sheet
+  // first update the data into the sheet
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId,
     requestBody: {
@@ -93,5 +89,15 @@ export async function exportToSheets() {
         },
       ],
     },
+  });
+
+  // Then clear the excess data. Batch operations is limited to the
+  // current size of the sheet.
+  const start = values.length + 1;
+  const end = values.length * 2;
+
+  await sheets.spreadsheets.values.clear({
+    spreadsheetId,
+    range: `A${start}:Z${end}`,
   });
 }
