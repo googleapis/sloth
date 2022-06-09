@@ -11,6 +11,7 @@
         "googleapis/repo-automation-bots",
         "googleapis/sloth",
         "googleapis/synthtool",
+        "googleapis/code-suggester",
         "google-github-actions/release-please-action"
       ]
     },
