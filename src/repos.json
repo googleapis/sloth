@@ -64,6 +64,7 @@
     { "language": "python", "repo": "googleapis/google-auth-library-python", "isTeamIssue": true},
     { "language": "python", "repo": "googleapis/google-auth-library-python-httplib2", "isTeamIssue": true},
     { "language": "python", "repo": "googleapis/google-auth-library-python-oauthlib", "isTeamIssue": true},
+    { "language": "python", "repo": "GoogleCloudPlatform/composer-utilities"},
 
     { "language": "ruby", "repo": "googleapis/gax-ruby", "isTeamIssue": true},
     { "language": "ruby", "repo": "googleapis/gapic-generator-ruby", "isTeamIssue": true},
