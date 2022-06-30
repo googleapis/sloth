@@ -151,6 +151,9 @@
         "dataqna",
         "pubsub",
         "pubsublite"
+      ],
+      "repos": [
+        "GoogleCloudPlatform/composer-utilities"
       ]
     },
     {
