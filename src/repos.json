@@ -23,6 +23,8 @@
     { "language": "go", "repo": "GoogleCloudPlatform/golang-samples"},
     { "language": "go", "repo": "GoogleCloudPlatform/cloudsql-proxy", "isTeamIssue": true},
     { "language": "go", "repo": "GoogleCloudPlatform/cloud-sql-go-connector", "isTeamIssue": true},
+    { "language": "go", "repo": "GoogleCloudPlatform/alloydb-auth-proxy", "isTeamIssue": true},
+    { "language": "go", "repo": "GoogleCloudPlatform/alloydb-go-connector", "isTeamIssue": true},
     { "language": "go", "repo": "GoogleCloudPlatform/kubernetes-engine-samples", "isTeamIssue": true},
 
     { "language": "java", "repo": "googleapis/gax-java", "isTeamIssue": true},
@@ -60,6 +62,7 @@
     { "language": "python", "repo": "GoogleCloudPlatform/python-docs-samples"},
     { "language": "python", "repo": "GoogleCloudPlatform/getting-started-python"},
     { "language": "python", "repo": "GoogleCloudPlatform/cloud-sql-python-connector", "isTeamIssue": true},
+    { "language": "python", "repo": "GoogleCloudPlatform/cloud-sql-iam-db-authn-groups", "isTeamIssue": true},
     { "language": "python", "repo": "GoogleCloudPlatform/microservices-demo", "isTeamIssue": true},
     { "language": "python", "repo": "googleapis/google-auth-library-python", "isTeamIssue": true},
     { "language": "python", "repo": "googleapis/google-auth-library-python-httplib2", "isTeamIssue": true},
