@@ -60,6 +60,16 @@
       ]
     },
     {
+      "name": "firebase-sdk",
+      "apis": [
+        "firestore"
+      ],
+      "repos": [
+        "googleapis/java-firestore",
+        "googleapis/nodejs-firestore"
+      ]
+    },
+    {
       "name": "operations",
       "apis": [
         "logging",

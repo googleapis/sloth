@@ -35,6 +35,7 @@
     { "language": "java", "repo": "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory", "isTeamIssue": true},
     { "language": "java", "repo": "GoogleCloudPlatform/cloud-bigtable-examples", "isTeamIssue": true},
     { "language": "java", "repo": "googleapis/google-auth-library-java", "isTeamIssue": true},
+    { "language": "java", "repo": "googleapis/java-firestore", "isTeamIssue": true},
 
     { "language": "nodejs", "repo": "googleapis/gax-nodejs", "isTeamIssue": true},
     { "language": "nodejs", "repo": "google/gts", "isTeamIssue": true},
@@ -47,6 +48,7 @@
     { "language": "nodejs", "repo": "google-github-actions/release-please-action", "isTeamIssue": true},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-docs-samples"},
     { "language": "nodejs", "repo": "GoogleCloudPlatform/nodejs-getting-started"},
+    { "language": "nodejs", "repo": "googleapis/nodejs-firestore", "isTeamIssue": true},
     
     { "language": "nodejs", "repo": "googleapis/repo-automation-bots","isTeamIssue": true},
     { "language": "nodejs", "repo": "googleapis/release-please", "isTeamIssue": true},
