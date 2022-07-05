@@ -62,7 +62,7 @@
     {
       "name": "firebase-sdk",
       "apis": [
-        "firestore",
+        "firestore"
       ],
       "repos": [
         "googleapis/java-firestore",
