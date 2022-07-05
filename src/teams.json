@@ -38,7 +38,10 @@
         "GoogleCloudPlatform/cloudsql-proxy",
         "GoogleCloudPlatform/cloud-sql-jdbc-socket-factory",
         "GoogleCloudPlatform/cloud-sql-python-connector",
-        "GoogleCloudPlatform/cloud-sql-go-connector"
+        "GoogleCloudPlatform/cloud-sql-go-connector",
+        "GoogleCloudPlatform/alloydb-go-connector",
+        "GoogleCloudPlatform/alloydb-auth-proxy",
+        "GoogleCloudPlatform/cloud-sql-iam-db-authn-groups"
       ]
     },
     {
