@@ -27,6 +27,7 @@ import {Repo} from './types';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 import {inspect} from 'util';
+import {BigQuery} from '@google-cloud/bigquery';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const truncate = require('truncate');
@@ -121,10 +122,103 @@ export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
   // make it linearly slower, but more predictable and safe.
   const results = new Array<IssueResult>();
   for (const repo of repos) {
-    const r = await getRepoIssues(repo, flags);
+    const r = await getRepoIssuesFromBigQuery(repo, flags);
     results.push(r);
   }
   return results;
+}
+
+async function getRepoIssuesFromBigQuery(repo: Repo, flags?: Flags): Promise<IssueResult> {
+  const [owner, name] = repo.repo.split('/');
+  const result = {issues: new Array<Issue>(), repo};
+  const bigquery = new BigQuery();
+
+  const tableName = '';
+  const query = 'SELECT ' +
+    'assignees, closed, closedAt, createdAt, isPr, issueId, issueType, labels, ' +
+    'priority, priorityUnknown, repo, reporter, title, updatedAt, url from ' +
+    '`${tableName}` where closed = false and repo == "${repo.repo}"';
+  const options = {
+    query: query,
+    location: 'US',
+  };
+  const [job] = await bigquery.createQueryJob(options);
+  const [rows] = await job.getQueryResults();
+  for (const row of rows) {
+    const rIssue = row as ApiIssue;
+    const api = getApi(rIssue);
+    const issue: Issue = {
+      owner,
+      name,
+      language: getLanguage(repo, rIssue),
+      repo: repo.repo,
+      types: getTypes(rIssue),
+      api,
+      team: getTeam(rIssue.repo, api),
+      isOutOfSLO: isOutOfSLO(rIssue),
+      isTriaged: isTriaged(rIssue),
+      pri: rIssue.priorityUnknown ? undefined : getPriority(rIssue.priority),
+      isPR: !!rIssue.isPr,
+      number: rIssue.issueId,
+      createdAt: rIssue.createdAt,
+      title: rIssue.title,
+      url: rIssue.url,
+      labels: rIssue.labels || [],
+      assignees: rIssue.assignees ? rIssue.assignees.map(x => x.login) : [],
+    };
+
+    let use = true;
+    if (flags) {
+      if (flags.api) {
+        const apiTypes = flags.api
+          .split(',')
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+        if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
+          use = false;
+        }
+      }
+      if (flags.repo && rIssue.repo !== flags.repo) {
+        use = false;
+      }
+      if (flags.outOfSlo && !issue.isOutOfSLO) {
+        use = false;
+      }
+      if (flags.untriaged && issue.isTriaged) {
+        use = false;
+      }
+      if (flags.team && issue.team !== flags.team) {
+        use = false;
+      }
+      if (flags.pri && `p${issue.pri}` !== flags.pri) {
+        use = false;
+      }
+      if (flags.pr && !issue.isPR) {
+        use = false;
+      }
+      if (flags.type) {
+        const flagTypes = flags.type
+          .split(',')
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+        let found = false;
+        for (const flagType of flagTypes) {
+          for (const issueType of issue.types) {
+            if (flagType === issueType) {
+              found = true;
+            }
+          }
+        }
+        if (!found) {
+          use = false;
+        }
+      }
+    }
+    if (use) {
+      result.issues.push(issue);
+    }
+  }
+  return result;
 }
 
 async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
