@@ -141,8 +141,8 @@ async function getRepoIssuesFromBigQuery(
     'SELECT ' +
     'assignee_github_logins AS assignees, ' +
     'IF(issue_closed = 0, FALSE, TRUE) AS closed, ' +
-    'close_time AS closedAt, ' +
-    'create_time AS createdAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", close_time) AS closedAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", create_time) AS createdAt, ' +
     'IF(is_pr = 0, FALSE, TRUE) AS isPr, ' +
     'issue_id AS issueId, ' +
     'issue_type AS issueType, ' +
@@ -152,7 +152,7 @@ async function getRepoIssuesFromBigQuery(
     'repo_name AS repo, ' +
     'reporter_github_login AS reporter, ' +
     'title AS title, ' +
-    'update_time AS updatedAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", update_time) AS updatedAt, ' +
     "CONCAT('https://github.com/', repo_name, '/', IF(is_pr = 0, 'issues', 'prs'), '/', issue_id) AS url, " +
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
@@ -165,6 +165,7 @@ async function getRepoIssuesFromBigQuery(
   const [job] = await bigquery.createQueryJob(options);
   const [rows] = await job.getQueryResults();
   for (const row of rows) {
+    console.log(`priority: ${row.priority}`)
     // labels and assignees are nullable, converting to an empty string
     if (row.labels === undefined || row.labels === null) {
       row.labels = '';
@@ -176,9 +177,9 @@ async function getRepoIssuesFromBigQuery(
       labels: (row.labels.split(',') as string[]).map(x => x.trim()),
       isPr: row.isPr,
       repo: row.repo,
-      createdAt: row.createdAt.string_value,
-      updatedAt: row.updatedAt.string_value,
-      issueId: Number(row.issue_id),
+      createdAt: row.createdAt,
+      updatedAt: row.updatedAt,
+      issueId: row.issueId,
       title: row.title,
       priority: row.priority,
       assignees: (row.assignees.split(',') as string[]).map(x => ({
