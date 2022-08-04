@@ -165,7 +165,6 @@ async function getRepoIssuesFromBigQuery(
   const [job] = await bigquery.createQueryJob(options);
   const [rows] = await job.getQueryResults();
   for (const row of rows) {
-    console.log(`priority: ${row.priority}`)
     // labels and assignees are nullable, converting to an empty string
     if (row.labels === undefined || row.labels === null) {
       row.labels = '';
@@ -305,7 +304,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (
           (e as {response: {status: number}}).response.status === 404 &&
           (e as {response: {data: {message: string}}}).response.data.message ===
-          `repository ${repo.repo} is not tracking issues`
+            `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
             `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
@@ -545,7 +544,7 @@ function getTypes(i: ApiIssue) {
 // As a part of the gRPC API, the Priority of the Issue is
 // now sent back as a string. "P0", "P1", "P2" etc.
 export function getPriority(p: string): number | undefined {
-  const priorityRegex = new RegExp('^[Pp]d$');
+  const priorityRegex = new RegExp('^[Pp][0-9]');
   if (priorityRegex.test(p)) {
     return Number(p.slice(1));
   } else {
