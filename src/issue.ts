@@ -180,14 +180,12 @@ async function getRepoIssuesFromBigQuery(
       issueId: Number(row.issue_id),
       title: row.title,
       priority: row.priority,
-      assignees: (row.assignees.split(',') as string[]).map(x => (
-        {
-          id: 0, // dummy id, it's unused
-          login: x
-        }
-      )),
+      assignees: (row.assignees.split(',') as string[]).map(x => ({
+        id: 0, // dummy id, it's unused
+        login: x,
+      })),
       url: row.url,
-      priorityUnknown: row.priorityUnknown
+      priorityUnknown: row.priorityUnknown,
     };
     const api = getApi(rIssue);
     const issue: Issue = {
@@ -305,7 +303,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (
           (e as {response: {status: number}}).response.status === 404 &&
           (e as {response: {data: {message: string}}}).response.data.message ===
-          `repository ${repo.repo} is not tracking issues`
+            `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
             `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
