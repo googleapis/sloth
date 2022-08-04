@@ -39,11 +39,12 @@ const nBackoff = 5;
 const backoffTime = 500;
 
 const apiKey = process.env.DRIFT_API_KEY;
-if (!apiKey) {
-  throw new Error(
-    'Please access the `Yoshi Drift Key` secret in go/valentine, and set the `DRIFT_API_KEY` env var.'
-  );
-}
+// We don't need it with BigQuery version.
+// if (!apiKey) {
+//   throw new Error(
+//     'Please access the `Yoshi Drift Key` secret in go/valentine, and set the `DRIFT_API_KEY` env var.'
+//   );
+// }
 
 let _repos: Repo[];
 
@@ -303,7 +304,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (
           (e as {response: {status: number}}).response.status === 404 &&
           (e as {response: {data: {message: string}}}).response.data.message ===
-            `repository ${repo.repo} is not tracking issues`
+          `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
             `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
