@@ -141,8 +141,8 @@ async function getRepoIssuesFromBigQuery(
     'SELECT ' +
     'assignee_github_logins AS assignees, ' +
     'IF(issue_closed = 0, FALSE, TRUE) AS closed, ' +
-    'FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", close_time) AS closedAt, ' +
-    'FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", create_time) AS createdAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", close_time, "UTC") AS closedAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", create_time, "UTC") AS createdAt, ' +
     'IF(is_pr = 0, FALSE, TRUE) AS isPr, ' +
     'issue_id AS issueId, ' +
     'issue_type AS issueType, ' +
@@ -152,7 +152,7 @@ async function getRepoIssuesFromBigQuery(
     'repo_name AS repo, ' +
     'reporter_github_login AS reporter, ' +
     'title AS title, ' +
-    'FORMAT_TIMESTAMP("%Y-%m-%dT%X%Ez", update_time) AS updatedAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", update_time, "UTC") AS updatedAt, ' +
     "CONCAT('https://github.com/', repo_name, '/', IF(is_pr = 0, 'issues', 'prs'), '/', issue_id) AS url, " +
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
@@ -304,7 +304,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (
           (e as {response: {status: number}}).response.status === 404 &&
           (e as {response: {data: {message: string}}}).response.data.message ===
-            `repository ${repo.repo} is not tracking issues`
+          `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
             `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
