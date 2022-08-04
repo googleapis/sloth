@@ -134,12 +134,26 @@ async function getRepoIssuesFromBigQuery(repo: Repo, flags?: Flags): Promise<Iss
   const result = {issues: new Array<Issue>(), repo};
   const bigquery = new BigQuery();
 
-  const tableName = '';
   const query = 'SELECT ' +
-    'assignee_github_logins, issue_closed, close_time, create_time, is_pr, ' +
-    'issue_id, issue_type, labels, priority, repo_name, reporter_github_login, ' +
-    'title, update_time, CONCAT(\'https://github.com/\', repo_name) as url from ' +
-    `\`${tableName\` where issue_closed = false and repo_name = "${repo.repo}"`;
+    'assignee_github_logins AS assignees, ' +
+    'issue_closed AS closed, ' +
+    'close_time AS closedAt, ' +
+    'create_time AS createdAt, ' +
+    'is_pr AS isPr, ' +
+    'issue_id AS issueId, ' +
+    'issue_type AS issueType, ' +
+    'labels AS labels, ' +
+    'priority AS priority, ' +
+    'IF(priority = \'PRIORITY_UNSPECIFIED\', TRUE, FALSE) AS priorityUnknown, ' +
+    'repo_name AS repo, ' +
+    'reporter_github_login AS reporter, ' +
+    'title AS title, ' +
+    'update_time AS updatedAt, ' +
+    'CONCAT(\'https://github.com/\', repo_name, \'/\', IF(is_pr, \'prs\', \'issues\'), \'/\', issue_id) AS url, ' +
+    'FROM `devrel-public-datasets-prod.github.github_issues` ' +
+    '  WHERE ' +
+    'issue_closed = FALSE ' +
+    `  AND repo_name == "${repo.repo}"`;
   const options = {
     query: query,
     location: 'US',
@@ -147,19 +161,7 @@ async function getRepoIssuesFromBigQuery(repo: Repo, flags?: Flags): Promise<Iss
   const [job] = await bigquery.createQueryJob(options);
   const [rows] = await job.getQueryResults();
   for (const row of rows) {
-    const rIssue = {
-      labels: row.labels,
-      isPr: row.is_pr,
-      repo: row.repo_name,
-      createdAt: row.create_time,
-      updatedAt: row.update_time,
-      issueId: row.issue_id,
-      title: row.title,
-      priority: row.priority,
-      assignees: row.assignee_github_logins,
-      url: row.url,
-      priorityUnknown: false
-    } as BigQueryIssue;
+    const rIssue = row as BigQueryIssue;
     const api = getApi(rIssue);
     const issue: Issue = {
       owner,
