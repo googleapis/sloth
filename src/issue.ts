@@ -27,6 +27,7 @@ import {Repo} from './types';
 import {request, GaxiosResponse} from 'gaxios';
 import Table = require('cli-table');
 import {inspect} from 'util';
+import {BigQuery} from '@google-cloud/bigquery';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const truncate = require('truncate');
@@ -38,11 +39,12 @@ const nBackoff = 5;
 const backoffTime = 500;
 
 const apiKey = process.env.DRIFT_API_KEY;
-if (!apiKey) {
-  throw new Error(
-    'Please access the `Yoshi Drift Key` secret in go/valentine, and set the `DRIFT_API_KEY` env var.'
-  );
-}
+// We don't need it with BigQuery version.
+// if (!apiKey) {
+//   throw new Error(
+//     'Please access the `Yoshi Drift Key` secret in go/valentine, and set the `DRIFT_API_KEY` env var.'
+//   );
+// }
 
 let _repos: Repo[];
 
@@ -121,10 +123,144 @@ export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
   // make it linearly slower, but more predictable and safe.
   const results = new Array<IssueResult>();
   for (const repo of repos) {
-    const r = await getRepoIssues(repo, flags);
+    const r = await getRepoIssuesFromBigQuery(repo, flags);
     results.push(r);
   }
   return results;
+}
+
+async function getRepoIssuesFromBigQuery(
+  repo: Repo,
+  flags?: Flags
+): Promise<IssueResult> {
+  const [owner, name] = repo.repo.split('/');
+  const result = {issues: new Array<Issue>(), repo};
+  const bigquery = new BigQuery();
+
+  const query =
+    'SELECT ' +
+    'assignee_github_logins AS assignees, ' +
+    'IF(issue_closed = 0, FALSE, TRUE) AS closed, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", close_time, "UTC") AS closedAt, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", create_time, "UTC") AS createdAt, ' +
+    'IF(is_pr = 0, FALSE, TRUE) AS isPr, ' +
+    'issue_id AS issueId, ' +
+    'issue_type AS issueType, ' +
+    'labels AS labels, ' +
+    'priority AS priority, ' +
+    "IF(priority = 'PRIORITY_UNSPECIFIED', TRUE, FALSE) AS priorityUnknown, " +
+    'repo_name AS repo, ' +
+    'reporter_github_login AS reporter, ' +
+    'title AS title, ' +
+    'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", update_time, "UTC") AS updatedAt, ' +
+    "CONCAT('https://github.com/', repo_name, '/', IF(is_pr = 0, 'issues', 'pull'), '/', issue_id) AS url, " +
+    'FROM `devrel-public-datasets-prod.github.github_issues` ' +
+    '  WHERE ' +
+    'issue_closed = 0 ' +
+    `  AND repo_name = "${repo.repo}"`;
+  const options = {
+    query: query,
+    location: 'US',
+  };
+  const [job] = await bigquery.createQueryJob(options);
+  const [rows] = await job.getQueryResults();
+  for (const row of rows) {
+    // labels and assignees are nullable, converting to an empty string
+    if (row.labels === undefined || row.labels === null) {
+      row.labels = '';
+    }
+    if (row.assignees === undefined || row.assignees === null) {
+      row.assignees = '';
+    }
+    const rIssue: ApiIssue = {
+      labels: (row.labels.split(',') as string[]).map(x => x.trim()),
+      isPr: row.isPr,
+      repo: row.repo,
+      createdAt: row.createdAt,
+      updatedAt: row.updatedAt,
+      issueId: row.issueId,
+      title: row.title,
+      priority: row.priority,
+      assignees: (row.assignees.split(',') as string[]).map(x => ({
+        id: 0, // dummy id, it's unused
+        login: x,
+      })),
+      url: row.url,
+      priorityUnknown: row.priorityUnknown,
+    };
+    const api = getApi(rIssue);
+    const issue: Issue = {
+      owner,
+      name,
+      language: getLanguage(repo, rIssue),
+      repo: repo.repo,
+      types: getTypes(rIssue),
+      api,
+      team: getTeam(rIssue.repo, api),
+      isOutOfSLO: isOutOfSLO(rIssue),
+      isTriaged: isTriaged(rIssue),
+      pri: getPriority(rIssue.priority),
+      isPR: !!rIssue.isPr,
+      number: rIssue.issueId,
+      createdAt: rIssue.createdAt,
+      title: rIssue.title,
+      url: rIssue.url,
+      labels: rIssue.labels || [],
+      assignees: rIssue.assignees ? rIssue.assignees.map(x => x.login) : [],
+    };
+
+    let use = true;
+    if (flags) {
+      if (flags.api) {
+        const apiTypes = flags.api
+          .split(',')
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+        if (!issue.api || apiTypes.indexOf(issue.api) === -1) {
+          use = false;
+        }
+      }
+      if (flags.repo && rIssue.repo !== flags.repo) {
+        use = false;
+      }
+      if (flags.outOfSlo && !issue.isOutOfSLO) {
+        use = false;
+      }
+      if (flags.untriaged && issue.isTriaged) {
+        use = false;
+      }
+      if (flags.team && issue.team !== flags.team) {
+        use = false;
+      }
+      if (flags.pri && `p${issue.pri}` !== flags.pri) {
+        use = false;
+      }
+      if (flags.pr && !issue.isPR) {
+        use = false;
+      }
+      if (flags.type) {
+        const flagTypes = flags.type
+          .split(',')
+          .map(t => t.trim())
+          .filter(t => t.length > 0);
+        let found = false;
+        for (const flagType of flagTypes) {
+          for (const issueType of issue.types) {
+            if (flagType === issueType) {
+              found = true;
+            }
+          }
+        }
+        if (!found) {
+          use = false;
+        }
+      }
+    }
+    if (use) {
+      result.issues.push(issue);
+    }
+  }
+  return result;
 }
 
 async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
@@ -407,7 +543,14 @@ function getTypes(i: ApiIssue) {
 
 // As a part of the gRPC API, the Priority of the Issue is
 // now sent back as a string. "P0", "P1", "P2" etc.
-export const getPriority = (p: string) => Number(p.toLowerCase().slice(1));
+export function getPriority(p: string): number | undefined {
+  const priorityRegex = new RegExp('^[Pp][0-9]');
+  if (priorityRegex.test(p)) {
+    return Number(p.slice(1));
+  } else {
+    return undefined;
+  }
+}
 
 function getApi(i: ApiIssue): string | undefined {
   if (i.labels) {
@@ -503,7 +646,7 @@ function hasLabel(issue: ApiIssue, label: string) {
  * @param i Issue to analyze
  */
 function isOutOfSLO(i: ApiIssue) {
-  const pri = i.priorityUnknown ? undefined : getPriority(i.priority);
+  const pri = getPriority(i.priority);
 
   // Previously we applied rules around Pull Request closure SLOs.
   // It had the unintended consequence of folks feeling forced to rush landing

@@ -22,7 +22,7 @@ import * as google from '@googleapis/sheets';
 process.env.GITHUB_TOKEN = 'not-a-token';
 process.env.DRIFT_API_KEY = 'not-a-key';
 
-import {exportToSheets, fixtures} from '../src/exportToSheets';
+import {exportToSheets, fixtures, spreadsheetId} from '../src/exportToSheets';
 import * as issues from '../src/issue';
 
 nock.disableNetConnect();
@@ -68,8 +68,7 @@ describe('exportToSheets', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     sandbox.stub(jwt as any, 'getRequestMetadataAsync').resolves({headers: {}});
     sandbox.stub(fixtures, 'getClient').resolves(jwt);
-    const sheetPath =
-      '/v4/spreadsheets/1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
+    const sheetPath = `/v4/spreadsheets/${spreadsheetId}`;
 
     // The test data has one row plus the file name row.
     const start = 3;
