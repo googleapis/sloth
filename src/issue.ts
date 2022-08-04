@@ -140,7 +140,7 @@ async function getRepoIssuesFromBigQuery(
   const query =
     'SELECT ' +
     'assignee_github_logins AS assignees, ' +
-    'issue_closed AS closed, ' +
+    'IF(issue_closed = 0, FALSE, TRUE) AS closed, ' +
     'close_time AS closedAt, ' +
     'create_time AS createdAt, ' +
     'is_pr AS isPr, ' +
@@ -156,7 +156,7 @@ async function getRepoIssuesFromBigQuery(
     "CONCAT('https://github.com/', repo_name, '/', IF(is_pr, 'prs', 'issues'), '/', issue_id) AS url, " +
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
-    'issue_closed = FALSE ' +
+    'issue_closed = 0 ' +
     `  AND repo_name = "${repo.repo}"`;
   const options = {
     query: query,
