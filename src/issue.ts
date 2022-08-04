@@ -129,12 +129,16 @@ export async function getIssues(flags?: Flags): Promise<IssueResult[]> {
   return results;
 }
 
-async function getRepoIssuesFromBigQuery(repo: Repo, flags?: Flags): Promise<IssueResult> {
+async function getRepoIssuesFromBigQuery(
+  repo: Repo,
+  flags?: Flags
+): Promise<IssueResult> {
   const [owner, name] = repo.repo.split('/');
   const result = {issues: new Array<Issue>(), repo};
   const bigquery = new BigQuery();
 
-  const query = 'SELECT ' +
+  const query =
+    'SELECT ' +
     'assignee_github_logins AS assignees, ' +
     'issue_closed AS closed, ' +
     'close_time AS closedAt, ' +
@@ -144,12 +148,12 @@ async function getRepoIssuesFromBigQuery(repo: Repo, flags?: Flags): Promise<Iss
     'issue_type AS issueType, ' +
     'labels AS labels, ' +
     'priority AS priority, ' +
-    'IF(priority = \'PRIORITY_UNSPECIFIED\', TRUE, FALSE) AS priorityUnknown, ' +
+    "IF(priority = 'PRIORITY_UNSPECIFIED', TRUE, FALSE) AS priorityUnknown, " +
     'repo_name AS repo, ' +
     'reporter_github_login AS reporter, ' +
     'title AS title, ' +
     'update_time AS updatedAt, ' +
-    'CONCAT(\'https://github.com/\', repo_name, \'/\', IF(is_pr, \'prs\', \'issues\'), \'/\', issue_id) AS url, ' +
+    "CONCAT('https://github.com/', repo_name, '/', IF(is_pr, 'prs', 'issues'), '/', issue_id) AS url, " +
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
     'issue_closed = FALSE ' +
@@ -278,7 +282,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (
           (e as {response: {status: number}}).response.status === 404 &&
           (e as {response: {data: {message: string}}}).response.data.message ===
-          `repository ${repo.repo} is not tracking issues`
+            `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
             `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
@@ -518,7 +522,7 @@ function getTypes(i: ApiIssue | BigQueryIssue) {
 // As a part of the gRPC API, the Priority of the Issue is
 // now sent back as a string. "P0", "P1", "P2" etc.
 export function getPriority(p: string): number | undefined {
-  const priorityRegex = new RegExp('^[Pp]\d$')
+  const priorityRegex = new RegExp('^[Pp]d$');
   if (priorityRegex.test(p)) {
     return Number(p.slice(1));
   } else {
