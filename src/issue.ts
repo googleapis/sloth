@@ -153,7 +153,7 @@ async function getRepoIssuesFromBigQuery(
     'reporter_github_login AS reporter, ' +
     'title AS title, ' +
     'FORMAT_TIMESTAMP("%Y-%m-%dT%XZ", update_time, "UTC") AS updatedAt, ' +
-    "CONCAT('https://github.com/', repo_name, '/', IF(is_pr = 0, 'issues', 'prs'), '/', issue_id) AS url, " +
+    "CONCAT('https://github.com/', repo_name, '/', IF(is_pr = 0, 'issues', 'pull'), '/', issue_id) AS url, " +
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
     'issue_closed = 0 ' +
