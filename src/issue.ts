@@ -143,7 +143,7 @@ async function getRepoIssuesFromBigQuery(
     'IF(issue_closed = 0, FALSE, TRUE) AS closed, ' +
     'close_time AS closedAt, ' +
     'create_time AS createdAt, ' +
-    'is_pr AS isPr, ' +
+    'IF(is_pr = 0, FALSE, TRUE) AS isPr, ' +
     'issue_id AS issueId, ' +
     'issue_type AS issueType, ' +
     'labels AS labels, ' +
@@ -153,7 +153,7 @@ async function getRepoIssuesFromBigQuery(
     'reporter_github_login AS reporter, ' +
     'title AS title, ' +
     'update_time AS updatedAt, ' +
-    "CONCAT('https://github.com/', repo_name, '/', IF(is_pr, 'prs', 'issues'), '/', issue_id) AS url, " +
+    "CONCAT('https://github.com/', repo_name, '/', IF(is_pr = 0, 'issues', 'prs'), '/', issue_id) AS url, " +
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
     'issue_closed = 0 ' +
