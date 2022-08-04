@@ -17,10 +17,10 @@ import {getIssues} from './issue';
 import {Issue} from './types';
 
 // Production sheet
-//export const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
+export const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
 
 // Testing sheet
-export const spreadsheetId = '12FSur_5IFP90YoIajKmVEpXdD4OKKy1OK3N5Dxv-1sY';
+//export const spreadsheetId = '12FSur_5IFP90YoIajKmVEpXdD4OKKy1OK3N5Dxv-1sY';
 
 export const fixtures = {
   getClient: async () => {
