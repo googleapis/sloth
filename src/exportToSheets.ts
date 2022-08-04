@@ -16,7 +16,11 @@ import * as google from '@googleapis/sheets';
 import {getIssues} from './issue';
 import {Issue} from './types';
 
-const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
+// Production sheet
+//const spreadsheetId = '1VV5Clqstgoeu1qVwpbKkYOxwEgjvhMhSkVCBLMqg24M';
+
+// Testing sheet
+const spreadsheetId = '12FSur_5IFP90YoIajKmVEpXdD4OKKy1OK3N5Dxv-1sY';
 
 export const fixtures = {
   getClient: async () => {
