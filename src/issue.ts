@@ -164,6 +164,13 @@ async function getRepoIssuesFromBigQuery(
   const [job] = await bigquery.createQueryJob(options);
   const [rows] = await job.getQueryResults();
   for (const row of rows) {
+    // labels and assignees are nullable, converting to an empty string
+    if (row.labels === undefined || row.labels === null) {
+      row.labels = '';
+    }
+    if (row.assignees === undefined || row.assignees === null) {
+      row.assignees = '';
+    }
     const rIssue: ApiIssue = {
       labels: (row.labels.split(',') as string[]).map(x => x.trim()),
       isPr: row.isPr,
