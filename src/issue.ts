@@ -157,7 +157,7 @@ async function getRepoIssuesFromBigQuery(
     'FROM `devrel-public-datasets-prod.github.github_issues` ' +
     '  WHERE ' +
     'issue_closed = FALSE ' +
-    `  AND repo_name == "${repo.repo}"`;
+    `  AND repo_name = "${repo.repo}"`;
   const options = {
     query: query,
     location: 'US',
