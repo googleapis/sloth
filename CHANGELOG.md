@@ -4,6 +4,20 @@
 
 [1]: https://www.npmjs.com/package/@justinbeckwith/sloth?activeTab=versions
 
+## [7.1.0](https://github.com/googleapis/sloth/compare/v7.0.1...v7.1.0) (2022-08-04)
+
+
+### Features
+
+* add firebase-sdk team and update ownership ([#1110](https://github.com/googleapis/sloth/issues/1110)) ([fc544ab](https://github.com/googleapis/sloth/commit/fc544ab6029256870104be64486f4bd90b38ac75))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @google-cloud/service-management to v1 ([#1115](https://github.com/googleapis/sloth/issues/1115)) ([5b3bfbb](https://github.com/googleapis/sloth/commit/5b3bfbb3f45228776f53732ac198a6f6912e6aed))
+* **deps:** update dependency update-notifier to v6 ([#1109](https://github.com/googleapis/sloth/issues/1109)) ([373feb0](https://github.com/googleapis/sloth/commit/373feb0026624cd6e5587501c8a09608cc4fc2ef))
+* read data from bigquery table ([#1116](https://github.com/googleapis/sloth/issues/1116)) ([4c8cc10](https://github.com/googleapis/sloth/commit/4c8cc10563a4c41e4db27dd3fe039fc7e26d289b))
+
 ## [7.0.1](https://github.com/googleapis/sloth/compare/v7.0.0...v7.0.1) (2022-06-17)
 
 
