@@ -147,20 +147,6 @@ export interface IssuesApiResponse {
   nextPageToken: string;
 }
 
-export interface BigQueryIssue {
-  labels: string[];
-  isPr: boolean;
-  repo: string; // googleapis/nodejs-rcloadenv
-  createdAt: string;
-  updatedAt: string;
-  issueId: number;
-  title: string;
-  priority: string;
-  assignees: Array<string>;
-  url: string;
-  priorityUnknown: boolean;
-}
-
 export interface ApiIssue {
   labels: string[];
   isPr: boolean;

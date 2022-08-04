@@ -18,7 +18,6 @@ import {
   IssueResult,
   IssuesApiResponse,
   ApiIssue,
-  BigQueryIssue,
   GitHubRepo,
 } from './types';
 import {gethub} from './util';
@@ -165,7 +164,24 @@ async function getRepoIssuesFromBigQuery(
   const [job] = await bigquery.createQueryJob(options);
   const [rows] = await job.getQueryResults();
   for (const row of rows) {
-    const rIssue = row as BigQueryIssue;
+    const rIssue: ApiIssue = {
+      labels: (row.labels.split(',') as string[]).map(x => x.trim()),
+      isPr: row.isPr,
+      repo: row.repo,
+      createdAt: row.createdAt,
+      updatedAt: row.updatedAt,
+      issueId: Number(row.issue_id),
+      title: row.title,
+      priority: row.priority,
+      assignees: (row.assignees.split(',') as string[]).map(x => (
+        {
+          id: 0, // dummy id, it's unused
+          login: x
+        }
+      )),
+      url: row.url,
+      priorityUnknown: row.priorityUnknown
+    };
     const api = getApi(rIssue);
     const issue: Issue = {
       owner,
@@ -184,7 +200,7 @@ async function getRepoIssuesFromBigQuery(
       title: rIssue.title,
       url: rIssue.url,
       labels: rIssue.labels || [],
-      assignees: rIssue.assignees ? rIssue.assignees : [],
+      assignees: rIssue.assignees ? rIssue.assignees.map(x => x.login) : [],
     };
 
     let use = true;
@@ -282,7 +298,7 @@ async function getRepoIssues(repo: Repo, flags?: Flags): Promise<IssueResult> {
         if (
           (e as {response: {status: number}}).response.status === 404 &&
           (e as {response: {data: {message: string}}}).response.data.message ===
-            `repository ${repo.repo} is not tracking issues`
+          `repository ${repo.repo} is not tracking issues`
         ) {
           console.warn(
             `Repository ${repo.repo} is not tracking issues in DRGHS... skipping.`
@@ -507,7 +523,7 @@ export async function showIssues(options: Flags) {
   process.stdout.write('\n');
 }
 
-function getTypes(i: ApiIssue | BigQueryIssue) {
+function getTypes(i: ApiIssue) {
   const types = new Array<string>();
   if (i.labels) {
     for (const label of i.labels.sort()) {
@@ -530,7 +546,7 @@ export function getPriority(p: string): number | undefined {
   }
 }
 
-function getApi(i: ApiIssue | BigQueryIssue): string | undefined {
+function getApi(i: ApiIssue): string | undefined {
   if (i.labels) {
     for (const label of i.labels.sort()) {
       if (label.startsWith('api: ')) {
@@ -545,7 +561,7 @@ function getApi(i: ApiIssue | BigQueryIssue): string | undefined {
  * Check for a `lang: nodejs` label on the specific issue.
  * If not present, return the language of the repository.
  */
-function getLanguage(r: Repo, i: ApiIssue | BigQueryIssue) {
+function getLanguage(r: Repo, i: ApiIssue) {
   if (i.labels) {
     for (const label of i.labels.sort()) {
       if (label.startsWith('lang: ')) {
@@ -587,7 +603,7 @@ function getTeam(repo: string, api: string | undefined) {
  * Determine if an issue has a `priority: ` label.
  * @param i Issue to analyze
  */
-function hasPriority(i: ApiIssue | BigQueryIssue) {
+function hasPriority(i: ApiIssue) {
   return hasLabel(i, 'priority: ');
 }
 
@@ -595,7 +611,7 @@ function hasPriority(i: ApiIssue | BigQueryIssue) {
  * Determine if an issue has a `type: ` label.
  * @param i Issue to analyze
  */
-function hasType(i: ApiIssue | BigQueryIssue) {
+function hasType(i: ApiIssue) {
   return hasLabel(i, 'type: ');
 }
 
@@ -603,7 +619,7 @@ function hasType(i: ApiIssue | BigQueryIssue) {
  * Determine if an issue has a `type: bug` label.
  * @param i Issue to analyze
  */
-function isBug(i: ApiIssue | BigQueryIssue) {
+function isBug(i: ApiIssue) {
   return hasLabel(i, 'type: bug');
 }
 
@@ -612,7 +628,7 @@ function isBug(i: ApiIssue | BigQueryIssue) {
  * @param issue Issue to analyze
  * @param label Label text to look for
  */
-function hasLabel(issue: ApiIssue | BigQueryIssue, label: string) {
+function hasLabel(issue: ApiIssue, label: string) {
   return (
     issue.labels &&
     issue.labels.filter(x => x.toLowerCase().indexOf(label) > -1).length > 0
@@ -623,7 +639,7 @@ function hasLabel(issue: ApiIssue | BigQueryIssue, label: string) {
  * For a given issue, figure out if it's out of SLO.
  * @param i Issue to analyze
  */
-function isOutOfSLO(i: ApiIssue | BigQueryIssue) {
+function isOutOfSLO(i: ApiIssue) {
   const pri = getPriority(i.priority);
 
   // Previously we applied rules around Pull Request closure SLOs.
@@ -741,7 +757,7 @@ function hoursOld(date: string) {
   return (Date.now() - new Date(date).getTime()) / 1000 / 60 / 60;
 }
 
-function isExternal(i: ApiIssue | BigQueryIssue) {
+function isExternal(i: ApiIssue) {
   return hasLabel(i, 'external');
 }
 
@@ -754,7 +770,7 @@ function isExternal(i: ApiIssue | BigQueryIssue) {
  * - Pull requests don't count.
  * @param i Issue to analyze
  */
-function isTriaged(i: ApiIssue | BigQueryIssue) {
+function isTriaged(i: ApiIssue) {
   if (i.isPr) {
     return true;
   }
